@@ -51,12 +51,15 @@ type: lesson
 duration: "01:00"
 creator: Brandi Butler
 -->
-<section id="running-python-on-your-computer" class="level2">
-<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Running Python on Your Computer</h2>
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Running Python on Your Computer
+</h1>
 <!--
 
 ## Overview
-This lesson gets students set up and comfortable working with Python on their local environment by running `python3 file_name.py` from their command prompt. After installing Python 3 and Atom, they'll run through a few practice scripts they've already seen to get used to editing files locally.
+This lesson gets students set up and comfortable working with Python on their local environment by running `python3 file_name.py` from their command prompt. After installing Python 3 and Sublime Text, they'll run through a few practice scripts they've already seen to get used to editing files locally.
 
 ## Important Notes or Prerequisites
 - At the point you give this lesson, students are getting their very first introduction to writing code. Don't assume they know anything! Be sure to explain carefully whenever you change even a little thing.
@@ -109,11 +112,11 @@ In this lesson, students will:
 </section>
 <section id="defining-assumptions" class="level2">
 <h2>Defining Assumptions</h2>
-<p>We can’t use repl.it forever! We can run Python right on our computers.</p>
+<p>We can't use REPLs forever! We can run Python right on our computers.</p>
 <ul>
-<li>GA uses Macs for its default curriculum.</li>
-<li>We are happy to help you program Python on Windows or Linux as well.</li>
-<li>Sometimes you may need to ask questions about subtle differences!</li>
+<li>Why do you think that is?</li>
+<li>GA is Mac-centric. I am as well. It's ok if you're not!</li>
+<li>Sometimes you may need to ask questions about subtle differences. I might need Google's help. It's ok, we'll figure it out.</li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
@@ -124,16 +127,16 @@ In this lesson, students will:
 <hr />
 </section>
 <section id="lets-get-installing" class="level2">
-<h2>Let’s Get Installing!</h2>
-<p>This will take us 10 to 15 minutes, then we’ll regroup.</p>
-<p>First, install Atom from <a href="https://atom.io/">https://atom.io/</a>. This is where you’ll write your code.</p>
+<h2>Let's Get Installing!</h2>
+<p>This will take us 10 to 15 minutes, then we'll regroup.</p>
+<p>First, install Sublime Text from <a href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a>. This is where you'll write your code.</p>
 <p>Then, follow the <a href="python3-installation-directions.md">Python 3 installation directions</a>.</p>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li><p>Students can use a different text editor if you or they prefer, but any reference to a text editor throughout this course is “Atom.”</p></li>
+<li><p>Students can use a different text editor if you or they prefer, but any reference to a text editor throughout this course is &quot;Sublime Text.&quot;</p></li>
 <li><p>Point a link to where the directions are, or, if students downloaded them as a PDF, point out which PDF.</p></li>
-<li><p>You may have to cut off a student who is taking way too long to do this. It really isn’t fair to make everyone else wait in this case. Reassure the student that you will follow up with them during lunch or a break. Meanwhile, they should continue to use the website repl.it.</p></li>
+<li><p>You may have to cut off a student who is taking way too long to do this. It really isn't fair to make everyone else wait in this case. Reassure the student that you will follow up with them during lunch or a break. Meanwhile, they should continue to use the website repl.it.</p></li>
 </ul>
 </aside>
 <hr />
@@ -142,27 +145,27 @@ In this lesson, students will:
 <h2>Regroup</h2>
 <ul>
 <li>You have Python 3 installed!</li>
-<li>You may have seen the in-line REPL (we’ll revisit!).</li>
-<li>You have a text editor — Atom — installed.</li>
+<li>You may have seen the in-line REPL (we'll revisit!).</li>
+<li>You have a text editor — Sublime Text — installed.</li>
 <li>You are ready to create a local <code>.py</code> file and run it.</li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>Make sure everyone has either installed Python 3 or knows that it’s shelved until lunch.</li>
-<li>Make sure everyone has downloaded and can open the Atom text editor.</li>
+<li>Make sure everyone has either installed Python 3 or knows that it's shelved until lunch.</li>
+<li>Make sure everyone has downloaded and can open the Sublime Text text editor.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="in-line-repl" class="level2">
 <h2>In-Line REPL</h2>
-<p>Let’s check out a REPL.</p>
+<p>Let's check out a REPL.</p>
 <ul>
 <li><code>Read-Evaluate-Print-Loop</code>.</li>
 <li>An interactive way to code.</li>
 </ul>
-<p>Let’s do it!</p>
+<p>Let's do it!</p>
 <ul>
 <li>Open your terminal.</li>
 <li>Then, open your in-line REPL:</li>
@@ -182,10 +185,10 @@ In this lesson, students will:
 </section>
 <section id="we-do-interactive-development" class="level2">
 <h2>We Do: Interactive Development</h2>
-<p>You can type any Python code you want here. Let’s declare a variable and do some math:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">x <span class="op">=</span> <span class="dv">4</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">y <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">print</span>(x <span class="op">+</span> y)</a></code></pre></div>
+<p>You can type any Python code you want here. Let's declare a variable and do some math:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">4</span>
+y <span class="op">=</span> <span class="dv">5</span>
+<span class="bu">print</span>(x <span class="op">+</span> y)</code></pre></div>
 <blockquote>
 <p><strong>Pro tip:</strong> <code>exit()</code> is the command for when you want to get out of this environment!</p>
 </blockquote>
@@ -198,7 +201,7 @@ In this lesson, students will:
 </ul>
 <p>Talking Points:</p>
 <ul>
-<li>“You’re running Python locally!”</li>
+<li>&quot;You're running Python locally!&quot;</li>
 </ul>
 </aside>
 <hr />
@@ -207,14 +210,14 @@ In this lesson, students will:
 <h2>We Do: Local Files</h2>
 <p>We can create a file with a <code>.py</code> extension — we can execute properly written Python code in a <code>.py</code> file.</p>
 <ol type="1">
-<li>Create a new file with a <code>.py</code> extension. Let’s call it <code>my_file.py</code>.</li>
-<li>Open <code>my_file.py</code> in <code>Atom</code>.</li>
-<li>In this file, declare some variables. Let’s mix integers and strings!</li>
+<li>Create a new file with a <code>.py</code> extension. Let's call it <code>local_python.py</code>.</li>
+<li>Open <code>local_python.py</code> in <code>Sublime Text</code>.</li>
+<li>In this file, declare some variables. Let's mix integers and strings!</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">favorite_tv_show <span class="op">=</span> <span class="st">&quot;Ninja Warrior&quot;</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">obstacles_cleared <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">time <span class="op">=</span> <span class="st">&quot;3 min, 20 sec&quot;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;I cleared&quot;</span>, obstacles_cleared, <span class="st">&quot;on&quot;</span>, favorite_tv_show, <span class="st">&quot;in&quot;</span>, time)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">favorite_tv_show <span class="op">=</span> <span class="st">&quot;Ninja Warrior&quot;</span>
+obstacles_cleared <span class="op">=</span> <span class="dv">5</span>
+time <span class="op">=</span> <span class="st">&quot;3 min, 20 sec&quot;</span>
+<span class="bu">print</span>(<span class="st">&quot;I cleared&quot;</span>, obstacles_cleared, <span class="st">&quot;on&quot;</span>, favorite_tv_show, <span class="st">&quot;in&quot;</span>, time)</code></pre></div>
 <p>Save and close your file.</p>
 <blockquote>
 <p><strong>Pro tip:</strong> Make sure you have a <code>print</code> statement.</p>
@@ -231,11 +234,11 @@ In this lesson, students will:
 <h2>We Do: Running Local Files</h2>
 <p>Now we have code in a file, but we need to run it.</p>
 <ul>
-<li><p>Back on your terminal, we’ll navigate to where that file is located:</p>
+<li><p>Back on your terminal, we'll navigate to where that file is located:</p>
 <ul>
-<li><code>cd</code> stands for “change directory” (“directory” is another word for “folder”).</li>
+<li><code>cd</code> stands for &quot;change directory&quot; (&quot;directory&quot; is another word for &quot;folder&quot;).</li>
 <li><code>cd my_folder</code> changes to the directory <code>my_directory</code>.</li>
-<li><code>cd ..</code> goes up to the parent folder of the one you’re in.</li>
+<li><code>cd ..</code> goes up to the parent folder of the one you're in.</li>
 </ul></li>
 <li><p>Running the file varies slightly between Windows and Mac/Linux:</p>
 <ul>
@@ -266,7 +269,7 @@ In this lesson, students will:
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>If students seem a bit lost and there’s time, have them keep practicing this. Consider giving different tasks for them to perform in the REPL and the <code>.py</code>, and be clear about the difference between the two.</li>
+<li>If students seem a bit lost and there's time, have them keep practicing this. Consider giving different tasks for them to perform in the REPL and the <code>.py</code>, and be clear about the difference between the two.</li>
 </ul>
 </aside>
 <hr />
@@ -281,7 +284,7 @@ In this lesson, students will:
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>Encourage students to go through these in their spare time if they’re curious.</li>
+<li>Encourage students to go through these in their spare time if they're curious.</li>
 </ul>
 </aside>
 </section>

@@ -51,8 +51,11 @@ type: lesson
 duration: "01:00"
 creator: Brandi Butler
 -->
-<section id="python-programming-variables" class="level2">
-<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Variables</h2>
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Python Programming: Variables
+</h1>
 <!--
 
 ## Overview
@@ -104,25 +107,23 @@ In this lesson, students will:
 </section>
 <section id="lesson-objectives" class="level2">
 <h2>Lesson Objectives</h2>
-<p><em>After this lesson, you will be able to…</em></p>
+<p><em>After this lesson, you will be able to...</em></p>
 <ul>
 <li>Create and re-assign numerical and string variables.</li>
 <li>Use numerical operators.</li>
 <li>Print complex variable structures.</li>
 </ul>
-<aside class="notes">
-<p><strong>Talking Points</strong>: “We’re so excited to have to you here today.”</p>
-<p>Talk over the general agenda: - Define “variable.” - Use numerical and mathematical operators. - Use string variables. - Print complex variable structures. - Q&amp;A and transition.</p>
+<p>General agenda: - Define “variable.” - Use numerical and mathematical operators. - Use string variables. - Print complex variable structures. - Q&amp;A</p>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Write the objectives on the board to reference as you go through the presentation.</li>
+<li>Write the objectives on the board to reference as you go through the presentation.
+</aside></li>
 </ul>
-</aside>
 <hr />
 </section>
 <section id="whats-a-variable" class="level2">
-<h2>What’s a Variable?</h2>
-<p>Turn to the person next to you, and together come up with as many definitions for the word “variable” as you can.</p>
+<h2>What's a Variable?</h2>
+<p>Turn to the person next to you, and together come up with as many definitions for the word &quot;variable&quot; as you can.</p>
 <ul>
 <li>Consider contexts such as mathematics, the sciences, weather, etc.</li>
 <li>No cheating! Phones off and laptops closed.</li>
@@ -131,8 +132,7 @@ In this lesson, students will:
 <p>3 MINUTES</p>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Facilitate a “Turn and Talk”:
-<ul>
+<li>Facilitate a “Turn and Talk”:</li>
 <li>Ask students to pair up</li>
 <li>Each group should brainstorm as many definitions for the word “variable” as they can think of.</li>
 <li>They’re not allowed to use dictionaries on their phones or laptops.</li>
@@ -140,7 +140,6 @@ In this lesson, students will:
 <li>Debrief the activity.</li>
 <li>Ask a few pairs to share their definitions.</li>
 <li>Ask what is common across the different definitions.</li>
-</ul></li>
 <li>Encourage a discussion to see if students can come up with something resembling the idea of variables, or Python saving information for them.</li>
 </ul>
 <p><strong>Talking Points</strong>:</p>
@@ -155,19 +154,19 @@ In this lesson, students will:
 <h2>Variable</h2>
 <p>Variables:</p>
 <ul>
-<li>Are boxes that can hold all kinds of information for you.</li>
+<li>Are spaces that can hold all kinds of information for you.</li>
 <li>Make it easier to store and re-use values.</li>
 <li>Are the most basic piece of code.</li>
 </ul>
 <p>To use a variable, we simply announce that we want to use it (we <strong>declare</strong> it).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># I&#39;ve eaten 3 cupcakes</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Prints 3</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># I&#39;ve drank 3 cups of coffee</span>
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 3</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Bring up a repl.it (they haven’t seen an interpreter yet!) and run this. It’s already written in <a href="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true">here</a>.</li>
+<li>Bring up a repl.it (they haven't seen an interpreter yet!) and run this. It's already written in <a href="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true">here</a>.</li>
 <li>Point out the print statement and comments, as review of the prework.</li>
 <li>For variation, assign simple tasks like printing negatives and decimals.</li>
 </ul>
@@ -175,8 +174,8 @@ In this lesson, students will:
 <ul>
 <li>While variables can really be anything, we’ll keep it simple to start by looking at numerical variables.</li>
 <li>Go over the syntax!</li>
-<li>“Here, we create a variable called <code>cupcakes_ive_eaten</code> and have it hold the number <code>3</code>. This is also called assignment. If we print out the contents of <code>cupcakes_ive_eaten</code>, Python will tell us that <code>cupcakes_ive_eaten</code> currently holds 3. When you create a variable, it’s called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn’t evaluate things the way it does in math. Instead, it assigns them values. Here, we’re using the <code>=</code> to tell Python that the <code>cupcakes_ive_eaten</code> label is going to hold the value <code>3</code>.”</li>
-<li>“See that underscore? We’ll look at variable naming in a second!”</li>
+<li>&quot;Here, we create a variable called <code>cups_of_coffee_consumed</code> and have it hold the number <code>3</code>. This is also called assignment. If we print out the contents of <code>cups_of_coffee_consumed</code>, Python will tell us that <code>cups_of_coffee_consumed</code> currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the <code>=</code> to tell Python that the <code>cups_of_coffee_consumed</code> label is going to hold the value <code>3</code>.&quot;</li>
+<li>&quot;See that underscore? We'll look at variable naming in a second!&quot;</li>
 </ul>
 </aside>
 <hr />
@@ -185,13 +184,12 @@ In this lesson, students will:
 <h2>Naming Conventions: Mistakes and Syntax</h2>
 <p>Some common naming mistakes:</p>
 <ul>
-<li>Not using meaningful names. <code>delicious = 3</code> doesn’t mean anything - <code>cupcakes_ive_eaten = 3</code> does!</li>
-<li>Case sensitivity (<code>CUPCAKES_IVE_EATEN</code> and <code>cupcakes_ive_eaten</code> are not the same!)</li>
-<li>No spaces or punctuation (“cupcakes i’ve eaten” isn’t allowed)
-<ul>
+<li>Not using meaningful names. <code>cups</code> doesn't mean anything - <code>cups_of_coffee_consumed</code> does!</li>
+<li>Case sensitivity (<code>CUPS_OF_COFFEE_CONSUMED</code> and <code>cups_of_coffee_consumed</code> are not the same!)</li>
+<li>Python standard practice is to use all caps for constanct, i.e. values that will never change.</li>
+<li>No spaces or punctuation (&quot;cupcakes i've eaten&quot; isn't allowed)</li>
 <li>This is invalid <strong>syntax</strong></li>
-<li>Use snake_case: <code>lowercase_letters_with_underscores</code> (it’s in the official <a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">Python style guide</a>)</li>
-</ul></li>
+<li>Use snake_case: <code>lowercase_letters_with_underscores</code> (it's in the official <a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">Python style guide</a>)</li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -201,20 +199,20 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“You can name a variable anything you’d like, but you probably shouldn’t. If I called my variable”delicious“, would you have any idea that the number it held was the number of cupcakes I’ve eaten? Probably not. In Python, we try to name variables as closely as we can to what it actually is. Technically, variable names can be almost anything, so it’s up to us to be organized and thoughtful when we pick them!”</li>
-<li>“Any name is allowed - Python doesn’t enforce helpfulness. Try to always have meaningful variable names so that later, you know what that variable holds!”</li>
+<li>&quot;You can name a variable anything you'd like, but you probably shouldn't. If I called my variable &quot;delicious&quot;, would you have any idea that the number it held was the number of cupcakes I've eaten? Probably not. In Python, we try to name variables as closely as we can to what it actually is. Technically, variable names can be almost anything, so it's up to us to be organized and thoughtful when we pick them!&quot;</li>
+<li>&quot;Any name is allowed - Python doesn't enforce helpfulness. Try to always have meaningful variable names so that later, you know what that variable holds!&quot;</li>
 <li>&quot;Variables are case sensitive.</li>
-<li><p>“When you want to use a variable name consisting of several words, you will get an error if you have spaces between the words. Try creating a variable called <code>my number</code> and you’ll get an error; specifically, one that says”Invalid Syntax.&quot;</p></li>
-<li><p>“Syntax is the set of rules surrounding how a language looks. In the English language, we call syntax”grammar.&quot; For example, sentences always start with a capital letter and end with something such as a period, exclamation point, or question mark. Other languages have syntax, too, including programming languages like Python.&quot;</p></li>
-<li><p>“Here, Python is telling us that putting a space between two words in a variable name is invalid syntax. It’s not proper grammar and it will not run.”</p></li>
+<li><p>&quot;When you want to use a variable name consisting of several words, you will get an error if you have spaces between the words. Try creating a variable called <code>my number</code> and you'll get an error; specifically, one that says &quot;Invalid Syntax.&quot;</p></li>
+<li><p>&quot;Syntax is the set of rules surrounding how a language looks. In the English language, we call syntax &quot;grammar.&quot; For example, sentences always start with a capital letter and end with something such as a period, exclamation point, or question mark. Other languages have syntax, too, including programming languages like Python.&quot;</p></li>
+<li><p>&quot;Here, Python is telling us that putting a space between two words in a variable name is invalid syntax. It's not proper grammar and it will not run.&quot;</p></li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="discussion-changing-values" class="level2">
 <h2>Discussion: Changing Values</h2>
-<p>What if, later, you eat more cupcakes? Now, this is wrong.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a></code></pre></div>
+<p>What if, later, you drink more coffee? Now, this is wrong.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span></code></pre></div>
 <p>What do you think we need to do?</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -227,10 +225,10 @@ In this lesson, students will:
 <section id="discussion-reassigning-variables" class="level2">
 <h2>Discussion: Reassigning Variables</h2>
 <p>In the example below, what do you think the output of the code is?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="bu">print</span>(cupcakes_ive_eaten)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">4</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -239,9 +237,9 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“We can always change what a variable is holding; it’s just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the <code>cupcakes_ive_eaten</code> variable and assigned it the value of <code>3</code>.”</li>
-<li>“If we eat more cupcakes, we can <em>reassign</em> the variable to a different value - here, 4.”</li>
-<li>“We can reassign our variable as many times as we want. However, only the most recent value of a variable will be retained. Once a variable is reassigned, its original value is lost forever. If you think of a box, reassigning a variable is like throwing away what’s in the box and replacing it with something new.”</li>
+<li>&quot;We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the <code>cups_of_coffee_consumed</code> variable and assigned it the value of <code>3</code>.&quot;</li>
+<li>&quot;If we eat more cupcakes, we can <em>reassign</em> the variable to a different value - here, 4.&quot;</li>
+<li>&quot;We can reassign our variable as many times as we want. However, only the most recent value of a variable will be retained. Once a variable is reassigned, its original value is lost forever. If you think of a box, reassigning a variable is like throwing away what's in the box and replacing it with something new.&quot;</li>
 </ul>
 </aside>
 <hr />
@@ -249,7 +247,7 @@ In this lesson, students will:
 <section id="quick-review" class="level2">
 <h2>Quick Review</h2>
 <ul>
-<li><p>A variable is a box that holds a value.</p></li>
+<li><p>A variable is a space that holds a value.</p></li>
 <li><p>It can be declared, called, and changed within your program.</p></li>
 <li><p>When declaring variables, syntax and naming conventions matter!</p></li>
 <li><p>Variables can be reassigned as often as you like, but only the most recent declaration counts.</p></li>
@@ -258,7 +256,7 @@ In this lesson, students will:
 <aside class="notes">
 <p>1 MINUTE</p>
 <p><strong>Teaching Tips</strong> Quickly review what you covered so far. Check for understanding</p>
-<p><strong>Talking Points</strong> Now it’s time for everyone’s favorite subject – math!</p>
+<p><strong>Talking Points</strong> Now it’s time for everyone’s favorite subject -- math!</p>
 </aside>
 <hr />
 </section>
@@ -268,27 +266,27 @@ In this lesson, students will:
 <ul>
 <li>The <code>+</code>, <code>-</code>, <code>*</code> (multiply), and <code>/</code> (divide) operators work just like they do with regular math.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co"># Prints 9</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Prints 3</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co"># Prints 18</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co"># Prints 2</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 9</span>
+
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 3</span>
+
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 18</span>
+
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 2</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“When we’re dealing with variables that have numbers for values, the operators work just like they do with regular math.”</li>
+<li>&quot;When we're dealing with variables that have numbers for values, the operators work just like they do with regular math.&quot;</li>
 <li>We can use pretty much any mathematical operator in Python to manipulate our variables and achieve our goals with our program. We’ve talked about addition, subtraction, multiplication and division so far.</li>
-<li>Note the syntax - the spaces around each character. Note that it works without the spaces, but it’s poor practice and harder to read.</li>
+<li>Note the syntax - the spaces around each character. Note that it works without the spaces, but it's poor practice and harder to read.</li>
 </ul>
 </aside>
 <hr />
@@ -296,21 +294,21 @@ In this lesson, students will:
 <section id="even-more-mathematical-operators" class="level2">
 <h2>Even More Mathematical Operators</h2>
 <p>Beyond the <code>+</code>, <code>-</code>, <code>*</code> (multiply), and <code>/</code> (divide) operators, we have modulus and exponents.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">making_exponents <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="bu">print</span>(making_exponents)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># Prints 100</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">more_exponents <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="bu">print</span>(more_exponents)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># Prints 1,000</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">making_modulus <span class="op">=</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="bu">print</span>(making_modulus)</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co"># Prints 1</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">more_modulus <span class="op">=</span> <span class="dv">6</span> <span class="op">%</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="bu">print</span>(more_modulus)</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co"># Prints 0</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">making_exponents <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">2</span>
+<span class="bu">print</span>(making_exponents)
+<span class="co"># Prints 100</span>
+
+more_exponents <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">3</span>
+<span class="bu">print</span>(more_exponents)
+<span class="co"># Prints 1,000</span>
+
+making_modulus <span class="op">=</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span>
+<span class="bu">print</span>(making_modulus)
+<span class="co"># Prints 1</span>
+
+more_modulus <span class="op">=</span> <span class="dv">6</span> <span class="op">%</span> <span class="dv">2</span>
+<span class="bu">print</span>(more_modulus)
+<span class="co"># Prints 0</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -319,24 +317,26 @@ In this lesson, students will:
 </aside>
 <hr />
 </section>
-<section id="math-on-the-same-variable" class="level2">
-<h2>Math On The Same Variable</h2>
+<section id="math-using-variable-reference" class="level2">
+<h2>Math Using Variable Reference</h2>
 <p>You can reassign a variable <em>using that very same variable</em> - or other variables!</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">cupcakes_ive_eaten <span class="op">=</span> cupcakes_ive_eaten <span class="op">+</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Prints 4.</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">cupcakes_left_in_box <span class="op">=</span> <span class="dv">6</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> <span class="dv">1</span> <span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># Prints 5.</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> cupcakes_ive_eaten <span class="bu">print</span>(cupcakes_ive_eaten)</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co"># Prints 1.</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+cups_of_coffee_consumed <span class="op">=</span> cups_of_coffee_consumed <span class="op">+</span> <span class="dv">1</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 4.</span>
+cups_left_in_coffee_pot <span class="op">=</span> <span class="dv">6</span>
+cups_left_in_coffee_pot <span class="op">=</span> cups_left_in_coffee_pot <span class="op">-</span> <span class="dv">1</span> 
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 5.</span>
+cups_left_in_coffee_pot <span class="op">=</span> cups_left_in_coffee_pot <span class="op">-</span> cups_of_coffee_consumed 
+<span class="bu">print</span>(cups_of_coffee_consumed)
+<span class="co"># Prints 1.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“You may have a scenario where you want to reassign a variable to itself. We do this so we don’t have to create extra variables. In our cupcakes example, we don’t want to have to use a whole new variable just to add a cupcake.”</li>
-<li>“Note that this works because the <em>right</em> side of the equals sign is evaluated first. Thus, the <code>1 + 3</code> in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cupcakes_ive_eaten.”</li>
-<li>“A great thing about variables is that, because they store a value, you can use them later - even to create new variables. For example, if we have a variable declared <code>cupcakes_in_a_box = 3</code>, and we know that there are 5 cupcakes in a box, we can multiply them to determine the number of cupcakes I will eat. Here’s an example:”</li>
+<li>&quot;You may have a scenario where you want to reassign a variable to itself. We do this so we don't have to create extra variables. In our cupcakes example, we don't want to have to use a whole new variable just to add a cupcake.&quot;</li>
+<li>&quot;Note that this works because the <em>right</em> side of the equals sign is evaluated first. Thus, the <code>1 + 3</code> in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cups_of_coffee_consumed.&quot;</li>
+<li>&quot;A great thing about variables is that, because they store a value, you can use them later - even to create new variables. For example, if we have a variable declared <code>cupcakes_in_a_box = 3</code>, and we know that there are 5 cupcakes in a box, we can multiply them to determine the number of cupcakes I will eat. Here's an example:&quot;</li>
 </ul>
 </aside>
 <hr />
@@ -355,17 +355,15 @@ In this lesson, students will:
 <p>10 MINUTES</p>
 <p><strong>Teaching Tips</strong></p>
 <ul>
-<li>Facilitate a pair programming activity:
-<ul>
+<li>Facilitate a pair programming activity:</li>
 <li>Ask students to pair up.</li>
 <li>One student (the “driver”) should type the code on the slide into repl.it and run it, making sure it works.</li>
-<li>Then, working together, the two students should complete the code challenges in the comments.</li>
-</ul></li>
+<li><p>Then, working together, the two students should complete the code challenges in the comments.</p></li>
 <li><p>Once students have all finished, show the answer and recap how it works.</p></li>
 <li>Whenever possible, have students experiment beyond the prompts on the slide.</li>
 <li><p>If students grasp the mathematical operators easily, encourage more difficult exercises in the embedded editor - using more than one variable or combining different math symbols. Give few different example exponents to try, like 5**6 or 10%2. Have them guess the answers before running it.</p></li>
 </ul>
-<p><strong>Talking Points</strong> - Let’s give it a shot! In a second, I’m going to ask you to pair up and program together in repl.it - In pair programming, one person serves as the driver – their hands are on the keyboard – and one person serves as the navigator – they provide guidance as the code is written. - When you pair up, decide who will be the driver and who will be the navigator. Then, follow the directions in the comments. - Raise your hand when you’ve managed to complete each step, and I’ll come around and provide feedback.</p>
+<p><strong>Talking Points</strong> - Let’s give it a shot! In a second, I’m going to ask you to pair up and program together in repl.it - In pair programming, one person serves as the driver -- their hands are on the keyboard -- and one person serves as the navigator -- they provide guidance as the code is written. - When you pair up, decide who will be the driver and who will be the navigator. Then, follow the directions in the comments. - Raise your hand when you’ve managed to complete each step, and I’ll come around and provide feedback.</p>
 <p><strong>Repl.it Note:</strong> The code is all comments:</p>
 <ul>
 <li><p>Make a variable to hold the number of guitars you own (3).</p></li>
@@ -378,13 +376,13 @@ In this lesson, students will:
 <section id="reassignment-shorthand" class="level2">
 <h2>Reassignment Shorthand</h2>
 <p>This is okay:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">9</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">my_num <span class="op">=</span> my_num <span class="op">+</span> <span class="dv">7</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># my_num is now 16</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">9</span>
+current_score <span class="op">=</span> current_score <span class="op">+</span> <span class="dv">7</span>
+<span class="co"># current_score is now 16</span></code></pre></div>
 <p>But this is better:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">9</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># += is short for theSameVariable = theSameVariable + 7</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># my_num is now 16</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">9</span>
+current_score <span class="op">+=</span> <span class="dv">7</span> <span class="co"># += is short for theSameVariable = theSameVariable + 7</span>
+<span class="co"># current_score is now 16</span></code></pre></div>
 <p>This works with <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> - any math operations.</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -393,8 +391,8 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li><p>“The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we’ve made a shortcut. For example, saying <code>my_num += 9</code> is exactly the same as saying <code>my_num = my_num + 9</code>. It’s just a shorter way to write it.”</p></li>
-<li><p>“Keep in mind that we’ll always need an <code>=</code> somewhere in the line of code when we want to either assign or update the value of a variable”</p></li>
+<li><p>&quot;The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying <code>current_score += 9</code> is exactly the same as saying <code>current_score = current_score + 9</code>. It's just a shorter way to write it.&quot;</p></li>
+<li><p>&quot;Keep in mind that we'll always need an <code>=</code> somewhere in the line of code when we want to either assign or update the value of a variable&quot;</p></li>
 </ul>
 </aside>
 <hr />
@@ -409,19 +407,17 @@ In this lesson, students will:
 <p>10 MINUTES</p>
 <p><strong>Teaching Tips</strong></p>
 <ul>
-<li>Facilitate a pair programming activity:
-<ul>
+<li>Facilitate a pair programming activity:</li>
 <li>Ask students to pair up with the same partner, but switch roles.</li>
 <li>One student (the “driver”) should type the code on the slide into repl.it and run it, making sure it works.</li>
-<li>Then, working together, the two students should complete the code challenges in the comments.</li>
-</ul></li>
+<li><p>Then, working together, the two students should complete the code challenges in the comments.</p></li>
 <li><p>Once students have all finished, show the answer and recap how it works.</p></li>
 <li><p>After showing the answer, continue showing experimentations. Spend the majority of the time on the interactive slide - get students doing different shorthands (<code>+=</code>, <code>-=</code>). These are built into the slide in comments. Encourage experimentation for advanced students.</p></li>
 </ul>
-<p><strong>Talking Points</strong> - Let’s give it a shot! In a second, I’m going to ask you to pair up and program together in repl.it - Remember, in pair programming, one person serves as the driver – their hands are on the keyboard – and one person serves as the navigator – they provide guidance as the code is written. - Follow the directions in the comments. - Raise your hand when you’ve managed to complete each step, and I’ll come around and provide feedback.</p>
+<p><strong>Talking Points</strong> - Let’s give it a shot! In a second, I’m going to ask you to pair up and program together in repl.it - Remember, in pair programming, one person serves as the driver -- their hands are on the keyboard -- and one person serves as the navigator -- they provide guidance as the code is written. - Follow the directions in the comments. - Raise your hand when you’ve managed to complete each step, and I’ll come around and provide feedback.</p>
 <p><strong>Repl.it Note:</strong> The code is all comments:</p>
 <ul>
-<li>Declare two variables <code>num1</code> and <code>num2</code> and assign them to any numbers you’d like.</li>
+<li>Declare two variables <code>num1</code> and <code>num2</code> and assign them to any numbers you'd like.</li>
 <li>Set <code>num1</code> to the result of subtracting <code>num1</code> from the <code>num2</code>.</li>
 <li>Create a new variable <code>num3</code> that will help us tell if <code>num2</code> is even or odd.</li>
 <li>Using shorthand, add 5 to <code>num1</code>.</li>
@@ -438,25 +434,21 @@ In this lesson, students will:
 <p>Modulus operator shows the remainder of a division problem.</p>
 <p>Modding by 2 only gives a <code>0</code> or a <code>1</code>.</p>
 <ul>
-<li><strong>4 % 2</strong>:
-<ul>
+<li><strong>4 % 2</strong>:</li>
 <li><code>4 % 2 = 0</code>. Even!</li>
-</ul></li>
-<li><strong>5 % 2</strong>:
-<ul>
+<li><strong>5 % 2</strong>:</li>
 <li><code>5 % 2 = 1</code>. Odd!</li>
-</ul></li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Make sure they understand modulus before talking about how it’s helpful! Consider bringing up an <a href="https://repl.it/@SuperTernary/Empty-Replit?lite=true">empty replit</a> to demonstrate with various numbers.</li>
+<li>Make sure they understand modulus before talking about how it's helpful! Consider bringing up an <a href="https://repl.it/@SuperTernary/Empty-Replit?lite=true">empty replit</a> to demonstrate with various numbers.</li>
 <li>Make sure they understand why this works!</li>
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
 <li>&quot;This is where modulus is helpful. The modulus operator shows the remainder of a division problem.</li>
-<li>“For example, five divided by two equals two with a remainder of one. The modulus operator takes two numbers as inputs and returns what is left over from the division.”</li>
+<li>&quot;For example, five divided by two equals two with a remainder of one. The modulus operator takes two numbers as inputs and returns what is left over from the division.&quot;</li>
 </ul>
 </aside>
 <hr />
@@ -466,7 +458,7 @@ In this lesson, students will:
 <ul>
 <li>A variable is a value that can be defined, declared, called and changed within your program.
 <ul>
-<li><code>my_number = 5</code></li>
+<li><code>current_score = 5</code></li>
 </ul></li>
 <li>Naming:
 <ul>
@@ -476,7 +468,7 @@ In this lesson, students will:
 <li>Variables can be reassigned as often as you like, but only the most recent declaration counts.</li>
 <li>Python can do math using operators, such as <code>+</code>, <code>-</code>, <code>*</code>, and <code>/</code>
 <ul>
-<li>You can shorthand the math assignments: <code>my_num += 7</code></li>
+<li>You can shorthand the math assignments: <code>current_score += 7</code></li>
 </ul></li>
 </ul>
 <aside class="notes">
@@ -493,7 +485,7 @@ In this lesson, students will:
 <h2>Taking a Breather</h2>
 <p>That was a lot of math!</p>
 <p>When it comes down to it, computers operate with a simple, straightforward logic.</p>
-<p>Let’s switch gears. Up next: Strings!</p>
+<p>Let's switch gears. Up next: Strings!</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -502,7 +494,7 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“While we’ve covered what seems like a lot of math in this section, don’t worry: You’re not going to be doing calculus in this course. However, it’s important that we review these concepts, because there will be many times when you’ll solve a problem using basic principles. When it comes down to it, computers operate with a simple, straightforward logic.”</li>
+<li>&quot;While we've covered what seems like a lot of math in this section, don't worry: You're not going to be doing calculus in this course. However, it's important that we review these concepts, because there will be many times when you'll solve a problem using basic principles. When it comes down to it, computers operate with a simple, straightforward logic.&quot;</li>
 <li>“We’ve learned about numerical values and mathematical operators. Now, we’re going to transition to string variables.”</li>
 </ul>
 </aside>
@@ -522,22 +514,22 @@ In this lesson, students will:
 <p>A <em>character</em> is:</p>
 <ul>
 <li>Anything on your keyboard , such as a letter or a number.</li>
-<li>“Apple” is five characters: a, p, p, l, e.</li>
-<li>Spaces count! (they’re on the keyboard!)</li>
+<li>&quot;Apple&quot; is five characters: a, p, p, l, e.</li>
+<li>Spaces count! (they're on the keyboard!)</li>
 </ul>
 <p>A <em>string</em> is:</p>
 <ul>
 <li>A complete list of characters.</li>
-<li>“Apple”</li>
-<li>“Chocolate Cupcake”</li>
-<li>This entire sentence: “Hello, you are 1 of a kind!”</li>
+<li>&quot;Apple&quot;</li>
+<li>&quot;Chocolate Cupcake&quot;</li>
+<li>This entire sentence: &quot;Hello, you are 1 of a kind!&quot;</li>
 </ul>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li><p>“Because a variable is just a box, it can also hold strings. You tell Python that your variable will hold a string using quotation marks.”</p></li>
-<li><p>“Strings can be words, like apple. Strings are made of characters. A character is anything on your keyboard , such as a letter or a number. The string apple is 5 characters.”</p></li>
-<li><p>“A space counts as a character, too (it’s on the keyboard). For example,”Marty McFly&quot; is a string. So is this entire sentence:&quot;</p></li>
+<li><p>&quot;Because a variable is just a box, it can also hold strings. You tell Python that your variable will hold a string using quotation marks.&quot;</p></li>
+<li><p>&quot;Strings can be words, like apple. Strings are made of characters. A character is anything on your keyboard , such as a letter or a number. The string apple is 5 characters.&quot;</p></li>
+<li><p>&quot;A space counts as a character, too (it's on the keyboard). For example, &quot;Marty McFly&quot; is a string. So is this entire sentence:&quot;</p></li>
 </ul>
 </aside>
 <hr />
@@ -545,52 +537,56 @@ In this lesson, students will:
 <section id="how-do-i-create-strings-in-python" class="level2">
 <h2>How Do I Create Strings in Python?</h2>
 <p>You tell Python that your variable will hold a string using quotation marks.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">box_contents <span class="op">=</span> <span class="st">&quot;cupcakes&quot;</span> <span class="co"># This is a string</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="bu">print</span>(box_contents) <span class="co"># It&#39;s a normal variable - we can print it.</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">best_snack <span class="op">=</span> <span class="st">&quot;Frosted Cupcakes&quot;</span> <span class="co"># This is a string.</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">5</span> <span class="co"># No quotes - this is a number.</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">cupcakes_ive_eaten_as_string <span class="op">=</span> <span class="st">&quot;5&quot;</span> <span class="co"># Because this is in quotes, this is a string.</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">box_contents <span class="op">=</span> <span class="st">&quot;cupcakes&quot;</span> <span class="co"># This is a string</span>
+<span class="bu">print</span>(box_contents) <span class="co"># It&#39;s a normal variable - we can print it.</span>
+best_snack <span class="op">=</span> <span class="st">&quot;Frosted Cupcakes&quot;</span> <span class="co"># This is a string.</span>
+cupcakes_consumed <span class="op">=</span> <span class="dv">5</span> <span class="co"># No quotes - this is a number.</span>
+cupcakes_consumed_as_string <span class="op">=</span> <span class="st">&quot;5&quot;</span> <span class="co"># Because this is in quotes, this is a string.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“To declare a string in Python, put it in quotes when you assign it to your variable.”</li>
+<li>&quot;To declare a string in Python, put it in quotes when you assign it to your variable.&quot;</li>
 </ul>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Go over the phrase “numerical variable” versus “string variable”.</li>
-<li>Walk through the difference between strings and numbers here. Be clear that they’re both variables, just different types.</li>
+<li>Go over the phrase &quot;numerical variable&quot; versus &quot;string variable&quot;.</li>
+<li>Walk through the difference between strings and numbers here. Be clear that they're both variables, just different types.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="we-do-declaring-strings" class="level2">
 <h2>We Do: Declaring Strings</h2>
-<p>A “We Do” means let’s practice together. Follow along!</p>
+<p>A &quot;We Do&quot; means let's practice together. Follow along!</p>
 <ol type="1">
-<li>We’ll declare a variable called <code>name</code> and assign it the value <code>Marty</code></li>
-<li>We’ll declare a variable called <code>car</code> and assign it the value <code>Delorean</code></li>
-<li>We’ll declare a variable called <code>speed</code> and assign it the <em>string</em> value <code>&quot;88&quot;</code></li>
-<li>We’ll print out these variables</li>
-<li>We’ll add <code>4</code> to <code>speed</code>- what happens?</li>
+<li>We'll declare a variable called <code>name</code> and assign it the value <code>Marty</code></li>
+<li>We'll declare a variable called <code>car</code> and assign it the value <code>Delorean</code></li>
+<li>We'll declare a variable called <code>speed</code> and assign it the <em>string</em> value <code>&quot;88&quot;</code></li>
+<li>We'll print out these variables</li>
+<li>We'll add <code>4</code> to <code>speed</code>- what happens?</li>
 </ol>
+<hr />
+</section>
+<section id="we-do-declaring-strings-1" class="level2">
+<h2>We Do: Declaring Strings</h2>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“Let’s declare some variables in and print them. You’ll be doing a lot of programming, and if you practice typing variable declarations out, you’ll get faster every time.”</li>
+<li>&quot;Let's declare some variables in and print them. You'll be doing a lot of programming, and if you practice typing variable declarations out, you'll get faster every time.&quot;</li>
 </ul>
-<p>After you run the very last one…</p>
+<p>After you run the very last one...</p>
 <ul>
-<li><p>“It’s important to note that you cannot do math on strings! Even if what’s inside the quotations is a number, Python will interpret it as a word.”</p></li>
-<li><p>“Can you predict what the code below will print?” &lt;wait for them to discuss, then run it.&gt;</p></li>
-<li><p>“In our last example, instead of printing <code>92</code> like you might expect, Python will throw an error. It sees <code>speed</code> as a string, not a number, so it doesn’t know how to do addition on it.”</p></li>
-<li><p>“Make sure that when you want a numerical value you do not use quotes!”</p></li>
+<li><p>&quot;It's important to note that you cannot do math on strings! Even if what's inside the quotations is a number, Python will interpret it as a word.&quot;</p></li>
+<li><p>&quot;Can you predict what the code below will print?&quot; <wait for them to discuss, then run it.></p></li>
+<li><p>&quot;In our last example, instead of printing <code>92</code> like you might expect, Python will throw an error. It sees <code>speed</code> as a string, not a number, so it doesn't know how to do addition on it.&quot;</p></li>
+<li><p>&quot;Make sure that when you want a numerical value you do not use quotes!&quot;</p></li>
 </ul>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
 <li>Do this with the students! But make sure they do it, too, so they get the typing practice.</li>
-<li>Go over the phrase “numerical variable” versus “string variable”</li>
+<li>Go over the phrase &quot;numerical variable&quot; versus &quot;string variable&quot;</li>
 <li>Give them a second to guess the math failure before doing it.</li>
 </ul>
 </aside>
@@ -601,22 +597,19 @@ In this lesson, students will:
 <p><code>+</code> on:</p>
 <ul>
 <li>Numerical variables adds (<code>5 + 5 = 10</code>).</li>
-<li>String variables <em>concatenate</em> (<code>&quot;Doc&quot; + &quot;Brown&quot; = &quot;DocBrown&quot;</code>).
-<ul>
-<li><em>Pssst: Pronunciation tip: con-CAT-en-ATE</em></li>
-</ul></li>
-<li>Numerical strings concatenate to new strings! (<code>&quot;5&quot; +</code>“4”<code>=</code>“54”`)</li>
+<li>String variables <em>concatenate</em> (<code>&quot;Doc&quot; + &quot;Brown&quot; = &quot;DocBrown&quot;</code>).</li>
+<li>Numerical strings concatenate to new strings! (<code>&quot;5&quot; +</code>&quot;4&quot;<code>=</code>&quot;54&quot;`)</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">first_name <span class="op">=</span> <span class="st">&quot;Doc&quot;</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">last_name <span class="op">=</span> <span class="st">&quot;Brown&quot;</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">full_name <span class="op">=</span> first_name <span class="op">+</span> last_name</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="bu">print</span> full_name</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co"># Prints &quot;DocBrown&quot;.</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_name <span class="op">=</span> <span class="st">&quot;Doc&quot;</span>
+last_name <span class="op">=</span> <span class="st">&quot;Brown&quot;</span>
+full_name <span class="op">=</span> first_name <span class="op">+</span> last_name
+<span class="bu">print</span> full_name
+<span class="co"># Prints &quot;DocBrown&quot;.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li><p>“The <code>+</code> operator means addition for numbers, but not for strings. When given string values, the <code>+</code> operator actually behaves differently — it concatenates, or combines, two strings together to make one big string. Using the <code>+</code> operator to combine the two strings together literally puts them next to each other instead of evaluating their total.”</p></li>
-<li><p>“Concatenation is a formal term for when strings are glued together. Here’s an example of concatenation.”</p></li>
+<li><p>&quot;The <code>+</code> operator means addition for numbers, but not for strings. When given string values, the <code>+</code> operator actually behaves differently — it concatenates, or combines, two strings together to make one big string. Using the <code>+</code> operator to combine the two strings together literally puts them next to each other instead of evaluating their total.&quot;</p></li>
+<li><p>&quot;Concatenation is a formal term for when strings are glued together. Here's an example of concatenation.&quot;</p></li>
 <li><p>Stress that the plus sign will not add string variables with numbers in them.</p></li>
 </ul>
 </aside>
@@ -624,9 +617,8 @@ In this lesson, students will:
 </section>
 <section id="we-do-spaces-in-concatenation" class="level2">
 <h2>We Do: Spaces in Concatenation</h2>
-<p>It’s another “We Do.” Let’s do this together - follow along!</p>
-<p>To begin:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot;is driving his&quot;</span> <span class="op">+</span> car <span class="op">+</span> speed</a></code></pre></div>
+<p>It's another &quot;We Do.&quot; Let's do this together - follow along!</p>
+<p>To begin: <code>sentence = name + &quot;is driving his&quot; + car + speed</code></p>
 <p>We expect the sentence to be <code>Marty is driving his Delorean 88mph</code>. Is that what we got?</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-variables-marty?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
@@ -639,38 +631,38 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>Python put the strings together, but do you notice anything wrong? There is no space between the words! This is because we didn’t add the spaces in. It’s just one of many reasons why we have to carefully watch our spacing and grammar!&quot;</li>
-<li>“Since a space is a character - it’s on the keyboard - we can make it a string. Therefore, we can add it into our concatenation. By default, concatenation doesn’t have spaces - you’ll always have to add them yourself.”</li>
-<li>“You can also <code>print</code> directly; you don’t necessarily need an extra variable. To print strings next to each other, you separate them with a comma. Then, Python will add the space for you. This isn’t concatenating variables, but it’s useful to know!” Change code to: <code>sentence = name + &quot; is driving his &quot; + car + &quot; &quot; + speed</code></li>
-<li>“When <code>print</code>ing, commas also create spaces.” Change code to: <code>print(name, &quot;is driving his&quot;, car, speed)</code></li>
+<li>Python put the strings together, but do you notice anything wrong? There is no space between the words! This is because we didn't add the spaces in. It's just one of many reasons why we have to carefully watch our spacing and grammar!&quot;</li>
+<li>&quot;Since a space is a character - it's on the keyboard - we can make it a string. Therefore, we can add it into our concatenation. By default, concatenation doesn't have spaces - you'll always have to add them yourself.&quot;</li>
+<li>&quot;You can also <code>print</code> directly; you don't necessarily need an extra variable. To print strings next to each other, you separate them with a comma. Then, Python will add the space for you. This isn't concatenating variables, but it's useful to know!&quot; Change code to: <code>sentence = name + &quot; is driving his &quot; + car + &quot; &quot; + speed</code></li>
+<li>&quot;When <code>print</code>ing, commas also create spaces.&quot; Change code to: <code>print(name, &quot;is driving his&quot;, car, speed)</code></li>
 </ul>
 <p><strong>Repl.it Note</strong>: The code is:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">name <span class="op">=</span> <span class="st">&quot;Marty&quot;</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">car <span class="op">=</span> <span class="st">&quot;Delorean&quot;</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">speed <span class="op">=</span> <span class="st">&quot;88mph&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="st">&quot;Marty&quot;</span>
+car <span class="op">=</span> <span class="st">&quot;Delorean&quot;</span>
+speed <span class="op">=</span> <span class="st">&quot;88mph&quot;</span></code></pre></div>
 </aside>
 <hr />
 </section>
 <section id="strings-and-printing-review" class="level2">
 <h2>Strings and Printing: Review</h2>
 <p>Strings are made with quotes:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">name <span class="op">=</span> <span class="st">&quot;Marty&quot;</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">car <span class="op">=</span> <span class="st">&quot;Delorean&quot;</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">speed <span class="op">=</span> <span class="st">&quot;88&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="st">&quot;Marty&quot;</span>
+car <span class="op">=</span> <span class="st">&quot;Delorean&quot;</span>
+speed <span class="op">=</span> <span class="st">&quot;88&quot;</span></code></pre></div>
 <p>String Concatenation - we need to add the spaces!</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot; is driving his &quot;</span> <span class="op">+</span> car <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> speed</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">string_numbers <span class="op">=</span> <span class="st">&quot;88&quot;</span> <span class="op">+</span> <span class="st">&quot;51&quot;</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co"># string_numbers = 8851</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot; is driving his &quot;</span> <span class="op">+</span> car <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> speed
+string_numbers <span class="op">=</span> <span class="st">&quot;88&quot;</span> <span class="op">+</span> <span class="st">&quot;51&quot;</span>
+<span class="co"># string_numbers = 8851</span></code></pre></div>
 <p>To easily create spaces while printing:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="bu">print</span>(name, <span class="st">&quot;is driving his&quot;</span>, car, speed)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(name, <span class="st">&quot;is driving his&quot;</span>, car, speed)</code></pre></div>
 <aside class="notes">
 <p>1 MINUTE</p>
 <p><strong>Teaching Tips</strong></p>
 <ul>
 <li>Quickly review what you covered so far.</li>
 <li>Check for understanding.</li>
-<li>Use the extra time here to check in with students and make sure they’ve got the hang of declaring, using, and printing numbers and strings.</li>
-<li>Make sure students don’t try to use commas for adding spaces outside of a print statement!</li>
+<li>Use the extra time here to check in with students and make sure they've got the hang of declaring, using, and printing numbers and strings.</li>
+<li>Make sure students don't try to use commas for adding spaces outside of a print statement!</li>
 </ul>
 </aside>
 <hr />
@@ -678,8 +670,8 @@ In this lesson, students will:
 <section id="discussion-some-common-mistakes-1" class="level2">
 <h2>Discussion: Some Common Mistakes: 1</h2>
 <p>Do you think this will run? If yes, what does it print?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1">my_num</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="bu">print</span>(my_num)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score
+<span class="bu">print</span>(current_score)</code></pre></div>
 <aside class="notes">
 <p>2 MINUTES</p>
 <p><strong>Teaching Tips</strong>:</p>
@@ -688,8 +680,8 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>“Let’s look at some code with some common beginner mistakes. What do you think is wrong with the following code? Will it run at all? If yes, what does it print?”</li>
-<li>Answer here: No, it won’t run; you’ve declared a variable without assigning it to a value.</li>
+<li>&quot;Let's look at some code with some common beginner mistakes. What do you think is wrong with the following code? Will it run at all? If yes, what does it print?&quot;</li>
+<li>Answer here: No, it won't run; you've declared a variable without assigning it to a value.</li>
 </ul>
 </aside>
 <hr />
@@ -697,32 +689,32 @@ In this lesson, students will:
 <section id="discussion-some-common-mistakes-2" class="level2">
 <h2>Discussion: Some Common Mistakes: 2</h2>
 <p>How about this? Does it run? If so, what does it print?</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="bu">print</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">5</span>
+<span class="bu">print</span>()</code></pre></div>
 <aside class="notes">
-<p>Answer: It will run, but it won’t print anything.</p>
+<p>Answer: It will run, but it won't print anything.</p>
 </aside>
 <hr />
 </section>
 <section id="discussion-some-common-mistakes-3" class="level2">
 <h2>Discussion: Some Common Mistakes: 3</h2>
 <p>How about this? Does it run? If so, what does it print?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">my_string <span class="op">=</span> <span class="st">&quot;Hello&quot;</span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="bu">print</span>(my_num <span class="op">+</span> my_string)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">5</span>
+my_string <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>
+<span class="bu">print</span>(current_score <span class="op">+</span> my_string)</code></pre></div>
 <aside class="notes">
-<p>Answer: This won’t run, because Python will try to add a string and a number and throw an error.</p>
+<p>Answer: This won't run, because Python will try to add a string and a number and throw an error.</p>
 </aside>
 <hr />
 </section>
 <section id="discussion-some-common-mistakes-4" class="level2">
 <h2>Discussion: Some Common Mistakes: 4</h2>
 <p>One last question. What does this do?</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1">my_num1 <span class="op">=</span> <span class="st">&quot;10&quot;</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="bu">print</span>(my_num1 <span class="op">+</span> my_num2)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">price_1 <span class="op">=</span> <span class="st">&quot;10&quot;</span>
+price_2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
+<span class="bu">print</span>(price_1 <span class="op">+</span> price_2)</code></pre></div>
 <aside class="notes">
-<p>Answer: There’s nothing wrong with this one, except that it makes a string and not a number. It prints the string 1020.</p>
+<p>Answer: There's nothing wrong with this one, except that it makes a string and not a number. It prints the string 1020.</p>
 </aside>
 <hr />
 </section>
@@ -733,8 +725,9 @@ In this lesson, students will:
 <li>We created, used, and re-assigned number and string variables.</li>
 <li>We used the numerical operators <code>+ - / * // %</code></li>
 <li>We did some complex stuff with the <code>print</code> function!</li>
+<li>What else?</li>
 </ul>
-<p>Congrats! You’ve finished your first programming lesson!</p>
+<p>Congrats! You've finished your first programming lesson!</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -760,7 +753,7 @@ In this lesson, students will:
 <aside class="notes">
 <p><strong>Teaching tips:</strong></p>
 <ul>
-<li>Most lessons have additional resources at the end. Encourage students to explore these on their own time - don’t go through them now.</li>
+<li>Most lessons have additional resources at the end. Encourage students to explore these on their own time - don't go through them now.</li>
 </ul>
 </aside>
 </section>
