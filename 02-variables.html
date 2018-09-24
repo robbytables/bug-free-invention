@@ -15,16 +15,16 @@
 
 
 <!-- For syntax highlighting -->
-<link rel="stylesheet" href="lib/css/zenburn.css">
-<link rel="stylesheet" href="lib/css/prism.css">
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
 
-<link rel="stylesheet" href="css/reveal.css">
-<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
 
 
 <!-- If the query includes 'print-pdf', use the PDF print sheet -->
 <script>
-  document.write( '<link rel="stylesheet" href="css/print/' +
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
     ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
     '.css" type="text/css" media="print">' );
 </script>
@@ -51,8 +51,11 @@ type: lesson
 duration: "01:00"
 creator: Brandi Butler
 -->
-<section id="python-programming-variables" class="level2">
-<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Variables</h2>
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Python Programming: Variables
+</h1>
 <!--
 
 ## Overview
@@ -110,14 +113,12 @@ In this lesson, students will:
 <li>Use numerical operators.</li>
 <li>Print complex variable structures.</li>
 </ul>
-<aside class="notes">
-<p><strong>Talking Points</strong>: &quot;We’re so excited to have to you here today.&quot;</p>
-<p>Talk over the general agenda: - Define “variable.” - Use numerical and mathematical operators. - Use string variables. - Print complex variable structures. - Q&amp;A and transition.</p>
+<p>General agenda: - Define “variable.” - Use numerical and mathematical operators. - Use string variables. - Print complex variable structures. - Q&amp;A</p>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>Write the objectives on the board to reference as you go through the presentation.</li>
+<li>Write the objectives on the board to reference as you go through the presentation.
+</aside></li>
 </ul>
-</aside>
 <hr />
 </section>
 <section id="whats-a-variable" class="level2">
@@ -153,14 +154,14 @@ In this lesson, students will:
 <h2>Variable</h2>
 <p>Variables:</p>
 <ul>
-<li>Are boxes that can hold all kinds of information for you.</li>
+<li>Are spaces that can hold all kinds of information for you.</li>
 <li>Make it easier to store and re-use values.</li>
 <li>Are the most basic piece of code.</li>
 </ul>
 <p>To use a variable, we simply announce that we want to use it (we <strong>declare</strong> it).</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># I&#39;ve eaten 3 cupcakes</span>
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># I&#39;ve drank 3 cups of coffee</span>
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 3</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -173,7 +174,7 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
 <ul>
 <li>While variables can really be anything, we’ll keep it simple to start by looking at numerical variables.</li>
 <li>Go over the syntax!</li>
-<li>&quot;Here, we create a variable called <code>cupcakes_ive_eaten</code> and have it hold the number <code>3</code>. This is also called assignment. If we print out the contents of <code>cupcakes_ive_eaten</code>, Python will tell us that <code>cupcakes_ive_eaten</code> currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the <code>=</code> to tell Python that the <code>cupcakes_ive_eaten</code> label is going to hold the value <code>3</code>.&quot;</li>
+<li>&quot;Here, we create a variable called <code>cups_of_coffee_consumed</code> and have it hold the number <code>3</code>. This is also called assignment. If we print out the contents of <code>cups_of_coffee_consumed</code>, Python will tell us that <code>cups_of_coffee_consumed</code> currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the <code>=</code> to tell Python that the <code>cups_of_coffee_consumed</code> label is going to hold the value <code>3</code>.&quot;</li>
 <li>&quot;See that underscore? We'll look at variable naming in a second!&quot;</li>
 </ul>
 </aside>
@@ -183,8 +184,9 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
 <h2>Naming Conventions: Mistakes and Syntax</h2>
 <p>Some common naming mistakes:</p>
 <ul>
-<li>Not using meaningful names. <code>delicious = 3</code> doesn't mean anything - <code>cupcakes_ive_eaten = 3</code> does!</li>
-<li>Case sensitivity (<code>CUPCAKES_IVE_EATEN</code> and <code>cupcakes_ive_eaten</code> are not the same!)</li>
+<li>Not using meaningful names. <code>cups</code> doesn't mean anything - <code>cups_of_coffee_consumed</code> does!</li>
+<li>Case sensitivity (<code>CUPS_OF_COFFEE_CONSUMED</code> and <code>cups_of_coffee_consumed</code> are not the same!)</li>
+<li>Python standard practice is to use all caps for constanct, i.e. values that will never change.</li>
 <li>No spaces or punctuation (&quot;cupcakes i've eaten&quot; isn't allowed)</li>
 <li>This is invalid <strong>syntax</strong></li>
 <li>Use snake_case: <code>lowercase_letters_with_underscores</code> (it's in the official <a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">Python style guide</a>)</li>
@@ -209,8 +211,8 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
 </section>
 <section id="discussion-changing-values" class="level2">
 <h2>Discussion: Changing Values</h2>
-<p>What if, later, you eat more cupcakes? Now, this is wrong.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></code></pre></div>
+<p>What if, later, you drink more coffee? Now, this is wrong.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span></code></pre></div>
 <p>What do you think we need to do?</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -223,10 +225,10 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
 <section id="discussion-reassigning-variables" class="level2">
 <h2>Discussion: Reassigning Variables</h2>
 <p>In the example below, what do you think the output of the code is?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">4</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -235,7 +237,7 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span>
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li>&quot;We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the <code>cupcakes_ive_eaten</code> variable and assigned it the value of <code>3</code>.&quot;</li>
+<li>&quot;We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the <code>cups_of_coffee_consumed</code> variable and assigned it the value of <code>3</code>.&quot;</li>
 <li>&quot;If we eat more cupcakes, we can <em>reassign</em> the variable to a different value - here, 4.&quot;</li>
 <li>&quot;We can reassign our variable as many times as we want. However, only the most recent value of a variable will be retained. Once a variable is reassigned, its original value is lost forever. If you think of a box, reassigning a variable is like throwing away what's in the box and replacing it with something new.&quot;</li>
 </ul>
@@ -245,7 +247,7 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span>
 <section id="quick-review" class="level2">
 <h2>Quick Review</h2>
 <ul>
-<li><p>A variable is a box that holds a value.</p></li>
+<li><p>A variable is a space that holds a value.</p></li>
 <li><p>It can be declared, called, and changed within your program.</p></li>
 <li><p>When declaring variables, syntax and naming conventions matter!</p></li>
 <li><p>Variables can be reassigned as often as you like, but only the most recent declaration counts.</p></li>
@@ -264,20 +266,20 @@ cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span>
 <ul>
 <li>The <code>+</code>, <code>-</code>, <code>*</code> (multiply), and <code>/</code> (divide) operators work just like they do with regular math.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 9</span>
 
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 3</span>
 
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 18</span>
 
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+cups_of_coffee_consumed <span class="op">=</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 2</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
@@ -315,23 +317,25 @@ more_modulus <span class="op">=</span> <span class="dv">6</span> <span class="op
 </aside>
 <hr />
 </section>
-<section id="math-on-the-same-variable" class="level2">
-<h2>Math On The Same Variable</h2>
+<section id="math-using-variable-reference" class="level2">
+<h2>Math Using Variable Reference</h2>
 <p>You can reassign a variable <em>using that very same variable</em> - or other variables!</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span>
-cupcakes_ive_eaten <span class="op">=</span> cupcakes_ive_eaten <span class="op">+</span> <span class="dv">1</span>
-<span class="bu">print</span>(cupcakes_ive_eaten)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cups_of_coffee_consumed <span class="op">=</span> <span class="dv">3</span>
+cups_of_coffee_consumed <span class="op">=</span> cups_of_coffee_consumed <span class="op">+</span> <span class="dv">1</span>
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 4.</span>
-cupcakes_left_in_box <span class="op">=</span> <span class="dv">6</span>
-cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> <span class="dv">1</span> <span class="bu">print</span>(cupcakes_ive_eaten)
+cups_left_in_coffee_pot <span class="op">=</span> <span class="dv">6</span>
+cups_left_in_coffee_pot <span class="op">=</span> cups_left_in_coffee_pot <span class="op">-</span> <span class="dv">1</span> 
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 5.</span>
-cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> cupcakes_ive_eaten <span class="bu">print</span>(cupcakes_ive_eaten)
+cups_left_in_coffee_pot <span class="op">=</span> cups_left_in_coffee_pot <span class="op">-</span> cups_of_coffee_consumed 
+<span class="bu">print</span>(cups_of_coffee_consumed)
 <span class="co"># Prints 1.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
 <li>&quot;You may have a scenario where you want to reassign a variable to itself. We do this so we don't have to create extra variables. In our cupcakes example, we don't want to have to use a whole new variable just to add a cupcake.&quot;</li>
-<li>&quot;Note that this works because the <em>right</em> side of the equals sign is evaluated first. Thus, the <code>1 + 3</code> in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cupcakes_ive_eaten.&quot;</li>
+<li>&quot;Note that this works because the <em>right</em> side of the equals sign is evaluated first. Thus, the <code>1 + 3</code> in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cups_of_coffee_consumed.&quot;</li>
 <li>&quot;A great thing about variables is that, because they store a value, you can use them later - even to create new variables. For example, if we have a variable declared <code>cupcakes_in_a_box = 3</code>, and we know that there are 5 cupcakes in a box, we can multiply them to determine the number of cupcakes I will eat. Here's an example:&quot;</li>
 </ul>
 </aside>
@@ -372,13 +376,13 @@ cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class=
 <section id="reassignment-shorthand" class="level2">
 <h2>Reassignment Shorthand</h2>
 <p>This is okay:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num <span class="op">=</span> <span class="dv">9</span>
-my_num <span class="op">=</span> my_num <span class="op">+</span> <span class="dv">7</span>
-<span class="co"># my_num is now 16</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">9</span>
+current_score <span class="op">=</span> current_score <span class="op">+</span> <span class="dv">7</span>
+<span class="co"># current_score is now 16</span></code></pre></div>
 <p>But this is better:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num <span class="op">=</span> <span class="dv">9</span>
-my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># += is short for theSameVariable = theSameVariable + 7</span>
-<span class="co"># my_num is now 16</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">9</span>
+current_score <span class="op">+=</span> <span class="dv">7</span> <span class="co"># += is short for theSameVariable = theSameVariable + 7</span>
+<span class="co"># current_score is now 16</span></code></pre></div>
 <p>This works with <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> - any math operations.</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -387,7 +391,7 @@ my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># +
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
-<li><p>&quot;The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying <code>my_num += 9</code> is exactly the same as saying <code>my_num = my_num + 9</code>. It's just a shorter way to write it.&quot;</p></li>
+<li><p>&quot;The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying <code>current_score += 9</code> is exactly the same as saying <code>current_score = current_score + 9</code>. It's just a shorter way to write it.&quot;</p></li>
 <li><p>&quot;Keep in mind that we'll always need an <code>=</code> somewhere in the line of code when we want to either assign or update the value of a variable&quot;</p></li>
 </ul>
 </aside>
@@ -454,7 +458,7 @@ my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># +
 <ul>
 <li>A variable is a value that can be defined, declared, called and changed within your program.
 <ul>
-<li><code>my_number = 5</code></li>
+<li><code>current_score = 5</code></li>
 </ul></li>
 <li>Naming:
 <ul>
@@ -464,7 +468,7 @@ my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># +
 <li>Variables can be reassigned as often as you like, but only the most recent declaration counts.</li>
 <li>Python can do math using operators, such as <code>+</code>, <code>-</code>, <code>*</code>, and <code>/</code>
 <ul>
-<li>You can shorthand the math assignments: <code>my_num += 7</code></li>
+<li>You can shorthand the math assignments: <code>current_score += 7</code></li>
 </ul></li>
 </ul>
 <aside class="notes">
@@ -536,8 +540,8 @@ my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># +
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">box_contents <span class="op">=</span> <span class="st">&quot;cupcakes&quot;</span> <span class="co"># This is a string</span>
 <span class="bu">print</span>(box_contents) <span class="co"># It&#39;s a normal variable - we can print it.</span>
 best_snack <span class="op">=</span> <span class="st">&quot;Frosted Cupcakes&quot;</span> <span class="co"># This is a string.</span>
-cupcakes_ive_eaten <span class="op">=</span> <span class="dv">5</span> <span class="co"># No quotes - this is a number.</span>
-cupcakes_ive_eaten_as_string <span class="op">=</span> <span class="st">&quot;5&quot;</span> <span class="co"># Because this is in quotes, this is a string.</span></code></pre></div>
+cupcakes_consumed <span class="op">=</span> <span class="dv">5</span> <span class="co"># No quotes - this is a number.</span>
+cupcakes_consumed_as_string <span class="op">=</span> <span class="st">&quot;5&quot;</span> <span class="co"># Because this is in quotes, this is a string.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
@@ -561,6 +565,10 @@ cupcakes_ive_eaten_as_string <span class="op">=</span> <span class="st">&quot;5&
 <li>We'll print out these variables</li>
 <li>We'll add <code>4</code> to <code>speed</code>- what happens?</li>
 </ol>
+<hr />
+</section>
+<section id="we-do-declaring-strings-1" class="level2">
+<h2>We Do: Declaring Strings</h2>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
 <aside class="notes">
@@ -590,7 +598,6 @@ cupcakes_ive_eaten_as_string <span class="op">=</span> <span class="st">&quot;5&
 <ul>
 <li>Numerical variables adds (<code>5 + 5 = 10</code>).</li>
 <li>String variables <em>concatenate</em> (<code>&quot;Doc&quot; + &quot;Brown&quot; = &quot;DocBrown&quot;</code>).</li>
-<li><em>Pssst: Pronunciation tip: con-CAT-en-ATE</em></li>
 <li>Numerical strings concatenate to new strings! (<code>&quot;5&quot; +</code>&quot;4&quot;<code>=</code>&quot;54&quot;`)</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_name <span class="op">=</span> <span class="st">&quot;Doc&quot;</span>
@@ -611,8 +618,7 @@ full_name <span class="op">=</span> first_name <span class="op">+</span> last_na
 <section id="we-do-spaces-in-concatenation" class="level2">
 <h2>We Do: Spaces in Concatenation</h2>
 <p>It's another &quot;We Do.&quot; Let's do this together - follow along!</p>
-<p>To begin:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot;is driving his&quot;</span> <span class="op">+</span> car <span class="op">+</span> speed</code></pre></div>
+<p>To begin: <code>sentence = name + &quot;is driving his&quot; + car + speed</code></p>
 <p>We expect the sentence to be <code>Marty is driving his Delorean 88mph</code>. Is that what we got?</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-variables-marty?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
@@ -664,8 +670,8 @@ string_numbers <span class="op">=</span> <span class="st">&quot;88&quot;</span> 
 <section id="discussion-some-common-mistakes-1" class="level2">
 <h2>Discussion: Some Common Mistakes: 1</h2>
 <p>Do you think this will run? If yes, what does it print?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num
-<span class="bu">print</span>(my_num)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score
+<span class="bu">print</span>(current_score)</code></pre></div>
 <aside class="notes">
 <p>2 MINUTES</p>
 <p><strong>Teaching Tips</strong>:</p>
@@ -683,7 +689,7 @@ string_numbers <span class="op">=</span> <span class="st">&quot;88&quot;</span> 
 <section id="discussion-some-common-mistakes-2" class="level2">
 <h2>Discussion: Some Common Mistakes: 2</h2>
 <p>How about this? Does it run? If so, what does it print?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num <span class="op">=</span> <span class="dv">5</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">5</span>
 <span class="bu">print</span>()</code></pre></div>
 <aside class="notes">
 <p>Answer: It will run, but it won't print anything.</p>
@@ -693,9 +699,9 @@ string_numbers <span class="op">=</span> <span class="st">&quot;88&quot;</span> 
 <section id="discussion-some-common-mistakes-3" class="level2">
 <h2>Discussion: Some Common Mistakes: 3</h2>
 <p>How about this? Does it run? If so, what does it print?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num <span class="op">=</span> <span class="dv">5</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">current_score <span class="op">=</span> <span class="dv">5</span>
 my_string <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>
-<span class="bu">print</span>(my_num <span class="op">+</span> my_string)</code></pre></div>
+<span class="bu">print</span>(current_score <span class="op">+</span> my_string)</code></pre></div>
 <aside class="notes">
 <p>Answer: This won't run, because Python will try to add a string and a number and throw an error.</p>
 </aside>
@@ -704,9 +710,9 @@ my_string <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>
 <section id="discussion-some-common-mistakes-4" class="level2">
 <h2>Discussion: Some Common Mistakes: 4</h2>
 <p>One last question. What does this do?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_num1 <span class="op">=</span> <span class="st">&quot;10&quot;</span>
-my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
-<span class="bu">print</span>(my_num1 <span class="op">+</span> my_num2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">price_1 <span class="op">=</span> <span class="st">&quot;10&quot;</span>
+price_2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
+<span class="bu">print</span>(price_1 <span class="op">+</span> price_2)</code></pre></div>
 <aside class="notes">
 <p>Answer: There's nothing wrong with this one, except that it makes a string and not a number. It prints the string 1020.</p>
 </aside>
@@ -719,6 +725,7 @@ my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
 <li>We created, used, and re-assigned number and string variables.</li>
 <li>We used the numerical operators <code>+ - / * // %</code></li>
 <li>We did some complex stuff with the <code>print</code> function!</li>
+<li>What else?</li>
 </ul>
 <p>Congrats! You've finished your first programming lesson!</p>
 <aside class="notes">
@@ -754,8 +761,8 @@ my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
 <footer><span class='slide-number'></span></footer>
 </div>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
 
 <script>
   // Full list of configuration options available here:
@@ -764,7 +771,7 @@ my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
     controls: true,
     progress: true,
     history: true,
-    center: true,
+    center: false,
     slideNumber: true,
 
   // available themes are in /css/theme
@@ -775,31 +782,35 @@ my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span>
   
   // Optional libraries used to extend on reveal.js
   dependencies: [
-    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
-    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
     // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
   ]
   });
 
   Reveal.addEventListener('ready', function() {
-    if (Reveal.getIndices().h !== 0) {
-      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
     }
   });
 
   Reveal.addEventListener('slidechanged', function(e) {
-    console.log('changed');
-    if (Reveal.getIndices().h !== 0) {
-      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
     } else {
-      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
     }
   });
-
 </script>
 
 </body>

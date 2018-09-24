@@ -110,29 +110,14 @@ Have a question about:
 - Loaner equipment?
 - Free coffee and snacks?
 
-Come here to talk to Front Lines and they will help you out.
+Talk to Front Lines and they will help you out.
 
-{Picture of the local front lines desk}
 
 <aside class="notes">
 
 **Teaching Tips**:
 
 - Introduce anyone here; see the next slide for a template.
-
-</aside>
-
----
-
-## More Great People
-
-{Bullet list of names and roles}
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- These are common faces on campus the students should know about.
 
 </aside>
 
@@ -147,6 +132,7 @@ Let’s all agree to:
 - Avoid bringing distractions into class
 - Raise our hands, let everyone be heard
 - Own our learning
+- Be ok with being uncomfortable
 
 <aside class="notes">
 
@@ -229,37 +215,6 @@ We’re open:
 **Teaching Tips**:
 
 - If this is the five day full time, delete this slide - students won't need to take advantage of this.
-
-</aside>
-
-
----
-
-## Map of the Campus
-
-{If possible; otherwise, remove this slide}
-
-<aside class="notes">
-
-**Talking Points**:
-
-- Point out restroooms, front lines, the classroom, and the kitchen, and where they could come work,  if that slide is left in.
-
-</aside>
-
----
-
-## Snack Calendar
-
-There’s a lot of work ahead, and you’re going to need fuel.
-
-{Link to snack calendar}
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Remove this slide if there are no snacks available to them.
 
 </aside>
 
@@ -413,7 +368,12 @@ Homework:
 - Let's review it!
 
 We learned:
-TODO
+- What programming is
+- What Python is
+- What pseudocode is
+- What else?
+
+
 <aside class="notes">
 
 1 MINUTE
@@ -467,9 +427,11 @@ TODO
 
 ## When to Use Python
 
-- Putting up websites.
+- Putting up websites/prototypes.
+- Scraping the web.
 - Analyzing data.
 - Building robots.
+- Curing Cancer.
 
 Most use cases!
 
@@ -485,14 +447,14 @@ Most use cases!
 
 ## When NOT to Use Python
 
-Other programming languages exist - Python isn't great for everything!
+Other programming languages exist - Python isn't **ideal** for everything!
 
 - Mobile apps
-- Huge programs
+- Huge **Monolithic** programs
   - Python is interpreted - the computer reads it as it goes.
   - Other programming languages are read in advance!
-- Sometimes too easy
-  - Easy to expect things to work that don't!
+- When Speed Really Matters
+  - Global Interpreter Lock (GIL) can slow things down
 
 <aside class="notes">
 
@@ -530,7 +492,7 @@ Then, close the fridge.
 
 ## Group Exercise: Programming in Pseudocode
 
-Let's write pseudocode that gives instructions on how to {give someone a high five}.
+Let's write pseudocode that gives instructions on how to make your favorite cocktail (or coffee or tea or bowl of cereal, it doesn't really matter).
 
 Include every step required. Remember, computers are very literal!
 
@@ -561,7 +523,8 @@ Include every step required. Remember, computers are very literal!
 
 - Programmer notes in code.
 - The computer ignores them.
-- Write your pseudocode here!
+- Used to elucidate complex portions of code
+  - Always ask yourself, is the comment necessary, or is the code unclear?
 
 ```python
 # This is a comment!
@@ -603,7 +566,7 @@ https://repl.it/languages/python3
 
 Any other questions?
 
-Let's rock!
+Let's do it!!
 
 <aside class="notes">
 

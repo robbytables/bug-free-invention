@@ -5,8 +5,9 @@ duration: "01:00"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Variables
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
+<h1>Python Programming: Variables</h1>
 <!--
 
 ## Overview
@@ -64,16 +65,12 @@ In this lesson, students will:
 * Use numerical operators.
 * Print complex variable structures.
 
-<aside class="notes">
-**Talking Points**:
-"We’re so excited to have to you here today."
-
-Talk over the general agenda:
+General agenda:
 - Define “variable.”
 - Use numerical and mathematical operators.
 - Use string variables.
 - Print complex variable structures.
-- Q&A and transition.
+- Q&A
 
 **Teaching Tips**:
 
@@ -118,16 +115,16 @@ Turn to the person next to you, and together come up with as many definitions fo
 
 Variables:
 
-- Are boxes that can hold all kinds of information for you.
+- Are spaces that can hold all kinds of information for you.
 - Make it easier to store and re-use values.
 - Are the most basic piece of code.
 
 To use a variable, we simply announce that we want to use it (we **declare** it).
 
 ```python
-# I've eaten 3 cupcakes
-cupcakes_ive_eaten = 3
-print(cupcakes_ive_eaten)
+# I've drank 3 cups of coffee
+cups_of_coffee_consumed = 3
+print(cups_of_coffee_consumed)
 # Prints 3
 ```
 
@@ -143,7 +140,7 @@ print(cupcakes_ive_eaten)
 
 - While variables can really be anything, we’ll keep it simple to start by looking at numerical variables.
 - Go over the syntax!
-- "Here, we create a variable called `cupcakes_ive_eaten` and have it hold the number `3`. This is also called assignment. If we print out the contents of `cupcakes_ive_eaten`, Python will tell us that `cupcakes_ive_eaten` currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the `=` to tell Python that the `cupcakes_ive_eaten` label is going to hold the value `3`."
+- "Here, we create a variable called `cups_of_coffee_consumed` and have it hold the number `3`. This is also called assignment. If we print out the contents of `cups_of_coffee_consumed`, Python will tell us that `cups_of_coffee_consumed` currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the `=` to tell Python that the `cups_of_coffee_consumed` label is going to hold the value `3`."
 - "See that underscore? We'll look at variable naming in a second!"
 
 </aside>
@@ -154,8 +151,9 @@ print(cupcakes_ive_eaten)
 
 Some common naming mistakes:
 
-- Not using meaningful names. `delicious = 3` doesn't mean anything - `cupcakes_ive_eaten = 3` does!
-- Case sensitivity (`CUPCAKES_IVE_EATEN` and `cupcakes_ive_eaten` are not the same!)
+- Not using meaningful names. `cups` doesn't mean anything - `cups_of_coffee_consumed` does!
+- Case sensitivity (`CUPS_OF_COFFEE_CONSUMED` and `cups_of_coffee_consumed` are not the same!)
+  - Python standard practice is to use all caps for constanct, i.e. values that will never change.
 - No spaces or punctuation ("cupcakes i've eaten" isn't allowed)
   - This is invalid **syntax**
   - Use snake_case: `lowercase_letters_with_underscores` (it's in the official [Python style guide](https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles))
@@ -184,10 +182,10 @@ Some common naming mistakes:
 
 ## Discussion: Changing Values
 
-What if, later, you eat more cupcakes? Now, this is wrong.
+What if, later, you drink more coffee? Now, this is wrong.
 
 ```python
-cupcakes_ive_eaten = 3
+cups_of_coffee_consumed = 3
 ```
 
 What do you think we need to do?
@@ -210,10 +208,10 @@ What do you think we need to do?
 In the example below, what do you think the output of the code is?
 
 ```python
-cupcakes_ive_eaten = 3
-print(cupcakes_ive_eaten)
-cupcakes_ive_eaten = 4
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 3
+print(cups_of_coffee_consumed)
+cups_of_coffee_consumed = 4
+print(cups_of_coffee_consumed)
 ```
 
 
@@ -226,7 +224,7 @@ print(cupcakes_ive_eaten)
 
 **Talking Points**:
 
-- "We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the `cupcakes_ive_eaten` variable and assigned it the value of `3`."
+- "We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the `cups_of_coffee_consumed` variable and assigned it the value of `3`."
 - "If we eat more cupcakes, we can *reassign* the variable to a different value - here, 4."
 - "We can reassign our variable as many times as we want. However, only the most recent value of a variable will be retained. Once a variable is reassigned, its original value is lost forever. If you think of a box, reassigning a variable is like throwing away what's in the box and replacing it with something new."
 
@@ -236,7 +234,7 @@ print(cupcakes_ive_eaten)
 
 ## Quick Review
 
-- A variable is a box that holds a value.
+- A variable is a space that holds a value.
 
 - It can be declared, called, and changed within your program.
 
@@ -269,20 +267,20 @@ Math works on numerical variables, too!
 - The `+`, `-`, `*` (multiply), and `/` (divide) operators work just like they do with regular math.
 
 ```python
-cupcakes_ive_eaten = 6 + 3
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 6 + 3
+print(cups_of_coffee_consumed)
 # Prints 9
 
-cupcakes_ive_eaten = 6 - 3
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 6 - 3
+print(cups_of_coffee_consumed)
 # Prints 3
 
-cupcakes_ive_eaten = 6 * 3
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 6 * 3
+print(cups_of_coffee_consumed)
 # Prints 18
 
-cupcakes_ive_eaten = 6 / 3
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 6 / 3
+print(cups_of_coffee_consumed)
 # Prints 2
 ```
 
@@ -334,20 +332,22 @@ print(more_modulus)
 
 ---
 
-## Math On The Same Variable
+## Math Using Variable Reference
 
 
 You can reassign a variable *using that very same variable* - or other variables!
 
 ```python
-cupcakes_ive_eaten = 3
-cupcakes_ive_eaten = cupcakes_ive_eaten + 1
-print(cupcakes_ive_eaten)
+cups_of_coffee_consumed = 3
+cups_of_coffee_consumed = cups_of_coffee_consumed + 1
+print(cups_of_coffee_consumed)
 # Prints 4.
-cupcakes_left_in_box = 6
-cupcakes_left_in_box = cupcakes_left_in_box - 1 print(cupcakes_ive_eaten)
+cups_left_in_coffee_pot = 6
+cups_left_in_coffee_pot = cups_left_in_coffee_pot - 1 
+print(cups_of_coffee_consumed)
 # Prints 5.
-cupcakes_left_in_box = cupcakes_left_in_box - cupcakes_ive_eaten print(cupcakes_ive_eaten)
+cups_left_in_coffee_pot = cups_left_in_coffee_pot - cups_of_coffee_consumed 
+print(cups_of_coffee_consumed)
 # Prints 1.
 ```
 
@@ -355,7 +355,7 @@ cupcakes_left_in_box = cupcakes_left_in_box - cupcakes_ive_eaten print(cupcakes_
 **Talking Points**:
 
 - "You may have a scenario where you want to reassign a variable to itself. We do this so we don't have to create extra variables. In our cupcakes example, we don't want to have to use a whole new variable just to add a cupcake."
-- "Note that this works because the *right* side of the equals sign is evaluated first. Thus, the `1 + 3`  in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cupcakes_ive_eaten."
+- "Note that this works because the *right* side of the equals sign is evaluated first. Thus, the `1 + 3`  in the second line is happening before the reassignment. The right side becomes 4, then that value is set to cups_of_coffee_consumed."
 - "A great thing about variables is that, because they store a value, you can use them later - even to create new variables. For example, if we have a variable declared `cupcakes_in_a_box = 3`, and we know that there are 5 cupcakes in a box, we can multiply them to determine the number of cupcakes I will eat. Here's an example:"
 </aside>
 
@@ -412,17 +412,17 @@ Try to code the below:
 This is okay:
 
 ```python
-my_num = 9
-my_num = my_num + 7
-# my_num is now 16
+current_score = 9
+current_score = current_score + 7
+# current_score is now 16
 ```
 
 But this is better:
 
 ```python
-my_num = 9
-my_num += 7 # += is short for theSameVariable = theSameVariable + 7
-# my_num is now 16
+current_score = 9
+current_score += 7 # += is short for theSameVariable = theSameVariable + 7
+# current_score is now 16
 ```
 
 This works with `+=`, `-=`, `*=`, `/=` - any math operations.
@@ -435,7 +435,7 @@ This works with `+=`, `-=`, `*=`, `/=` - any math operations.
 
 **Talking Points**:
 
-- "The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying `my_num += 9` is exactly the same as saying `my_num = my_num + 9`. It's just a shorter way to write it."
+- "The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying `current_score += 9` is exactly the same as saying `current_score = current_score + 9`. It's just a shorter way to write it."
 
 - "Keep in mind that we'll always need an `=` somewhere in the line of code when we want to either assign or update the value of a variable"
 
@@ -459,7 +459,7 @@ In the environment below, follow the prompts:
 **Teaching Tips**
 
 - Facilitate a pair programming activity:
-  - Ask students to pair up with the same partner, but switch  roles.
+  - Ask students to pair up with the same partner, but switch roles.
   - One student (the “driver”) should type the code on the slide into repl.it and run it, making sure it works.
   - Then, working together, the two students should complete the code challenges in the comments.
 
@@ -522,13 +522,13 @@ Modding by 2 only gives a `0` or a `1`.
 ## Quick Review
 
 - A variable is a value that can be defined, declared, called and changed within your program.
-    - `my_number = 5`
+    - `current_score = 5`
 - Naming:
     - Variable names are case sensitive.
     - Use `snake_case`!
 - Variables can be reassigned as often as you like, but only the most recent declaration counts.
 - Python can do math using operators, such as `+`, `-`, `*`, and `/`
-    - You can shorthand the math assignments: `my_num += 7`
+    - You can shorthand the math assignments: `current_score += 7`
 
 <aside class="notes">
 
@@ -618,8 +618,8 @@ You tell Python that your variable will hold a string using quotation marks.
 box_contents = "cupcakes" # This is a string
 print(box_contents) # It's a normal variable - we can print it.
 best_snack = "Frosted Cupcakes" # This is a string.
-cupcakes_ive_eaten = 5 # No quotes - this is a number.
-cupcakes_ive_eaten_as_string = "5" # Because this is in quotes, this is a string.
+cupcakes_consumed = 5 # No quotes - this is a number.
+cupcakes_consumed_as_string = "5" # Because this is in quotes, this is a string.
 ```
 
 <aside class="notes">
@@ -646,6 +646,10 @@ A "We Do" means let's practice together. Follow along!
 3. We'll declare a variable called `speed` and assign it the *string* value `"88"`
 4. We'll print out these variables
 5. We'll add `4` to `speed`- what happens?
+
+---
+
+## We Do: Declaring Strings
 
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -683,7 +687,6 @@ After you run the very last one...
 
 - Numerical variables adds (`5 + 5 = 10`).
 - String variables *concatenate* (`"Doc" + "Brown" = "DocBrown"`).
-  - *Pssst: Pronunciation tip: con-CAT-en-ATE*
 - Numerical strings concatenate to new strings! (`"5" + `"4"` = `"54"`)
 
 ```python
@@ -711,11 +714,7 @@ print full_name
 
 It's another "We Do." Let's do this together -  follow along!
 
-To begin:
-
-```python
-sentence = name + "is driving his" + car + speed
-```
+To begin: `sentence = name + "is driving his" + car + speed`
 
 We expect the sentence to be `Marty is driving his Delorean 88mph`. Is that what we got?
 
@@ -796,8 +795,8 @@ print(name, "is driving his", car, speed)
 Do you think this will run? If yes, what does it print?
 
 ```python
-my_num
-print(my_num)
+current_score
+print(current_score)
 ```
 
 <aside class="notes">
@@ -823,7 +822,7 @@ print(my_num)
 How about this? Does it run? If so, what does it print?
 
 ```python
-my_num = 5
+current_score = 5
 print()
 ```
 
@@ -840,9 +839,9 @@ Answer: It will run, but it won't print anything.
 How about this? Does it run? If so, what does it print?
 
 ```python
-my_num = 5
+current_score = 5
 my_string = "Hello"
-print(my_num + my_string)
+print(current_score + my_string)
 ```
 
 <aside class="notes">
@@ -858,9 +857,9 @@ Answer: This won't run, because Python will try to add a string and a number and
 One last question. What does this do?
 
 ```python
-my_num1 = "10"
-my_num2 = "20"
-print(my_num1 + my_num2)
+price_1 = "10"
+price_2 = "20"
+print(price_1 + price_2)
 ```
 
 <aside class="notes">
@@ -878,6 +877,7 @@ We learned a lot today!
 - We created, used, and re-assigned number and string variables.
 - We used the numerical operators `+ - / * // %`
 - We did some complex stuff with the `print` function!
+- What else?
 
 Congrats! You've finished your first programming lesson!
 

@@ -5,13 +5,15 @@ duration: "01:00"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Running Python on Your Computer
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Running Python on Your Computer</h1>
 
 
 <!--
 
 ## Overview
-This lesson gets students set up and comfortable working with Python on their local environment by running `python3 file_name.py` from their command prompt. After installing Python 3 and Atom, they'll run through a few practice scripts they've already seen to get used to editing files locally.
+This lesson gets students set up and comfortable working with Python on their local environment by running `python3 file_name.py` from their command prompt. After installing Python 3 and Sublime Text, they'll run through a few practice scripts they've already seen to get used to editing files locally.
 
 ## Important Notes or Prerequisites
 - At the point you give this lesson, students are getting their very first introduction to writing code. Don't assume they know anything! Be sure to explain carefully whenever you change even a little thing.
@@ -65,11 +67,11 @@ In this lesson, students will:
 ## Defining Assumptions
 
 
-We can't use repl.it forever! We can run Python right on our computers.
+We can't use REPLs forever! We can run Python right on our computers.
 
-* GA uses Macs for its default curriculum.
-* We are happy to help you program Python on Windows or Linux as well.
-* Sometimes you may need to ask questions about subtle differences!
+* Why do you think that is?
+* GA is Mac-centric. I am as well. It's ok if you're not!
+* Sometimes you may need to ask questions about subtle differences. I might need Google's help. It's ok, we'll figure it out.
 
 <aside class="notes">
 
@@ -86,7 +88,7 @@ We can't use repl.it forever! We can run Python right on our computers.
 
 This will take us 10 to 15 minutes, then we'll regroup.
 
-First, install Atom from <a href="https://atom.io/">https://atom.io/</a>. This is where you'll write your code.
+First, install Sublime Text from <a href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a>. This is where you'll write your code.
 
 Then, follow the [Python 3 installation directions](python3-installation-directions.md).
 
@@ -94,7 +96,7 @@ Then, follow the [Python 3 installation directions](python3-installation-directi
 
 **Teaching Tips:**
 
-- Students can use a different text editor if you or they prefer, but any reference to a text editor throughout this course is "Atom."
+- Students can use a different text editor if you or they prefer, but any reference to a text editor throughout this course is "Sublime Text."
 
 - Point a link to where the directions are, or, if students downloaded them as a PDF, point out which PDF.
 
@@ -108,7 +110,7 @@ Then, follow the [Python 3 installation directions](python3-installation-directi
 
 * You have Python 3 installed!
 * You may have seen the in-line REPL (we'll revisit!).
-* You have a text editor — Atom — installed.
+* You have a text editor — Sublime Text — installed.
 * You are ready to create a local `.py` file and run it.
 
 <aside class="notes">
@@ -116,7 +118,7 @@ Then, follow the [Python 3 installation directions](python3-installation-directi
 **Teaching Tips:**
 
 - Make sure everyone has either installed Python 3 or knows that it's shelved until lunch.
-- Make sure everyone has downloaded and can open the Atom text editor.
+- Make sure everyone has downloaded and can open the Sublime Text text editor.
 
 </aside>
 
@@ -188,8 +190,8 @@ Talking Points:
 
 We can create a file with a `.py` extension — we can execute properly written Python code in a `.py` file.
 
-1. Create a new file with a `.py` extension. Let's call it `my_file.py`.
-2. Open `my_file.py` in `Atom`.
+1. Create a new file with a `.py` extension. Let's call it `local_python.py`.
+2. Open `local_python.py` in `Sublime Text`.
 3. In this file, declare some variables. Let's mix integers and strings!
 
 ```python
