@@ -5,9 +5,9 @@ duration: "01:00"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Welcome to Python Programming!
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
-
+<h1>Welcome to Python Programming!</h1>
 
 <!--
 
@@ -83,13 +83,14 @@ In this lesson, students will:
 ## Meet Your Instructor
 
 
-**{Insert your name.}**
+**Robby Grodin**
 
-- [{Insert email address.}](link)
-- {Insert key facts about yourself and your career:
-- Current role.
-- Cool companies/brands you’ve worked with.
-- One fun fact (Keep it classy!).}
+- [grodin.robby@gmail.com](mailto:grodin.robby@gmail.com)
+- I've been working with GA Boston since March 2014
+- Current role: Professional stay at home puppy dad.
+- Worked with: MIT, Blackberry, Visa, Box, Wayfair, Solaria Labs
+
+ **Follow me! @code_pig, @yuki_the_wonder_pup**
 
 <aside class="notes">
 
@@ -97,25 +98,6 @@ In this lesson, students will:
 
 - Talk about the instructor’s role as the instructional team “lead.”
 </aside>
-
----
-
-## Meet Your Support Team
-
-**{Insert IA's name.}**
-
-- [{Insert email address.}](link)
-- {Insert key facts about yourself and your career:
-- Current role.
-- Cool companies/brands you’ve worked with.
-- One fun fact (Keep it classy!).}
-
-<aside class="notes">
-**Teaching Tips**
-
-- Duplicate this slide for each IA or classroom member you want to introduce.
-</aside>
-
 
 ---
 
@@ -163,7 +145,8 @@ Let’s all agree to:
 
 - Treat each other with respect
 - Avoid bringing distractions into class
-- {Add more…}
+- Raise our hands, let everyone be heard
+- Own our learning
 
 <aside class="notes">
 
@@ -180,9 +163,9 @@ Let’s all agree to:
 
 Please share:
 
-- Your name.
-- Why you’re taking this course.
-- Your favorite comfort food.
+- What you like to be called
+- What you do during the week
+- Why you're taking this class
 
 
 <aside class="notes">
@@ -192,13 +175,6 @@ Please share:
 - Come up with a few icebreakers of your own and add the slides below!
 
 </aside>
-
----
-
-## Icebreakers
-
-{Insert some fun icebreakers here!}
-
 
 ---
 
@@ -292,9 +268,7 @@ There’s a lot of work ahead, and you’re going to need fuel.
 
 ## Moving on to Course Specifics...
 
-Okay, GA is cool!
-
-The classmates are cool.
+We've met eachother, and we've learned about GA.
 
 Let's talk about the course.
 
@@ -335,10 +309,10 @@ We are expecting that:
 
 ## Office Hours
 
-Help us help you!
+Need some help?
 
 {Mondays / Wednesdays}:
-{5:30pm - 6:30pm}
+{8:30pm - 9:00pm}
 
 
 <aside class="notes">
@@ -375,13 +349,10 @@ Help us help you!
 
 ## Course Materials
 
-{Instructor note: This is your call! Choose ONE of the below}.
+{Instructor note: This is your call! Choose ONE of the below}.i
 
-- Lessons for the day will be linked at the beginning of the day.
-or
-- Lessons for the course will can be viewed here - don't go too far ahead!
-or
 - Each lesson will be shared before the lesson.
+- Materials may be shared in advance or after class to supplement, links will be shared via Slack.
 
 The lessons are interactive to give as much programming practice as possible, so be sure you get the links and follow along!
 
@@ -402,6 +373,7 @@ The lessons are interactive to give as much programming practice as possible, so
 Homework:
 
   - Isn't graded, but is good practice.
+  - If you want to learn, you'll do it. 
   - We will go over it the next class!
 
 <aside class="notes">
@@ -419,9 +391,9 @@ Homework:
 ## Your Final Project
 
 - Each day, you’ll build skills in Python and understand different ways in which you can use it to build applications.
-- At the end of {Day 4 or the 9th week}, you’ll choose a final project focus.
-- On {Day 5 or the 10th week} in class, you’ll build an application in Python based on your project focus area.
-- At the end of {Day 5 or the 10th week}, you’ll demo your project for the class.
+- At the end of the 9th week, you’ll choose a final project focus.
+- During the 10th week in class, you’ll build an application in Python based on your project focus area.
+- At the end of the 10th week, you’ll demo your project for the class.
 
 <aside class="notes">
 2 MINUTES
@@ -441,7 +413,7 @@ Homework:
 - Let's review it!
 
 We learned:
-
+TODO
 <aside class="notes">
 
 1 MINUTE
