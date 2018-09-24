@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Intro to Data Sicence
+type: lesson
+duration: "1:00"
+creator: Joseph Nelson
+Private gist location: xxxxxx
+Presentation URL: xxxxx
+---
+-->
+<section id="intro-to-data-science" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Intro to Data Science</h2>
+<!--
+
+## Overview
+This lesson introduces data science and its workflow, then jumps into a workflow exercise. It includes downloading Anaconda on student machines, so they're ready for the day's content.
+
+## Important Notes or Prerequisites
+When it comes to installing Anaconda, it's important to be prepared to handle Mac v Windows across student machines. It is a good idea to delegate one IA to be the "PC person" for debugging said issues.
+
+There are significant talking points in the slide file's comments - read through them!
+
+## Learning Objectives
+In this lesson, students will:
+- Apply the data science workflow.
+- Have a set up data science development ecosystem, specific to Python
+
+
+## Duration
+60 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+
+## Suggested Agenda
+
+|    Time     | Activity | Purpose |
+|-------------|----------|---------|
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:15 | Data Science |
+| 0:15 - 0:40 | Data Science Workflow |
+| 0:40 - 0:57 | Data Science Development Tools |
+| 0:57 - 1:00 | Summary |
+
+## Materials and Preparation
+- Send out the link to the presentation slides to students.
+- Install Anaconda on your own computer.
+- Consider reading GA's definitions of data science [blog post](https://theindex.generalassemb.ly/why-we-need-to-redefine-data-science-7f05ab0286d4) in advance of defining data science roles. It is also linked in resources. While going through the roles in depth is non-essential, they provide useful context for students.
+
+## Differentiation and Extensions
+
+- If students are excelling in the first half, consider accelerating the flow or introducing your own (more complex) data science workflow problem, like breaking down (at a high level) the Netflix recommendation algorithm.
+- If students are struggling, emphasize that many of the topics discussed will be reintroduced throughout the day's exercises. Lean on real world examples!
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+- Anaconda
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Apply the data science workflow.</li>
+<li>Have a set up data science development ecosystem, specific to Python</li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Introduce topic and learning objectives</li>
+<li>Pause after learning objectives and level-set for what students will get out of the lesson</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-data-science" class="level2">
+<h2>What is Data Science?</h2>
+<ul>
+<li><p>The Harvard Business review called the industry the 'sexiest job of the 21st century'.</p></li>
+<li><p>Glassdoor determined the profession to be among the most desirable in 2016 and 2017.</p></li>
+</ul>
+<p>Sounds cool, right? But... what is it?</p>
+<aside class="notes">
+Teaching Tips: - Don't spend long on this slide. The idea here is to get them intrigued.
+</aside>
+<hr />
+</section>
+<section id="data-science-examples" class="level2">
+<h2>Data Science Examples</h2>
+<ul>
+<li>Netflix recommendation engine.</li>
+<li>Apple FaceID determining if a photo contains your face.</li>
+<li>A bank approving a credit card.</li>
+</ul>
+<p>Common thread:</p>
+<ul>
+<li>All leverage data to make decisions.</li>
+</ul>
+<p><strong>Class Question:</strong> What is an example of data science you have heard of? What about your stated example makes it be, well, data science?</p>
+<aside class="notes">
+<p>Talking Points:</p>
+<ul>
+<li>Discuss how data is leveraged to make decisions in one of the above examples</li>
+<li>Add in other examples if you have personal ones to share</li>
+<li>Encourage the class to participate and throw out examples of data science in the real world. The more comfortable the class feels making guesses and making the content relatable to their life at this point, the more engaged they will be throughout the lesson.</li>
+</ul>
+<p>Teaching Tips:</p>
+<ul>
+<li>Encourage students to think about why a given example is or is not data science.</li>
+<li>Ask why, and what makes a given example data science?</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="data-science-definition" class="level2">
+<h2>Data Science Definition</h2>
+<p>Compliments of GA's Standard Board:</p>
+<blockquote>
+<p>Data science is the practice of: acquiring, organizing, and delivering complex data; discovering relationships and anomalies among variables; building and deploying machine learning models; and synthesizing data to influence decision-making.</p>
+</blockquote>
+<p><strong>tl;dr:</strong> Data scientists:</p>
+<ul>
+<li>Use data of all kinds (numbers, text, images).</li>
+<li>Make explanations and predictive decisions.</li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips: - This is a mouthful! Summarize it; don't read it!</p>
+Talking Points: - Define data science and associated roles. - Explain predictive decisions are broadly leveraging data about prior events to inform future strategy - Encourage the class to participate and throw out examples of data science in the real world. The more comfortable the class feels making guesses and making the content relatable to their life at this point, the more engaged they will be throughout the lesson.
+</aside>
+<hr />
+</section>
+<section id="conway-venn-diagram" class="level2">
+<h2>Conway Venn Diagram</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/Data_Science_VD.png" />
+</figure>
+<aside class="notes">
+<p>Talking Points:</p>
+<ul>
+<li>Note that data science lives at the intersection of computational skills ('hacking skills'), traditional statistics and mathematics skills, and subject matter expertise. A data scientist must be able to leverage maths/stats to develop models, computation skills to efficiently use those models, and subject matter competence to structure a problem and contextualize results.</li>
+</ul>
+<p>Teaching Tips:</p>
+<ul>
+<li>Point out where data science sits compared to say, Machine Learning</li>
+<li>Pause to ask for questions here</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="specific-data-scientist-roles" class="level2">
+<h2>Specific Data Scientist Roles</h2>
+<p>What does that break down to?</p>
+<ul>
+<li>Machine Learning Engineer</li>
+<li>Data Engineer</li>
+<li>Research Science</li>
+<li>Advanced Analyst</li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Ask if students have any questions about what these roles might do?</li>
+<li>Let students know we will be covering these roles more in depth in the coming sections</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="machine-learning-engineer" class="level2">
+<h2>Machine Learning Engineer</h2>
+<ul>
+<li>Identify machine learning applications.</li>
+<li>Work in production code.</li>
+<li>Manage infrastructure and data pipelines</li>
+<li>“Straddle the line between knowing the mathematics and coding the mathematics.”
+<ul>
+<li>eBay VP of engineering Japjit Tulsi</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Define production code, infrastructure, and data pipelines</li>
+<li>Put emphasis on the quote especially on the, &quot;between knowing the mathematics&quot; and &quot;coding the mathematics&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="data-engineer" class="level2">
+<h2>Data Engineer</h2>
+<ul>
+<li><p>Create the architecture that allows data acquisition and machine learning problems to run at scale.</p></li>
+<li><p>Focus on the algorithm and the analysis.</p></li>
+<li><p>Don't work much on the software side.</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Ask students if they know what &quot;at scale&quot; might mean</li>
+<li>Explain algorithm and analysis</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="research-scientist" class="level2">
+<h2>Research Scientist</h2>
+<ul>
+<li>PhD-heavy field.</li>
+<li>Determines new algorithmic optimizations.</li>
+<li>Focused on driving scientific discovery.</li>
+<li>Less concerned with pursuing industrial applications.</li>
+</ul>
+<p><strong>Applied research scientists</strong>:</p>
+<ul>
+<li>Specialized research scientist.</li>
+<li>Backgrounds in both data science and computer science.</li>
+<li>Invaluable members of any AI team.</li>
+<li>“They can both pitch in on data science and write code. Finding a good applied research scientist is worth her weight in gold.
+<ul>
+<li>Japjit Tulsi</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Explain algorithmic optimizations</li>
+<li>Describe a problem a research scientist might be interested in</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="advanced-analysts" class="level2">
+<h2>Advanced Analysts</h2>
+<ul>
+<li>Quantitative-minded.</li>
+<li>Apply data descriptive and inferential exploratory data analysis and modeling.</li>
+</ul>
+<aside class="notes">
+<p>Talking Points:</p>
+<ul>
+<li>Explain that exploratory analysis is an approach to analyzing data sets to summarize their main characteristics.</li>
+</ul>
+<p>Teaching Tips:</p>
+<ul>
+<li>Pause and ask if there are any questions about this role.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>Data science is the practice of:</p>
+<ul>
+<li>Acquiring, organizing, and delivering complex data; discovering relationships and anomalies among variables.</li>
+<li>Building and deploying machine learning models.</li>
+<li>Synthesizing data to influence decision-making.</li>
+</ul>
+<p>Specific Data Science Roles Include:</p>
+<ul>
+<li>Machine Learning Engineer</li>
+<li>Data Engineer</li>
+<li>Research Science</li>
+<li>Advanced Analyst</li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Run through the definition again and pause in case there are any questions.</li>
+</ul>
+<p>Talking Points:</p>
+<ul>
+<li>Just like after the rise of .com era where there was first just one &quot;webmaster&quot; that became a front-end developer, back-end developer, etc. Data science is going through a similar period of industry fragmentation where roles that were just &quot;data scientist&quot; are now broken up into specialities.<br />
+</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-do-we..." class="level2">
+<h2>How Do We...</h2>
+<ul>
+<li>Go through data science workflow?</li>
+<li>Solve a data science problem?</li>
+<li>Craft a data science problem statement?</li>
+</ul>
+<aside class="notes">
+<p>Talking Points:</p>
+<ul>
+<li>In today's lessons, we will focus on how to conduct exploratory data analysis for the purposes of structuring and solving a data science problem. With this in mind, let's transition to defining how to craft a data science problem statement.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-data-science-workflow" class="level2">
+<h2>The Data Science Workflow</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/Data-Framework-White-BG.png" />
+</figure>
+<p><strong>Class Discussion:</strong> Which step do you believe will be most challenging?</p>
+<ul>
+<li>There's no objectively correct answer!</li>
+</ul>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Draw the workflow on the board to reference.</li>
+<li>Keep the example dataset open in a new tab.</li>
+<li>Focus on the importance of defining a question, especially following the first class discussion of which workflow component is most challenging</li>
+<li>Consider thinking through your own work, and anchoring the discussion of the workflow steps against that example to reduce abstraction</li>
+<li>Make the step-by-step exercise engaging at every component. Let the class guide the problem you want to solve. If you'd like, you can encourage them to converge on a single problem statement you feel most comfortable with discussing (like those below)</li>
+<li>You may consider running the whole exercise as unstructured time, or guiding step-by-step. Step-by-step is recommended to assure learners remain on task and do not get stuck.</li>
+</ul>
+<p>Talking Points:</p>
+<ul>
+<li>While the data science workflow is presented as five sequential steps, reinforce data science is often recursive among these areas. When an analysis yields an unexpected result, you may revisit the preparation of data to assure the steps were handled properly.</li>
+<li>Defining a question and tying work against an objective is essential to emphasis because problems that progress without a hypothesis to prove or disprove ultimately become circular. There are a near infinite number of spurious correlations or &quot;interesting&quot; ideas to consider. Only those that further drive you towards on outcome are necessary.</li>
+<li><p>There are caveats to this process. Note the area labeled &quot;<em>these steps are not hard-set rules.</em>&quot;</p></li>
+<li><strong>Frame:</strong> Assure students first, identify what factors affect cost. Then, consider how those costs can be reduced. Finally, hypothesize a way to describe or predict if those given factors can be reduced.</li>
+<li><strong>Prepare:</strong> Encourage learners to consider data integrity. A few easy points to call out: differing ways of reporting &quot;No&quot; (<code>N</code> and <code>No</code>) and missing values (<code>NA</code>). Reassure students that it is quite common to have datasets where the ground truth answers to questions like these are unknown.</li>
+<li><strong>Analyze:</strong> Reinforce the importance of data preparation and connecting analyses to the initial question with analysis.</li>
+<li><strong>Interpret:</strong> Restate the hypothesis you are aiming to prove or disprove. Identify if the limited dataset provides you with anecdotes to validate or invalidate that statement.</li>
+<li><p><strong>Communicate:</strong> Provide your best communications tips, written and verbal alike. These persist when using data.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="notes-on-the-steps" class="level2">
+<h2>Notes on the Steps</h2>
+<ul>
+<li>Not hard-set rules.</li>
+<li>Really, problem-solving guidelines.</li>
+</ul>
+<p>Every problem's different!</p>
+<ul>
+<li><p>Some projects may not require every step.</p></li>
+<li><p>It's normal to repeat certain steps a few times.</p></li>
+<li><p>The process is cyclical with new findings!</p></li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<p>A recommended problem is like the following:</p>
+<ul>
+<li><strong>Frame:</strong> Let's presume the key cost driver for this HR function is twofold: employees turning over early (low total years of service) and a high time to fill (positions going unfilled, costing producitivity losses). We'll aim to minimize turnover. Let's hypothesize we can explain how long an employee stays with the company based on their university, previous employment, and how they found our retail store, Data Science Wearables (DSW).</li>
+<li><strong>Prepare:</strong> We would want to create a consistent data standard for <code>Current Employee</code> -&gt; <code>No</code> to <code>N</code> across the dataset. Moreover, we need to hypothesize why <code>NA</code> values exist. E.g. did the second candidate not have a previous employer, or was this data unavailable? (We do not know with the information given.)</li>
+<li><strong>Analyze:</strong> While we will dive deeper into analysis using Python soon enough, anecdotal evidence based on three observations seems to imply that Candidate Source is a useful explanatory variable. Employees that had experience with DSW previously (<code>Internship</code> and <code>Referral</code>) stayed longer. The relationship between waiting to fill (<code>Time to Fill (Days)</code>) and employee tenure may make a U-shape: an employee either previously knows of DSW (short time to fill) and stays for a while because they liked it or DSW waited for the perfect candidate (long time to fill) and stayed for a while. School does not seem to have useful signal for employee tenure.</li>
+<li><strong>Interpret:</strong> It appears many of our explanatory factors helped, but not all, and not in ways we may have anticipated. <code>School</code> does not seem to yield valuable insight, but knowing an employee has been referred or had experience with DSW previously is a key signal. Perhaps DSW should expand their internship and employee referral programs.</li>
+<li><strong>Communicate:</strong> Our driving thesis is: The best candidates for DSW are those that have connected with the store in a previous way (internship, referral). Investing in these programs is recommended. Visualizations of average employee tenure segmented by these factors are encouraged.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-1-is-always-frame-the-problem" class="level2">
+<h2>Step 1 is Always &quot;Frame the Problem&quot;</h2>
+<p>Solving data science task starts with a clearly defined problem.</p>
+<ul>
+<li>Poor results stem from no defined goal.</li>
+</ul>
+<p><em>“A problem well stated is half solved.”</em> — Charles Kettering</p>
+<p>From there, you can apply your steps.</p>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li><p>Even though all data science projects have different general flows, they start in the same place: with a problem. From this problem statement arises questions; questions we will ask the data in order to gain more information so we can attempt to find a solution to that problem.</p></li>
+<li><p>Let's restate that: <strong>solving data science task starts with a clearly defined problem.</strong> Too often, situations will lack a driving objective. Haplessly exploring data without a determined goal produces poor results.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-data-science-workflow-applied" class="level2">
+<h2>The Data Science Workflow: Applied</h2>
+<p>You need to reduce the costs of staffing.</p>
+<p>You have a table of DSW current retail sales associates across department stores.</p>
+<p>The first three rows look like this:</p>
+<table style="width:49%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Job Level</th>
+<th>Current Employee</th>
+<th>Reason for Termination</th>
+<th>Years of Service</th>
+<th>Candidate Source</th>
+<th>Previous Employer</th>
+<th style="text-align: center;">School</th>
+<th style="text-align: right;">Time to Fill (Days)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Associate</td>
+<td>N</td>
+<td>New offer</td>
+<td>1.5</td>
+<td>Referral</td>
+<td>Jake's Hawaiian Shirts</td>
+<td style="text-align: center;">University of Minnesota</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td>Associate</td>
+<td>Y</td>
+<td>N/A</td>
+<td>2.0</td>
+<td>Internship</td>
+<td>N/A</td>
+<td style="text-align: center;">University of Iowa</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td>Associate</td>
+<td>No</td>
+<td>Tardiness</td>
+<td>0.5</td>
+<td>Online</td>
+<td>Hats and Caps</td>
+<td style="text-align: center;">University of Nebraska</td>
+<td style="text-align: right;">25</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>We'll be referring to this scenario a lot in the next few slides - keep this open or write it on the board.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li><p>Let's apply our workflow above to an interactive exercise. A given clothing retail company, Data Science Wearables (DSW), is interested in improving their human resource operations. Specifically, as a cost center in the business, this company wants to reduce their expenses associated with staffing the firm's in-store associates across the United States.</p></li>
+<li><strong>Job Level:</strong> The role level. Our dataset is all current or former associates.</li>
+<li><strong>Current Employee:</strong> If the individual is a current employee, this is a &quot;Y&quot; otherwise &quot;N&quot;</li>
+<li><strong>Reason for Termination:</strong> If the employee no longer works at the retail store, this is why they left</li>
+<li><strong>Years of Service:</strong> How long did the employee work at DSW?</li>
+<li><strong>Candidate Source:</strong> Where did this employee learn of DSW?</li>
+<li><strong>Previous Employer:</strong> Where did the employer previously work?</li>
+<li><strong>School:</strong> Which university did the individual attend?</li>
+<li><strong>Time to Fill (Days):</strong> How long did it take to fill this person's role? Typically minimizing time to fill is key to lower costs.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-one-frame" class="level2">
+<h2>Step One: Frame</h2>
+<p>We know:</p>
+<ul>
+<li>We want to reduce costs associated with staffing.</li>
+</ul>
+<p>We don't know:</p>
+<ul>
+<li>What drives up costs of staffing?</li>
+<li>Is there an underlying reason for those costs?</li>
+<li>What hypothesis can we test to reduce costs?</li>
+</ul>
+<p><strong>Class Discussion:</strong> What factors affect HR costs? How could we minimize these?</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Through each of these following slides, check for understanding. Point to the workflow on the board and remind students where we are; prompt a discussion and ask what they think the step should include.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-two-prepare" class="level2">
+<h2>Step Two: Prepare</h2>
+<p><strong>Class Question:</strong> What questions do you have about the dataset?</p>
+<table style="width:49%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Job Level</th>
+<th>Current Employee</th>
+<th>Reason for Termination</th>
+<th>Years of Service</th>
+<th>Candidate Source</th>
+<th>Previous Employer</th>
+<th style="text-align: center;">School</th>
+<th style="text-align: right;">Time to Fill (Days)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Associate</td>
+<td>N</td>
+<td>New offer</td>
+<td>1.5</td>
+<td>Referral</td>
+<td>Jake's Hawaiian Shirts</td>
+<td style="text-align: center;">University of Minnesota</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td>Associate</td>
+<td>Y</td>
+<td>N/A</td>
+<td>2.0</td>
+<td>Internship</td>
+<td>N/A</td>
+<td style="text-align: center;">University of Iowa</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td>Associate</td>
+<td>No</td>
+<td>Tardiness</td>
+<td>0.5</td>
+<td>Online</td>
+<td>Hats and Caps</td>
+<td style="text-align: center;">University of Nebraska</td>
+<td style="text-align: right;">25</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>These inconsistencies, and <code>N/A</code> missing values are incredibly common. In fact, this dataset is comparatively clean and apt for the task at hand vis a vie many datasets that may otherwise be available. In future classes, we will discuss how to handle <code>N/A</code> missing values and the additional importance of checking data integrity.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-three-analyze" class="level2">
+<h2>Step Three: Analyze</h2>
+<p>We want to:</p>
+<ul>
+<li>Create meaning and conduct statistical description and inference.</li>
+</ul>
+<p>For example, the average Years of Service is ~1.33 years.</p>
+<ul>
+<li>Could we build a machine learning model to predict this?</li>
+<li>The data could center on their background (school, previous employers, and application source).</li>
+</ul>
+<p>For example, is the relationship between Time to Fill and Years of Service positive or negative?</p>
+<ul>
+<li>Positive: when one increases, the other increases.</li>
+<li>Negative: when one increases, the other decreases.</li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li><p>For example, the average Years of Service in this given dataset is (1.5 + 2.0 + 0.5)/3 = 4/3 ≈ 1.33 years. In more complex situations, we may build a machine learning model to predict a given outcome. For example, we may want to predict how long a given candidate will stay in their role based on their background (school, previous employers, and application source).</p></li>
+<li><p>We may also be interested in visualizing relationships between our variables/columns. For example, do we anticipate that the relationship between Time to Fill and Years of Service is positive (when one increases, the other increases) or negative (when one increases, the other decreases)? Considering questions like this help us approach the true explaining factor.</p></li>
+<li><p>It is common for this step to reinforce and revisit the prior step as we discover anomalies or intriguing relationships.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-four-interpret" class="level2">
+<h2>Step Four: Interpret</h2>
+<p>How do our results compare to our initial hypothesis?</p>
+<p>What concrete actions do we recommend?</p>
+<p><strong>Class Question:</strong> Even with an extremely limited dataset (<code>n=3</code>), can you identify hypothesis-validating or invalidating anecdotes?</p>
+<p>At this stage, treat metrics and results like &quot;check engine lights.&quot;</p>
+<ul>
+<li>Result summaries may point you in the right direction, but they do not necessarily explain the full context at hand.</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Encourage discussion. They likely don't know! Be encouraging and guide them.</li>
+<li>Remind them all that's been discussed on this up through now.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="step-five-communicate" class="level2">
+<h2>Step Five: Communicate</h2>
+<p>Results are only as convincing as they are conveyed to key stakeholders!</p>
+<p>Back up your statement with evidence, including statistical tests, visualizations, and model results.</p>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li><p>Results may be only as convincing as they are conveyed to key stakeholders. The process of communication requires honing a cohesive narrative that establishes a thesis and includes evidence to back up said statement. Backing up the statement includes statistical tests, visualizations, and model results.</p></li>
+<li>The best practices you may have heard in prior written and verbal exercises equally apply to communicating with data. Rather than viewing data as a separate entity altogether (&quot;I'm not a data person&quot;), consider how data can aid your existing thesis.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>The data science workflow:</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/Data-Framework-White-BG.png" />
+</figure>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Pause and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="why-python-for-data-science" class="level2">
+<h2>Why Python for Data Science</h2>
+<p>Easy to write</p>
+<ul>
+<li>Data science is inherently a cross-functional discipline!</li>
+<li>A language for all audiences is key.</li>
+</ul>
+<p>Open source</p>
+<ul>
+<li>New techniques become available daily!</li>
+<li>Developers from around the world race to implement new libraries.</li>
+<li>This places Python in contrast to closed source, paid data analysis tools like SAS and SPSS.</li>
+</ul>
+<p>Often used for data analysis, scripting, and rapid software development.</p>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li><p>For the first portion of this week, you've focused on learning the fundamentals of Python. Why do we (and the community) emphasize Python as a choice language for data science?</p></li>
+<li><p>For starters, let's return to a buzzword-heavy and unofficial Python definition</p></li>
+<li><p>Let's break down these definitional attributes and discuss their impact on Python being a common language for data:</p></li>
+<li><p><strong>High level:</strong> Python is <em>&quot;far from&quot;</em> our computer's RAM and CPU, meaning it is less like binary (<code>01101010</code>) and closer to plaintext English. This makes Python comparatively more intuitive as a first language. Because data science is inherently a cross-functional discipline, allowing it to be picked up by all audiences is key.</p></li>
+<li><p><strong>Open source:</strong> Python's source code is free to use, and anyone can contribute to improve it. Being an open source language is a huge reason Python is a choice language for data science. As new techniques become available daily, developers from around the world race to implement said methods in Python libraries. (This places Python in contrast to closed source, paid data analysis tools like SAS and SPSS.)</p></li>
+<li><p><strong>Object-oriented:</strong> You learned how to create objects and classes for reproducible use cases. Object-oriented languages are generally more familiar for introductory content, lending a helping hand to Python being approachable.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="getting-data-science-tools" class="level2">
+<h2>Getting Data Science Tools</h2>
+<ul>
+<li>We can analyze data to determine what Python is most used for:</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/related_tags_over_time.png" />
+</figure>
+<ul>
+<li>Pandas?</li>
+<li>A Python package for exploratory analysis.</li>
+<li>Let's use it!</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Remind them that a package is a module - it's code we can use.</li>
+<li>Talk about how common Pandas is in data science.</li>
+<li>Get them excited to learn it!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-your-data-science-development-tools" class="level2">
+<h2>You Do: Your Data Science Development Tools</h2>
+<p>Python packages in DS are ubiquitous: - Reading CSVs, linear algebra, linear regressions, matrices...</p>
+<p><strong>Anaconda</strong> (&quot;Conda&quot;): - Package manager. - Downloads everything for us!</p>
+<p>Follow these steps:</p>
+<ol type="1">
+<li><p>Download <a href="https://www.anaconda.com/download/">Anaconda</a>: <code>https://www.anaconda.com/download/</code>. Select Python 3.6+ for your machine (macOS or PC)</p></li>
+<li><p>Open the file. Follow the on-screen prompts. Don't hesitate to ask questions!</p></li>
+</ol>
+<p>Please wait once you have successfully installed Anaconda.</p>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Emphasize that Python has <em>packages</em> as the reason why we see it being a choice language for data science. Connect that packages are the result of Python being an open source technology.</li>
+<li>Work with your IAs to debug and assist students as complications (inevitably) pop up. Be sure everyone can successfully explain why we use packages, install Anaconda, and open a Jupyter Notebook.</li>
+<li>With the Notebook, go <strong>step-by-step</strong> with all students. Do not encourage them to skip ahead of where you want them to be. (e.g. when they finish download, clearly tell them when to click through all install instructions. Stop and wait for further instruction.)</li>
+<li>Delegate one IA to be the Windows or Mac person, and you take the other. Typically, Macs are more represented in these classes, so it makes most sense for the instructor to be the lead on Mac, and a IA to be the Windows person.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li><p>Notice that when we use Python for data science, we are heavily relying on a open source packages. Python packages are Python scripts that allow us to easily performance reproducible actions.</p></li>
+<li><p>For example, when we in data to analyze, we could handle input/output functions, parsing lines of a CSV, and correctly storing datatypes in memory. Or, we could (and will) use Pandas to simply say <code>pd.read_csv(data.csv)</code> to handle all of that work with a single line of code.</p></li>
+<li><p>Python libraries are collections of packages. We may install a library for linear algebra or separately a library for linear regressions.</p></li>
+</ul>
+<p>So, the question becomes: <strong>how do we install all of the necessary Python packages?</strong></p>
+<p><strong>Anaconda</strong> is a product that solves many of the headaches associated with Python packaging.</p>
+<ul>
+<li>Anaconda (maintained by Anaconda, Inc. and sometimes just called &quot;Conda&quot;) is a Python package manager.</li>
+<li>It comes with many of the required tools and products we need to begin doing data science in Python.</li>
+</ul>
+<p><strong>Download <a href="https://www.anaconda.com/download/">Anaconda</a>:</strong> Select Python 3.6+ for your machine (macOS or PC)</p>
+Please: open the file once it finishes downloading, and proceed with the on-screen prompts. There is no need to deviate from the default installation. (If you believe you have a question for your instructor based on your machine, please do not hesitate to raise your hand.)
+</aside>
+<hr />
+</section>
+<section id="what-are-we-downloading" class="level2">
+<h2>What Are We Downloading?</h2>
+<p>Pandas:</p>
+<ul>
+<li>The default tool for data exploration and manipulation in Python.</li>
+</ul>
+<p>Jupyter Notebooks and Jupyter Lab:</p>
+<ul>
+<li>The preferred integrated development environments (IDEs) of data science.</li>
+<li>We'll write our code in this!</li>
+</ul>
+<p>NumPy, SciPy, and <a href="https://docs.anaconda.com/anaconda/packages/py3.6_osx-64">more</a>:</p>
+<ul>
+<li>Other packages for statistical inference, visualization, and parallelizing operations.</li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>While we wait for installations to finish, let's preview a few key items of what you're downloading:</li>
+<li><strong>Pandas:</strong> The Pandas package is the default tool for data exploration and manipulation in Python</li>
+<li><strong>Jupyter Notebooks and Jupyter Lab:</strong> These are the preferred integrated development environments (IDEs) of data science. They make it easy to write and debug code while conveying the work and results we're formulating.</li>
+<li><strong>NumPy, SciPy, and <a href="https://docs.anaconda.com/anaconda/packages/py3.6_osx-64">more</a>:</strong> A host of additional packages for statistical inference, visualization, and parallelizing operations. (We will not explore all of these in our single day.)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-launching-jupyter-notebooks" class="level2">
+<h2>You Do: Launching Jupyter Notebooks</h2>
+<ul>
+<li>Use your computer's program search method (Spotlight on Mac) to search &quot;Anaconda Navigator&quot;.</li>
+<li>Open Anaconda Navigator</li>
+<li>Click &quot;Launch&quot; on Jupyter Notebooks.</li>
+</ul>
+<p><em>wait...</em></p>
+<p>It opens in your browser!</p>
+<p>You have a Jupyter Notebook!</p>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>Development environments between Mac and Windows differ, and there are many ways to open Jupyter Notebooks. (Just like there are many ways to open any given file or program on your computer!)</li>
+<li>Emphasize that data science is not all about just writing code. (Hardly!) Discuss the importance of justifying methods. The text included in the lesson provides one example of this (mean vs median), copied here. Consider discussing your own experiences here as well.</li>
+<li>The methods we're applying -- which are typically far more subjective or indeterministic in contrast to straight software development -- are the other half. For example, pretend we're missing many values. Do you fill in missing values with the mean or the median? The code for doing either of these operations is far less significant than the justifying decision. Jupyter Notebooks make it easy to create code cells next to text cells.</li>
+<li>When it comes to markdown, tell students that no one spends time memorizing markdown syntax. Rather, we reference the markdown cheatsheet to remember how to make large headers, bulleted lists, tables, and more. An apt analogy is a mechanic does not spend time memorizing the pantones of cars, but when he/she needs to do a paint job, they will look up the necessary color codes.</li>
+</ul>
+<p>Teaching Tips:</p>
+<ul>
+<li>Launch a Jupyter Notebook with students (using the Anaconda Navigator), explain code and markdown cells, and create examples of each.- Be patient with students as they launch their first Jupyter Notebook, and be cognizant of the differences in Mac vs Windows for this exercise.</li>
+<li><strong>Go slowly</strong> when creating and filling in code cells and markdown cells</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="why-jupyter-notebooks" class="level2">
+<h2>Why Jupyter Notebooks?</h2>
+<p>Data science is both code and methods</p>
+<p>What if we're missing many values?</p>
+<ul>
+<li>Do you fill in missing values with the mean or the median?</li>
+<li>Easy to create code cells next to text cells.</li>
+</ul>
+<p>Easy to connect to remote computers (datac enters).</p>
+<ul>
+<li>Thus, the Jupyter Notebook is in your browser!</li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li><strong>Data science is both code and methods:</strong> As data scientists, the code we write is only half the story. The methods we're applying -- which are typically far more subjective or indeterministic in contrast to straight software development -- are the other half. For example, pretend we're missing many values. Do you fill in missing values with the mean or the median? The code for doing either of these operations is far less significant than the justifying decision. Jupyter Notebooks make it easy to create code cells next to text cells.</li>
+<li><strong>Connect to remote computing resources:</strong> While we will not be doing this in a today's content, Jupyter Notebooks make it easy to connect to remote computers (datacenters). This is why the Jupyter Notebook is in your browser. You've created a <code>localhost</code> server -- a website for one person: you. The brains for this operation are your computer. We could in swap the brains from your computer for stronger computers in a data center, but still write code in your own browser. Wow!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-2" class="level2">
+<h2>Quick Review</h2>
+<ul>
+<li>Pandas
+<ul>
+<li>A Python package for exploratory analysis.</li>
+</ul></li>
+<li>Jupyter Notebooks and Jupyter Lab:
+<ul>
+<li>The preferred integrated development environments (IDEs) of data science.</li>
+<li>We'll write our code in this!</li>
+</ul></li>
+</ul>
+<p>Anaconda helps us download these. You only had to download it once!</p>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Pause and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-code-cells" class="level2">
+<h2>We Do: Code Cells</h2>
+<p>Let's begin!</p>
+<ul>
+<li><p>Make a code cell: Click the <strong>+</strong> in the upper left corner.</p></li>
+<li><p>Inside the code cell, write:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&#39;hello world&#39;</span>)</code></pre></div></li>
+<li>Be sure your cursor is inside the cell. Press <code>&quot;control&quot; + Enter</code>.</li>
+<li><p>Always how you run cells!</p></li>
+</ul>
+<p>Voila!</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Make sure they do this with you - walk around the room.</li>
+<li>Make sure everyone understands what's going on.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-markdown-cells" class="level2">
+<h2>We Do: Markdown Cells</h2>
+<p>Write and format plain text.</p>
+<ul>
+<li>Make a code cell: Click the <strong>+</strong> in the upper left corner.</li>
+<li><p>You're going to be doing this a lot!</p></li>
+<li>Change this cell to a markdown cell:</li>
+<li>Click: <code>cell</code> &gt; <code>cell Type</code> &gt; <code>Markdown</code>.</li>
+<li><p><em>(You can also click the dropdown menu that says &quot;Code&quot; and change it to &quot;Markdown&quot;)</em></p></li>
+<li><p>Inside the markdown cell, write:</p></li>
+</ul>
+<p><code>md   ## Hello world</code></p>
+<p>Run the cell: <code>&quot;control&quot; + Enter</code> Bam! Pretty formatted text.</p>
+<p><em>Note</em>: We will not spend time learning markdown syntax! Instead, take a look at the cheatsheet and links in Additional Resources.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Make sure they do this with you - walk around the room.</li>
+<li>Make sure everyone understands what's going on.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="closing-down" class="level2">
+<h2>Closing Down</h2>
+<ul>
+<li><p>Exit the tab in your browser.</p></li>
+<li><p>That doesn't quit the Notebook!</p></li>
+<li>Open your Terminal (or Anaconda Prompt on Windows).</li>
+<li><p>Hit <code>control + C</code>. This closes the running process.</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Make sure they do this with you - walk around the room.</li>
+<li>Make sure everyone understands what's going on.</li>
+<li>Talk about why (and stress that) exiting the tab doesn't close the notebook.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary:</h2>
+<p>Data scientists:</p>
+<ul>
+<li>Use data of all kinds (numbers, text, images).</li>
+<li>Make explanations and predictive decisions.</li>
+</ul>
+<p>Data Science Workflow:</p>
+<ul>
+<li>Frame -&gt; Prepare -&gt; Analyze -&gt; Interpret -&gt; Communicate.</li>
+</ul>
+<p>Jupyter Notebooks:</p>
+<ul>
+<li>The industry tool!</li>
+<li>Interactive with Python.</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Wrap up the learning and share additional resources and next steps.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li>What is data science from GA's Standards Board <a href="https://theindex.generalassemb.ly/why-we-need-to-redefine-data-science-7f05ab0286d4">blog post</a></li>
+<li>Stack Overflow <a href="stackoverflow.blog/2017/09/06/incredible-growth-python/">blog</a> (1) <a href="https://stackoverflow.blog/2017/09/14/python-growing-quickly/">posts</a> (2) on Python's growth</li>
+<li>Markdown cheatsheet <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">here</a></li>
+<li>Interactive markdown cheatsheet <a href="http://markdownlivepreview.com/">here</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Movie search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+    <h2>{{ title }}: {{ rating }}</h2>
+    <img src="{{ poster }}" />
+    <p>
+        <strong>Year Released: </strong> {{ year }}
+    </p>
+    <p>
+        <strong>Plot Summary: </strong> {{ plot }}
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Python Basics: Intro to Python Web Dev
+type: lesson
+duration: “:60”
+creator: Anna Zucher + Susi Remondi
+---
+-->
+<section id="intro-to-flask" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Intro to Flask</h2>
+<!--
+
+## Overview
+We're introducing what Flask is. After a brief intro, we jump into a We Do that walks students through running a basic Flask app. Near the end, there's a slide on the history of Flask.
+
+## Important Notes or Prerequisites
+- Make sure you have Flask installed!
+
+## Learning Objectives
+In this lesson, students will:
+- Write a basic Flask application.
+
+## Duration
+30 minutes.
+
+#### Notes on timing:
+- This seems like a long time, but spend time on each slide going through variations of what can be written, whether it's a variable name or the return. Be sure everyone has a basic flask app at the end.
+
+---
+
+## Suggested Agenda
+
+| Time | Activity | Purpose |
+| --- | --- | --- |
+| 0:00 - 0:02 | Welcome |
+| 0:02 - 0:07 | Flask Introduction |
+| 0:07 - 0:25 | Building a Flask app |
+| 0:25 - 0:28 | History |
+| 0:28 - 0:30 | Summary |
+
+
+## Differentiation and Extensions
+- Feel free to come up with a few different things for the Flask app to display - more complex code between the `index` declaration and the `return`. Give advanced students more challenges to bring in dictionaries, lists, or loops.
+
+
+Materials needed:
+- Projector
+- Slides
+- Python3
+- Flask
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives:</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Write a basic Flask application.</li>
+</ul>
+<hr />
+</section>
+<section id="discussion-commonalities" class="level2">
+<h2>Discussion: Commonalities</h2>
+<p>What do you think these websites have in common?</p>
+<ul>
+<li><a href="http://www.pinterest.com">Pinterest</a></li>
+<li><a href="http://www.instagram.com">Instagram's Web Platform</a></li>
+<li><a href="http://linkedin.com/">LinkedIn</a></li>
+</ul>
+<p>They're each:</p>
+<ul>
+<li>High on user interactivity.</li>
+<li>Handling a large server load.</li>
+</ul>
+<p>What else?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Try to lead them towards the idea of a Python web framework module.</p></li>
+<li><p>A large server load means lots of images to download, lots of actions on part of user.</p></li>
+<li>Show LinkedIn and Pinterest if the students aren't familiar. Get them excited!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="they-all-use-flask" class="level2">
+<h2>They All Use <strong>Flask</strong></h2>
+<figure>
+<embed src="https://qph.fs.quoracdn.net/main-qimg-cd83cf9ee7ad51b8af4d0c4d5220f534.webp" />
+</figure>
+<p>Flask quite notes:</p>
+<ul>
+<li>A Python micro-web framework.</li>
+<li>Can create and write the entire backend in Python!</li>
+<li>Flask can do small tasks.</li>
+<li>E.g. create a microblog, stand up a simple API.</li>
+<li>Flask can do complex tasks. E.g. Pinterest's API, create a Twitter clone.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>It is classified as a microframework because it does not require particular tools or libraries.</li>
+<li>Open the lesson by describing what they are going to do (build a flask app!), and why this is so exciting (we are using Flask to actually put your stuff on the internet!)</li>
+<li>Why do we use a lighter web framework like Flask?</li>
+<li>Talk about how these sites work (lots of interaction + data), and why it is helpful to use flask for these (get to focus on the interactivity/data, and not just getting the thing up on to the internet+staying there)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="flask-syntax" class="level2">
+<h2>Flask Syntax</h2>
+<p>How?</p>
+<p>We just make a normal Python app.</p>
+<p>It looks like:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#import Flask class from flask library (Note upper/lowercase convention)</span>
+<span class="im">from</span> flask <span class="im">import</span> Flask
+
+<span class="co"># Initialize an instance of the Flask class</span>
+<span class="co"># This starts the website!</span>
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+<span class="co"># The default URL ends in / (&quot;my-website.com/&quot;)</span>
+<span class="co"># Could be instead &quot;my-website.com/about&quot; or anything - more on this later)</span>
+<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
+
+<span class="co"># Function that returns the page: Display &quot;Hello, World!&quot;</span>
+<span class="kw">def</span> index():
+  <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span>
+
+<span class="co"># Run the app when the program starts!</span>
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this, line by line.</li>
+<li>The code is commented for their reference, but be sure to still talk through it. There's a lot more to say than what's written!</li>
+<li>Give URL examples - pull up websites</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<p>&lt;Note: Copied from the Flask docs.&gt;</p>
+<ul>
+<li>First we imported the Flask class.</li>
+<li>Next we create an instance of this class. <code>__name__</code> is needed so that Flask knows where to look for templates, static files, and so on.</li>
+<li>We then use the <code>route()</code> decorator to tell Flask what URL should trigger our function.</li>
+<li>The function is given a name which is also used to generate URLs for that particular function, and returns the message we want to display in the user’s browser.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-lets-try" class="level2">
+<h2>We Do: Let's Try!</h2>
+<p>We'll run the Flask app like any other app.</p>
+<ul>
+<li>We need to install Flask!</li>
+<li><code>pip install flask</code></li>
+</ul>
+<p>Create a file called <code>my_website.py</code>.</p>
+<p>Start with:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#import Flask class from flask library</span>
+<span class="im">from</span> flask <span class="im">import</span> Flask</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Flask (and lots of web frameworks) can be launched on the command line, giving developers more control and clarity into what is going on.</li>
+<li>Set global variable (so flask knows where our main application logic lives)</li>
+</ul>
+<strong>Teaching Tips</strong>: - Make sure everyone has done these steps! - If there are difficulties with <code>pip</code>, check <code>sudo</code>. - Demo these so students have the idea, then let them experiment on their own. - For more advanced students, write longer scripts in the <code>index</code> function, or, if time, assign them the task.
+</aside>
+<hr />
+</section>
+<section id="we-do-the-main-flask-app" class="level2">
+<h2>We Do: The Main Flask App</h2>
+<p>Let's add:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Initialize an instance of the Flask class</span>
+<span class="co"># This starts the website!</span>
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+<span class="co"># The default URL ends in / (&quot;my-website.com/&quot;)</span>
+<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
+
+<span class="co"># Function that returns the page: Display &quot;Hello, World!&quot;</span>
+<span class="kw">def</span> index():
+  <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span>
+
+<span class="co"># Run the app when the program starts!</span>
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Continuously walk through the code.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-flask-app---try-it" class="level2">
+<h2>We Do: Flask App - Try it!</h2>
+<p>Run the app like normal:</p>
+<p><code>python my_website.py</code></p>
+<p>Go to:</p>
+<p><code>http://localhost:5000/</code></p>
+<p>You made a web app!</p>
+<p>Let's change the string:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> index():
+  <span class="co"># The &quot;return&quot; determines what&#39;s displayed</span>
+  <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Change around what's returned in index, so they can see that that's what makes the display.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="i-do-displaying-the-app" class="level2">
+<h2>I Do: Displaying the App</h2>
+<p>It's just Python - we can write any code.</p>
+<ul>
+<li>But 'return' essentially just takes strings.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> index():
+  my_list <span class="op">=</span> [<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;check&quot;</span>, <span class="st">&quot;this&quot;</span>, <span class="st">&quot;out&quot;</span>]
+  <span class="cf">return</span> my_list[<span class="dv">0</span>] <span class="co"># Works!</span></code></pre></div>
+<p>Conversely:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> index():
+  my_list <span class="op">=</span> [<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;check&quot;</span>, <span class="st">&quot;this&quot;</span>, <span class="st">&quot;out&quot;</span>]
+  <span class="cf">return</span> my_list <span class="co"># WON&#39;T WORK</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Change around what's returned in index, in a more advanced way.</li>
+<li>They can follow along if they'd like.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-flask-variations" class="level2">
+<h2>We Do: Flask Variations</h2>
+<p><code>app</code> and <code>index</code> are just naming conventions.</p>
+<ul>
+<li><code>def index():</code> could be <code>def monkey():</code></li>
+<li><code>app</code> could be <code>guitar</code>
+<ul>
+<li>Be sure to change it in all places!</li>
+</ul></li>
+</ul>
+<p>But naming variables sensibly is important!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask
+
+guitar <span class="op">=</span> Flask(<span class="va">__name__</span>)
+<span class="at">@guitar.route</span>(<span class="st">&#39;/&#39;</span>)
+
+<span class="kw">def</span> monkey():
+  <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span>
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    guitar.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Show this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="flask-history" class="level2">
+<h2>Flask History</h2>
+<p>Let's back up. Where did Flask come from?</p>
+<ul>
+<li>Before 2010:
+<ul>
+<li>No easy method for Python websites.</li>
+</ul></li>
+<li>2010:
+<ul>
+<li>A few developers built Flask to fix this.</li>
+</ul></li>
+</ul>
+<p>Flask is built on two libraries:</p>
+<ul>
+<li><em>Werkzeug</em>:
+<ul>
+<li>Interfaces with the web.</li>
+<li>Helps handle request and connections.</li>
+</ul></li>
+<li><em>Jinja</em>:
+<ul>
+<li>We'll be using later!</li>
+<li>We can write templates for all pages across our web app.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>: - Some students might not care about history, but go over it for the ones that do. - Don't spend too much time on the libraries - we're hitting Jinja later!</p>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>~2010 a group of open source python developers release the first version of Flask!</li>
+<li>Before this: no easy way to use Python on the internet/for web apps!</li>
+<li>Flask is built using two libraries (already written bundles of code)</li>
+</ul>
+<ol type="1">
+<li><em>Werkzeug</em> - a library to interface with the web. It helps to handle request and connections.</li>
+<li><em>Jinja</em> - a templating engine, which lets us write an html file once, and then apply that html file to all of our site</li>
+</ol>
+</aside>
+<hr />
+</section>
+<section id="summary-flask" class="level2">
+<h2>Summary: Flask</h2>
+<ul>
+<li>A Python micro-web framework</li>
+<li>Developed in 2010</li>
+</ul>
+<p>Looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#import Flask class from flask library</span>
+<span class="im">from</span> flask <span class="im">import</span> Flask
+
+<span class="co"># Initialize an instance of the Flask class</span>
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+<span class="co"># The default URL ends in / (&quot;my-website.com/&quot;)</span>
+<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
+
+<span class="co"># Function that returns the page: Display &quot;Hello, World!&quot;</span>
+<span class="kw">def</span> index():
+  <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span>
+
+<span class="co"># Run the app when the program starts!</span>
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Be sure everyone has a basic flask app at the end and understands why.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="http://flask.pocoo.org/docs/0.11/">The Flask Documentation</a></li>
+<li><a href="https://github.com/miguelgrinberg/flask-pycon2014">A Flask tutorial to follow along with</a></li>
+<li><a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">The Flask mega tutorial</a></li>
+<li><a href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">A great guide to those weird &quot;decorators&quot;</a>.</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

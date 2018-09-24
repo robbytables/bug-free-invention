@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Cody.
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Cody isn't in GA, so hit me up on Slack instead at @zoe.lubitz.
+--->
+</section>
+<section id="unit-5-lab-finalizing-the-movie-app" class="level1">
+<h1>Unit 5 Lab: Finalizing the Movie App</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This is the lab we’ve been working toward. Here, you’ll add an API call to actually get the Rotten Tomatoes rating, prompt a user for whether they want to search for a movie or view a rating, and read in an API key from a file.</p>
+<p>We’ll be using the <a href="https://www.omdbapi.com/" target="\_blank">OMDb API</a>.</p>
+<p>It’s a long lab, but it’s going to be worth it. Buckle up — here we go!</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>You’re going to continue building this locally from the last lab. You’ll write all of your code in the same <code>movie_app.py</code> file.</p>
+<p>Run the file from the command line to check your work.</p>
+<p>Additionally, you will have a file, <code>omdb-api-key.txt</code>, with your <em>own</em> OMDb API key.</p>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
+<p>In addition to the previous <code>print</code> statements, your app prompts a user for a <code>1</code> or a <code>2</code>, calls an API, and does one action accordingly:</p>
+<ul>
+<li><p>Inputting <code>1</code> when the program starts searches for a movie:</p>
+<pre><code>&gt; ./main.py
+Search (1) or Ratings (2)? 1
+Enter a search term: back to the future
+    Back to the Future
+    Back to the Future Part II
+    Back to the Future Part III
+    Ivan Vasilievich: Back to the Future
+    Back to the Future... The Ride
+    Back to the Future
+    Back to the Future: Making the Trilogy
+    Back to the Future: The Game - Episode 1, It&#39;s About Time
+    The Secrets of the Back to the Future Trilogy
+    Back to the Future: The Game - Episode 5, Outatime</code></pre></li>
+<li><p>Inputting <code>2</code> when the program starts prints the Rotten Tomatoes rating:</p>
+<pre><code>&gt; ./main.py
+Search (1) or Ratings (2)? 2
+Enter the movie title: Back to the Future
+The rating for &quot;Back to the Future&quot; is 96%.</code></pre>
+<hr /></li>
+</ul>
+</section>
+<section id="directions" class="level2">
+<h2>Directions</h2>
+<p>Augment the code you wrote for the Unit 2 lab.</p>
+<section id="part-1-user-input" class="level3">
+<h3>Part 1: User Input</h3>
+<p><strong>Part 1a: Search or Rating Prompt</strong></p>
+<p>Let’s start with the simplest part — having a user input <code>1</code> or <code>2</code>.</p>
+<ol type="1">
+<li><p>Delete the <code>search_or_ratings</code> declaration at the top of your file — you won’t need it.</p></li>
+<li><p>At the top of your <code>while</code> loop in <code>main</code>, create the <code>search_or_ratings</code> variable. Set it equal to the <code>input</code> of the prompt, <code>&quot;Would you like to search for a movie (1) or find the rating of a specific movie (2)?&quot;</code></p></li>
+<li><p>Remember that <code>input</code> always returns a string, so either typecast it to <code>int</code> or change your <code>if</code> block accordingly.</p></li>
+</ol>
+<p><strong>Part 1b: Movie Title Prompt</strong></p>
+<p>We want the user to search for a movie, not always print our hard-coded value. 1. In the <code>if</code> and <code>elif</code> blocks, prompt a user with <code>&quot;Enter the movie title: &quot;</code> and save the input into a new variable, <code>movie_query</code>. - Food for thought: Why do you think we put two separate <code>movie_query</code> prompts versus one above the <code>if</code> block?</p>
+<ol type="1">
+<li><p>Let’s now use this title. If the user inputs <code>2</code>, the app calls <code>print_single_movie_rating(&quot;Moana&quot;)</code>. Change this argument to be the user’s input. Test it out!</p></li>
+<li><p><code>list_search_results()</code> is eventually going to do just that — list the search results for the user’s input! We don’t have the search functionality yet, so right now let’s just prep for it by passing in the user’s input as well as <code>default_movie_list</code>.</p></li>
+</ol>
+</section>
+<section id="part-2-prepping-for-the-api" class="level3">
+<h3>Part 2: Prepping for the API</h3>
+<p><strong>Part 2a: Adjusting Existing Code</strong> 1. For this API to work, you’ll need a few libraries. At the top of your code, add these lines: <code>python   import urllib   import json   from urllib.parse import urlencode   from urllib.request import urlopen</code></p>
+<ol start="2" type="1">
+<li>Next, you’ll need to sign up for an API key. It’s free!
+<ul>
+<li>Go to <a href="https://www.omdbapi.com/apikey.aspx" target="_blank">this URL</a>.</li>
+<li>Follow the prompts and you’ll get a key that looks something like this: <code>eraa00e882</code> (that one’s not real — don’t use it!). Test out your API key by putting this URL in your browser: <code>https://www.omdbapi.com/?apikey=[your key]&amp;t=moana</code>.</li>
+<li>It returns quite a lot! But, pulling out a few key pieces: The very first thing is the <code>Title</code>, which we’ll need. Near the end, right after the poster URL, you can see the <code>Ratings</code> — it’s a <code>Source : Value</code> dictionary, exactly like you already have.</li>
+</ul></li>
+<li>Let’s make the key available to your program. Save this key in a file called <code>omdb-api-key.txt</code> in the same folder as your <code>movie_app.py</code>.
+<ul>
+<li>Now that it’s in a file, let’s create a function that reads it in. Create a function called <code>get_apikey()</code>.</li>
+<li>In it, open <code>omdb-api-key.txt</code>, <code>read</code> the contents, and save the result into a variable, <code>key</code>.</li>
+<li>Then, use <code>.strip()</code> to strip any whitespace characters and <code>print</code> out the key.</li>
+<li>Call <code>get_apikey()</code> from <code>main</code> so you can see it working (but once you’ve verified, delete the call).</li>
+</ul></li>
+<li>Let’s prepare our <code>Movie</code> class for this. When we create <code>Movie</code> objects, we’ll be passing in this block of OMDb data as <code>movie_data</code>. Let’s make our variables a little more descriptive.
+<ul>
+<li>Where you have <code>self.movie_data = movie_data</code>, change that to <code>self.omdb_data = movie_data</code>. Change the getters accordingly.</li>
+<li>In <code>get_movie_rating()</code>, change the default for the <code>source</code> parameter to <code>&quot;Rotten Tomatoes&quot;</code>.</li>
+<li>Remember that capitalization matters! We have a lowercase <code>title</code> and <code>rating</code> right now, but in the API the dictionary keys are <code>Title</code> and <code>Ratings</code>. Change yours in the two getter functions.</li>
+<li>Your movie class is set! You can minimize it — we won’t be changing it again in this lab.</li>
+</ul></li>
+</ol>
+<p><strong>Part 2b: Applying Programmatic Thinking</strong></p>
+<ol type="1">
+<li>Before we add the API, let’s apply some programmatic thinking. Where should we put the API call? What needs to call the API?
+<ul>
+<li><code>list_search_results()</code> is going to need to call the API to find the search results. Follow along: Let’s pseudocode out what we need to do and mark it with <code>TODO</code> so we don’t forget.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Because we&#39;re going to get the list by searching, this function should only take in the `movie_query`.</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">def</span> list_search_results(movie_query):</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">    Print list of movies. Later, print a list of title results from a movie search.</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="co"># </span><span class="al">TODO</span><span class="co">: All below.</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="co"># To call the API, we&#39;ll need the API key.</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    <span class="co"># Call `get_apikey()` and save it as `apikey`.</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="co"># Then, we&#39;ll need to make an API client to call the API. We&#39;ll also need to search for the actual movie. This might look something like:</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    <span class="co"># omdb_results = OMDB_call(apikey, movie_query)</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="co"># But, we aren&#39;t really sure until we actually call the API.</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    <span class="co"># When we do make this, we should probably put it in a try/except block in case the API call fails.</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    <span class="co"># Once we have our results, we can loop through them and print them.</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">    <span class="co"># We know from the example call on the website that each movie object is a dictionary with a &quot;Title&quot; key. We can use list comprehensions to make a list from this. If we save it in `movie_titles`, we don&#39;t need to change the `for` loop below, and we can delete the list parameter in the function declaration:</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">    <span class="co"># movie_titles = [each_movie[&quot;Title&quot;] for each_movie in matching_movie_list]</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">    <span class="co"># Loop through list of titles and print them (indented with four spaces).</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="cf">for</span> title <span class="kw">in</span> movie_titles:</a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">        <span class="bu">print</span>(<span class="st">&quot;    &quot;</span> <span class="op">+</span> title)</a></code></pre></div>
+<ul>
+<li><p>In preparation for this, change the call to <code>list_search_results()</code> to only have the <code>movie_query</code>.</p></li>
+<li><p>Also, change <code>get_apikey()</code> to <code>return</code> the key instead of printing it. <code>get_apikey()</code> is now done — you can minimize it!</p></li>
+</ul></li>
+<li>Where else will we need to call the API? <code>return_single_movie_object()</code> literally returns the <code>Movie</code> object given a movie title, so probably there. Let’s think about it:
+<ol type="1">
+<li>Once again, because we’re getting the movie data from the API call, we only need the movie title passed in. Take off the <code>movie_rating</code> parameter; look through the rest of the code for any calls to <code>return_single_movie_object()</code> and make sure they’re only passing in a title.</li>
+<li>Once you’ve done this, you can minimize the functions <code>print_all_ratings()</code> and <code>print_single_movie_rating()</code>. We’re done with them!</li>
+<li><p>While we’re at it, you can minimize <code>main</code>. We’re done with that, too! You’re making great progress.</p></li>
+<li><p>Continuing, let’s think about <code>return_single_movie_object()</code>. How does it compare to <code>list_search_results</code>? Let’s pseudocode it out:</p></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Because we&#39;re looking up the movie, we don&#39;t need to pass in the rating. Let&#39;s change the other parameter from &quot;movie_title&quot; to &quot;movie_query&quot; so it&#39;s more clear that we haven&#39;t looked it up yet.</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">def</span> return_single_movie_object(movie_query):</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">Take in the movie title and rating, and return the movie object.</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># </span><span class="al">TODO</span><span class="co">: All below.</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># To call the API, we&#39;ll need the API key.</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># Call `get_apikey()` and save it as `apikey`.</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co"># Then, we&#39;ll need to make an API client to call the API. We&#39;ll also need to search for the actual movie. This might look something like:</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># omdb_results = OMDB_call(apikey, movie_query)</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># But, we aren&#39;t really sure until we actually call the API.</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># When we do make this, we should probably put it in a try/except block in case the API call fails.</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co"># Once we have our movie from the API result, we can make a `Movie` object out of it and return that. Something like this, but we&#39;re not really sure yet:</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co"># return Movie({&quot;title&quot;: omdb_result[Title], &quot;rating&quot;: omdb_result[Ratings]})</span></a></code></pre></div></li>
+</ol>
+<p>We’ve done everything we can in preparation. We know where we need the API (<code>return_single_movie_object()</code> and <code>list_search_results()</code>), and we have a general idea in pseudocode of what we’re going to do with the results, so let’s actually call it.</p>
+</section>
+<section id="part-3-calling-the-api" class="level3">
+<h3>Part 3: Calling the API</h3>
+<p><strong>Part 3a: Creating the API Class</strong></p>
+<p>Before we do anything, put this code at the top of your file, right underneath the <code>import</code> calls:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">class</span> OMDBError(<span class="pp">Exception</span>):</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">    OMDBError represents an error returned by the OMDb API.</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="cf">pass</span></a></code></pre></div>
+<p>Now, for the API. Let’s put the API calls in a class. This way, we can keep all the API-related methods in one place, and it’s easy for any other function to call.</p>
+<p>What methods might our class have? - We’ll certainly need an <code>__init__</code>. - In it, we can set the API key as an instance variable. - To call an API, we need the URL we’re calling. We’ll have a <code>build_url()</code> method. - The parameters will be anything we want to put in the URL. We’ll use <code>**kwargs</code>, as we won’t know what they are in advance. - Lastly, we’ll want to actually call the API — we’ll have a <code>call_api()</code> method. - This will get called by outside functions and therefore will call <code>build_url()</code>. We’ll need to take in the <code>**kwargs</code> as a parameter here to be able to pass them on.</p>
+<p>Let’s get to it!</p>
+<ol type="1">
+<li>Create a class, <code>OMDB(object)</code>. Put it near the top of your file, right under the <code>Movie</code> class, so all of your methods are available in the rest of the file.</li>
+<li><p>Take in <code>apikey</code> and set <code>self.apikey = apikey</code>. (Do you remember where?)</p></li>
+<li>In the class, create a method, <code>build_url()</code>, that takes in an arbitrary number of keyword arguments (<code>**kwargs</code>), builds the URL, and returns the URL to call the API.
+<ul>
+<li><p>Use the code below, but make sure you understand it: ```python</p>
+<p>def build_url(self, **kwargs): &quot;&quot;&quot; build_url returns a properly formatted URL to the OMDb API including the API key. &quot;&quot;&quot;</p>
+<pre><code># Add API key to dictionary of parameters to send to OMDb.
+kwargs[&quot;apikey&quot;] = self.apikey
+
+# Start building URL.
+url = &quot;http://www.omdbapi.com/?&quot;
+
+# urlencode the API parameters dictionary and append it to the URL.
+url += urlencode(kwargs)
+
+# Return the complete URL.
+return url</code></pre>
+<p>```</p></li>
+</ul></li>
+<li>Next, let’s make a <code>call_api()</code> method, which, as the name implies, actually calls the API. It takes in <code>**kwargs</code> as well — these will be the search parameters to send to the API, such as the name of the movie we’re searching for.
+<ol type="1">
+<li>The first thing it does it call <code>build_url(**kwargs)</code> and saves that into a <code>url</code> variable.</li>
+<li>Next, it should open the URL (using <code>urlopen(url)</code>) and save that into a <code>response</code> variable.</li>
+<li>Then, <code>read()</code> that response and save it into <code>response_data</code>. Now we have some JSON with all of the movie information.</li>
+<li>Let’s use <code>json.loads()</code> to decode the <code>response_data</code> and save that into a variable called <code>response_data_decoded</code>.</li>
+<li>Before we continue, let’s error-check! Add this code under your <code>response_data_decoded</code> declaration:</li>
+</ol>
+<pre><code> ```python
+ # Check for an error and throw an exception if needed.
+ if &quot;Error&quot; in response_data_decoded:
+   raise OMDBError(response_data_decoded[&quot;Error&quot;])
+ ```</code></pre>
+<ol type="1">
+<li>Then, return <code>response_data_decoded</code>, so that whatever called the API now has access to the movie information.</li>
+</ol></li>
+</ol>
+<p><strong>Part 3b: Using the API Class</strong></p>
+<p>At this point, what do you think we should do? - We have a way to call the API, so we could go use this in <code>return_single_movie_object()</code> or <code>list_search_results()</code>. - However, what if, in the future, we want to get a list of search results or a single movie’s information and not anything else that’s in those functions? - Let’s make more class methods to handle this.</p>
+<ol type="1">
+<li>Let’s create a method in our OMDb class that calls gets a single movie’s info that <code>return_single_movie_object()</code> can call.
+<ol type="1">
+<li>Create a method called <code>get_movie()</code> that takes in a <code>movie_query</code> parameter — this is what <code>return_single_movie_object()</code>, or any other function in the future, will pass to it.</li>
+<li>In it, set a variable <code>movie_data</code> to the return of <code>self.call_api</code> with (<code>t=movie_query</code>) as an argument. The “t” here stands for “Title.”</li>
+<li>Take the <code>movie_data</code> that’s returned and create a <code>Movie</code> object out of it. Return that <code>Movie</code> object.</li>
+</ol></li>
+<li>Let’s check out our <code>return_single_movie_object()</code> and see if we can do something about this pseudocode.</li>
+<li>First, let’s call the API key and save it in <code>apikey</code>. That’s straightforward — we had that already!</li>
+<li><p>Next, we have this pseudocode existing in our function:</p>
+<pre><code># Then, we&#39;ll need to make an API client to call the API. We&#39;ll also need to search for the actual movie. This might look something like:
+# omdb_results = OMDB_call(apikey, movie_query)
+# But, we aren&#39;t really sure until we actually call the API.
+# When we do make this, we should probably put it in a try/except block in case the API call fails.</code></pre></li>
+<li>However, most of this is done in our class. Let’s make an OMDb object from the class, passing in our API key, and save it as <code>omdb</code>.</li>
+<li>Next, let’s get that <code>Movie</code> object. Call <code>omdb.get_movie(movie_to_look_up)</code> and save it as <code>my_movie_object</code>.</li>
+<li>Return <code>my_movie_object</code>.</li>
+<li><p>We’re almost good to try it out! Let’s add an error check in case it fails. Wrap your <code>omdb</code> call in a <code>try</code>/<code>except</code> block, like this:</p></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Get `Movie` object. If OMDb error occurs, print the error message and exit.</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    my_movie_object <span class="op">=</span> omdb.get_movie(movie_to_look_up)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="cf">return</span> my_movie_object</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="cf">except</span> OMDBError <span class="im">as</span> err:</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&quot;OMDB Error: </span><span class="sc">{0}</span><span class="st">&quot;</span>.<span class="bu">format</span>(err))</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="cf">return</span></a></code></pre></div>
+<p><strong>Break: Let’s Test!</strong></p>
+<p>At this point, we can try it out! - We’ll need to comment out any calls to <code>list_search_results()</code>, because we haven’t done anything in that function yet (the only one is in <code>main</code>). - Now, try running it! Before you even input anything, the <code>print</code> statements at the beginning should run:</p>
+<pre><code>The movie Back to the Future has a rating of 96%
+The movie Blade has a rating of 54%
+The movie Spirited Away has a rating of 97%</code></pre>
+<p>Then, inputting <code>2</code> and entering “Moana” should return a ratings result of 97% (remember, capitals matter!).</p>
+<p>If your program hangs (doesn’t respond) for more than a minute, hit <code>ctrl-c</code> to stop it. If you get stuck, try troubleshooting it, then ask for help.</p>
+<p><strong>Moving on: Let’s Add Search!</strong></p>
+<p>This is the last bit! Great job. How cool is your app so far?</p>
+<ul>
+<li>In the class, add a <code>search()</code> method.
+<ul>
+<li>Like <code>get_movie()</code>, take in a <code>movie_query</code>.</li>
+<li>Call the API, but have the argument be <code>s=movie_query</code>; the “s” here stands for “search.” Save the result in a variable called <code>movie_dictionaries</code>.</li>
+<li>Then, return the value of the <code>Search</code> key of that dictionary.</li>
+</ul></li>
+</ul>
+<p>That’s it for the OMDb class! Let’s do the final piece, which is <code>list_search_results()</code>. This function is going to look very similar to <code>return_single_movie_object()</code>. The few differences are: - In <code>list_search_results()</code>, instead of calling <code>.get_movie</code>, call <code>.search</code> and save the result in a variable, <code>matching_movie_list</code>. - Below the API call and above the <code>for</code> loop, uncomment the list comprehension from the pseudocode.</p>
+<p>Test this out by uncommenting the call to <code>list_search_results()</code> in <code>main</code>, then searching for <code>Blade</code>.</p>
+<p>If you get stuck, ask for help!</p>
+<p>That’s the end! Amazing job.</p>
+</section>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

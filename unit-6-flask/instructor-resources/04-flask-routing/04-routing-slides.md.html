@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Variables and Routing in Flask
+type: lesson
+duration: "01:00"
+creator: Kevin Coyle
+-->
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Variables and Routing in Flask
+</h1>
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Display variables on a webpage.</li>
+<li>Create a route in Flask.</li>
+</ul>
+<hr />
+</section>
+<section id="multiple-routes" class="level2">
+<h2>Multiple Routes</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>One of the things that makes Python so fantastic is that it is object-oriented.</li>
+<li>Assigning variables turns them into a type of object — with an object, we can do some awesome things.</li>
+<li>We’re going to look at variables in our Flask app. Creating variables allows us to return values of those variables, as well as provides us with all the methods and attributes in that type of object.</li>
+<li>Routes allow us to extend this a step further — we can take variables and put them into our URL, which we can then use to render some data on the page.</li>
+</ul>
+</aside>
+<ul>
+<li>Our website is cool, but it’s just one page.</li>
+<li>What about recipe pages? “About” pages?</li>
+<li>We need to use <code>routes</code>.</li>
+</ul>
+<p>But first, we need to learn <code>variables</code>.</p>
+</section>
+<section id="variables-again" class="level2">
+<h2>Variables? Again?</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>When we’re talking about variables here, we’re talking about the same thing as variables in base Python.</li>
+<li>You assign a variable to a value and that value gets stored in memory.</li>
+<li>We’ll go over some common use cases for including variables in your Flask app.</li>
+<li>Note, however, that using variables in templates and requests will be covered in a later lesson.
+</aside></li>
+<li><p>Yes! Regular variables.</p>
+<p><code>x = &quot;this string&quot;</code></p></li>
+<li>Difference: Here, we’re in the Flask app.</li>
+<li>Very specific use cases:
+<ul>
+<li>Routes (We’re learning now.)</li>
+<li>Templates (We’ll learn next.)</li>
+<li>Requests (We’ll learn later.)</li>
+</ul></li>
+</ul>
+<hr />
+</section>
+<section id="three-ways-to-read-in-a-variable" class="level2">
+<h2>Three Ways to Read in a Variable</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>There are several ways to obtain the value for a variable.</li>
+<li>Depending on that value and what it represents, there are different ways of going about entering that into our Flask app.</li>
+<li>The first is to have the variable assignment take place right in our Flask app.</li>
+<li>Another is to read it from a Python script, like you would for any other library.</li>
+<li>Yet another is to read it in from a file, unlike you would import any library.</li>
+</ul>
+</aside>
+<p>Variables come from:</p>
+<ul>
+<li>Within our Flask app.</li>
+<li>From another Python file.</li>
+<li>From any other file.</li>
+</ul>
+<hr />
+</section>
+<section id="method-1-set-variables-in-our-flask-app" class="level2">
+<h2>Method 1: Set Variables in Our Flask App</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>The easiest way to obtain a value from a variable in Flask is to assign it directly in your Flask app.</li>
+<li>This makes sense if we are only trying to output a very small amount of information.</li>
+<li>Consider the following modification on our <code>Hello World</code> app.</li>
+</ul>
+</aside>
+<p>These <em>aren’t</em> set inside <code>def hello()</code>. - What does that make them?</p>
+<p><code>hello_variables.py</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">from</span> flask <span class="im">import</span> Flask</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">app <span class="op">=</span> Flask(<span class="va">__name__</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">my_job_title <span class="op">=</span> <span class="st">&quot;Python pro&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">def</span> hello():</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">return</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> my_job_title</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    app.run(debug<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<hr />
+</section>
+<section id="we-do-in-app-variables" class="level2">
+<h2>We Do: In-App Variables</h2>
+<ul>
+<li>We can practice this: In your existing <code>my_website.py</code>, comment out the <code>return render_template(&quot;index.html&quot;)</code>.</li>
+</ul>
+<p>Instead, have:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">my_job_title <span class="op">=</span> <span class="st">&quot;Python pro&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">def</span> home():</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="cf">return</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> my_job_title</a></code></pre></div>
+<hr />
+</section>
+<section id="method-2-read-variables-from-a-python-file" class="level2">
+<h2>Method 2: Read Variables From a Python File</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>The next way to read in a variable is to assign it in a Python file, then import that file.</li>
+<li>This is considered the most “pythonic” way to read variables into other Python files.</li>
+<li>In order to use this approach, you need another file that ends in <code>.py</code>.</li>
+<li>You then read this file into your Flask app with an <code>import &lt;myFile&gt;</code>.</li>
+</ul>
+</aside>
+<ul>
+<li><p>You’re never limited to just one <code>.py</code> file!</p></li>
+<li><p>New Python file: <code>mySecrets.py</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">username <span class="op">=</span> <span class="st">&quot;Guy Fieri&quot;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">password <span class="op">=</span> <span class="st">&quot;flavortown&quot;</span></a></code></pre></div></li>
+</ul>
+<p>How would we print that in our Flask app?</p>
+<p>Any ideas?</p>
+<hr />
+</section>
+<section id="we-can-import-the-file" class="level2">
+<h2>We Can Import the File</h2>
+<p>Your normal Flask app:</p>
+<pre><code>```python
+from flask import Flask
+import mySecrets ## You can import any file!
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+@app.route(&#39;/&#39;)
+def hello():
+    return &quot;Hello, &quot; + my_name + &quot;, welcome to &quot; + my_password
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug=True)
+```</code></pre>
+<hr />
+</section>
+<section id="method-2-use-cases" class="level2">
+<h2>Method 2: Use Cases</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>A great use case for this is when you’d like to have your secret info (tokens, passwords, etc.) in a file that isn’t your Flask app.</li>
+<li>When you push your code to GitHub, you can then have your Flask app open for the world to see, and your passwords safely in a file on your local drive.</li>
+<li>Another use case is file management. Pretend you have a lot of variables that may not make it into every file, but you want a “master file” from which to read all these variables.</li>
+</ul>
+</aside>
+<p>Why?</p>
+<ul>
+<li>You have secret info (tokens, passwords, etc.) — keep them locally!</li>
+<li>You have many Flask pages, so you make a “master file” to hold all variables.</li>
+</ul>
+<hr />
+</section>
+<section id="your-turn-another-py-file" class="level2">
+<h2>Your Turn: Another <code>py</code> File</h2>
+<p>Now it’s your turn!</p>
+<ul>
+<li>Make a file called <code>python_variables.py</code> in the same folder as <code>my_website.py</code>.</li>
+<li>Insert some variables into <code>python_variables.py</code> - perhaps some books you like.</li>
+<li>Import <code>python_variables</code> into your Flask app, <code>my_website.py</code>.</li>
+<li>Display the values from <code>python_variables</code> in your Flask app.</li>
+</ul>
+<hr />
+</section>
+<section id="method-3-reading-from-a-non-python-file" class="level2">
+<h2>Method 3: Reading From a Non-Python File</h2>
+<aside class="notes">
+<ul>
+<li>Yet another way to read variables in is in non-Python files.</li>
+<li>Not all data/info you’ll need will be in a static Python file.</li>
+<li>This approach is a combo of one of the earlier two approaches.</li>
+<li>Pretend say you have another file that’s a .txt file.</li>
+<li>We can do two things:
+<ul>
+<li>Read that .txt file in directly in our Flask app and set that to a variable (like Approach 1).</li>
+<li>Read that .txt in with another file and save that to a variable which your Flask app reads (like Approach 2).
+<ul>
+<li>Here, we take Approach 1. First, though, we create a .txt file.</li>
+<li>Then, we open it with <code>os</code> and <code>file open</code>.</li>
+<li>Then, we set that .txt to a variable and print that variable in our <code>route()</code> function.</li>
+</ul></li>
+</ul></li>
+</ul>
+</aside>
+<p>Let’s create a <code>.txt</code> file called <code>hi.txt</code> in the same folder where our app lives. We’ll include some Shakespeare poetry.</p>
+<pre><code>So are you to my thoughts as food to life,
+Or as sweet-seasoned showers are to the ground;</code></pre>
+<p>How do you think we get this into our Flask app?</p>
+<hr />
+</section>
+<section id="with-file-open" class="level2">
+<h2>With File Open</h2>
+<p>Then, we’ll add a bit in our Flask app:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="im">import</span> os <span class="co"># Note the new import — to be in the file system.</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">file_path <span class="op">=</span> <span class="st">&#39;.&#39;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Note the &quot;with&quot;! We don&#39;t need &quot;close&quot;.</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="cf">with</span> <span class="bu">open</span>(os.path.join(file_path, <span class="st">&#39;hi.txt&#39;</span>)) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    the_text <span class="op">=</span> f.read()</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="at">@app.route</span>(<span class="st">&#39;/text&#39;</span>)</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw">def</span> read_txt():</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="cf">return</span> the_text</a></code></pre></div>
+<hr />
+</section>
+<section id="you-do-add-a-.txt-file" class="level2">
+<h2>You Do: Add a <code>.txt</code> File</h2>
+<p>Now it’s your turn!</p>
+<ul>
+<li>Make a file called <code>more_variables.txt</code> in the same folder as <code>my_website.py</code>.</li>
+<li>Write some information into <code>more_variables.txt</code> — perhaps what you’d like for breakfast tomorrow.</li>
+<li><code>import os</code> so you can find the file.</li>
+<li><p>Use this code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="cf">with</span> <span class="bu">open</span>(os.path.join(file_path, <span class="st">&#39;more_variables.txt&#39;</span>)) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    the_text <span class="op">=</span> f.read()</a></code></pre></div></li>
+<li><p>Display the text from <code>more_variables</code> in your Flask app.</p></li>
+</ul>
+<hr />
+</section>
+<section id="knowledge-check" class="level2">
+<h2>Knowledge Check</h2>
+<p>What are the three approaches to read in variables to a Flask app?</p>
+<aside class="notes">
+<p><strong>Teaching Tip:</strong></p>
+<ul>
+<li>Answer: Reading directly in our Flask app, from a Python file and importing, and from a non-Python file.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="part-2.-routing" class="level2">
+<h2>Part 2. Routing</h2>
+<hr />
+</section>
+<section id="what-is-that-app.route-anyway" class="level2">
+<h2>What Is That <code>@app.route('/')</code>, Anyway?</h2>
+<aside class="notes">
+<strong>Talking Points:</strong> - By now, you may be wondering about that <code>@app</code> that we keep putting on the line before our function. - <code>@</code> is a way to use a “decorator.” - A decorator is a way to put one Python function into another Python function. - More formally, this process is called “wrapping a function” inside of another function. - You can check out more on decorators later, but for now, knowing that our <code>@app.route(endpoint)</code> is a way that we pass an argument — the endpoint — into a routing function. - In other words: We tell our Flask app to listen to a particular endpoint and then we have a function that happens if that endpoint gets hit.
+</aside>
+<p>We have:</p>
+<ul>
+<li>Listen to an endpoint (here, <code>/</code>).</li>
+<li>Do <code>def home()</code> if someone goes there.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>) <span class="co"># When someone goes here...</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">def</span> home(): <span class="co"># Do this.</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>)<span class="st">&quot;</span></a></code></pre></div>
+<p><code>https://localhost.com/</code> <code>=&gt; render_template(&quot;index.html&quot;)&quot;</code></p>
+<p>What if we want to go to <code>https://localhost.com/sayHi</code>?</p>
+<hr />
+</section>
+<section id="suddenly-a-new-page" class="level2">
+<h2>Suddenly, a New Page!</h2>
+<ul>
+<li>This is <strong>routing</strong>.</li>
+<li>New pages on our web app!</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/sayHi&#39;</span>) <span class="co"># When someone goes here...</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">def</span> hello(): <span class="co"># Do this.</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="cf">return</span> <span class="st">&quot;Hello, Mr. Fieri.&quot;</span></a></code></pre></div>
+<hr />
+</section>
+<section id="we-do-add-a-route" class="level2">
+<h2>We Do: Add a Route</h2>
+<ul>
+<li><p>In <code>my_website.py</code>, under <code>def home()</code>, add:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/sayHi&#39;</span>) <span class="co"># When someone goes here...</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">def</span> hello(): <span class="co"># Do this.</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="cf">return</span> <span class="st">&quot;Hello, Mr. Fieri.&quot;</span></a></code></pre></div></li>
+<li><p>Reload the page! Go to <code>https://localhost.com:5000/sayHi</code>.</p></li>
+</ul>
+<hr />
+</section>
+<section id="what-is-a-route" class="level2">
+<h2>What Is a Route?</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>A route in our context here consists of our <code>localhost:5000</code>, as well as the rest of our URL.</li>
+<li>We pass the rest of our endpoint into our <code>app.route()</code> function as an argument.</li>
+<li>This means everything inside of the parentheses and inside of quotes becomes our URL.</li>
+</ul>
+</aside>
+<ul>
+<li>The URL: <code>http://localhost:5000/sayHi</code></li>
+<li>We <em>route</em> to different URLs:
+<ul>
+<li><code>http://localhost:5000/sayHi</code></li>
+<li><code>http://localhost:5000/Cats</code></li>
+<li><code>http://localhost:5000/profile</code></li>
+</ul></li>
+<li><p><code>sayHi</code>, <code>Cats</code>, <code>/</code>, and <code>profile</code> are <strong>endpoints</strong> from our main app.</p></li>
+<li><p>We only need to add:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/&lt;endpoint&gt;&#39;</span>) <span class="co"># When someone goes here...</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">def</span> function_name(): <span class="co"># Do this.</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="cf">return</span> string</a></code></pre></div></li>
+</ul>
+<hr />
+</section>
+<section id="you-do-adding-a-route" class="level2">
+<h2>You Do: Adding a Route</h2>
+<ul>
+<li>In <code>my_website.py</code>, add a new route to a <code>dice</code> endpoint.</li>
+<li>In the function for this endpoint, display a string that’s a random number.
+<ul>
+<li><em>Hint:</em> Remember the <code>random</code> module? You can use <code>randint(1, 100)</code>.</li>
+<li><em>Hint:</em> You can turn an integer to a string with <code>str(number)</code>.</li>
+</ul></li>
+<li>Reload the page and go to your endpoint to try it out!</li>
+</ul>
+<hr />
+</section>
+<section id="variables-in-the-route" class="level2">
+<h2>Variables in the Route</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>OK, so I said these are two separate concepts, but that’s only halfway true.</li>
+<li>We can actually assign values in the URL to into variables in our Flask app.</li>
+<li>Why would we do this? Because we can change the URL to reflect what sort of data we wish to see.</li>
+<li>In the code snippet you see here: We are assigning the name variable to a value, which we insert into our function and then return to the user, in the middle of a sentence.</li>
+</ul>
+</aside>
+<ul>
+<li>You can pass a variable in the route itself.</li>
+<li>It’s a dynamic endpoint!</li>
+<li>You can use that variable in your function.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;sayhi/&lt;name&gt;&#39;</span>)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">def</span> hello(name):</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">    <span class="cf">return</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;, your coding skills impress me!&quot;</span></a></code></pre></div>
+<p><code>http://localhost:5000/sayHi/Hari</code> <code>=&gt; Hello, Hari, your coding skills impress me!&quot;</code></p>
+<hr />
+</section>
+<section id="your-turn" class="level2">
+<h2>Your Turn!</h2>
+<p>Try adding route in your Flask app to have:</p>
+<ul>
+<li>A <code>dice/&lt;int&gt;</code> route that displays the product of an integer in the route multiplied by four.</li>
+<li>A <code>repeat</code> route that takes a string passed into the URL, then displays it four times in a row.</li>
+</ul>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>We covered variables and routing in Flask:</p>
+<ul>
+<li>Variables can be made:
+<ul>
+<li>In the Flask app: Used like normal variables.</li>
+<li>In a Python file: Imported like a module.</li>
+<li>In another file: Used <code>file</code> to read it.</li>
+</ul></li>
+<li>Routing:
+<ul>
+<li><code>@app.route(&lt;endpoint&gt;)</code> is how we make new pages in our app!</li>
+</ul></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

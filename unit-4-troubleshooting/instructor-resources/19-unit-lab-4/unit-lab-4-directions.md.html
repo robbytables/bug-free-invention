@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Susi and Cody
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @Zoe Lubitz .
+--->
+</section>
+<section id="unit-4-lab-carefully-adding-a-bit-more-logic" class="level1">
+<h1>Unit 4 Lab: Carefully Adding a Bit More Logic</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>Welcome to the Unit 4 lab!</p>
+<p>Our goal is that, at the end of the next lab (you’re almost there!), your app makes it possible for users to search for a movie and print out either the Rotten Tomatoes rating or the search results.</p>
+<p>Let’s get a little closer. We still have hard-coded values, but in the next lab we’ll actually get the real ratings. For now, let’s incorporate some intermediate variables and error-catching.</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>You’re going to continue building this locally from the last lab. You’ll write all of your code in the same <code>movie_app.py</code> file.</p>
+<p>Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python movie_app.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
+<ol type="1">
+<li>Your <code>get_movie_rating</code> takes a source argument and prints a message if the source isn’t found.</li>
+<li>Your <code>Movie</code>’s <code>rating</code> holds a list of dictionaries.</li>
+<li>Your <code>if</code> block in the <code>main</code> function is now in a <code>while</code> loop that continues until the user puts in a valid input.</li>
+</ol>
+<hr />
+</section>
+<section id="directions" class="level2">
+<h2>Directions</h2>
+<p>Augment the code you wrote for the Unit 2 lab.</p>
+<section id="part-1-making-the-rating-more-advanced" class="level3">
+<h3>Part 1: Making the Rating More Advanced</h3>
+<p><strong>Part 1a: The Rating Format</strong></p>
+<p>Right now, <code>search_or_ratings</code> being <code>2</code> calls <code>print_single_movie_rating</code>, which creates a <code>Movie</code> object with the rating, which is currently hard-coded to <code>7</code>.</p>
+<p>However, we don’t want a hard-coded rating, right? We want a Rotten Tomatoes rating — we just don’t have it yet.</p>
+<p>It would be nice to have the hard-coded rating labeled with the source <code>&quot;hard coded&quot;</code>. Then, when we add the Rotten Tomatoes rating, we can label that with <code>&quot;Rotten Tomatoes&quot;</code>. This way, we can prepare to get the real rating but still have testable code.</p>
+<p>Instead of being a single integer, let’s have the <code>Movie</code> <code>rating</code> be a list of dictionaries. <em>(Why? So we can store multiple bits of information.)</em> Our object will look like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">&quot;Ratings&quot;</span>:[</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  {<span class="st">&quot;Source&quot;</span> : <span class="st">&quot;&lt;what the source is&gt;&quot;</span>,<span class="st">&quot;Value&quot;</span> : <span class="st">&quot;&lt;numerical value&quot;</span>},</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  {<span class="st">&quot;Source&quot;</span> : <span class="st">&quot;&lt;what the source is&gt;&quot;</span>,<span class="st">&quot;Value&quot;</span> : <span class="st">&quot;&lt;numerical value&quot;</span>},</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">]</a></code></pre></div>
+<p>For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">&quot;Ratings&quot;</span>:[</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  {<span class="st">&quot;Source&quot;</span> : <span class="st">&quot;Rotten Tomatoes&quot;</span>, <span class="st">&quot;Value&quot;</span> : <span class="st">&quot;54%&quot;</span>},</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  {<span class="st">&quot;Source&quot;</span> : <span class="st">&quot;Hard Coded&quot;</span>, <span class="st">&quot;Value&quot;</span> : <span class="st">&quot;7&quot;</span>}</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">]</a></code></pre></div>
+<p>To accomplish this, we need to do two things: 1. Change what we pass in to <code>Movie</code> for <code>ratings</code> to have a list of dictionaries instead of a single value. 2. Change <code>get_movie_rating()</code> in the class to look in the list for the right value, instead of returning a simple value.</p>
+<p>Let’s tackle No. 1. We are currently only making <code>Movie</code> objects in the function <code>return_single_movie_object()</code>, which has the code <code>Movie({'title': movie_title, 'rating': movie_rating})</code>.</p>
+<p>Change the <code>return_single_movie_object()</code> function to:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> return_single_movie_object(movie_title, movie_rating):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">    Take in the movie title and rating, and return the movie object.</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    rating_list <span class="op">=</span> [{<span class="st">&quot;Source:&quot;</span> : <span class="st">&quot;Hard Coded&quot;</span>, <span class="st">&quot;Value&quot;</span> : movie_rating}]</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="cf">return</span> Movie({<span class="st">&#39;title&#39;</span>: movie_title, <span class="st">&#39;rating&#39;</span>: rating_list})</a></code></pre></div>
+<p>On to No. 2: Go to the <code>get_movie_rating()</code> method in your <code>Movie</code> class. Let’s add a <code>for</code> loop that looks through this list for the source we want and then returns that value. This way, we can later specify what source we want.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> get_movie_rating(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">    get_movie_rating is a getter function that returns the rating.</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    <span class="co"># Loop through each rating and return it if the source is &quot;Hard Coded&quot;.</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="cf">for</span> ratings <span class="kw">in</span> <span class="va">self</span>.movie_data[<span class="st">&quot;rating&quot;</span>]:</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">        <span class="cf">if</span> ratings[<span class="st">&quot;Source&quot;</span>] <span class="op">==</span> <span class="st">&quot;Hard Coded&quot;</span>:</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">            <span class="cf">return</span> ratings[<span class="st">&quot;Value&quot;</span>]</a></code></pre></div>
+<p>Now let’s test it out. Set <code>search_or_ratings</code> to <code>2</code> and run the program.</p>
+<p>We get a <code>KeyError: &quot;Source&quot;</code>. What happened? The key <code>&quot;Source&quot;</code> isn’t in the dictionary. Hmmm. Can you look at the two new functions above and see why?</p>
+<p>If you look at the code we just added to <code>return_single_movie_object()</code>, you’ll see that we have <code>&quot;Source:&quot;</code> as the key — not <code>&quot;Source&quot;</code>. The smallest typos make huge differences! Delete the <code>:</code> and run it again. It works!</p>
+<p><strong>Part 1b: Error-Checking</strong></p>
+<p>If the goal is to be able to change which rating we want to print, we’ll need a way for a user to specify that. We’ll change <code>def get_movie_rating(self)</code> to take in a <code>source</code> argument and give the parameter a default value for anyone who forgets to specify.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> get_movie_rating(<span class="va">self</span>, source<span class="op">=</span><span class="st">&quot;Hard Coded&quot;</span>):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">    get_movie_rating is a getter function that returns the rating.</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="co"># Loop through each rating and return it if the source is what&#39;s passed in.</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="cf">for</span> ratings <span class="kw">in</span> <span class="va">self</span>.movie_data[<span class="st">&quot;rating&quot;</span>]:</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">      <span class="cf">if</span> ratings[<span class="st">&quot;Source&quot;</span>] <span class="op">==</span> source:</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">          <span class="cf">return</span> ratings[<span class="st">&quot;Value&quot;</span>]</a></code></pre></div>
+<p>Because we’ve changed something, test it out. Great!</p>
+<p>Now, let’s say someone calls this method with <code>source</code> equal to <code>&quot;Rotten Tomatoes&quot;</code>, which we currently don’t have. What will our app do?</p>
+<p>Let’s try it. In <code>print_single_movie_rating()</code>, change the <code>print</code> statement to <code>print(&quot;The rating for&quot;, my_movie.get_movie_title(), &quot;is&quot;, my_movie.get_movie_rating(&quot;Rotten Tomatoes&quot;))</code>. Now run it:</p>
+<p><code>The rating for Moana is None</code></p>
+<p>Hmm. That’s probably not true, right? I’m sure <em>Moana</em> doesn’t have a <code>None</code> rating on Rotten Tomatoes, but that’s what Python returns because it could find it in our list. It’d be better if <code>get_movie_rating()</code> told us that it didn’t have that key. Let’s add a formatted exception to the bottom of <code>get_movie_rating()</code>, which tells Python to throw an error:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># If no matching rating is found, we will raise an error.</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&quot;Rating for source </span><span class="sc">{0}</span><span class="st"> was not found!&quot;</span>.<span class="bu">format</span>(source))</a></code></pre></div>
+<p>Now run it.</p>
+<p>That’s a little extreme, right? Let’s find a happy medium:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> get_movie_rating(<span class="va">self</span>, source<span class="op">=</span><span class="st">&quot;Hard Coded&quot;</span>):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">    get_movie_rating is a getter function that returns the rating.</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="co"># Loop through each rating and return it if the source is what&#39;s passed in.</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="cf">for</span> ratings <span class="kw">in</span> <span class="va">self</span>.movie_data[<span class="st">&quot;rating&quot;</span>]:</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">      <span class="cf">if</span> ratings[<span class="st">&quot;Source&quot;</span>] <span class="op">==</span> source:</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">          <span class="cf">return</span> ratings[<span class="st">&quot;Value&quot;</span>]</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="co"># If the code makes it here, it hasn&#39;t returned in the for loop.</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="cf">return</span> <span class="st">&quot;- Wait - Rating for source </span><span class="sc">{0}</span><span class="st"> was not found!&quot;</span>.<span class="bu">format</span>(source)</a></code></pre></div>
+<p>Try that. Better, right? Now, before we forget, go remove the <code>&quot;Rotten Tomatoes&quot;</code> parameter from the call in <code>print_single_movie_rating</code>.</p>
+</section>
+<section id="part-2-adding-a-while-loop" class="level3">
+<h3>Part 2: Adding a <code>while</code> Loop</h3>
+<blockquote>
+<p>When you follow these directions, be careful that you don’t create an infinite loop! If your program doesn’t stop, you can hit <code>ctrl-c</code> in the terminal window to interrupt the program.</p>
+</blockquote>
+<p>Let’s look at our <code>main</code> function — particularly, the <code>if</code> block. Right now, the function ends after the user inputs anything. However, if they input something wrong, instead of printing an error and ending the program, it’d be a lot nicer to print the error and let them try again.</p>
+<p>Let’s put our <code>if</code> block in a <code>while</code> loop. Something to note about loops: You can exit them using the keyword <code>break</code>.</p>
+<p>Change your <code>if</code> block in <code>main</code> to look like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># We set up an infinite loop (while True) so that we can keep asking the</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co"># user the same question until they give us valid input (&quot;1&quot; or &quot;2&quot;). As</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># soon as a valid input is reached, the appropriate function runs and the</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># loop is terminated with &quot;break.&quot;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="cf">if</span> search_or_ratings <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">      <span class="co"># If search_or_ratings is 1, call list_search_results().</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">      list_search_results(default_movie_list)</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">      <span class="co">## **NEW LINE HERE** - If the user had a valid choice, leave the while loop</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">      <span class="cf">break</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">  <span class="cf">elif</span> search_or_ratings <span class="op">==</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">      <span class="co"># If search_or_ratings is 2, call print_movie_rating().</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">      print_single_movie_rating(<span class="st">&quot;Moana&quot;</span>)</a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">      <span class="co">## **NEW LINE HERE** - If the user had a valid choice, leave the while loop</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">      <span class="cf">break</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20">  <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">      <span class="co"># If search_or_ratings is otherwise, give an error.</span></a>
+<a class="sourceLine" id="cb9-22" data-line-number="22">      <span class="bu">print</span>(<span class="st">&quot;Error: Your input must be 1 or 2!&quot;</span>)</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">      <span class="co">## </span><span class="al">NOTICE</span><span class="co"> NO BREAK HERE - The user didn&#39;t input something valid, so let&#39;s give them another try.</span></a></code></pre></div>
+<p>Compare your code to ours. Remember, if you set <code>search_or_ratings</code> to something other than 1–3, <code>ctrl-c</code> will stop the loop.</p>
+</section>
+<section id="part-3-string-formatting" class="level3">
+<h3>Part 3: String Formatting</h3>
+<p>Quickly, let’s do one last thing. In <code>print_single_movie_rating</code>, let’s change the <code>print</code> statement to have string formatting. You can just use this code:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Print the rating. Note that we have to escape the quotes around the movie</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co"># title because those quotes are inside a string that also uses quotes.</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;The rating for </span><span class="ch">\&quot;</span><span class="sc">{0}</span><span class="ch">\&quot;</span><span class="st"> is </span><span class="sc">{1}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(my_movie.get_movie_title(), my_movie.get_movie_rating()))</a></code></pre></div>
+</section>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

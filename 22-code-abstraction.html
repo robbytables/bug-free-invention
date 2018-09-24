@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Python Code Abstraction
+type: lesson
+duration: "0:60"
+creators: Steven Peters (initial draft) and Brandi Butler (final draft)
+---
+-->
+<section id="python-code-abstraction" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Code Abstraction</h2>
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Use itertools to implement efficient looping.</li>
+<li>Use list comprehensions to concisely create lists.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>These two points are pretty intense sounding. Reassure them!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-code-abstraction" class="level2">
+<h2>What is Code Abstraction?</h2>
+<p>A key part of programming is &quot;Don't Repeat Yourself&quot;:</p>
+<ul>
+<li>Write once, use many times.</li>
+<li>Don't repeat yourself!</li>
+<li>Have we mentioned this? It bears repeating! 😁</li>
+</ul>
+<p>Programmers aren't lazy - they're efficient!</p>
+<p>Python is filled with functionality that has been written for you.</p>
+<ul>
+<li>You didn't need to write <code>lists.append</code> - you just used it!</li>
+</ul>
+<p>Code abstraction takes this to the next level.</p>
+<ul>
+<li>Python has many built-in functions that perform common, but complicated, tasks.</li>
+</ul>
+<p>We're going to look at just a few of these.</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Functionality should be in one place and when you find a variation it should be abstracted out.
+<ul>
+<li>A theoretical way of saying &quot;Don't Repeat Yourself&quot;!</li>
+</ul></li>
+<li>But also means don't repeat the work involved in <em>producing</em> the functionality. Write it once but use it over and over.</li>
+<li><p>In functional programming, many bits of functionality have already been written and <strong>abstracted</strong> into libraries within the language.</p></li>
+<li>Many languages, Python included, have built-in ways to access and manipulate data.</li>
+<li>Lists specifically have many standard associated operations.</li>
+<li><p>Instead of having every Python engineer write these operations over and over, the language provides a single source for this functionality, adhering to the principle of abstraction.</p></li>
+</ul>
+<p><strong>Teaching Tips</strong>: - This slide is a little heavy. Explain things in layman's terms as much as possible!</p>
+</aside>
+<hr />
+</section>
+<section id="like-what" class="level2">
+<h2>Like What?</h2>
+<p>Let's look at <strong>itertools</strong>.</p>
+<ul>
+<li>A collection of functions.</li>
+<li>Design to make looping or iterating easier (iterating tools -&gt; iter-tools)</li>
+</ul>
+<p>Using itertools, this is what we'll learn to do in the following slides:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># We can **group** list items</span>
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>]
+<span class="co"># =&gt; dog [&#39;dog&#39;, &#39;dog&#39;, &#39;dog&#39;] - The three dogs are grouped together.</span>
+<span class="co"># =&gt; horse [&#39;horse&#39;, &#39;horse&#39;] - The two horses are grouped together</span>
+
+<span class="co"># We can **chain** lists:</span>
+food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+<span class="co"># =&gt; lists_chained =[&#39;pizza&#39;, &#39;tacos&#39;, &#39;sushi&#39;, &#39;red&#39;, &#39;green&#39;]</span>
+
+<span class="co"># We can **add** elements</span>
+primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>]
+<span class="co"># =&gt; primes_added = [2, 5, 10, 17, 28, 41]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>They aren't learning modules until the next presentation! Don't cover it here.</li>
+<li>Talk about itertools as a bunch of code Python's written that we can use. Don't say the word &quot;module&quot; and confuse them.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Go through the code and make sure students understand what it's doing. This should be pretty quick.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="our-first-itertool-groupby" class="level2">
+<h2>Our First Itertool: Groupby</h2>
+<p>Sometimes our lists contain repeated items that work better for us if they are all grouped together. Using <code>groupby</code>, which has been written for us by Python in <code>itertools</code>, we can take our list and group the items.</p>
+<ul>
+<li><code>key</code>: the name of the group (in this case 'dog' and 'horse').</li>
+<li><code>group</code>: a list containing all occurrences of that key from the original list.</li>
+</ul>
+<p>All the gibberish-looking stuff are memory addresses! Python tells us, &quot;I made a new object, and I put it here&quot;. We'll talk about this on the next slide.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is to show them the code, not an exercise. Run it and walk through it with them.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Sometimes our lists contain repeated items that work better for us if they are all grouped together. The <code>itertools</code> modules gives us the <code>groupby()</code> function that does exactly this.&quot;</p></li>
+<li><p>&quot;We have an import at the top - we'll discuss that in the next lesson. Just know that it's how we can use itertools. Notice when we call a function from itertools, we need to preface it with the itertools keyword so Python knows where to find it.</p></li>
+</ul>
+<p><em>Then run the code</em></p>
+<ul>
+<li><p>The memory addresses just tell us &quot;There is a new object, and I stored it here&quot;. We'll get to it on the next slide - just know that it created something.&quot;</p></li>
+<li>Line 1: This imports the <code>itertools</code> code so we can use the functions in it.</li>
+<li>Line 2: This sets up a list with animals in it.</li>
+<li>Line 3: This is where the magic happens:</li>
+<li>We call <code>itertools.groupby()</code> and pass in our list that we want grouped.</li>
+<li><code>groupby()</code> returns both the <strong>key</strong> which is like the name of our group, and the <strong>group</strong> which is all the things in that group.</li>
+<li><p>Inside the <code>groupby()</code> loop, we simply print those values for each key-group pair.</p></li>
+</ul>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Tell Python we&#39;re using itertools</span>
+<span class="im">import</span> itertools
+
+<span class="co"># Make our list</span>
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]
+
+<span class="co"># We are using groupby, but have to tell Python it came from itertools.</span>
+<span class="cf">for</span> key, group <span class="kw">in</span> itertools.groupby(animals):
+  <span class="co"># Key - the name of the group. Group - the items in it.</span>
+  <span class="bu">print</span>(key, group)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="memory-addresses" class="level2">
+<h2>Memory Addresses</h2>
+<p>Everything on your computer has to be stored somewhere! Computers track where things are by assigning them <em>memory addresses</em>. This way, when you want to open a picture or file, your computer knows exactly where to look.</p>
+<p>But that memory address isn't useful. We can use <code>list()</code> to change the address back into a list. <em>(<code>list</code> is explicit type casting; do you remember it?)</em></p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-4?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo slide, not an exercise! Use it as a teaching aid.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;If you put a piece of paper in a filing cabinet, when you want that paper back, you'll need to know exactly where, among all the other papers, it is. You can think of a filing cabinet as a computer's memory.&quot;</li>
+<li>So we sorted the animals list into a new list called <code>sorted_animals</code> and we then converted the <code>group</code> returned by the function from an &quot;iterable grouper object&quot; memory address into a list with the <code>list()</code> function.</li>
+<li>You don't need to memorize the idea of memory addresses - but if you see something weird like this in your program, that's probably what you're seeing.</li>
+</ul>
+<p><strong>Repl.it Note</strong> This code has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]
+
+<span class="cf">for</span> key, group <span class="kw">in</span> itertools.groupby(animals):
+<span class="co"># Call list on the group to get the list at the memory address</span>
+<span class="bu">print</span>(key, <span class="bu">list</span>(group))</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-why-is-dog-there-twice" class="level2">
+<h2>Discussion: Why is Dog there twice?</h2>
+<p>This is our original list:</p>
+<p><code>animals = ['dog', 'dog', 'horse', 'horse', 'horse', 'dog']</code></p>
+<p><code>groupby</code> gives us this:</p>
+<pre><code>dog [&#39;dog&#39;, &#39;dog&#39;]
+horse [&#39;horse&#39;, &#39;horse&#39;, &#39;horse&#39;]
+dog [&#39;dog&#39;]</code></pre>
+<p>Can anyone guess why is &quot;dog&quot; listed twice?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to guess here. It will break up a dense topic, as well as get them thinking.</li>
+<li>Try to lead them in the right direction.</li>
+<li>The answer is that all the &quot;dog&quot;s aren't listed together - groupby only groups consecutive things.</li>
+<li>Give them the answer if they don't get it after two minutes.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="sorting" class="level2">
+<h2>Sorting</h2>
+<p><code>groupby()</code> is great, but not perfect! It will only group consecutive items. <strong>Always</strong> run <code>groupby()</code> on a sorted list (if you forget, you'll remember when <code>groupby</code> returns something strange!).</p>
+<p>Can Python sort lists? - Yes! Everything useful is built in. - There's a <code>sorted()</code> function: <code>new_sorted_list = sorted(list_to_be_sorted)</code> ```</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo slide, not an exercise! Use it as a teaching aid.</li>
+<li>Do a few variations of this to be sure students understand sorting.</li>
+</ul>
+<p><strong>Replit Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]
+sorted_animals <span class="op">=</span> <span class="bu">sorted</span>(animals)
+<span class="bu">print</span>(<span class="st">&quot;Now sorted, the list is:&quot;</span>, sorted_animals, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+
+<span class="cf">for</span> key, group <span class="kw">in</span> itertools.groupby(sorted_animals):
+  <span class="bu">print</span>(key, <span class="bu">list</span>(group))</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="where-could-groupby-be-useful" class="level2">
+<h2>Where Could <code>groupby</code> be Useful?</h2>
+<p>What if we had a list of tuples? It's a bit hard to read.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">things_tuple <span class="op">=</span> [(<span class="st">&quot;animal&quot;</span>, <span class="st">&quot;wolf&quot;</span>), (<span class="st">&quot;animal&quot;</span>, <span class="st">&quot;sparrow&quot;</span>), (<span class="st">&quot;plant&quot;</span>, <span class="st">&quot;cactus&quot;</span>), (<span class="st">&quot;vehicle&quot;</span>, <span class="st">&quot;yacht&quot;</span>), (<span class="st">&quot;vehicle&quot;</span>, <span class="st">&quot;school bus&quot;</span>), (<span class="st">&quot;vehicle&quot;</span>, <span class="st">&quot;car&quot;</span>)]</code></pre></div>
+<p>We could use <code>groupBy</code> to get this:</p>
+<pre><code>animal:
+wolf is a animal
+sparrow is a animal
+
+plant:
+cactus is a plant
+
+vehicle:
+yacht is a vehicle
+school bus is a vehicle
+car is a vehicle</code></pre>
+<aside class="notes">
+<p><strong>Talking Points</strong>: * <strong>Question</strong>: You might be asking yourself why this is useful. * <strong>Answer</strong>: It isn't, yet! But wait... there's more!</p>
+<ul>
+<li>Here is a more complicated, but more useful example of <code>groupby()</code>.</li>
+<li>We're categorizing different things in a list of tuples.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>We've looked at our first <code>itertool</code>, <code>groupby</code>. It groups things in lists, tuples, etc - any collection! by keys.</p>
+<ul>
+<li><code>key</code>: the name of the group (in this case 'dog' and 'horse').</li>
+<li><code>group</code>: a list containing all occurrences of that key from the original list.</li>
+</ul>
+<p><code>groupby</code> needs to be run on something sorted. We can sort with another built in function: <code>sorted(list_to_be_sorted)</code>.</p>
+<p>We only worked on lists, but tuples are a better use case for <code>groupby</code>. <code>groupby</code> can be run on any collection.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]
+sorted_animals <span class="op">=</span> <span class="bu">sorted</span>(animals)
+<span class="bu">print</span>(<span class="st">&quot;Now sorted, the list is:&quot;</span>, sorted_animals, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+
+<span class="cf">for</span> key, group <span class="kw">in</span> itertools.groupby(sorted_animals):
+  <span class="bu">print</span>(key, <span class="bu">list</span>(group))</code></pre></div>
+<p><strong>Up next</strong>: Chain!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="a-new-itertool-chain" class="level2">
+<h2>A New Itertool: Chain</h2>
+<p>With itertools, we can <strong>chain</strong> lists:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+<span class="co"># =&gt; lists_chained =[&#39;pizza&#39;, &#39;tacos&#39;, &#39;sushi&#39;, &#39;red&#39;, &#39;green&#39;]</span></code></pre></div>
+<p>The <code>chain()</code> function takes any number of lists or sequences as parameters to turn into one. - <code>chained_list = list(itertools.chain(list1, list2, list3))</code></p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-chain?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo, not an exercise.</li>
+<li>Change the number of lists passed in.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Lists are powerful because they are large collections of items that be processed as a single item.</li>
+<li>In many cases, we can further combine lists into one long list.</li>
+<li>Processing a single list is always more efficient than processing multiple lists in sequence.</li>
+<li>The <code>itertools</code> code provides a function called <code>chain()</code> which does this.</li>
+<li>The <code>chain()</code> function takes any number of lists or sequences as parameters.
+<ul>
+<li>Remember <code>*args</code>?</li>
+</ul></li>
+<li>It returns a new iterable object (which we convert with <code>list()</code>).</li>
+<li>Knowing this, you should be able to write a script to link the lists provided into one.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-happened-to-the-plus-operator" class="level2">
+<h2>What Happened to the Plus Operator?</h2>
+<p><strong>Question</strong>: Why not just use <code>+</code>?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">chained_list <span class="op">=</span> food <span class="op">+</span> numbers <span class="op">+</span> colors
+<span class="bu">print</span>(chained_list)</code></pre></div>
+<p><strong>Answer 1</strong>: <code>itertools.chain</code> is more efficient - it's faster, even if it's still too fast for you to notice the difference.</p>
+<p><strong>Answer 2</strong>: <code>itertools.chain</code> can contain different types of iterables.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+food_list <span class="op">=</span> [<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;oranges&quot;</span>]
+numbers_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)
+colors_dictionary <span class="op">=</span> {
+  <span class="st">&quot;green&quot;</span>: <span class="st">&quot;peaceful&quot;</span>,
+  <span class="st">&quot;blue&quot;</span>: <span class="st">&quot;calm&quot;</span>,
+  <span class="st">&quot;red&quot;</span>: <span class="st">&quot;passionate&quot;</span>
+}
+
+<span class="co"># ✅ THIS WORKS. YAY!</span>
+chained_list <span class="op">=</span> <span class="bu">list</span>(itertools.chain(food_list, numbers_range, colors_dictionary))
+<span class="co"># =&gt; [&#39;apples&#39;, &#39;bananas&#39;, &#39;oranges&#39;, 0, 1, 2, 3, &#39;green&#39;, &#39;blue&#39;, &#39;red&#39;]</span>
+
+<span class="co"># 🚫 THIS DOES NOT WORK. DON&#39;T DO IT!</span>
+chained_list <span class="op">=</span> food_list <span class="op">+</span> numbers_range <span class="op">+</span> colors_dictionary</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Why not just use the + operator is a fair question. Try to answer as best you can without more complex topics! Try not to go down a rabbit hole of efficiency/big O/etc, unless students seem advanced.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-chain" class="level2">
+<h2>You Do: Chain</h2>
+<p>Create a local file, <code>my_itertools.py</code>. Put this at the top:</p>
+<pre><code>import itertools</code></pre>
+<p>Below that:</p>
+<ul>
+<li>Create a list of colors.</li>
+<li>Create a dictionary of hobbies.</li>
+<li>Chain them together.</li>
+<li>Print out the chain!</li>
+</ul>
+<aside class="notes">
+<p>3 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk around for questions.</li>
+<li>After they give it a shot, go over the answer - do it on the screen.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>Our second itertool is <code>chain</code>, which puts lists and other collections together.</p>
+<p>The <code>chain()</code> function takes any number of lists or sequences as parameters to turn into one.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+food_list <span class="op">=</span> [<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;oranges&quot;</span>]
+numbers_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)
+colors_dictionary <span class="op">=</span> {
+  <span class="st">&quot;green&quot;</span>: <span class="st">&quot;peaceful&quot;</span>,
+  <span class="st">&quot;blue&quot;</span>: <span class="st">&quot;calm&quot;</span>,
+  <span class="st">&quot;red&quot;</span>: <span class="st">&quot;passionate&quot;</span>
+}
+
+chained_list <span class="op">=</span> <span class="bu">list</span>(itertools.chain(food_list, numbers_range, colors_dictionary))
+<span class="co"># =&gt; [&#39;apples&#39;, &#39;bananas&#39;, &#39;oranges&#39;, 0, 1, 2, 3, &#39;green&#39;, &#39;blue&#39;, &#39;red&#39;]</span></code></pre></div>
+<p><strong>Next up</strong>: Accumulate!</p>
+<hr />
+</section>
+<section id="a-new-itertool-accumulate" class="level2">
+<h2>A New Itertool: Accumulate</h2>
+<p>What else can we do with itertools? - We have <code>groupby</code> and <code>chain</code>.</p>
+<p>We can <strong>accumulate</strong> elements - add each index as it goes, making a new list with all the sums.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>]
+<span class="co"># =&gt; primes_added = [2, 5, 10, 17, 28, 41]</span>
+
+<span class="co"># How? It adds what&#39;s before it.</span>
+<span class="co"># [(2), (2+3=5), (5+5=10), (10+7=17), (17+11=28), (28+13=41)]</span></code></pre></div>
+<p><strong>Pro Tip</strong>: It's like the Fibonacci sequence!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through how the math works.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Sometimes our lists hold items which need to be added up or multiplied into a single result.</li>
+<li>We can iterate through the entire list and store an ongoing result, or...</li>
+<li><p>We can import <code>itertools</code> and use the built-in <code>accumulate()</code> function.</p></li>
+<li>By default, <code>accumulate()</code> will successively add each element in the list.</li>
+<li>It returns a list that contains each result of adding each item to the previous sum.</li>
+<li><p>Having each result up to the final sum is helpful in machine learning applications.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="working-through-accumulate" class="level2">
+<h2>Working Through Accumulate</h2>
+<p>Run this. Try changing the numbers! Set some to negative or floats.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-accumulate2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Take this time to show them how accumulate works. Change up the numbers.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We import <code>itertools</code> and set up a list of prime numbers to sum.</li>
+<li>Then we call <code>itertools.accumulate()</code> and we pass in the primes list.</li>
+<li>Lastly, we use the <code>list()</code> function to convert to a list and store in the <code>results</code> variable.</li>
+<li>The accumulator starts at 0, then adds each index as it goes.</li>
+<li>The final result is this list</li>
+</ul>
+<p><strong>Repl.it Note</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+<span class="co"># Start with a numerical list</span>
+primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>]
+
+<span class="co"># Pass it to</span>
+results <span class="op">=</span> <span class="bu">list</span>(itertools.accumulate(primes))
+<span class="bu">print</span>(results)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[(<span class="dv">0</span><span class="op">+</span><span class="dv">2</span><span class="op">=</span><span class="dv">2</span>), (<span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">=</span><span class="dv">5</span>), (<span class="dv">5</span><span class="op">+</span><span class="dv">5</span><span class="op">=</span><span class="dv">10</span>), (<span class="dv">10</span><span class="op">+</span><span class="dv">7</span><span class="op">=</span><span class="dv">17</span>), (<span class="dv">17</span><span class="op">+</span><span class="dv">11</span><span class="op">=</span><span class="dv">28</span>), (<span class="dv">28</span><span class="op">+</span><span class="dv">13</span><span class="op">=</span><span class="dv">41</span>)]</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-2" class="level2">
+<h2>Quick Review</h2>
+<p>Those are all the itertools we're going to cover!</p>
+<ul>
+<li><code>groupby</code>: Grouping items in our list or collection.</li>
+<li><code>chain</code>: Concat lists or collections into one longer list.</li>
+<li><code>accumulate</code>: Add each element throughout a list, making a new list.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Chain </span><span class="al">###</span>
+food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+<span class="co"># =&gt; lists_chained =[&#39;pizza&#39;, &#39;tacos&#39;, &#39;sushi&#39;, &#39;red&#39;, &#39;green&#39;]</span>
+
+<span class="co">### Groupby </span><span class="al">###</span>
+<span class="co"># Make our list</span>
+animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]
+<span class="cf">for</span> key, group <span class="kw">in</span> itertools.groupby(animals):
+  <span class="co"># Key - the name of the group. Group - the items in it.</span>
+  <span class="bu">print</span>(key, group)
+
+<span class="co">### Accumulate </span><span class="al">###</span>
+primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>]
+<span class="co"># =&gt; primes_added = [2, 5, 10, 17, 28, 41]</span></code></pre></div>
+<p><strong>Next Up</strong>: List Comprehensions</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="changing-gears-modifying-a-list" class="level2">
+<h2>Changing Gears: Modifying a List</h2>
+<p><code>itertools</code> provides abstraction for iterating over lists. We're done with them!</p>
+<p>Let's move on - what about building a new list that's slight modified of another list? This is <em>extremely</em> common, so Python provides for us <strong>list comprehensions</strong>.</p>
+<p>For anything where you can make:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> item <span class="kw">in</span> old_list:
+    <span class="cf">if</span> <span class="op">&lt;</span> condition <span class="op">&gt;</span>
+      new_list.append(<span class="op">&lt;</span> modification <span class="op">&gt;</span>)</code></pre></div>
+<p>You can use list comprehension syntax instead:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">new_list <span class="op">=</span> [modification  old_list  [condition]]</code></pre></div>
+<p>It turns 3 lines of code into one!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Stress that this lesson is about code abstraction, and itertools are just one way to do that. We're on list comprehensions now!</li>
+<li>Make sure they understand this code and where pieces match up.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Lists are some of the most frequently used data structures in any programming language.</li>
+<li>Building a new list out of slightly modified values from another list is an <em>extremely</em> common task.</li>
+<li>We could use a loop to do this but <code>List Comprehensions</code> offer more concise syntax.</li>
+<li>Any time we can do the same thing with less code, we should take advantage of it.
+<ul>
+<li>You know, instead of repeating ourselves!</li>
+</ul></li>
+<li>Less code means less testing, debugging, and maintaining which reduces business costs.</li>
+<li>Essentially, we are looping through an <code>old_list</code> and applying a <code>modification</code> if the <code>condition</code> is <code>True</code>.
+<ul>
+<li>Note: We can leave out the <code>== True</code> since it's assumed!</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="example-list-comprehension" class="level2">
+<h2>Example List Comprehension</h2>
+<p>So instead of our <code>for</code> loop, we can have <code># new_list = [modification  old_list  [condition]]</code>.</p>
+<p>Let's run this. Try changing the list or modification.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-list-comprehensions?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>This repl.it is a teaching aid, not an exercise. Change a bunch of the parameters (the list, the modifications) to get students the idea.</li>
+<li>Write up the corresponding for loop if students need help.</li>
+</ul>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">old_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+
+squares_1 <span class="op">=</span> []
+
+<span class="cf">for</span> number <span class="kw">in</span> old_list:
+    squares_1.append(number<span class="op">**</span><span class="dv">2</span> )
+
+squares_2 <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> old_list]
+
+<span class="bu">print</span>(squares_1)
+<span class="bu">print</span>(squares_2)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="list-comprehensions-with-a-conditional" class="level2">
+<h2>List Comprehensions with a Conditional</h2>
+<p>How could we only square the even numbers?</p>
+<p>We're familiar with a loop:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># All squares</span>
+<span class="cf">for</span> i <span class="kw">in</span> old_list:  <span class="co"># old list</span>
+    squares.append(i<span class="op">**</span><span class="dv">2</span>)  <span class="co"># modification</span>
+
+<span class="co"># Even squares</span>
+<span class="cf">for</span> i <span class="kw">in</span> old_list:  <span class="co"># Old list</span>
+    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:   <span class="co"># Conditional</span>
+      squares_even.append(i<span class="op">**</span><span class="dv">2</span>) <span class="co"># Modification</span></code></pre></div>
+<p>Now, in a list comprehension:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># new_list = [modification  old_list  [condition]]</span>
+
+squares <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> old_list]
+
+<span class="co"># Even squares: The condition is the if statement!</span>
+squares_even <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> old_list <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>What if we want to specify squares of only <em>even</em> numbers</li>
+<li>We want the squares of <code>2, 4, and 6</code> but NOT <code>1, 3, or 5</code>.</li>
+<li>We can specify the condition with an inline <code>if</code> statement.</li>
+<li>Remember the <code>%</code> operator? We can use <code>%</code> to ensure a number is divisible by 2.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="example-list-comprehension-conditionals" class="level2">
+<h2>Example: List Comprehension &amp; Conditionals</h2>
+<p>Let's run this. Try changing the list, modification, or conditional. It's <code># new_list = [modification  old_list  [condition]]</code>.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-list-comprehensions-2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>This repl.it is a teaching aid, not an exercise. Change a bunch of the parameters (the list, the modifications, the conditions) to get students the idea.</li>
+<li>Write up the corresponding for loop if students need help.</li>
+</ul>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+old_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+
+squares_even <span class="op">=</span> []
+
+<span class="cf">for</span> i <span class="kw">in</span> old_list:
+    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:
+      squares_even.append(i<span class="op">**</span><span class="dv">2</span>)
+
+squares_even_2 <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> old_list <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]
+
+<span class="bu">print</span>(squares_even)
+<span class="bu">print</span>(squares_even_2)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-more-conditionals-practice" class="level2">
+<h2>Discussion: More Conditionals Practice</h2>
+<p>We're not limited to math or numerical lists! Any list will work, and any <code>if</code> conditional will work.</p>
+<p>If you can make:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> item <span class="kw">in</span> old_list:
+    <span class="cf">if</span> <span class="op">&lt;</span> condition <span class="op">&gt;</span>
+      new_list.append(<span class="op">&lt;</span> modification <span class="op">&gt;</span>)</code></pre></div>
+<p>Then you can make:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">new_list <span class="op">=</span> [modification  old_list_iteration  [condition]]</code></pre></div>
+<p>Let's say we have a string containing both numbers and letters:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_string <span class="op">=</span> <span class="st">&#39;99 fantastic 13 hello 2 world&#39;</span></code></pre></div>
+<p>We want to write a list comprehension that will make a new list containing only the numbers that appear.</p>
+<ul>
+<li>What is our <code>modification</code>?</li>
+<li>What is our <code>old_list_iteration</code>?</li>
+<li>What is our <code>condition</code>?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a discussion, not a quiz! After they've discussed their best guesses, turn the slide.</li>
+<li>Write a for loop on the board with them to help them figure it out as a class.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Modification: We aren't really modifying the values, we are just including them if they are digits.</li>
+<li>If we aren't modifying the items, we can just use the iterator variable from the next part (<code>i</code>).</li>
+<li>Iteration: We want to look at each item so we should use <code>for i in my_string</code>.</li>
+<li>Condition: We only want to include digits in the new list so we need a function to test the elements.</li>
+<li>The condition begins with <code>if</code> and the <code>isdigit()</code> function will return true if the character is a digit.</li>
+<li>We can use the following: <code>if i.isdigit()</code></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-creating-the-list-comprehension" class="level2">
+<h2>Partner Exercise: Creating the List Comprehension</h2>
+<p>Get with a partner! Pick a driver.</p>
+<p>Below, turn the <code>for</code> loop into a list comprehension. Discuss with them - why doesn't it print <code>[99, 13, 2]</code>?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-list-comps-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>3 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After they give it their best shot, go over the solution. It's</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_string <span class="op">=</span> <span class="st">&#39;99 fantastic 13 hello 2 world&#39;</span>
+
+nums <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> my_string <span class="cf">if</span> i.isdigit()]
+
+<span class="bu">print</span>(nums) <span class="co"># outputs =&gt; [&#39;9&#39;, &#39;9&#39;, &#39;1&#39;, &#39;3&#39;, &#39;2&#39;]</span></code></pre></div>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_string <span class="op">=</span> <span class="st">&#39;99 fantastic 13 hello 2 world&#39;</span>
+nums_list <span class="op">=</span> []
+
+<span class="cf">for</span> i <span class="kw">in</span> my_string:
+  <span class="cf">if</span> i.isdigit():
+    nums_list.append(i)
+
+<span class="bu">print</span>(nums_list) <span class="co"># Prints [&#39;9&#39;, &#39;9&#39;, &#39;1&#39;, &#39;3&#39;, &#39;2&#39;]</span></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A:</h2>
+<p>Code abstraction: Shortcut functions provided by Python for common tasks.</p>
+<p><code>itertools</code>:</p>
+<ul>
+<li><p>Abstraction for loops and iterating.</p></li>
+<li><code>groupby()</code>: Creates groups of elements in a list matching a key. Sort elements first!
+<ul>
+<li><code>animals = ['dog', 'dog', 'dog', 'horse', 'horse', 'horse']</code> and <code>for key, group in itertools.groupby(animals)</code> creates <code>dog: ['dog', 'dog', 'dog'], horse: ['horse', 'horse']</code></li>
+</ul></li>
+<li><code>chain()</code>: Creates one long list from many lists.
+<ul>
+<li><code>chained_list = list(itertools.chain(list1, list2, list3))</code></li>
+</ul></li>
+</ul>
+<p><code>accumulate()</code> performs some operation on a list and returns the accumulated results. - <code>results = list(itertools.accumulate(primes))</code></p>
+<p>List comprehensions: - Abstraction for creating a slightly modified list. - <code>new_list = [modification  old_list_iteration  [condition]]</code></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check for understanding. Pull up an interpreter or repl.it to demo any code if they're stuck.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="https://realpython.com/python-itertools/#what-is-itertools-and-why-should-you-use-it">What is Itertools and Why Should I Use It?</a></li>
+<li><a href="https://docs.python.org/3/library/itertools.html#itertools.groupby">GroupBy Docs</a></li>
+<li><a href="http://programeveryday.com/post/using-python-itertools-to-save-memory/">Chain and Other Itertools</a></li>
+<li><a href="http://www.pythonforbeginners.com/basics/list-comprehensions-in-python">Comprehending List Comprehensions</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Sonyl
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @sonylnagale.
+--->
+</section>
+<section id="unit-3-lab-object-oriented-programming" class="level1">
+<h1>Unit 3 Lab: Object-Oriented Programming</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This lesson consists of a hands-on lab during which learners will independently create a working Python program. This lab builds on the previous lab, so starter code (which is the same solution code as the previous lab) is provided for them. You simply need to introduce the lab, make sure they have working starter code, make sure they can access the lab doc, and be available in case of questions. At the end, go over the solution (located in the solution-code folder).</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p>In this lesson, students will: - Apply what they’ve learned in Unit 3 to create a working Python program.</p>
+</section>
+<section id="duration" class="level2">
+<h2>Duration</h2>
+<p>90 minutes</p>
+</section>
+<section id="suggested-agenda" class="level2">
+<h2>Suggested Agenda</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00 - 0:05</td>
+<td>Welcome/Set-Up</td>
+</tr>
+<tr class="even">
+<td>0:05 - 1:20</td>
+<td>Work Time</td>
+</tr>
+<tr class="odd">
+<td>1:20 - 1:30</td>
+<td>Q&amp;A + Close</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="before-class-preparation" class="level2">
+<h2>Before Class: Preparation</h2>
+<ul>
+<li>Before class, complete the lab yourself to ensure you’re familiar with the solution, as well as the various challenges learners might encounter.</li>
+</ul>
+</section>
+<section id="in-class-materials" class="level2">
+<h2>In Class: Materials</h2>
+<ul>
+<li>Projector</li>
+<li>Internet connection</li>
+<li>Python 3.0</li>
+<li>Lab directions</li>
+</ul>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

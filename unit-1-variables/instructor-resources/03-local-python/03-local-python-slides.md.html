@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Running Python on Your Computer
+type: lesson
+duration: "01:00"
+creator: Brandi Butler
+-->
+<section id="running-python-on-your-computer" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Running Python on Your Computer</h2>
+<!--
+
+## Overview
+This lesson gets students set up and comfortable working with Python on their local environment by running `python3 file_name.py` from their command prompt. After installing Python 3 and Atom, they'll run through a few practice scripts they've already seen to get used to editing files locally.
+
+## Important Notes or Prerequisites
+- At the point you give this lesson, students are getting their very first introduction to writing code. Don't assume they know anything! Be sure to explain carefully whenever you change even a little thing.
+- Encourage students to type, not copy and paste, for practice. Whenever possible, have students try to guess what will happen and try it out in the slide.
+- Note: If the code is too long for students to easily see in the embedded slide, there's an "open with repl.it" icon in the top right of the embed that will open the repl.it in a new, larger window.
+
+## Learning Objectives
+In this lesson, students will:
+- Install Python 3.
+- Write Python 3 scripts locally.
+- Run Python 3 scripts via the command prompt.
+
+## Duration
+20 minutes
+
+## Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:01 | Welcome
+| 0:02 - 0:14 | Installfest](#activity-installfest-12-min
+| 0:15 - 0:19 | Running Local Files
+| 0:19 - 0:20 | Summary
+
+## Before Class: Preparation
+
+- Change the location of the installation directions.
+
+- **IMPORTANT:** Watch the clock! There may be a couple students with a slow computer. We can't have everyone wait on them, so make sure that you cut this activity off at the time limit! Follow up with those students at lunch.
+
+- In advance, check if students will run the code with `python3 file.py` or `python.py`. The later lesson slides usually have `python.py` in their You Do instructions. Have students adjust accordingly.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python 3.0
+- Installation directions
+
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to…</em></p>
+<ul>
+<li>Write Python 3 scripts locally.</li>
+<li>Run Python 3 scripts via the command prompt.</li>
+</ul>
+<hr />
+</section>
+<section id="defining-assumptions" class="level2">
+<h2>Defining Assumptions</h2>
+<p>We can’t use repl.it forever! We can run Python right on our computers.</p>
+<ul>
+<li>GA uses Macs for its default curriculum.</li>
+<li>We are happy to help you program Python on Windows or Linux as well.</li>
+<li>Sometimes you may need to ask questions about subtle differences!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Make sure students are aware that GA uses Macs as a default, but that you have directions for installing and can provide guidance on Linux and Windows as well.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-get-installing" class="level2">
+<h2>Let’s Get Installing!</h2>
+<p>This will take us 10 to 15 minutes, then we’ll regroup.</p>
+<p>First, install Atom from <a href="https://atom.io/">https://atom.io/</a>. This is where you’ll write your code.</p>
+<p>Then, follow the <a href="python3-installation-directions.md">Python 3 installation directions</a>.</p>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li><p>Students can use a different text editor if you or they prefer, but any reference to a text editor throughout this course is “Atom.”</p></li>
+<li><p>Point a link to where the directions are, or, if students downloaded them as a PDF, point out which PDF.</p></li>
+<li><p>You may have to cut off a student who is taking way too long to do this. It really isn’t fair to make everyone else wait in this case. Reassure the student that you will follow up with them during lunch or a break. Meanwhile, they should continue to use the website repl.it.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="regroup" class="level2">
+<h2>Regroup</h2>
+<ul>
+<li>You have Python 3 installed!</li>
+<li>You may have seen the in-line REPL (we’ll revisit!).</li>
+<li>You have a text editor — Atom — installed.</li>
+<li>You are ready to create a local <code>.py</code> file and run it.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Make sure everyone has either installed Python 3 or knows that it’s shelved until lunch.</li>
+<li>Make sure everyone has downloaded and can open the Atom text editor.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="in-line-repl" class="level2">
+<h2>In-Line REPL</h2>
+<p>Let’s check out a REPL.</p>
+<ul>
+<li><code>Read-Evaluate-Print-Loop</code>.</li>
+<li>An interactive way to code.</li>
+</ul>
+<p>Let’s do it!</p>
+<ul>
+<li>Open your terminal.</li>
+<li>Then, open your in-line REPL:</li>
+</ul>
+<p>Mac/Linux:</p>
+<pre><code>python</code></pre>
+<p>Windows:</p>
+<pre><code>py</code></pre>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>This seems simple, but go slowly.</li>
+<li>Some students might need <code>ipython</code>, not just <code>python</code>, or even <code>python3</code> — walk around and make sure they have it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-interactive-development" class="level2">
+<h2>We Do: Interactive Development</h2>
+<p>You can type any Python code you want here. Let’s declare a variable and do some math:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">x <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">y <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">print</span>(x <span class="op">+</span> y)</a></code></pre></div>
+<blockquote>
+<p><strong>Pro tip:</strong> <code>exit()</code> is the command for when you want to get out of this environment!</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Have everyone practice this with you.</li>
+<li>Practice <code>exit</code> as well.</li>
+<li>Some students might need <code>exit</code>, not <code>exit()</code> — walk around and make sure they have it.</li>
+</ul>
+<p>Talking Points:</p>
+<ul>
+<li>“You’re running Python locally!”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-local-files" class="level2">
+<h2>We Do: Local Files</h2>
+<p>We can create a file with a <code>.py</code> extension — we can execute properly written Python code in a <code>.py</code> file.</p>
+<ol type="1">
+<li>Create a new file with a <code>.py</code> extension. Let’s call it <code>my_file.py</code>.</li>
+<li>Open <code>my_file.py</code> in <code>Atom</code>.</li>
+<li>In this file, declare some variables. Let’s mix integers and strings!</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">favorite_tv_show <span class="op">=</span> <span class="st">&quot;Ninja Warrior&quot;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">obstacles_cleared <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">time <span class="op">=</span> <span class="st">&quot;3 min, 20 sec&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;I cleared&quot;</span>, obstacles_cleared, <span class="st">&quot;on&quot;</span>, favorite_tv_show, <span class="st">&quot;in&quot;</span>, time)</a></code></pre></div>
+<p>Save and close your file.</p>
+<blockquote>
+<p><strong>Pro tip:</strong> Make sure you have a <code>print</code> statement.</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Have everyone practice this with you. We want them to be able to run local code on their own.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-running-local-files" class="level2">
+<h2>We Do: Running Local Files</h2>
+<p>Now we have code in a file, but we need to run it.</p>
+<ul>
+<li><p>Back on your terminal, we’ll navigate to where that file is located:</p>
+<ul>
+<li><code>cd</code> stands for “change directory” (“directory” is another word for “folder”).</li>
+<li><code>cd my_folder</code> changes to the directory <code>my_directory</code>.</li>
+<li><code>cd ..</code> goes up to the parent folder of the one you’re in.</li>
+</ul></li>
+<li><p>Running the file varies slightly between Windows and Mac/Linux:</p>
+<ul>
+<li>Mac/Linux: <code>python my_file.py</code></li>
+<li>Windows: <code>py my_file.py</code></li>
+</ul></li>
+</ul>
+<p>Raise your hand if you need help!</p>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Students have probably never seen a command line before this presentation. Show them how to do it, then walk around and make sure everyone is clear.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<ul>
+<li>We now have Python 3 — the latest and greatest — installed.</li>
+<li>We can use our in-line REPL in the terminal.</li>
+<li>We can execute a local <code>.py</code> file with Python code in it.</li>
+<li>We know how to do this regardless of whether we use Mac, Linux, or Windows.</li>
+</ul>
+<blockquote>
+<p>Any questions?</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>If students seem a bit lost and there’s time, have them keep practicing this. Consider giving different tasks for them to perform in the REPL and the <code>.py</code>, and be clear about the difference between the two.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/">Linux Command Line Cheat Sheet</a></li>
+<li><a href="https://www.git-tower.com/blog/command-line-cheat-sheet/">Mac Command Line Cheat Sheet</a></li>
+<li><a href="http://simplyadvanced.net/blog/cheat-sheet-for-windows-command-prompt/">Windows Command Line Cheat Sheet</a></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Encourage students to go through these in their spare time if they’re curious.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Susi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @susiremondi
+--->
+</section>
+<section id="unit-2-lab-control-flow" class="level1">
+<h1>Unit 2 Lab: Control Flow</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>Welcome to the second unit lab! Remember, our goal is that at the end of the fifth lab, you’re going to have an app that searches for movies or prints out the Rotten Tomatoes rating for any movie a user enters.</p>
+<p>Right now, you have a variable to hold a movie title, a variable to hold a movie’s rating, and a print statement to show the user.</p>
+<p>Next, let’s set up the functions and control flow to print out the values of our variables.</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>You’re going to continue building this locally from the last lab. You’ll write all of your code in the same <code>movie_app.py</code> file.</p>
+<p>Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python movie_app.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint</strong>: Make sure you are printing something out with the print statement! Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you will have edited your existing <code>movie_app.py</code>. At the top, you will have a variable called <code>search_or_ratings</code>.</p>
+<p>Your app will always print : The movie Back to the Future has a great rating! The movie Blade has a great rating! The movie Spirited Away has a great rating!</p>
+<p>Additionally:</p>
+<ul>
+<li><p>If <code>search_or_ratings</code> is equal to <code>1</code>, your app will then print</p>
+<pre><code>Back to the Future
+Blade
+Spirited Away</code></pre></li>
+<li>If <code>search_or_ratings</code> is equal to <code>2</code>, your app will then print <code>8</code>.</li>
+<li><p>If <code>search_or_ratings</code> is equal to <code>3</code>, your app will then print <code>The rating for Back to the Future is 8</code>.</p></li>
+</ul>
+<hr />
+</section>
+<section id="directions" class="level2">
+<h2>Directions</h2>
+<p>You’ll augment the code you wrote for the Unit 1 lab, so leave your two variable declarations at the top of your program and don’t delete the <code>print</code> statement!</p>
+<ol type="1">
+<li><p>Our program’s going to get pretty complex. Let’s have a definite starting point. At the bottom of your program, create one <code>main</code> function. From here, we’ll call everything else.</p></li>
+<li>In programming, if you have a <code>main</code> function, you can set it to automatically run when you start the program. In Python, there’s a section of code that does this for us. At the very bottom of your file, put this code:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    main()</a></code></pre></div>
+<ol type="1">
+<li>Now, let’s get started! When a user searches for a movie, your program is going to print a whole list of movie titles. But what if we only need to print one title? Create a function called <code>print_movie_title</code> that prints out <code>movie_title</code>.</li>
+<li>In <code>main</code>, call <code>print_movie_title</code>.</li>
+<li>Try running your program. Do both your <code>print</code> statements show up? We won’t keep reminding you, but throughout this lab, run your program every few steps to be sure it’s doing what it’s supposed to.</li>
+<li>Let’s do the same for the movie rating. Create a function called <code>print_movie_rating</code> that prints out <code>movie_rating</code>. In <code>main</code>, below your call for <code>print_movie_title</code>, call <code>print_movie_rating</code>.</li>
+<li><p>What if a user wants to print the whole sentence? Create a function called <code>print_single_movie_rating</code> and move your <code>print</code> sentence from Lab #1 into it. Then, call <code>print_single_movie_rating</code> from <code>main</code>.</p></li>
+<li>Right now, your <code>main</code> function has three <code>print</code> statements in a row. What if a user doesn’t want to print all three? Let’s give the user a choice. At the very top of your file, by <code>movie_title</code> and <code>movie_rating</code>, create a variable called <code>search_or_ratings</code>. For now, set it to <code>1</code>.</li>
+<li>In <code>main</code>, let’s create an <code>if</code> statement and move our function calls into it. You can then test this out by setting <code>search_or_ratings</code> to different values.</li>
+<li>If <code>search_or_ratings</code> is <code>1</code>, call <code>print_movie_title</code>.</li>
+<li>Otherwise, if <code>search_or_ratings</code> is <code>2</code>, call <code>print_movie_rating</code>.</li>
+<li><p>Otherwise, call <code>print_single_movie_rating</code>.</p></li>
+<li><p>Later, we’ll have many movies, so for now, let’s temporarily hard code a list to use in our program. At the top of your <code>main</code> function, create a list called <code>default_movie_list</code> and set it to <code>[&quot;Back to the Future&quot;, &quot;Blade&quot;, &quot;Spirited Away&quot;]</code> (or some other movies you like!).</p></li>
+<li><p>Let’s set a way to print these out. Create a function called <code>print_all_ratings</code> that takes in a parameter <code>movie_list</code>. In it, loop through each movie in <code>movie_list</code> and print <code>&quot;The movie&quot;, movie, &quot;has a great rating!&quot;</code> Then, in your <code>main</code> function, call <code>print_all_ratings</code> and pass it <code>default_movie_list</code>. Put this above your <code>if</code> block; it should happen no matter what.</p></li>
+<li><p>Later, a user can search for a movie and see a whole list of matching titles. For now, let’s just make the function with our default list. Create a function called <code>list_search_results</code> that takes a parameter <code>movie_titles</code>. In the function, loop through the <code>movie_titles</code> list and print each title out with four spaces (` `) in front of it (just so it looks a little nicer).</p></li>
+<li>Let’s think about our new <code>list_search_results</code> function. Right now, in <code>main</code>, if <code>search_or_ratings</code> is set to <code>1</code>, we call <code>print_movie_title</code>. However, that’s when a user is going to want a list of movie titles, not just one movie, right? Change that <code>if</code> statement: if <code>search_or_ratings</code> is set to <code>1</code>, call <code>list_search_results</code> with the argument <code>default_movie_list</code> instead.</li>
+<li><p>Even though we deleted the call to <code>print_movie_title</code>, don’t delete the function! We’ll use it later, when we only need one movie title.</p></li>
+</ol>
+<p>You’re done! Test it out to be sure you match the requirements above. Great job.</p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

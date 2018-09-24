@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Welcome to Python Programming!
+type: lesson
+duration: "01:00"
+creator: Brandi Butler
+-->
+<section id="welcome-to-python-programming" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Welcome to Python Programming!</h2>
+<!--
+
+## Overview
+This lesson serves as the kick-off to your Python Programming class. Whether you’re delivering this course online or in-person, in a 1-week accelerated for 10-week format, take the first hour or so of your time together to get things started on the right foot.
+
+This lesson is designed to introduce yourself, GA, and get the students comfortable and excited to learn. Following that, there's a brief review of the pre-work.
+
+## Learning Objectives
+In this lesson, students will:
+- Define class expectations and norms.
+- Understand key concepts introduced in the pre-work
+
+
+## Duration
+60 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:10 | Welcome |
+| 0:10 - 0:12 | About General Assembly |
+| 0:12 - 0:14 | The Road to Success |
+| 0:14 - 0:16 | Course Structure |
+| 0:16 - 0:18 | Your Final Project |
+| 0:18 - 0:20 | Tools We'll Use |
+| 0:20 - 0:50 | [Pre-Work Recap](#activity-prework-recap-30-min) | Review the pre-work and level set. |
+| 0:50 - 1:00 | Q&A + Close |
+
+## Before Class: Preparation
+- Update the slides that follow with specific information about you, your class, your city and your local support team.
+- Take some time to consider your expectations for learners and be prepared to talk about them.
+- Choose an ice breaker to run that will allow learners to get to know one another in a fun, informal, low-stakes way. We have a list [here](https://docs.google.com/presentation/d/1a91IqhzijI_3EqU-trJbZN4vDDSU0rXqgIrqGwsWM7I/edit) of fun activities - and other good slides to copy - for the students for you to choose from. And if you have some good ones, feel free to share your ideas with us!
+- Before class, review completion data to understand how far your learners have progressed through the myGA prework.
+-- If most of your learners have completed all of the prework, you should be able to breeze through this lesson very quickly.
+-- If most of your learners have not completed all of the prework, you might want to spend more time on this lesson and reduce your timings for the rest of the lessons in Unit 1.
+
+
+
+## In Class: Materials
+- Projector
+- Internet connection
+-->
+<hr />
+</section>
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<p><em>Here's what we'll cover:</em></p>
+<ul>
+<li>Instructional team and classmate introductions.</li>
+<li>About General Assembly.</li>
+<li>Course structure.</li>
+<li>The final project.</li>
+<li>Key concepts from the myGA prework.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We’re so excited to have to you here today.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="meet-your-instructor" class="level2">
+<h2>Meet Your Instructor</h2>
+<p><strong>{Insert your name.}</strong></p>
+<ul>
+<li><a href="link">{Insert email address.}</a></li>
+<li>{Insert key facts about yourself and your career:</li>
+<li>Current role.</li>
+<li>Cool companies/brands you’ve worked with.</li>
+<li>One fun fact (Keep it classy!).}</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Talk about the instructor’s role as the instructional team “lead.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="meet-your-support-team" class="level2">
+<h2>Meet Your Support Team</h2>
+<p><strong>{Insert IA's name.}</strong></p>
+<ul>
+<li><a href="link">{Insert email address.}</a></li>
+<li>{Insert key facts about yourself and your career:</li>
+<li>Current role.</li>
+<li>Cool companies/brands you’ve worked with.</li>
+<li>One fun fact (Keep it classy!).}</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong></p>
+<ul>
+<li>Duplicate this slide for each IA or classroom member you want to introduce.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="front-lines" class="level2">
+<h2>Front Lines</h2>
+<p>Have a question about:</p>
+<ul>
+<li>The campus?</li>
+<li>Lost and found?</li>
+<li>Loaner equipment?</li>
+<li>Free coffee and snacks?</li>
+</ul>
+<p>Come here to talk to Front Lines and they will help you out.</p>
+<p>{Picture of the local front lines desk}</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Introduce anyone here; see the next slide for a template.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="more-great-people" class="level2">
+<h2>More Great People</h2>
+<p>{Bullet list of names and roles}</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>These are common faces on campus the students should know about.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="classroom-culture" class="level2">
+<h2>Classroom Culture</h2>
+<p>Let’s all agree to:</p>
+<ul>
+<li>Treat each other with respect</li>
+<li>Avoid bringing distractions into class</li>
+<li>{Add more…}</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Add any rules you'd like to here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="more-great-people-you-meet-your-classmates" class="level2">
+<h2>More Great People: You! Meet Your Classmates</h2>
+<p>Please share:</p>
+<ul>
+<li>Your name.</li>
+<li>Why you’re taking this course.</li>
+<li>Your favorite comfort food.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Come up with a few icebreakers of your own and add the slides below!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="icebreakers" class="level2">
+<h2>Icebreakers</h2>
+<p>{Insert some fun icebreakers here!}</p>
+<hr />
+</section>
+<section id="what-is-general-assembly" class="level2">
+<h2>What is General Assembly?</h2>
+<ul>
+<li>More 20 global campuses across 6 countries.</li>
+<li>Thriving alumni community of 50,000+ full- and part-time graduates.</li>
+<li>Corporate training with 350+ companies, including 39 of the Fortune 100.</li>
+<li>500,000+ attendees at bootcamps, workshops, and events.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go through this section quickly. Students have probably heard this information before in info sessions or via the GA website.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-general-assemblys-mission" class="level2">
+<h2>What is General Assembly's Mission?</h2>
+<blockquote>
+<p>&quot;GA was founded on the principle of empowering people to pursue the work they love. Since we opened our first campus in 2011, we have had the privilege of working with students, governments, and the world’s largest companies to create opportunities to radically transform careers and economic prospects.&quot; - Jake Schwartz, Founder + CEO, General Assembly</p>
+</blockquote>
+<aside class="notes">
+<p>1 MINUTE</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Rather than reading the quotation out loud, take this opportunity to share with students your own reasons for being part of GA’s mission.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="student-experience" class="level2">
+<h2>Student Experience</h2>
+<p>Come work on campus!</p>
+<p>We’re open:</p>
+<ul>
+<li>{8am - 10pm, Monday to Friday}</li>
+<li>{10am - 6pm, Saturday and Sunday}</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>If this is the five day full time, delete this slide - students won't need to take advantage of this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="map-of-the-campus" class="level2">
+<h2>Map of the Campus</h2>
+<p>{If possible; otherwise, remove this slide}</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Point out restroooms, front lines, the classroom, and the kitchen, and where they could come work, if that slide is left in.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="snack-calendar" class="level2">
+<h2>Snack Calendar</h2>
+<p>There’s a lot of work ahead, and you’re going to need fuel.</p>
+<p>{Link to snack calendar}</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Remove this slide if there are no snacks available to them.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="moving-on-to-course-specifics..." class="level2">
+<h2>Moving on to Course Specifics...</h2>
+<p>Okay, GA is cool!</p>
+<p>The classmates are cool.</p>
+<p>Let's talk about the course.</p>
+<aside class="notes">
+<p>1 MINUTE</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Transition to talking about GA in general back to the Python course.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="computer-setup" class="level2">
+<h2>Computer Setup</h2>
+<p>We are expecting that:</p>
+<ul>
+<li>You are on a Mac, PC, or Linux machine</li>
+<li>You can get to the internet!</li>
+<li>You have Slack.</li>
+</ul>
+<p><em>Wi-fi: GA-GUEST</em> <em>pw: yellowpencil</em></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure all students are set up on Slack and connected to the network.</li>
+<li>Change the wifi if needed!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="office-hours" class="level2">
+<h2>Office Hours</h2>
+<p>Help us help you!</p>
+<p>{Mondays / Wednesdays}: {5:30pm - 6:30pm}</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>You won't have these in the 5 day delivery! Delete this slide if so.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-to-get-a-certificate-of-completion" class="level2">
+<h2>How to get a certificate of completion</h2>
+<ol type="1">
+<li>Complete 80% of the homework</li>
+<li>Don’t miss more than 3 classes</li>
+<li>Complete the final project</li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This slide is on how to get a certificate of completion. If it's different, change it!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="course-materials" class="level2">
+<h2>Course Materials</h2>
+<p>{Instructor note: This is your call! Choose ONE of the below}.</p>
+<ul>
+<li>Lessons for the day will be linked at the beginning of the day. or</li>
+<li>Lessons for the course will can be viewed here - don't go too far ahead! or</li>
+<li>Each lesson will be shared before the lesson.</li>
+</ul>
+<p>The lessons are interactive to give as much programming practice as possible, so be sure you get the links and follow along!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Choose one of the above. Then, take this time to give out the links if necessary.</li>
+<li>If you're using Heroku, you should have a landing page with all slide links! You can share that.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="homework" class="level2">
+<h2>Homework</h2>
+<p>Homework:</p>
+<ul>
+<li>Isn't graded, but is good practice.</li>
+<li>We will go over it the next class!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Homework notes are in the specific course details doc.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="your-final-project" class="level2">
+<h2>Your Final Project</h2>
+<ul>
+<li>Each day, you’ll build skills in Python and understand different ways in which you can use it to build applications.</li>
+<li>At the end of {Day 4 or the 9th week}, you’ll choose a final project focus.</li>
+<li>On {Day 5 or the 10th week} in class, you’ll build an application in Python based on your project focus area.</li>
+<li>At the end of {Day 5 or the 10th week}, you’ll demo your project for the class.</li>
+</ul>
+<aside class="notes">
+<p>2 MINUTES</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Explain details of the final project, {updating this slide to reflect your own expectations if needed}.</li>
+<li>Encourage students to think throughout the course of what they want to build.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="okay---lets-get-to-it-prework-review" class="level2">
+<h2>Okay - Let's get to it! Prework Review</h2>
+<ul>
+<li><p>Did everyone complete it?</p></li>
+<li><p>Let's review it!</p></li>
+</ul>
+<p>We learned:</p>
+<aside class="notes">
+<p>1 MINUTE</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>There are slides on each concept following this.</li>
+<li>These are basic concepts to you, but potentially brand new to some students. Take your time to make sure everyone understands them.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="programming-and-programming-languages" class="level2">
+<h2>Programming and Programming Languages</h2>
+<p><strong>Programming</strong>: - Writing step-by-step instructions in a way a computer can understand.</p>
+<p><strong>Programming Languages</strong></p>
+<ul>
+<li>How we can give computers instructions.</li>
+<li>There are thousands! But we're learning <strong>Python</strong>.</li>
+<li>Specifically, Python 3.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>On this and all below, don't just read the slides. Add in your own interpretation.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="key-features-of-python" class="level2">
+<h2>Key Features of Python</h2>
+<ul>
+<li>It's simple.</li>
+<li>It's versatile.</li>
+<li>It's always improving.</li>
+<li>It's popular!</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>On this and all below, don't just read the slides. Add in your own experience and thoughts.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="when-to-use-python" class="level2">
+<h2>When to Use Python</h2>
+<ul>
+<li>Putting up websites.</li>
+<li>Analyzing data.</li>
+<li>Building robots.</li>
+</ul>
+<p>Most use cases!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>If you know of any specific examples, talk about them!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="when-not-to-use-python" class="level2">
+<h2>When NOT to Use Python</h2>
+<p>Other programming languages exist - Python isn't great for everything!</p>
+<ul>
+<li>Mobile apps</li>
+<li>Huge programs</li>
+<li>Python is interpreted - the computer reads it as it goes.</li>
+<li>Other programming languages are read in advance!</li>
+<li>Sometimes too easy</li>
+<li>Easy to expect things to work that don't!</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>If you know of any specific examples, talk about them!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="pseudocode" class="level2">
+<h2>Pseudocode</h2>
+<ul>
+<li>Writing out your program in simple, step-by-step instructions using plain English.</li>
+<li>Not a programming language!</li>
+<li>Something you should always do.</li>
+</ul>
+<pre><code>First, open the fridge.
+Then, take out the cheese.
+Then, close the fridge.</code></pre>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Ask students what they think pseudocode is good for; then tell them.</li>
+<li>(e.g. to make sure you don't miss a step)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="group-exercise-programming-in-pseudocode" class="level2">
+<h2>Group Exercise: Programming in Pseudocode</h2>
+<p>Let's write pseudocode that gives instructions on how to {give someone a high five}.</p>
+<p>Include every step required. Remember, computers are very literal!</p>
+<aside class="notes">
+<p>5 MINUTES</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Feel free to change the example to some other simple task.</li>
+<li>Write on the board, here. Come up with nothing yourself!</li>
+<li>Encourage students to come up with the steps, and write them as students come up with them.</li>
+<li>You should end up with something like:</li>
+<li>&quot;Raise arm&quot;</li>
+<li>&quot;Open hand; keep fingers together&quot;</li>
+<li>&quot;Wait for the other person to raise their arm and open their hand.&quot;</li>
+<li>&quot;Swing your arm forward to slap their raised open hand with yours.&quot;</li>
+<li>&quot;Lower your arm again.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="comments" class="level2">
+<h2>Comments</h2>
+<ul>
+<li>Programmer notes in code.</li>
+<li>The computer ignores them.</li>
+<li>Write your pseudocode here!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This is a comment!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Ask students what they think comments are good for; then tell them.</li>
+<li>(e.g. for your pseudocode; so others know what your program does; so you on Monday morning still know!).</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="our-first-line-of-code" class="level2">
+<h2>Our First Line of Code</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>: - Ask students what they think this does. If you deem it necessary, open a repl.it and demo it.</p>
+<p>https://repl.it/languages/python3</p>
+</aside>
+<hr />
+</section>
+<section id="qa-and-summary" class="level2">
+<h2>Q&amp;A and Summary</h2>
+<p>Any other questions?</p>
+<p>Let's rock!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Check to see if there are any lingering questions on the pre-work.</li>
+<li>Mention that next up, we'll explore something new in Python - variables.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

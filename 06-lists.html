@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Intro to Python Lists
+type: lesson
+duration: "00:30"
+creator: Brandi Butler
+Private gist location: https://gist.github.com/brandiw/621c35f1987e5ab680e7de7b05dfe039
+Presentation URL: https://presentations.generalassemb.ly/621c35f1987e5ab680e7de7b05dfe039#/
+-->
+<section id="python-programming-lists" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Lists</h2>
+<!--
+
+## Overview
+This lesson introduces students to the concept of lists. This begins as basic list operations - accessing elements, `len`, `insert`, `append`, and `pop`.  After an exercise to recap that, it segues into operations on numerical lists - `sum`, `min`, and `max`. It ends with a longer exercise recapping the list operations.
+
+## Learning Objectives
+In this lesson, students will:
+- Create lists in Python.
+- Print out specific elements in a list.
+- Perform common list operations.
+
+## Duration
+30 minutes
+
+### Notes on Timing
+
+A 30 minute interval has been allotted for this lesson. You may finish up early due to the fact that this lesson doesn't get into loops or ranges. If you have extra time, put it on the activities or start the next lesson early so students do have buffer time later, when they need it.
+
+That said, at the point you give this lesson, students are still on day one. They will require more time than you probably expect to poke around the code.
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:15 | Basic List Operations |
+| 0:15 - 0:25 | Numerical List Operations |
+| 0:25 - 0:30  | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Create lists in Python.</li>
+<li>Print out specific elements in a list.</li>
+<li>Perform common list operations.</li>
+</ul>
+<hr />
+</section>
+<section id="what-is-a-list" class="level2">
+<h2>What is a List?</h2>
+<p>Variables hold one item.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_color <span class="op">=</span> <span class="st">&quot;red&quot;</span>
+my_peer <span class="op">=</span> <span class="st">&quot;Brandi&quot;</span></code></pre></div>
+<p><strong>Lists</strong> hold multiple items - and lists can hold anything.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Declaring lists</span>
+colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>]
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>]
+
+<span class="co"># Strings</span>
+colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>]
+
+<span class="co"># Numbers</span>
+my_nums <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">4</span>]
+
+<span class="co"># Both!</span>
+my_nums <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="dv">7</span>, <span class="st">&quot;yellow&quot;</span>, <span class="dv">1</span>, <span class="dv">4</span>]</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After explaining what a list is, walk through the syntax (dashes, commas).</li>
+<li>Point out anything can be in a list - it's just a variable that holds many things.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Until now we've used a few different types of variables such as numbers and strings. However, what if we wanted to keep track of more than one thing? Instead of just my single favorite color, how can I store the names of all the colors I like? How can I store the numbers of everyone on my baseball team?</p></li>
+<li><p>&quot;Python has this problem solved with something called a <em>List</em>.&quot;</p></li>
+<li><p>&quot;Because a variable is just a box that can hold information, it can also hold lists. Python knows that your variable will hold a list if it begins and ends with square brackets&quot;</p></li>
+<li><p>&quot;A list is a data structure in Python, which is a fancy way of saying we can put data inside of it. In the same way you recognize strings by the quotation marks surround them, you can recognize lists by square brackets that surround them.&quot;</p></li>
+<li><p>&quot;Notice in the example below, we have a list but there are strings inside of it. A list can store data of other types! In this case, I have a list of strings that stores my classmates names.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="accessing-elements" class="level2">
+<h2>Accessing Elements</h2>
+<p><strong>List Index</strong> means the location of something (an <em>element</em>) in the list.</p>
+<p>List indexes start counting at 0!</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">List</th>
+<th style="text-align: center;">&quot;Brandi&quot;</th>
+<th style="text-align: center;">&quot;Zoe&quot;</th>
+<th style="text-align: center;">&quot;Steve&quot;</th>
+<th style="text-align: center;">&quot;Aleksander&quot;</th>
+<th style="text-align: center;">&quot;Dasha&quot;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Index</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>]
+<span class="bu">print</span>(my_class[<span class="dv">0</span>]) <span class="co"># Prints &quot;Brandi&quot;</span>
+<span class="bu">print</span>(my_class[<span class="dv">1</span>]) <span class="co"># Prints &quot;Zoe&quot;</span>
+<span class="bu">print</span>(my_class[<span class="dv">4</span>]) <span class="co"># Prints &quot;Dasha&quot;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Starting at 0 is easy to understand and hard to remember. Remind them throughout the presentation.</li>
+<li>Point out the print syntax.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;A very important thing to note about lists is that they start counting at 0. Thus, the first element is considered index 0, the second element is considered index 1, and so on.&quot;</p></li>
+<li><p>&quot;In our previous example, let's print a few specific items. We can access an item by counting from 0 and using square brackets to tell the list which item we want.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-lists" class="level2">
+<h2>We Do: Lists</h2>
+<ol type="1">
+<li>Create a <strong>list</strong> with the names <code>&quot;Holly&quot;</code>, <code>&quot;Juan&quot;</code>, and <code>&quot;Ming&quot;</code>.</li>
+<li>Print the third name.</li>
+<li>Create a <strong>list</strong> with the numbers <code>2</code>,<code>4</code>, <code>6</code>, and <code>8</code>.</li>
+<li>Print the first number.</li>
+</ol>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>1 MINUTE</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run through this quickly - this is just to show them lists working get them practicing typing lists. This is not mean to be a full fledged exercise.</li>
+</ul>
+<p><strong>Repl.it Note</strong> It's blank.</p>
+</aside>
+<hr />
+</section>
+<section id="list-operations---length" class="level2">
+<h2>List Operations - Length</h2>
+<p><code>len()</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>How long is the list?</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># length_variable = len(your_list)</span>
+
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>]
+num_students <span class="op">=</span> <span class="bu">len</span>(my_class)
+<span class="bu">print</span>(<span class="st">&quot;There are&quot;</span>, num_students, <span class="st">&quot;students in the class&quot;</span>)
+<span class="co"># =&gt; 5</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Stress that even though all examples are strings, these can be performed on any list, no matter what's in it.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;How many people are in my list? Just as with strings, we can determine how long a list is (i.e., how many elements it has) using the len() method like so.&quot;</p></li>
+<li><p>&quot;Note: We'll get more into functions later. For now, just know that they perform some operation for you and that you can recognize them by the parentheses on the end.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="adding-elements-append" class="level2">
+<h2>Adding Elements: Append</h2>
+<p><code>.append()</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>Adds to the end of the list.</li>
+<li>Takes any element.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># your_list.append(item)</span>
+
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>]
+my_class.append(<span class="st">&quot;Sonyl&quot;</span>)
+<span class="bu">print</span>(my_class)
+<span class="co"># =&gt; [&quot;Brandi&quot;, &quot;Zoe&quot;, &quot;Steve&quot;, &quot;Aleksander&quot;, &quot;Dasha&quot;, &quot;Sonyl&quot;]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Forgot to add something to that list? No problem; you can use the .append() method. Suppose a new student joins our class. We can add them to the end of the list with <code>append</code>, which is a function built directly into a list. (Notice it is called with a dot after the list, unlike the other function we've used, <code>len</code>)&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="adding-elements-insert" class="level2">
+<h2>Adding Elements: Insert</h2>
+<p><code>.insert()</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>Adds to any point in the list</li>
+<li>Takes any element and an index.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># your_list.insert(index, item)</span>
+
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>, <span class="st">&quot;Sonyl&quot;</span>]
+my_class.insert(<span class="dv">1</span>, <span class="st">&quot;Sanju&quot;</span>)
+<span class="bu">print</span>(my_class)
+<span class="co"># =&gt; [&quot;Brandi&quot;, &quot;Sanju&quot;, &quot;Zoe&quot;, &quot;Steve&quot;, &quot;Aleksander&quot;, &quot;Dasha&quot;, &quot;Sonyl&quot;]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;However, what happens if we want to add something somewhere else? We can use the .insert() method, which specifies where (i.e., to which index) we want to add the element.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="removing-elements---pop" class="level2">
+<h2>Removing elements - Pop</h2>
+<p><code>.pop()</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>Removes an item from the end of the list.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># your_list.pop()</span>
+
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>, <span class="st">&quot;Sonyl&quot;</span>]
+student_that_left <span class="op">=</span> my_class.pop()
+<span class="bu">print</span>(<span class="st">&quot;The student&quot;</span>, student_that_left, <span class="st">&quot;has left the class.&quot;</span>)
+<span class="co"># =&gt; &quot;Sonyl&quot;</span>
+<span class="bu">print</span>(my_class)
+<span class="co"># =&gt; [&quot;Brandi&quot;, &quot;Zoe&quot;, &quot;Steve&quot;, &quot;Aleksander&quot;, &quot;Dasha&quot;]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;What if someone leaves our class? We need to remove them from the list.&quot;</p></li>
+<li><p>&quot;We can do this with <code>pop</code>. Pop drops the last thing off the list. It gives us back the value that it removed. We can take that value and assign it to a new variable, <code>student that left</code>. This is called a <code>return value</code>.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="removing-elements---popindex" class="level2">
+<h2>Removing elements - Pop(index)</h2>
+<p><code>.pop(index)</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>Removes an item from the list.</li>
+<li>Can take an index.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># your_list.pop(index)</span>
+
+my_class <span class="op">=</span> [<span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Aleksander&quot;</span>, <span class="st">&quot;Dasha&quot;</span>, <span class="st">&quot;Sonyl&quot;</span>]
+student_that_left <span class="op">=</span> my_class.pop(<span class="dv">2</span>) <span class="co"># Remember to count from 0!</span>
+<span class="bu">print</span>(<span class="st">&quot;The student&quot;</span>, student_that_left, <span class="st">&quot;has left the class.&quot;</span>)
+<span class="co"># =&gt; &quot;Steve&quot;</span>
+<span class="bu">print</span>(my_class)
+<span class="co"># =&gt; [&quot;Brandi&quot;, &quot;Zoe&quot;, &quot;Aleksander&quot;, &quot;Dasha&quot;, &quot;Sonyl&quot;]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;What if someone specific leaves the class?&quot;</p></li>
+<li><p>&quot;We can do this with <code>pop</code> again. Here, we can give pop the index we want removed. It gives us back the value that it removed. We can take that value and assign it to a new variable, <code>student that left</code>.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-pop-insert-and-append" class="level2">
+<h2>Partner Exercise: Pop, Insert, and Append</h2>
+<p>Partner up! Choose one person to be the driver and one to be the navigator, and see if you can do the prompts:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-lists-intro?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<p>3 MINUTES</p>
+<ul>
+<li>Try to get them in pairs they haven't worked in before.</li>
+<li>Give them just small bit of time to work through this, then go over the answer.</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This replit has:</p>
+<pre><code># 1. Declare a list with the names of your classmates
+# 2. Print out the length of that list
+# 3. Print the 3rd name on the list
+# 4. Delete the first name on the list
+# 5. Re-add the name you deleted to the end of the list</code></pre>
+</aside>
+<hr />
+</section>
+<section id="list-mutation-warning" class="level2">
+<h2>!! List Mutation: Warning !!</h2>
+<p>This won't work as expected - don't do this!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>]
+<span class="bu">print</span> colors.append(<span class="st">&quot;blue&quot;</span>)
+<span class="co">#   =&gt; None</span></code></pre></div>
+<p>This will work - do this!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>]
+colors.append(<span class="st">&quot;blue&quot;</span>)
+<span class="bu">print</span> colors
+<span class="co">#   =&gt; [&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Talk about why this happens, especially in case a student accidentally does it.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;All of the methods above mutate, i.e., change the array in place; they don't give you the mutated, or changed, array back.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-basic-list-operations" class="level2">
+<h2>Quick Review: Basic List Operations</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># List Creation</span>
+my_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="dv">7</span>, <span class="st">&quot;yellow&quot;</span>, <span class="dv">1</span>]
+
+<span class="co"># List Length</span>
+list_length <span class="op">=</span> <span class="bu">len</span>(my_list) <span class="co"># 4</span>
+
+<span class="co"># List Index</span>
+<span class="bu">print</span>(my_list[<span class="dv">0</span>]) <span class="co"># red</span>
+
+<span class="co"># List Append</span>
+my_list.append(<span class="st">&quot;Yi&quot;</span>) <span class="co"># [&quot;red&quot;, 7, &quot;yellow&quot;, 1, &quot;Yi&quot;]</span>
+
+<span class="co"># List Insert at Index</span>
+my_list.insert(<span class="dv">1</span>, <span class="st">&quot;Sanju&quot;</span>) <span class="co"># [&quot;red&quot;, &quot;Sanju&quot;, 7, &quot;yellow&quot;, 1, &quot;Yi&quot;]</span>
+
+<span class="co"># List Delete</span>
+student_that_left <span class="op">=</span> my_list.pop() <span class="co"># &quot;Yi&quot;; [&quot;red&quot;, &quot;Sanju&quot;, 7, &quot;yellow&quot;, 1]</span>
+
+<span class="co"># List Delete at Index</span>
+student_that_left <span class="op">=</span> my_list.pop(<span class="dv">2</span>) <span class="co"># 7; [&quot;red&quot;, &quot;Sanju&quot;, &quot;yellow&quot;, 1]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly review. Check to see if anyone's stuck.</li>
+<li>Remind them that these operations work on lists with both strings and numbers.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="numerical-list-operations---sum" class="level2">
+<h2>Numerical List Operations - Sum</h2>
+<p>Some actions can only be performed on lists with numbers.</p>
+<p><code>sum()</code>:</p>
+<ul>
+<li>A built in <code>list</code> operation.</li>
+<li>Adds the list together.</li>
+<li>Only works on lists with numbers!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># sum(your_numeric_list)</span>
+
+team_batting_avgs <span class="op">=</span> [.<span class="dv">328</span>, .<span class="dv">299</span>, .<span class="dv">208</span>, .<span class="dv">301</span>, .<span class="dv">275</span>, .<span class="dv">226</span>, .<span class="dv">253</span>, .<span class="dv">232</span>, .<span class="dv">287</span>]
+sum_avgs <span class="op">=</span> <span class="bu">sum</span>(team_batting_avgs)
+<span class="bu">print</span>(<span class="st">&quot;The total of all the batting averages is&quot;</span>, sum_avgs)
+<span class="co"># =&gt; 2.409</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>If baseball's not your thing, feel free to change this.</li>
+<li>Stress that these only work on lists with entirely numerical values.</li>
+<li>You might need to explain batting averages.</li>
+<li>Consider demoing trying to sum string numbers.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;There's another built-in function, <code>sum</code>, used to add a list of numbers together.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="list-operations---maxmin" class="level2">
+<h2>List Operations - Max/Min</h2>
+<p><code>max()</code> or <code>min()</code>:</p>
+<ul>
+<li>Built in <code>list</code> operations.</li>
+<li>Finds highest, or lowest, in the list.</li>
+<li>Only works on lists with numbers!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># max(your_numeric_list)</span>
+<span class="co"># min(your_numeric_list)</span>
+
+team_batting_avgs <span class="op">=</span> [.<span class="dv">328</span>, .<span class="dv">299</span>, .<span class="dv">208</span>, .<span class="dv">301</span>, .<span class="dv">275</span>, .<span class="dv">226</span>, .<span class="dv">253</span>, .<span class="dv">232</span>, .<span class="dv">287</span>]
+<span class="bu">print</span>(<span class="st">&quot;The highest batting average is&quot;</span>, <span class="bu">max</span>(team_batting_avgs))
+<span class="co"># =&gt; 0.328</span>
+<span class="bu">print</span>(<span class="st">&quot;The lowest batting average is&quot;</span>, <span class="bu">min</span>(team_batting_avgs))
+<span class="co"># =&gt; 0.208</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We might want to simply know what is the largest or smallest item in a list. In this case, we can use the built-in functions <code>max</code> and <code>min</code>.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-lists" class="level2">
+<h2>You Do: Lists</h2>
+<p>On your local computer, create a <code>.py</code> file named <code>list_practice.py</code>. In it:</p>
+<ol type="1">
+<li>Save a list with the numbers <code>2</code>, <code>4</code>, <code>6</code>, and <code>8</code> into a variable called <code>numbers</code>.</li>
+<li>Print the max of <code>numbers</code>.</li>
+<li>Pop the last element in <code>numbers</code> off; re-insert it at index <code>2</code>.</li>
+<li>Pop the second number in <code>numbers</code> off.</li>
+<li>Append <code>3</code> to <code>numbers</code>.</li>
+<li>Print out the average number (divide the sum of <code>numbers</code> by the length).</li>
+<li>Print <code>numbers</code>.</li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students run through this exercise on their own. Circulate the room to check questions and challenges.</li>
+<li><p>Students might pop off index 2 versus the actual 2nd element - remind them to watch out for that.</p></li>
+<li><p>Answer that's printed: Max: 8 Average: 4.75 Final list: [2 8 6 3]</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>We accomplished quite a bit!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># List Creation</span>
+my_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="dv">7</span>, <span class="st">&quot;yellow&quot;</span>, <span class="dv">1</span>]
+<span class="co"># List Length</span>
+list_length <span class="op">=</span> <span class="bu">len</span>(my_list) <span class="co"># 4</span>
+<span class="co"># List Index</span>
+<span class="bu">print</span>(my_list[<span class="dv">0</span>]) <span class="co"># red</span>
+<span class="co"># List Append</span>
+my_list.append(<span class="st">&quot;Yi&quot;</span>) <span class="co"># [&quot;red&quot;, 7, &quot;yellow&quot;, 1, &quot;Yi&quot;]</span>
+<span class="co"># List Insert at Index</span>
+my_list.insert(<span class="dv">1</span>, <span class="st">&quot;Sanju&quot;</span>) <span class="co"># [&quot;red&quot;, &quot;Sanju&quot;, 7, &quot;yellow&quot;, 1, &quot;Yi&quot;]</span>
+<span class="co"># List Delete</span>
+student_that_left <span class="op">=</span> my_list.pop() <span class="co"># &quot;Yi&quot;; [&quot;red&quot;, &quot;Sanju&quot;, 7, &quot;yellow&quot;, 1]</span>
+<span class="co"># List Delete at Index</span>
+student_that_left <span class="op">=</span> my_list.pop(<span class="dv">2</span>) <span class="co"># 7; [&quot;red&quot;, &quot;Sanju&quot;, &quot;yellow&quot;, 1]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly sum up and check for understanding.</li>
+<li>Reassure students that while this is a lot, the more they practice typing it, the more they'll get used to it. If they always copy the code off the slide, they won't be very quick to learn it!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa-1" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>And for numerical lists only...</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Sum all numbers in list</span>
+sum_avgs <span class="op">=</span> <span class="bu">sum</span>(team_batting_avgs)
+<span class="co"># Find minimum value of list</span>
+<span class="bu">min</span>(team_batting_avgs)
+<span class="co"># Find maximum value of list</span>
+<span class="bu">max</span>(team_batting_avgs)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly sum up and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=zEyEC34MY1A">Python Lists - Khan Academy Video</a></li>
+<li><a href="https://developers.google.com/edu/python/lists">Google For Education: Python Lists</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">Python-Lists</a></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Encourage students to go through these in their spare time, especially if they're a bit lost.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

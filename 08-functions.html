@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Python Programming: Functions
+type: lesson
+duration: "01:00"
+creator: Susi Remondi
+-->
+<section id="python-programming-functions" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Functions</h2>
+<!--
+
+## Overview
+This lesson introduces students to the concept of functions, beginning with regular functions, then parameters, then multiple parameters. It continues with returning values from functions. It ends with a series of You Do exercises.
+
+## Learning Objectives
+In this lesson, students will:
+- Identify when to use a function.
+- Create and call a function with arguments.
+- Return a value from a function.
+
+## Duration
+90 minutes
+
+### Note on timing:
+This functions lesson is designed to roll into the next one; it ends at a logical break to account for the class timing, but they go together.
+
+In the 5 day class, this means that the overall function lessons are designed to roll and continue in the next class. The homework doesn't have parameters, so if you don't get there, that's fine. Go as far as you can until the day is over, then pick up where you left off the next class. This lesson ends with a series of You Do exercises. **Student understanding is more important than staying within the timeframe** - the next lesson is flexible with many exercises that can be dropped.
+
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:18| Basic Functions |
+| 0:20 - 0:35 | Parameters |
+| 0:35 - 0:57 | Returns and Exercises |
+| 0:57 - 0:60 | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Identify when to use a function.</li>
+<li>Create and call a function with arguments.</li>
+<li>Return a value from a function.</li>
+</ul>
+<hr />
+</section>
+<section id="lets-consider-a-repetitive-program..." class="level2">
+<h2>Let's Consider a Repetitive program...</h2>
+<p>Consider a program that prints a $5 shipping charge for products on a website:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Hanging Planter.&quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+<span class="co"># 10 minutes later...</span>
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Shell Mirror.&quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+<span class="co"># 5 minutes later...</span>
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Modern Shag Rug.&quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)</code></pre></div>
+<p>What if there are 1,000 orders?</p>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>This leads in to a discussion in two slides - try go get them about reusability.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;What if there are 1,000 orders? You <em>can</em> keep typing this out, but we'd have to rewrite this <code>print</code> statement a lot! Do you think there's anything we can do?&quot;</li>
+<li>We can't use loops because the orders aren't made at once!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="functions" class="level2">
+<h2>Functions</h2>
+<p>We can write a <strong>function</strong> to print the order.</p>
+<p>A function is simple — it's a reusable piece of code. We only define it once. Later, we can use its name as a shortcut to run that whole chunk of code.</p>
+<ul>
+<li>Functions are defined using the <code>def</code> syntax.
+<ul>
+<li><code>def</code> stands for &quot;define.&quot;</li>
+</ul></li>
+<li>In this case, we're <em>defining</em> a function named 'function_name.'</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> function_name():
+  <span class="co"># What you want the function to do</span>
+
+<span class="co"># Call the function by name to run it:</span>
+function_name()
+
+<span class="co"># 10 minutes later...</span>
+function_name()</code></pre></div>
+<p><strong>Protip:</strong> Don't forget the <code>()</code>, and be sure to indent!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Bring up why functions are great.</li>
+<li>Talk through the syntax - note the indent! Mention that indents are starting to become a common thing - it groups code blocks together.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Functions can be used repeatedly. This results in much cleaner - and easier - code. In this lesson, we'll be taking a look at how we can use functions to group together statements that perform a specific task and reduce repetition in our programs.&quot;</p></li>
+<li><p>&quot;Now Python knows we want to make a shortcut. Whenever we say <code>print_order</code> in the future, we want it to perform the same action.&quot;</p></li>
+<li><p>&quot;This is the name we can then use to call the function. Now, Python knows that whenever it sees <code>function_name</code>, it should do what's defined in the function.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="seeing-functions-in-action" class="level2">
+<h2>Seeing Functions in Action</h2>
+<p>So we <em>define</em> the function, then we can <em>call</em> the function by pairing its name with the parenthesis: <code>print_order()</code>.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-functions-planter?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this. It's a demo, not an exercise - to show students it working.</li>
+<li>Delete the function call and run it, to show that nothing happens by just defining the function.</li>
+<li>Move the function call ABOVE the function and run it, to show the failure.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Next, of course, we have to tell Python what to do when we call <code>print_order</code>.&quot;</p></li>
+<li><p>&quot;Following <code>def</code> and the function's name, <code>print_order</code>, we have a set of parentheses and a colon.&quot;</p></li>
+<li><p>&quot;This is telling Python: <em>&quot;Hey Python! Do this when the function starts here.&quot;</em>&quot;</p></li>
+<li><p>&quot;What comes next is the code to indicate what the function will accomplish (be sure to indent!)&quot;</p></li>
+<li><p>&quot;We now have a function named <code>print_order</code>, and, whenever we call it, Python will run the code <code>print &quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</code></p></li>
+<li><p>&quot;The code in a function will not run when the function is defined (&quot;This is what you do when it's called&quot;); it will only run when the function is called (&quot;Do what's in the definition now&quot;).&quot;</p></li>
+</ul>
+<p><strong>Repl.it note</strong>: This replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> finished_order():
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Hanging Planter.&quot;</span>)
+print_order()</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="naming-a-function" class="level2">
+<h2>Naming a Function</h2>
+<p>What can you name a function? - Anything you'd like. - But match the <em>callback</em>! - Using <code>print_order</code> is more descriptive.</p>
+<p>What do you think will happen if you change the function name <code>print_order</code> to <code>finishedOrder</code> without updating the callback?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-functions-planter?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>1 minute.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this. It's a demo, not an exercise - to show students it working.</li>
+<li>Change the call back - demo it failing</li>
+</ul>
+<p><strong>Repl.it note</strong>: This replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> finished_order():
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Hanging Planter.&quot;</span>)
+print_order()</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="multi-line-functions" class="level2">
+<h2>Multi-Line Functions</h2>
+<p>How many lines of code can a function have? - As many lines of code as you'd like! - Just indent each line.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> welcome():
+  <span class="bu">print</span>(<span class="st">&quot;Hello!&quot;</span>)
+  <span class="bu">print</span>(<span class="st">&quot;Bonjour!&quot;</span>)
+
+welcome()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note that it is like an <code>if</code> or <code>for</code> statement - anything indented will be run in the function.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-writing-a-function" class="level2">
+<h2>We Do: Writing a Function</h2>
+<p>Let's make this a little more complicated.</p>
+<p>Let's write a function together, <code>high_low</code>, that prints &quot;High!&quot; if a variable <code>my_number</code> is greater than 10 and &quot;Low!&quot; if it isn't.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them! Try to get them to guess each line, but make sure they are typing it, too, for practice.</li>
+<li>Remember, we haven't learned parameters - we're setting <code>my_number</code> outside of the function. See the solution below.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's do this together. First, let's define the function - the word def, then our name, then () and a :&quot;</li>
+<li>&quot;What does our function do? We need an <code>if</code> statement and an <code>else</code>.&quot;</li>
+<li>&quot;Let's try it - let's set <code>my_number</code>, then call the function.&quot;</li>
+</ul>
+<p>The final code will be:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> high_low():
+  <span class="cf">if</span> my_number <span class="op">&gt;</span> <span class="dv">10</span>:
+    <span class="bu">print</span>(<span class="st">&quot;High!&quot;</span>)
+  <span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Low!&quot;</span>)
+
+my_number <span class="op">=</span> <span class="dv">17</span>
+high_low()
+
+my_number <span class="op">=</span> <span class="dv">8</span>
+high_low()</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="you-do-fizzbuzz" class="level2">
+<h2>You Do: FizzBuzz</h2>
+<p>This is a <em>very</em> common programming question. It's often on job interviews and a buzzword in the industry as a simple but common task to show your understanding.</p>
+<p>Open a new Python file, <code>fizzbuzz.py</code>.</p>
+<ul>
+<li>Write a program that prints the numbers from 1 to 101.</li>
+<li>But, for multiples of three, print “Fizz” instead of the number.</li>
+<li>For multiples of five, print “Buzz”.</li>
+<li>For numbers which are multiples of both three and five, print “FizzBuzz”.</li>
+</ul>
+<aside class="notes">
+<p>10 minutes</p>
+<p><strong>Teaching tips:</strong></p>
+<ul>
+<li>Have each student try to do this in their own time. Allow 5-10 minutes.</li>
+<li>When they've finished, give the answer below with explanation.</li>
+</ul>
+<p><strong>ANSWER</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fizz_buzz(num):
+    <span class="cf">if</span> num <span class="op">%</span> <span class="dv">15</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">&quot;FizzBuzz&quot;</span>)
+    <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">&quot;Buzz&quot;</span>)
+    <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">&quot;Fizz&quot;</span>)
+    <span class="cf">else</span>:
+        <span class="bu">print</span>(num)
+
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>):
+    fizz_buzz(i)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-functions" class="level2">
+<h2>Quick Review: Functions</h2>
+<p>Functions are reusable chunks of code. They can have anything in them.</p>
+<ul>
+<li>Define functions using the <code>def</code> keyword.</li>
+<li>A function must be <strong>called</strong> before the code in it will run!</li>
+<li>You will recognize function calls by the <code>()</code> at the end.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This part is the function definition!</span>
+<span class="kw">def</span> say_hello():
+    <span class="bu">print</span>(<span class="st">&quot;hello world!&quot;</span>)
+
+<span class="co"># This part is actually calling/running the function!</span>
+say_hello()</code></pre></div>
+<p>You can call them as many times as you'd like, but they need to be defined above the code where you call them.</p>
+<p>Up next: Parameters!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run through this to be sure everyone understands. Check for questions.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-parameters" class="level2">
+<h2>Discussion: Parameters</h2>
+<p>Remember this?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_order():
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for your order. There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Hanging Planter.&quot;</span>)
+print_order()
+
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Shell Mirror.&quot;</span>)
+print_order()
+
+<span class="bu">print</span>(<span class="st">&quot;You&#39;ve purchased a Modern Shag Rug.&quot;</span>)
+print_order()</code></pre></div>
+<p>There's still repetition. How do you think we could improve it?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;There's still some repetition there — it always prints, &quot;You've purchased a ...&quot; and we'd need to write out variations of this same sentence hundreds of times. What if you could use the function to dynamically print what the user buys?&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="addressing-the-repetition" class="level2">
+<h2>Addressing the repetition</h2>
+<p>We can dynamically pass a function values. This is a <strong>parameter</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_order(product):
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for ordering the&quot;</span>, product, <span class="st">&quot;.&quot;</span>)
+
+print_order(<span class="st">&quot;Hanging Planter&quot;</span>)
+<span class="co"># Prints &quot;Thank you for ordering the Hanging Planter.&quot;</span>
+print_order(<span class="st">&quot;Shell Mirror&quot;</span>)
+<span class="co"># Prints &quot;Thank you for ordering the Shell Mirror.&quot;</span>
+print_order(<span class="st">&quot;Modern Shag Rug&quot;</span>)
+<span class="co"># Prints &quot;Thank you for ordering the Modern Shag Rug.&quot;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Break down the syntax - point out the argument and the parameter. Note that then, we can use the variable <code>product</code> as a normal variable like we're used to.</li>
+<li>Refer to parameters as simply handing the function a value for it to use. Compare to a real world example of your choosing - for example, when you make tea, you have a generic &quot;make tea&quot; routine, and the type of tea you make changes.</li>
+<li>Stress descriptive parameters, as functions get more complex!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Now that we know how to call functions, let's learn about <strong>parameters</strong>.&quot;</p></li>
+<li><p>&quot;A <strong>parameter</strong> is simply a value that is passed to a function (within the parenthesis).&quot;Let's update our code to accept a parameter of <code>product</code>...&quot;</p></li>
+<li><p>&quot;Now, we don't need to know the product name in advance. Instead, when we call the function, we can tell Python, &quot;Run the <code>print_order</code> function. Here is the name of the product to use.&quot; Then, when Python gets to the line <code>print &quot;Thank you for ordering the &quot;, product, &quot;.&quot;</code>, it will say &quot;OK, what was I told the product is?&quot; and print that.&quot;</p></li>
+<li><p>&quot;Notice that the parenthesis after def print_order are no longer empty, and now include the parameter product.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="terminology-recap" class="level2">
+<h2>Terminology Recap</h2>
+<p><strong>Parameter:</strong> The variable that's defined in a function's declaration.</p>
+<p><strong>Argument:</strong> The actual value passed into the function when the function is called.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> my_function(parameter):
+  <span class="co"># Does something.</span>
+
+my_function(argument)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Calling a function that has a parameter lets you wrap a variable when calling the function.. This is called an <strong>argument</strong>, which corresponds to the parameter of the function. When we call the function with the argument <code>Shell Mirror</code>, the string is assigned as <code>product</code> (or <code>pineapple</code>). The function's internal code runs and prints the correct sentence.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="case-of-the-missing-argument" class="level2">
+<h2>Case of the Missing Argument</h2>
+<p>What happens if you do this incorrectly?</p>
+<p>Try removing <code>&quot;Hanging Planter&quot;</code> from the code so <code>print_order</code> is called with an empty parenthesis. Hit Run.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-function-parameters?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo, not an exercise, but this is the first repl.it they've seen with parameters, so recap all the syntax as you run it.</li>
+</ul>
+<p><strong>Repl.it Note</strong>: This code has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_order(product):
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for ordering the&quot;</span>, product, <span class="st">&quot;.&quot;</span>)
+  <span class="bu">print</span>(<span class="st">&quot;There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+print_order(<span class="st">&quot;Hanging Planter&quot;</span>)
+print_order(<span class="st">&quot;Shell Mirror&quot;</span>)
+print_order(<span class="st">&quot;Modern Shag Rug&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-thanks-a-latte" class="level2">
+<h2>Partner Exercise: Thanks a Latte</h2>
+<p>Pair up! Decide who will be the driver and who will be the navigator.</p>
+<p>Imagine that you are tasked with creating a program to calculate the total amount, including sales tax, for each item at a coffee shop.</p>
+<p>Create a new file, <code>latte.py</code>, and type the two functions below into it, which will calculate the total amount for two drinks:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> latte_total():
+  price <span class="op">=</span> <span class="fl">5.50</span>
+  sales_tax_rate <span class="op">=</span> .<span class="dv">10</span>
+  total_amount <span class="op">=</span> price <span class="op">+</span> (price <span class="op">*</span> sales_tax_rate)
+  <span class="bu">print</span>(<span class="st">&quot;The total is $&quot;</span>, total_amount)
+
+latte_total()
+
+<span class="kw">def</span> americano_total():
+  price <span class="op">=</span> <span class="fl">4.75</span>
+  sales_tax_rate <span class="op">=</span> .<span class="dv">10</span>
+  total_amount <span class="op">=</span> price <span class="op">+</span> (price <span class="op">*</span> sales_tax_rate)
+  <span class="bu">print</span>(<span class="st">&quot;The total is $&quot;</span>, total_amount)
+
+americano_total()</code></pre></div>
+<p><em>Pro tip: Don't just copy! Typing will be good practice.</em></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Pair the students up for this exercise.</li>
+<li>This slide has code to copy; the next slide has the actual exercise. Make sure students all have this before turning the slide.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="keep-it-dry-dont-repeat-yourself" class="level2">
+<h2>Keep it DRY (Don't Repeat Yourself)</h2>
+<p>But what if we have several drinks at the coffee shop?</p>
+<p>With your partner, think about a function that could print the total of any drink if you pass it the price, like this...</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> calculate_total(price):
+  <span class="co">#your code here</span>
+
+calculate_total(<span class="fl">5.5</span>) <span class="co"># This  was the latte</span>
+calculate_total(<span class="fl">4.75</span>) <span class="co"># This was the Americano</span></code></pre></div>
+<p>Your task: Write this!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them 5 minutes here, and walk around to see if there are questions.</li>
+<li>The solution is on the next slide.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;However, what if we wanted to find the total for every item in the coffee shop, including drinks and baked goods? We don't want to have to create a separate function for each item — that's a lot of work on our end. It will also burden our program with repeated code, which we want to avoid (remember, keep it DRY — Don't Repeat Yourself).&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="latte-solution" class="level2">
+<h2>Latte: Solution</h2>
+<p>How did it go?</p>
+<p>Is this close to yours?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> calculate_total(price):
+  sales_tax_rate <span class="op">=</span> .<span class="dv">10</span>
+  total_amount <span class="op">=</span> price <span class="op">+</span> (price <span class="op">*</span> sales_tax_rate)
+  <span class="bu">print</span>(<span class="st">&quot;The total is $&quot;</span>, total_amount)
+
+calculate_total(<span class="fl">5.5</span>) <span class="co"># This will print 6.05.</span>
+calculate_total(<span class="fl">4.75</span>) <span class="co"># This will print 5.225.</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this and be sure everyone understands. Functions can be tough!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="multiple-parameters-part-1" class="level2">
+<h2>Multiple Parameters: Part 1</h2>
+<p>What about changing sales tax? We can pass as many values into the function as we want - we can have as many parameters as we want.</p>
+<p>Here, we have a second parameter, <code>taxes</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> calculate_total(price, taxes):
+  total_amount <span class="op">=</span> price <span class="op">+</span> (price <span class="op">*</span> taxes)
+  <span class="bu">print</span>(<span class="st">&quot;The total is $&quot;</span>, total_amount)
+
+calculate_total(<span class="fl">5.5</span>, .<span class="dv">10</span>) <span class="co"># &quot;price&quot; is 5.5; &quot;taxes&quot; is .10. This will print 6.05.</span>
+calculate_total(<span class="fl">4.75</span>, .<span class="dv">12</span>) <span class="co"># &quot;price&quot; is 4.75; &quot;taxes&quot; is .12. This will print 5.32.</span></code></pre></div>
+<p><strong>Protip:</strong> Use a comma-separated list — (parameter1, parameter2, parameter3, parameter4)</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they understand - point out the commas, and the fact that the arguments / parameters are assigned in order (5.5 is price).</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Our shop is getting successful, and we have locations opening all across the country. However, each state has a different sales tax rate. If we want to keep using our function to calculate an item's price, we will now also need provide it with the sales tax rate each time. We can add more parameters and arguments by simply separating them with commas.&quot;</p></li>
+<li><p>&quot;Let's break this down... would you rather buy a drink in the first state or the second? This is a useful function to help you decide.&quot;</p></li>
+<li><p>&quot;The first argument that's provided, <code>5.5</code>, will correspond with the first parameter we provided for the function, <code>price</code>.&quot;</p></li>
+<li><p>&quot;The second argument, <code>.10</code>, will correspond with the second parameter, <code>sales_tax_rate</code>.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="multiple-parameters-part-2" class="level2">
+<h2>Multiple Parameters: Part 2</h2>
+<p>With parameters, order matters! Programs don't automatically understand what should go where - they assign values in order.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-batman?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo, not an exercise - demo it and make sure students understand.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Unlike a human, Python doesn't use the variables' names to figure out what they're for. If you tell it that Bruce's last name is 1939, it will believe you! This is why it's important for parameters to have descriptive names, such as &quot;first_name&quot; and &quot;year&quot; — so that we as the humans running the program can pass the right arguments.&quot;</li>
+</ul>
+<p><strong>Repl.it Note</strong>: this replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> greet_user(firstName, lastName, year, city):
+  <span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, firstName, lastName, <span class="st">&quot;born in&quot;</span>, year, <span class="st">&quot;from&quot;</span>, city,  <span class="st">&quot;!&quot;</span>)
+
+greet_user(<span class="st">&quot;Bruce&quot;</span>, <span class="st">&quot;Wayne&quot;</span>, <span class="dv">1939</span>, <span class="st">&quot;Gotham&quot;</span>)
+greet_user(<span class="st">&quot;Bruce&quot;</span>, <span class="dv">1939</span>, <span class="st">&quot;Gotham&quot;</span>, <span class="st">&quot;Wayne&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-functions-with-logic" class="level2">
+<h2>Partner Exercise: Functions With Logic</h2>
+<p>With the same partner, switch drivers. You can use the same file or start a new one.</p>
+<p>Let's go back to our shipping example. Depending on the order amount, our user might get free shipping, so the print statement is different.</p>
+<p>Use this starter code, which works for one product. Can you build a function from it that works for any <code>product</code> and <code>order_amount</code>?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">product <span class="op">=</span> <span class="st">&quot;Hanging Planter&quot;</span>
+order_amount <span class="op">=</span> <span class="dv">35</span>
+
+<span class="bu">print</span>(<span class="st">&quot;Thank you for ordering the Hanging Planter.&quot;</span>)
+<span class="cf">if</span> order_amount <span class="op">&gt;=</span> <span class="dv">30</span>:
+    <span class="bu">print</span>(<span class="st">&quot;It&#39;s your lucky day! There is no shipping charge for orders over $30.00.&quot;</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;There will be a $5.00 shipping charge for this order.&quot;</span>)</code></pre></div>
+<ul>
+<li><strong>Hint:</strong> You can put any code you'd like inside a function.</li>
+<li><strong>Reminder:</strong> Don't forget to indent!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give students 5 minutes; walk around the room.</li>
+<li>Then, go over the solution - it's <a href="https://repl.it/@SuperTernary/python-programming-functions-solutions">here</a></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's return to our shipping example with these conditions added to our functions.&quot;</li>
+</ul>
+<p>The solution is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_order(product, order_amount):
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for ordering the&quot;</span>, product, <span class="st">&quot;.&quot;</span>)
+  <span class="cf">if</span> order_amount <span class="op">&gt;=</span> <span class="dv">30</span>:
+      <span class="bu">print</span>(<span class="st">&quot;It&#39;s your lucky day! There is no shipping charge for orders over $30.00.&quot;</span>)
+  <span class="cf">else</span>:
+      <span class="bu">print</span>(<span class="st">&quot;There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+print_order(<span class="st">&quot;Hanging Planter&quot;</span>, <span class="dv">35</span>)
+print_order(<span class="st">&quot;Shell Mirror&quot;</span>, <span class="dv">15</span>)
+print_order(<span class="st">&quot;Modern Shag Rug&quot;</span>, <span class="dv">75</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-functions-with-parameters" class="level2">
+<h2>Quick Review: Functions with Parameters</h2>
+<p><strong>Parameter:</strong> The variable that's defined in a function's declaration.</p>
+<p><strong>Argument:</strong> The actual value passed into the function when the function is called.</p>
+<p>Order matters!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> do_something(parameter1, parameter2):
+  <span class="co"># Does something.</span>
+
+do_something(argument1, argument2)
+do_something(a_different_argument_1, a_different_argument_2)</code></pre></div>
+<p>Next up: Returns.</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Notice that we can define the function once and then call it multiple times. This is a huge advantage of functions. Functions are especially useful because they enable a developer to segment large, unwieldy applications into smaller, more manageable, and (most importantly) reusable pieces.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-return" class="level2">
+<h2>The Return</h2>
+<p>Sometimes, we want values <em>back</em> from functions.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> calculate_total(price, taxes):
+  total_amount <span class="op">=</span> price <span class="op">+</span> (price <span class="op">*</span> taxes)
+  <span class="bu">print</span> <span class="st">&#39;The total is $&#39;</span>, total_amount
+  <span class="co"># Send the total_amount for the drink back to the main program.</span>
+  <span class="cf">return</span> total_amount
+
+<span class="co"># This just calls the function -  we&#39;ve seen this.</span>
+calculate_total(<span class="fl">5.5</span>, .<span class="dv">10</span>)
+
+<span class="co"># This is new! Save the amount of this drink into a variable &quot;latte_total.&quot;</span>
+latte_total <span class="op">=</span> calculate_total(<span class="fl">5.5</span>, .<span class="dv">10</span>)
+
+<span class="co"># Now, we can  use that variable.</span>
+<span class="bu">print</span> <span class="st">&#39;Your order total is&#39;</span>, latte_total</code></pre></div>
+<ul>
+<li><p><code>total_amount</code> is returned to the main program.</p></li>
+<li><p>The value in <code>total_amount</code> is saved as <code>latte_total</code>.</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Walk through the flow of the code. There's a lot happening.</p></li>
+<li><p>If you want, the code is in a repl.it <a href="%22https://repl.it/@SuperTernary/python-programming-functions-two?lite=true%22">here</a> to demo.</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;We now know how to communicate with functions in one direction, by passing values using parameters and arguments. However, functions can also communicate back to you and return values. Sometimes we don't necessarily want to show or log something immediately to the console or update something on a page. When we <strong>return</strong> something, it ends the function's execution and &quot;spits out&quot; whatever we are returning.&quot;</p></li>
+<li><p>&quot;With this function, we are sending the <code>total_amount</code> back to the main program using the <code>return</code> keyword, and saving the returned value into a variable like <code>latte_total</code> or <code>americano_total</code>.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-practicing-returns" class="level2">
+<h2>We Do: Practicing Returns</h2>
+<p>Let's fill this in together:</p>
+<ul>
+<li>Define a function, <code>add_two</code>, that takes a parameter <code>number</code>.</li>
+<li>It adds <code>2</code> to <code>number</code>, saving that in a new variable, <code>total</code>; print <code>total</code> out. Then, return <code>total</code>.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Type out the code, explaining it as you do (see below for the code).</li>
+<li>The <code>print</code> is there so they can see that total is the same as <code>final_var</code>.</li>
+<li>Mention that <code>print</code> statements are a good way to track what your program is doing.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Let's create a new variable, <code>total</code>, which is simply <code>number</code> plus <code>2</code>. We use the <code>return</code> keyword to specify that the function will output <code>total</code>.&quot;</p></li>
+<li><p>&quot;When we call the function with an input of <code>3</code>, the integer is assigned as <code>number</code> inside the function. Then, the function's internal code runs, creating the <code>total</code> variable and returning it as the output. In this case, the function's output is the integer <code>5</code>, which we assign to <code>final_var</code>.&quot;</p></li>
+</ul>
+<p><strong>The code is:</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_two(number):
+ total <span class="op">=</span> number <span class="op">+</span> <span class="dv">2</span>
+ <span class="bu">print</span>(total)
+ <span class="cf">return</span> total
+
+final_var <span class="op">=</span> add_two(<span class="dv">3</span>)
+<span class="bu">print</span> final_var</code></pre></div>
+<p><strong>Repl.it Notes:</strong> This repl.it is empty.</p>
+</aside>
+<hr />
+</section>
+<section id="discussion-return-statements-with-logic" class="level2">
+<h2>Discussion: Return Statements With Logic</h2>
+<p>The <code>return</code> statement <em>exits a function</em>, not executing any further code in it. What do you think the following will print?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> mystery():
+   <span class="cf">return</span> <span class="dv">6</span>
+   <span class="cf">return</span> <span class="dv">5</span>
+
+my_number <span class="op">=</span> mystery()
+<span class="bu">print</span> my_number</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>(The answer is 6)</p></li>
+<li><p>Walk through this! Consider opening a blank replit and demoing it, if you see head scratching. <a href="https://repl.it/@SuperTernary/Empty-Replit?lite=true">Here is one</a>.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-will-happen" class="level2">
+<h2>Discussion: What Will Happen?</h2>
+<p>What do you think will print out?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_bonus_points(score):
+    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">50</span>:
+        <span class="cf">return</span> score <span class="op">+</span> <span class="dv">10</span>
+    score <span class="op">+=</span> <span class="dv">20</span>
+    <span class="cf">return</span> score
+
+total_points <span class="op">=</span> add_bonus_points(<span class="dv">55</span>)
+<span class="bu">print</span>(total_points)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>The code that's below the <code>return</code> statement will never be executed and will be ignored completely.</li>
+<li>The function stopped executing at the first <code>return</code> statement it hit.</li>
+<li>&quot;Since the score in this case is greater than 50, we will hit the <code>return</code> statement <code>return score + 10</code>, and the function stops running.&quot;</li>
+</ul>
+<p>Teaching tip:</p>
+<ul>
+<li>Have students have a hand at giving an answer verbally.</li>
+</ul>
+<p>(Answer: 65)</p>
+</aside>
+<hr />
+</section>
+<section id="exiting-a-function" class="level2">
+<h2>Exiting a Function</h2>
+<p>We can also use <code>return</code> by itself as a way to exit the function and prevent any code that follows from running.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rock_and_roll(muted):
+   song <span class="op">=</span> <span class="st">&quot;It&#39;s only Rock &#39;N&#39; Roll&quot;</span>
+   artist <span class="op">=</span> <span class="st">&quot;Rolling Stones&quot;</span>
+
+   <span class="cf">if</span> (muted <span class="op">==</span> <span class="va">True</span>):
+       <span class="cf">return</span>
+       <span class="co"># Here, we use return as a way to exit a function</span>
+       <span class="co"># We don&#39;t actually return any value.</span>
+   <span class="bu">print</span>(<span class="st">&quot;Now playing: &quot;</span>, song, <span class="st">&quot; by &quot;</span>, artist)
+
+rock_and_roll(<span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><a href="https://repl.it/@SuperTernary/python-programming-returns?lite=true">Here is a replit to show that</a>. Show changing true to false.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Here, we use <code>return</code> as a way to exit the function instead of returning any value. When we call the function and pass in <code>True</code> as an argument for <code>muted</code>, this statement will never run: <code>print &quot;Now playing: &quot;, song, &quot; by &quot;, artist</code>.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-knowledge-check" class="level2">
+<h2>Quick Knowledge Check</h2>
+<p>Looking at this code, where will the function stop if <code>x</code> is <code>10</code>?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> categorize(x):
+  <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">8</span>):
+      <span class="cf">return</span> <span class="dv">8</span>
+  x <span class="op">+=</span> <span class="dv">3</span>
+  <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">15</span>):
+      <span class="cf">return</span> x
+  <span class="cf">return</span> <span class="dv">100</span></code></pre></div>
+<aside class="notes">
+<p>1 minute.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Wait for the students to guess!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>After they guess, walk through it. Here's an explanation:</p></li>
+<li><p><code>x</code> is greater than <code>8</code></p></li>
+<li><p>The first <code>if</code> condition is false.</p></li>
+<li><p>Adding <code>3</code> to <code>x</code> with <code>x += 3</code>, <code>x</code> will be <code>12</code>, which is less than <code>15</code>.</p></li>
+<li><p>&quot;This means that the second <code>if</code> statement condition is true, and Python will run the line <code>return x</code> and then stop running.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="another-knowledge-check" class="level2">
+<h2>Another Knowledge Check</h2>
+<p>Take this simple <code>adder</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> adder(number1, number2):
+ <span class="cf">return</span> number1 <span class="op">+</span> number2</code></pre></div>
+<p>Which of the following statements will result in an error?</p>
+<p>A. <code>adder(10, 100.)</code> <br> B. <code>adder(10, '10')</code> <br> C. <code>adder(100)</code> <br> D. <code>adder('abc', 'def')</code> <br> E. <code>adder(10, 20, 30)</code> <br></p>
+<aside class="notes">
+<p>1 minute.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Wait for the students to guess!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>After they guess, walk through it. Here's an explanation:</p></li>
+<li><p><code>adder(10, '10')</code> is incorrect because it tries to combine a string and an integer.</p></li>
+<li><p><code>adder(100)</code> will result in an error because it only provides one value.</p></li>
+<li><p><code>adder(10, 20, 30)</code> provides too many.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-return-statements" class="level2">
+<h2>Quick Review: Return Statements</h2>
+<p>Return statements allow us to get values back from functions:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_two(number):
+ total <span class="op">=</span> number <span class="op">+</span> <span class="dv">2</span>
+ <span class="bu">print</span>(total)
+ <span class="cf">return</span> total
+
+final_var <span class="op">=</span> add_two(<span class="dv">3</span>)
+<span class="bu">print</span> final_var</code></pre></div>
+<p>Return statements also exit the function - no further code in the function happens!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_bonus_points(score):
+    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">50</span>:
+        <span class="cf">return</span> score <span class="op">+</span> <span class="dv">10</span>
+    score <span class="op">+=</span> <span class="dv">30</span>
+    <span class="cf">return</span> score
+
+total_points <span class="op">=</span> add_bonus_points(<span class="dv">55</span>)
+<span class="bu">print</span>(total_points) <span class="co"># 65</span>
+total_points <span class="op">=</span> add_bonus_points(<span class="dv">10</span>)
+<span class="bu">print</span>(total_points) <span class="co"># 40</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly review and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-building-a-copy" class="level2">
+<h2>Partner Exercise: Building a Copy</h2>
+<p>Get with a partner. Decide who will drive and who will navigate.</p>
+<p>In a new local file, write a function, <code>copy_list</code>, that takes in a list, <code>original_list</code>, as a parameter. Your function should create a new list, <code>my_new_list</code> with the contents of the original list. Your function should return <code>my_new_list</code>.</p>
+<p>Example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+my_new_list <span class="op">=</span> copy_list(my_list)
+<span class="bu">print</span>(my_new_list)
+<span class="co"># Will print [1, 2, 3]</span></code></pre></div>
+<p><strong>Hint:</strong> you'll need to declare <code>my_new_list</code> above (outside of) your <code>for</code> loop.</p>
+<p>Make sure you run your function to check!</p>
+<aside class="notes">
+<p>5-10 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Skip this exercise if you don't have time, but it's a great recap exercise. Consider assigning it as homework, if you skip it.</p></li>
+<li><p>Pair students up. Walk around the room to check for questions and understanding. Ask key questions of students to be sure they understand what they're doing.</p></li>
+<li><p>After 5-10 minutes, go over the answer. Open a new Python file and write it with them.</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;When is this useful? If you ever need to copy a list and manipulate it without making changes to the original list.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-reversing-a-list" class="level2">
+<h2>Partner Exercise: Reversing a List</h2>
+<p>With the same partner, switch driver and navigator.</p>
+<p>In a local file (it can be the same one, if you'd like), write a function, <code>reverse_list</code>, that takes in a list, <code>my_list</code>, as a parameter. Your function should reverse the list in place and return it.</p>
+<p>Example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+reversed_list <span class="op">=</span> reverse_list(my_list)
+<span class="bu">print</span>(reversed_list)
+<span class="co"># Will print [3, 2, 1]</span></code></pre></div>
+<p>Make sure you run your function to check!</p>
+<aside class="notes">
+<p>5-10 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Skip this exercise if you don't have time, but it's a great recap exercise. Consider assigning it as homework, if you skip it.</p></li>
+<li><p>Pair students up. Walk around the room to check for questions and understanding. Ask key questions of students to be sure they understand what they're doing.</p></li>
+<li><p>After 5-10 minutes, go over the answer. Open a new Python file and write it with them.</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Awesome job! Let's try a harder one. Switch driver and navigator, and take a few minutes to try and solve this one.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-reversing-a-list" class="level2">
+<h2>You Do: Reversing a List</h2>
+<p>Now, work on your own.</p>
+<p>In a local file, write a function, <code>check_list_equality</code>, that takes in two lists, <code>first_list</code> and <code>second_list</code>, as parameters. Your function should return <code>True</code> if the two lists contain the same elements in the same order. Otherwise, it returns <code>False</code>.</p>
+<p>Example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">list_one <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+list_two <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+list_three <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]
+<span class="bu">print</span>(check_list_equality(list_one, list_two)) <span class="co"># True</span>
+<span class="bu">print</span>(check_list_equality(list_one, list_three)) <span class="co"># False</span></code></pre></div>
+<p><strong>Hint:</strong> Start by just making sure the lists have the same length!</p>
+<p><strong>Hint</strong>: You'll only need one <code>for</code> loop.</p>
+<aside class="notes">
+<p>5-10 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Skip this exercise if you don't have time, but it's a great recap exercise. Consider assigning it as homework, if you skip it.</p></li>
+<li><p>This one is tricky. If students are unsure how to get started, give them some starting points - make sure they've defined a function at all; remind them about <code>if</code> statements and the equality operators.</p></li>
+<li><p>Walk around the room to check for questions and understanding. Ask key questions of students to be sure they understand what they're doing.</p></li>
+<li><p>After 5-10 minutes, go over the answer. Open a new Python file and write it with them.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-qa" class="level2">
+<h2>Summary + Q&amp;A:</h2>
+<p>Can you now:</p>
+<ul>
+<li>Identify when to use a function?</li>
+<li>Create and call a function with arguments?</li>
+<li>Return a value from a function?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Summarize the lesson and provide a preview of what’s coming next.</li>
+<li>Open your own blank <a href="https://repl.it/languages/python3">repl.it</a> in a new tab if needed to recap and be sure everyone is clear.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Python Programming: Loops
+type: lesson
+duration: "01:00"
+creator: Susi Remondi
+-->
+<section id="python-programming-loops" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Loops</h2>
+<!--
+
+## Overview
+This lesson introduces students to the concept of creating `for` and `while` loops. It begins with `for`, covering lists and strings, then goes into using  `range` to modify a list. It then dives into `while` loops.
+
+## Learning Objectives
+In this lesson, students will:
+- Use a `for` loop to iterate a list.
+- Use `range()` to dynamically generate loops.
+- Use a `while` loop to control program flow.
+
+## Duration
+60 minutes
+
+### Note on timing:
+Loops are crucial to programming. If students are struggling, extend the amount of time here. You can generate exercises by  giving sample scenarios. Fizzbuzz is a great problem to give them, if you have time!
+
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:00 - 0:33 | `For` Loops |
+| 0:33 - 0:50 | `While` Loops |
+| 0:50 - 1:00 | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Use a <code>for</code> loop to iterate a list.</li>
+<li>Use <code>range()</code> to dynamically generate loops.</li>
+<li>Use a <code>while</code> loop to control program flow.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Briefly overview today’s learning objectives.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-a-small-list" class="level2">
+<h2>Discussion: A Small List</h2>
+<p>This situation isn't so bad:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">visible_colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>]
+<span class="bu">print</span>(visible_colors[<span class="dv">0</span>])
+<span class="bu">print</span>(visible_colors[<span class="dv">1</span>])
+<span class="bu">print</span>(visible_colors[<span class="dv">2</span>])
+<span class="bu">print</span>(visible_colors[<span class="dv">3</span>])
+<span class="bu">print</span>(visible_colors[<span class="dv">4</span>])
+<span class="bu">print</span>(visible_colors[<span class="dv">5</span>])</code></pre></div>
+<p>But what would we do if there were 1,000 items in the list to print?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Try to get students to guess at the idea of putting the print statement in a loop.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;But, what if we had a list with 283,000 items in it? We can't write one line for each element. We need a way to write the <code>print</code> statement once and have it run for every element in the list.&quot;</p></li>
+<li><p>&quot;One of the most powerful things that programming can do for you is automatically perform repetitive tasks. In the tiny scripts we've been writing, printing out every variable has not been much of an issue. But with lists in the game now, things can get a bit more challenging. We need a way to automate some tasks so that they repeat for every item in a list.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-for-loop" class="level2">
+<h2>The <code>for</code> Loop</h2>
+<!--
+
+**Talking Points**:
+"A common and extremely useful type of loop is the `for` loop. `for` loops appear in several computer programming languages and get their name from the fact that they loop (or iterate) **for** a specific number of times: once **for** each item in a list."
+
+"The `for` loop is perfect for when you have a specific collection of items — each of which must be processed once — or for when you know that you must execute a set of instructions a specific number of times. Those are the use cases for which it was designed."
+
+"This is our template. When we write a `for` loop we do the following:
+* We replace `item` with a meaningful name for the items in the collection.
+  * We use this name as the name of the item within our loop.
+* We replace `collection` with the name of our list (or other collection).
+* Indented inside the loop, we write the code to be run for each item.
+* Python will start with the first item and automatically stop after it loops with the last item."
+-->
+<p>The <code>for</code> loop always follows this form:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> item <span class="kw">in</span> collection:
+  <span class="co"># Do something with item</span></code></pre></div>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">visible_colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>]
+
+<span class="cf">for</span> each_color <span class="kw">in</span> visible_colors:
+  <span class="bu">print</span>(each_color)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go over the syntax. Point out the indentation - point out that it's like the <code>if</code> statement they learned.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;We need what is called a <code>Loop</code>.&quot;</p></li>
+<li><p>&quot;A common and extremely useful type of loop is the <code>for</code> loop. <code>for</code> loops appear in several computer programming languages and get their name from the fact that they loop (or iterate) <strong>for</strong> a specific number of times: once <strong>for</strong> each item in a list.&quot;</p></li>
+</ul>
+<p>This code: * Creates a new list containing some name strings. * Begins the <code>for</code> loop. We loop once for each &quot;name&quot; in the list (<code>names</code>). * Prints the current name inside the loop.&quot;</p>
+<ul>
+<li><p>&quot;The <code>for</code> loop is perfect for when you have a specific collection of items — each of which must be processed once — or for when you know that you must execute a set of instructions a specific number of times. Those are the use cases for which it was designed.&quot;</p></li>
+<li>&quot;This is our template. When we write a <code>for</code> loop we do the following:</li>
+<li>We replace <code>item</code> with a meaningful name for the items in the collection.</li>
+<li>We use this name as the name of the item within our loop.</li>
+<li>We replace <code>collection</code> with the name of our list (or other collection).</li>
+<li>Indented inside the loop, we write the code to be run for each item.</li>
+<li><p>Python will start with the first item and automatically stop after it loops with the last item.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-what-will-this-code-do" class="level2">
+<h2>Knowledge Check: What will this code do?</h2>
+<p>Think about what the code will do before you actually run it.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-for-indents?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;The statements inside a loop that you want to repeat must be indented like the statements inside an <code>if</code> block. So, if you have three lines of code that you want to execute on each loop iteration, each must be indented one level underneath your <code>for</code> line.&quot;</p></li>
+<li><p>&quot;Each name is met with <code>&quot;THUNDEROUS APPLAUSE!&quot;</code> because that line, and the two above it, are indented to be in the body of the <code>for</code> loop.&quot;</p></li>
+</ul>
+<p><strong>Repl.it Note</strong>: This replit has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> name <span class="kw">in</span> [<span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Deborah&quot;</span>, <span class="st">&quot;Murray&quot;</span>, <span class="st">&quot;Axel&quot;</span>]:
+  <span class="bu">print</span>(<span class="st">&quot;Now appearing in the Refreshment Room...&quot;</span>)  <span class="co"># in the loop</span>
+  <span class="bu">print</span>(name)                                        <span class="co"># in the loop</span>
+<span class="bu">print</span>(<span class="st">&quot;THUNDEROUS APPLAUSE!&quot;</span>)                      <span class="co"># OUTSIDE the loop</span></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="we-do-writing-a-loop" class="level2">
+<h2>We Do: Writing a Loop</h2>
+<p>Let's write a loop to print names of guests.</p>
+<p>First, we need a list.</p>
+<ul>
+<li><p>Create a local <code>.py</code> file named <code>my_loop.py</code>.</p></li>
+<li><p>Make your list: Declare a variable <code>my_list</code> and assign it to a list containing the names of at least five people.</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them! Make sure they're typing with you, to practice. See if they can give you the syntax you should write.</li>
+</ul>
+<p><strong>The code is</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="we-do-write-a-loop---making-the-loop" class="level2">
+<h2>We Do: Write a Loop - Making the Loop</h2>
+<p>Now, we'll add the loop.</p>
+<ul>
+<li>Skip a line and write the first line of your <code>for</code> loop.
+<ul>
+<li>For the variable that holds each item, give it a name that reflects what the item is (e.g. <code>name</code> or <code>person</code>).</li>
+</ul></li>
+<li>Inside your loop, add the code to print <code>&quot;Hello,&quot;</code> plus the name.</li>
+</ul>
+<pre><code>&quot;Hello, Felicia!&quot;
+&quot;Hello, Srinivas!&quot;</code></pre>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them! Make sure they're typing with you, to practice. See if they can give you the syntax you should write.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Remind them that the word collection is a list; this collection is the list variable they have.</li>
+</ul>
+<p><strong>The code is</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  <span class="co"># Print out a greeting in here</span>
+  <span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> guest <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="we-do-write-a-loop-to-greet-people-on-your-guest-list" class="level2">
+<h2>We Do: Write a loop to greet people on your guest list</h2>
+<p>Our guests are definitely VIPs! Let's give them a lavish two-line greeting.</p>
+<ul>
+<li>Inside your loop, add the code to print another sentence of greeting:</li>
+</ul>
+<pre><code>&quot;Hello, Srinivas!&quot;
+&quot;Welcome to the party!&quot;</code></pre>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them! Make sure they're typing with you, to practice. See if they can give you the syntax you should write.</li>
+<li>Point out the indent.</li>
+</ul>
+<p><strong>The code is</strong>:</p>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Fantastic! Now each guest is greeted by their name and welcomed to the party. Those two <code>print()</code> lines are executed on every iteration because both are indented to be in the <code>for</code> loop's code block. Think of the indented block as a unit of instructions executed as a group each time the loop runs.&quot;</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  <span class="co"># Print out a greeting in here</span>
+  <span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> guest <span class="op">+</span> <span class="st">&quot;!&quot;</span>)
+  <span class="bu">print</span>(<span class="st">&quot;Welcome to the party!&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-where-else-could-we-use-a-loop" class="level2">
+<h2>Discussion: Where Else Could We Use a Loop?</h2>
+<p>A loop prints everything in a collection of items.</p>
+<ul>
+<li><code>guest_list = [&quot;Fred&quot;, &quot;Cho&quot;, &quot;Brandi&quot;, &quot;Yuna&quot;, &quot;Nanda&quot;, &quot;Denise&quot;]</code></li>
+</ul>
+<p>What, besides a list, could we use a loop on?</p>
+<p><em>Hint: There are six on this slide!</em></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>The answer is a string! We can loop through the characters.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="looping-strings" class="level2">
+<h2>Looping Strings</h2>
+<p>Loops are collections of strings and numbers.</p>
+<p>Strings are collections of characters!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-string-for?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Don't spend more than a minute or two on this slide - it's not an exercise; just a demonstration.</li>
+<li>The point is to understand that a string is a collection of characters, and any collection can be looped.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;You may not realize it, but a string is a collection of characters. Just so you can see that a for loop has the same syntax for any collection, let's add the following code below what we've just written&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong>: This code has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_string <span class="op">=</span> <span class="st">&quot;Hello, world!&quot;</span>
+
+<span class="cf">for</span> character <span class="kw">in</span> my_string:
+  <span class="bu">print</span>(character)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="what-about...looping-for-a-specific-number-of-iterations" class="level2">
+<h2>What about...Looping For a Specific Number of Iterations?</h2>
+<p>We have:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  <span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> guest <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</code></pre></div>
+<p>The loop runs for every item in the list - the length of the collection. Here, it runs 6 times.</p>
+<p>What if we don't know how long <code>guest_list</code> will be?</p>
+<p>Or only want to loop some of it?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Whenever we have a collection, such as a list or string, and we want to iterate over each item it contains, we should use a <code>for</code> loop. Python has internal logic for determining exactly how many times the loop should run based on the length of the collection.&quot;</p></li>
+<li><p>&quot;But, what if we want to do something in a loop a specific number of times, but we don't have a collection to start with? Maybe we are initializing a new collection and we need to add a specific number of items to it or maybe we just want something to run exactly 15 times. In this case, we can have the <code>for</code> loop iterate over a range of numbers.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="enter-range" class="level2">
+<h2>Enter: Range</h2>
+<p><code>range(x)</code>:</p>
+<ul>
+<li>Automatically generated.</li>
+<li>A list that contains only integers.</li>
+<li>Starts at zero.</li>
+<li>Stops before the number you input.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">range</span>(<span class="dv">5</span>)  <span class="co"># =&gt; [0, 1, 2, 3, 4]</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;You can actually feed more parameters into <code>range()</code> to control what number it starts at and how big each step is to the next number, but we will keep it simple for now. For now it is enough to know that if you loop over <code>range(5)</code> then your loop will execute <strong>five</strong> times. Let's use this in a loop...&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="looping-over-a-range" class="level2">
+<h2>Looping Over a Range</h2>
+<p>Let's look at <code>range</code> in action:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-for-range?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This isn't an exercise, just a quick demo. Make sure they understand how range is working.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We can see that this code prints each of the numbers in our range of 0 through 9 (10 numbers total.) We don't need to have our loop print anything. This loop could be used to execute any sequence of code 10 times. &quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This code is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+  <span class="bu">print</span>(i)
+
+squares <span class="op">=</span> []
+
+<span class="cf">for</span> num <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):
+  sqr <span class="op">=</span> num <span class="op">**</span> <span class="dv">2</span>
+  squares.append(sqr)
+
+<span class="bu">print</span>(squares)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="looping-over-a-range-1" class="level2">
+<h2>Looping Over a Range</h2>
+<p>Looping over <code>names</code> here is really just going through the loop 4 times - at index <code>0</code>, <code>1</code>, <code>2</code>, and <code>3</code>.</p>
+<p>We can instead use <code>range(x)</code> to track the index and loop <code>names</code>: <code>range(4)</code> is <code>[0, 1, 2, 3]</code>.</p>
+<p>We can then use <code>len(names)</code>, which is 4, as our range.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-range-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This isn't an exercise, just a demo. Make sure they understand how range is working. This can be a bit tricky!</li>
+<li>Show a regular loop again, if you need to.</li>
+<li>Vary the size of range - try <code>range(4)</code> and <code>range(2)</code> - so students can see the differences.</li>
+<li>Give a bunch of examples. Range might make sense conceptually, but be hard to remember the syntax for and use.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Recall that you can use the <code>len()</code> function to get the length of a list. Since that will always be an integer, we can feed that value into the <code>range()</code> function to generate a range that contains each index in the list.&quot;</p></li>
+<li><p>&quot;Don't be alarmed about the function inside the function. That's fairly common. Let's break it down: <code>len(names)</code> will return the length of the <code>names</code> list; in this case, 4. The number 4 is then used as the parameter for <code>range()</code> creating a range containing 0, 1, 2, and 3. These happen to all be valid indices for our list so we can use them to modify the values stored at those indices.&quot;</p></li>
+</ul>
+<p><strong>Repl.it Note:</strong> This code is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">names <span class="op">=</span> [<span class="st">&quot;Flint&quot;</span>, <span class="st">&quot;John Cho&quot;</span>, <span class="st">&quot;Billy Bones&quot;</span>, <span class="st">&quot;Nanda Yuna&quot;</span>]
+
+<span class="cf">for</span> each_name <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(names)):
+  <span class="bu">print</span>(names[each_name])</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="range-to-modify-collections" class="level2">
+<h2>Range to Modify Collections</h2>
+<p>Why would you use <code>range</code> on a list, when you could just loop the list?</p>
+<p>We can't do:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  guest <span class="op">=</span> <span class="st">&quot;A new name&quot;</span></code></pre></div>
+<p>But we can do:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(guest_list)):
+  guest_list[guest] <span class="op">=</span> <span class="st">&quot;A new name&quot;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;But there is one special use for this that is vital to know about. When we loop using <code>for item in collection</code> we can't ever really <strong>modify</strong> the elements in the list. Whenever we access <code>item</code> we are actually getting a copy of the item in the list. In order to <strong>modify</strong> the item in the list, we would need the index of that item in the list. And guess what <code>range()</code> gives us...&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="looping-over-a-range-2" class="level2">
+<h2>Looping Over a Range</h2>
+<p>Let's make the list all uppercase:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-range-modification?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a bit difficult. Make sure they understand that range hits the index versus a regular for loop makes a copy.</li>
+<li>Give different examples if need be.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Now when we run this we see that the <code>names</code> list has had all the string changed to uppercase. It is necessary to use list indices if you want to modify list elements. If we tried doing the same thing with an <code>item</code> from that <code>list</code> then the changes would only apply to the temporary copy stored in <code>item</code> and would never actually make it into the list.&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This code is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This won&#39;t work</span>
+
+guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  guest <span class="op">=</span> guest.upper()
+
+<span class="bu">print</span>(<span class="st">&quot;Without range, guest_list is&quot;</span>, guest_list)
+
+<span class="co"># This will!</span>
+
+<span class="cf">for</span> guest <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(guest_list)):
+  guest_list[guest] <span class="op">=</span> guest_list[guest].upper()
+
+<span class="bu">print</span>(<span class="st">&quot;With range, guest_list is&quot;</span>, guest_list)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-which-of-the-following-lines-is-correct" class="level2">
+<h2>Knowledge Check: Which of the following lines is correct?</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="st">&#39;mon&#39;</span>, <span class="st">&#39;tue&#39;</span>, <span class="st">&#39;wed&#39;</span>, <span class="st">&#39;thu&#39;</span>, <span class="st">&#39;fri&#39;</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(my_list):       <span class="co"># answer A</span>
+<span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(my_list)):    <span class="co"># answer B</span>
+<span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(my_list.length):  <span class="co"># answer C</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them time to discuss and come up with an answer!</li>
+<li>The answer is B</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-range" class="level2">
+<h2>You Do: Range</h2>
+<p>Locally, create a new file called <code>range_practice.py</code>.</p>
+<p>In it:</p>
+<ul>
+<li>Create a list of colors.</li>
+<li>Using a <code>for</code> loop, print out the list.</li>
+<li>Using <code>range</code>, set each item in the list to be the number of characters in the list.</li>
+<li>Print the list.</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>]
+<span class="co"># =&gt;</span>
+[<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>]</code></pre></div>
+<aside class="notes">
+<p>5-10 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>If students seem a bit lost when you get here, run this as a partner exercise.</p></li>
+<li><p>This is tough! Give them a bit before going over the answer - bring up your own file or a repl.it and write it, talking through each step.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-for-loops-and-range" class="level2">
+<h2>Quick Review: For Loops and Range</h2>
+<p><code>for</code> loops:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># On a list (a collection of strings)</span>
+guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+<span class="cf">for</span> guest <span class="kw">in</span> guest_list:
+  <span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> guest <span class="op">+</span> <span class="st">&quot;!&quot;</span>)
+
+<span class="co"># On a string (a collection of characters)</span>
+my_string <span class="op">=</span> <span class="st">&quot;Hello, world!&quot;</span>
+<span class="cf">for</span> character <span class="kw">in</span> my_string:
+  <span class="bu">print</span>(character)
+
+<span class="co">##### Range #####</span>
+
+<span class="bu">range</span>(<span class="dv">4</span>)  <span class="co"># =&gt; [0, 1, 2, 3]</span>
+
+<span class="co"># Using Range as an Index Counter</span>
+names <span class="op">=</span> [<span class="st">&quot;Flint&quot;</span>, <span class="st">&quot;John Cho&quot;</span>, <span class="st">&quot;Billy Bones&quot;</span>, <span class="st">&quot;Nanda Yuna&quot;</span>]
+<span class="cf">for</span> each_name <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):
+  <span class="bu">print</span>(names[each_name])
+
+<span class="co"># OR</span>
+
+<span class="cf">for</span> each_name <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(names)):
+  <span class="bu">print</span>(names[each_name])
+
+<span class="co"># Using Range to Change a List:</span>
+
+guest_list <span class="op">=</span> [<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Cho&quot;</span>, <span class="st">&quot;Brandi&quot;</span>, <span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Nanda&quot;</span>, <span class="st">&quot;Denise&quot;</span>]
+<span class="cf">for</span> guest <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(guest_list)):
+  guest_list[guest] <span class="op">=</span> <span class="st">&quot;A new name&quot;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly review key takeaways.</li>
+<li>Ask if there are questions. That was a lot!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-while-loop" class="level2">
+<h2>The While Loop</h2>
+<p>What about &quot;While the bread isn't brown, keep cooking&quot;?</p>
+<p>Python provides two loop types.</p>
+<p><code>for</code>:</p>
+<ul>
+<li>You just learned!</li>
+<li>Loops over collections a finite number of times.</li>
+</ul>
+<p><code>while</code>:</p>
+<ul>
+<li>You're about to learn!</li>
+<li>When your loop could run an indeterminate number of times.</li>
+<li>Checks if something is <code>True</code> <em>(the bread isn't brown yet)</em> and runs until it's set to <code>False</code> <em>(now the bread is brown, so stop)</em>.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Now that we’ve learned how to write for loops to to iterate lists, and how to use range to dynamically generate loops, we’re going to transition to while loops. I’m going to show you how to write while loops, and then you’re going to practice while loops with your partner.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="while-loop-syntax" class="level2">
+<h2>While Loop Syntax</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># While &lt;something&gt; is true:</span>
+<span class="co">#     Run some code</span>
+<span class="co">#     If you&#39;re done, set the &lt;something&gt; to false</span>
+<span class="co">#     Otherwise, repeat.</span>
+
+a <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> a <span class="op">&lt;</span> <span class="dv">10</span>:
+  <span class="bu">print</span>(a)
+  a <span class="op">+=</span> <span class="dv">1</span></code></pre></div>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/43/While-loop-diagram.svg" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Call out that it won't print 10.</li>
+<li>Call out the indents!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We won't always have the luxury of a collection of discrete data items for controlling our loop. Frequently, we will need to write a loop that will run an unknown number of times. This is what the <code>while</code> loop is for. It's another loop construct that will continue to iterate <strong>while a given condition is true</strong>. These loops are quite useful for data sets of unknown sizes, or for when we need to loop until some value changes.&quot;</li>
+<li>&quot;Outside of our <code>while</code> loop, we create the variable <code>a</code>, which we'll use as our conditional. We then start our loop. We say to loop &quot;while <code>a</code> is less than 10.&quot; Then, in the loop, we print <code>a</code> and add one to its value. Once the value of <code>a</code> reaches 10, the loop condition evaluates to false and the loop finishes.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="while-loop-be-careful" class="level2">
+<h2>While Loop: Be Careful!</h2>
+<p>Don't <em>ever</em> do:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> a <span class="op">&lt;</span> <span class="dv">10</span>:
+  <span class="bu">print</span>(a)</code></pre></div>
+<p>And don't ever do:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> a <span class="op">&lt;</span> <span class="dv">10</span>:
+  <span class="bu">print</span>(a)
+a <span class="op">+=</span> <span class="dv">1</span></code></pre></div>
+<p>Your program will run forever!</p>
+<p>If your program ever doesn't leave a loop, hit <code>control-c</code>.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>We're telling them this in advance of practicing, in case they do it!</li>
+<li>Make it clear why this runs forever.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;<code>While</code> loops present a potential &quot;gotcha&quot; in programming: the infinite loop. Because the <code>while</code> loop only terminates when a condition turns to false, it's possible to write the loop in such a way that it never terminates. This creates a serious bug in your code where the loop never, ever returns control to the app, and it will freeze indefinitely. The way to avoid this is to <strong>always</strong> remember to update your conditional variable inside your loop block.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-filling-a-glass-of-water" class="level2">
+<h2>We Do: Filling a Glass of Water</h2>
+<p>Create a new local file, <code>practicing_while.py</code>.</p>
+<p>In it, we'll create:</p>
+<ul>
+<li>A variable for our current glass content.</li>
+<li>Another variable for the total capacity of the glass.</li>
+</ul>
+<p>Let's start with this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">glass <span class="op">=</span> <span class="dv">0</span>
+glass_capacity <span class="op">=</span> <span class="dv">12</span></code></pre></div>
+<p>Can you start the <code>while</code> loop?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they're typing this with you and not just copying and pasting the code.</li>
+<li>Before you go to the next slide (adding the loop), see if they can guess the syntax.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Can you think of the mental process you follow when pouring water into a glass? You start with an empty glass and begin adding water to it, right? While you are adding the water, you must constantly check to see if the glass has reached its maximum capacity. If it has, you then stop pouring. Otherwise, you continue adding water. Let's see how that would work as a <code>while</code> loop...&quot;</p></li>
+<li><p>&quot;We a variable for our current glass content and we need one for the total capacity of the glass.&quot;</p></li>
+<li><p>&quot;What we want to do is add water to the glass one unit at a time until the glass reaches capacity. Said another way, <strong>while</strong> the glass contains less than its capacity, add another unit of water. Can you start the loop code before we move to the next slide?&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-filling-a-glass-of-water-1" class="level2">
+<h2>We Do: Filling a Glass of Water</h2>
+<p>Add the loop:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">glass <span class="op">=</span> <span class="dv">0</span>
+glass_capacity <span class="op">=</span> <span class="dv">12</span>
+
+<span class="cf">while</span> glass <span class="op">&lt;</span> glass_capacity:
+  glass <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Here is where we add more water</span></code></pre></div>
+<p>That's it!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We declare our <code>glass</code> variable and set it to <code>0</code> water, currently. Then, we declare our glass' capacity and set it to <code>12</code> units. Next, we set up our <code>while</code> loop. We want to loop while the glass has a value less than <code>glass_capacity</code>. Inside of our loop, we add <code>1</code> unit of water to our glass. Each time the loop runs, it checks the value of <code>glass</code> to see if it has reached the same value as <code>glass_capacity</code>. The loop stops once <code>glass</code> reaches <code>12</code>, conveniently before we spill.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="side-note-input" class="level2">
+<h2>Side Note: Input()</h2>
+<p>Let's do something more fun.</p>
+<p>With a partner, you will write a program that:</p>
+<ul>
+<li>Has a user guess a number.</li>
+<li>Runs until the user guesses.</li>
+</ul>
+<p>But first, how do we have users input numbers?</p>
+<p>Using <code>input()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please enter your name:&quot;</span>)
+<span class="co"># user_name now has what the user typed</span>
+<span class="bu">print</span>(user_name)</code></pre></div>
+<p>Erase the code in your <code>practicing_while.py</code> file and put the above. Run it! What happens? Does it work?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Don't put them in partners yet - make sure they all have <code>input</code> working on their own.</li>
+<li>Demo that the text in the <code>input</code> prompt can be anything, and the variable <code>user_name</code> can be named anything.</li>
+<li>There is a lesson teaching <code>input</code> in depth in unit 5, so you just need them to be able to use the code. Put any further questions into the parking lot.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;<code>While</code> loops are also great for guessing games. Let's use a small function called <code>input()</code> to get some user input so that they can take guesses about our secret number. Here's how <code>input()</code> works.&quot;</p></li>
+<li><p>&quot;Whatever string you put in the parentheses is printed to the screen. The user then has the opportunity to type something. The script will wait patiently for the user until something is typed and entered (a perfect example of a while loop in the Python internals.) When the user hits Enter, the string they typed is stored in the variable <code>user_name</code> above.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-a-guessing-game" class="level2">
+<h2>You Do: A Guessing Game</h2>
+<p>Now, get with a partner! Let's write the the game.</p>
+<p>Decide who will be driver and who will be navigator. Add this to your existing file.</p>
+<ul>
+<li>Set a variable, <code>answer</code> to <code>&quot;5&quot;</code> (yes, a string!).</li>
+<li>Prompt the user for a guess and save it in a new variable, <code>guess</code>.</li>
+<li>Create a <code>while</code> loop, ending when <code>guess</code> is equal to <code>answer</code>.</li>
+<li>In the <code>while</code> loop, prompt the user for a new <code>guess</code>.</li>
+<li>After the <code>while</code> loop, print &quot;You did it!&quot;</li>
+</ul>
+<p>Discuss with your partner: Why do we need to make an initial variable before the loop?</p>
+<aside class="notes">
+<p>5 MINUTES</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this as a partner exercise. Set student up in pairs, then walk around to be sure they're all working and no one is stuck.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Now that you know how to accept input from the keyboard, make a game where the player must correctly guess a number. The game will continually prompt the user to enter a guess if they did not guess correctly. Once they correctly guess the number, the program congratulates them and exits. Can you think of how this would be written?&quot;</p></li>
+<li><p>&quot;You need a variable to hold the correct answer. You need another variable to hold each subsequent guess. We will need to compare the guess to the answer and if it is wrong, ask the user again for a guess. This sounds like we will be repeatedly asking for a guess <strong>while</strong> the previous guess was incorrect.&quot;</p></li>
+<li><p>&quot;One thing to keep in mind is that <code>input()</code> returns a string so if the user types <code>5</code> it will result in the string <code>&quot;5&quot;</code>. You cannot compare numbers to strings in Python. To work around this for a number guessing game, set your correct answer variable to be the string of the number (e.g. &quot;4&quot; or &quot;9&quot;) instead of the number itself. This way when you do your loop comparison, you'll be comparing the same types.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-a-guessing-game-solution" class="level2">
+<h2>You Do: A Guessing Game (Solution)</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">answer <span class="op">=</span> <span class="st">&quot;4&quot;</span>
+guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Guess what number I&#39;m thinking of (1-10): &quot;</span>)
+<span class="cf">while</span> guess <span class="op">!=</span> answer:
+  guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Nope, try again: &quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;You got it!&quot;</span>)</code></pre></div>
+<p>How'd you do? Questions?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through the answer here. Show it working. Check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-qa" class="level2">
+<h2>Summary + Q&amp;A</h2>
+<p>Loops:</p>
+<ul>
+<li>Common, powerful control structures that let us efficiently deal with repetitive tasks.</li>
+</ul>
+<p><code>for</code> loops:</p>
+<ul>
+<li>Used to iterate a set number of times over a collection (e.g. list, string, or using <code>range</code>).</li>
+<li><code>range</code> use indices, not duplicates, so it lets you modify the collection.</li>
+</ul>
+<p><code>while</code> loops:</p>
+<ul>
+<li>Run until a condition is false.</li>
+<li>Used when you don't know how many times you need to iterate.</li>
+</ul>
+<p>That was a tough lesson! Any questions?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Briefly recap.</li>
+<li>Check for understanding! Bring up an interpreter if needed, or if you have extra time. The more they see this, the better!</li>
+<li>Then, go over next steps.</li>
+<li>Encourage students to check out all the additional resources at the end of each presentation.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JkQ0Xeg8LRI">Learn Python Programming: Loops Video</a></li>
+<li><a href="https://wiki.python.org/moin/ForLoop">Python: For Loop</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_loops.htm">Python: Loops</a></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to go through these in their spare time, especially if they need more help.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

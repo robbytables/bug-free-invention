@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!---
+This lesson was developed by Steven Peters for Python 5-day course.
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @steve.peters
+--->
+<section id="python-programming-class-inheritance" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Class Inheritance</h2>
+<!--
+
+## Overview
+This lesson assumes knowledge of classes and dives straight into inheritance. After a We Do to build a child class, there's an I Do which walks through overwriting the parent variables and methods. If there's time, assign an exercise! It's in the `xx-additional-exercises` folder (it's too long for a slide). Otherwise, assign it for homework.
+
+## Important Notes or Prerequisites
+- They've just learned classes! Go slowly here. Make sure everyone's confident with classes.
+
+## Learning Objectives
+In this lesson, students will:
+
+- Implement inheritance.
+- Describe what has been inherited from one class to another.
+- Overwrite variables and methods.
+
+
+## Duration
+20 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:10 | Creating a Child Class |
+| 0:10 - 0:18 | Overwriting Variables and Methods |
+| 0:18 - 0:20  | Summary |
+
+## Differentiation and Extensions
+-  In  the interest of time, this does not have a "You Do" for overwriting attributes or methods. It has a knowledge check question, but feel free to add exercises!
+- If students get this easily, introduce multiple inheritance - perhaps an iPhone 8  class, inheriting from IPhone.
+- There is, in the `xx-additional-exercises` folder in the parent folder, an inheritance challenge that you should give in class if there's time, and if not, give as homework. It's quite long.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Implement inheritance.</li>
+<li>Describe what has been inherited from one class to another.</li>
+<li>Overwrite variables and methods.</li>
+</ul>
+<hr />
+</section>
+<section id="discussion-similar-classes" class="level2">
+<h2>Discussion: Similar Classes</h2>
+<p><code>Phone</code> is a class - there are hundreds of types of phones.</p>
+<ul>
+<li>What attributes and functions would a <code>Phone</code> have?</li>
+</ul>
+<p>What about an <code>iPhone</code>? Or <code>android_phone</code>?</p>
+<ul>
+<li><code>iPhone</code> and <code>android_phone</code> would be objects of the <code>Phone</code> class.</li>
+<li>But... there are types of iPhones and types of Android phones.</li>
+<li>Should <code>IPhone</code> and <code>AndroidPhone</code> be classes themselves?</li>
+</ul>
+<p>What would you do?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students brainstorm what a Phone class would have.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>But you could go further:</li>
+<li>You could say <code>iPhone</code> is a class - there are many types of iPhones.</li>
+<li>What specific attributes would an <code>iPhone</code> have apart from other phones?</li>
+<li>You could say <code>AndroidPhone</code> is a class - there are many types of Android phones.</li>
+<li><p>What specific attributes would an <code>AndroidPhone</code> have apart from other phones?</p></li>
+<li><code>AndroidPhone</code> and <code>iPhone</code> are separate classes. However, they are both types of <code>Phone</code>.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introduction-inheritance" class="level2">
+<h2>Introduction: Inheritance</h2>
+<p><code>AndroidPhone</code> and <code>iPhone</code> are separate classes <em>and</em> in the <code>Phone</code> class.</p>
+<p>This is called <strong>inheritance</strong>: Making classes that are subsets of other classes.</p>
+<p><code>Phone</code> is the <strong>parent</strong> class. It's a regular class! All phones:</p>
+<ul>
+<li>Have a phone number.</li>
+<li>Can place phone calls.</li>
+<li>Can send text messages.</li>
+</ul>
+<p><code>IPhone</code> is a <strong>child</strong> class. The child class <strong>inherits</strong> methods and properties from the parent class but can also define its own functionality. iPhones uniquely:</p>
+<ul>
+<li>Have an <code>unlock</code> method that accepts a fingerprint</li>
+<li>Have a <code>set_fingerprint</code> method that accepts a fingerprint</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Brainstorm the differences between the phone classes.</li>
+<li>This can be hard to wrap your head around in programming - give real life examples. Mystery novels are a type of book, but there are tons of those. Sofas are a type of couch, which are a type of chair.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>It allows us to extend functionality defined in a <code>parent</code> class (<code>Phone</code>) and create <code>children</code> classes (<code>iPhone</code>, <code>AndroidPhone</code>) that extend and compartmentalize different pieces of functionality.</li>
+<li>&quot;When we define a class to represent a <code>Phone</code>, we can add the basic properties and functionality that all phones have.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-inheritance" class="level2">
+<h2>We Do: Inheritance</h2>
+<p>All phones: Have a phone number, can place phone calls, and can send text messages.</p>
+<p>Start a new file, <code>Phone.py</code>. In it, let's start and test the class:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Phone:
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):
+    <span class="va">self</span>.number <span class="op">=</span> phone_number
+
+  <span class="kw">def</span> call(<span class="va">self</span>, other_number):
+    <span class="bu">print</span>(<span class="st">&quot;Calling from&quot;</span>, <span class="va">self</span>.number, <span class="st">&quot;to&quot;</span>, other_number)
+
+  <span class="kw">def</span> text(<span class="va">self</span>, other_number, msg):
+    <span class="bu">print</span>(<span class="st">&quot;Sending text from&quot;</span>, <span class="va">self</span>.number, <span class="st">&quot;to&quot;</span>, other_number)
+    <span class="bu">print</span>(msg)
+
+test_phone <span class="op">=</span> Phone(<span class="dv">5214</span>)
+test_phone.call(<span class="dv">515</span>)
+test_phone.text(<span class="dv">51121</span>, <span class="st">&quot;Hi!&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have them start a new file and do this with you!</li>
+<li>Make sure students follow along, but don't discourage copy and paste from the slide - it's a lot to type up!</li>
+<li>Classes are still pretty new - talk through each line as you write it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-iphone-class" class="level2">
+<h2>We Do: IPhone Class</h2>
+<p>Underneath the <code>Phone</code> class definition, let's create the <code>iPhone</code> class.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> IPhone(Phone):
+  <span class="co"># Class definitions accept a parameter specifying what class they inherit from.</span>
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):
+    <span class="co"># super()` calls the `init` defined in the parent class.</span>
+    <span class="bu">super</span>().<span class="fu">__init__</span>(phone_number)
+    <span class="co"># Now self.number is set, because that&#39;s what happens in the parent Phone _init_.</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this line by line - when you get to super, scroll up to point out Phone's super.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;After we define what a <code>Phone</code> is we can create classes that <em>inherit</em> from the <code>Phone</code> class and add their own properties and functionality.&quot;</li>
+<li>&quot;Let's define two new classes that inherit from the <code>Phone</code> class.&quot;</li>
+<li>Notice how the <code>iphone</code> class doesn't repeat the code that attaches the <code>phone_number</code> passed to the <code>__init__</code> method to the <code>self</code> reference.</li>
+<li>The <code>iphone</code> class calls the parent constructor through the super method and allows the parent class to execute that default behavior.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-iphone-class-1" class="level2">
+<h2>We Do: IPhone Class</h2>
+<p>iPhones uniquely:</p>
+<ul>
+<li>Have an <code>unlock</code> method that accepts a fingerprint</li>
+<li>Have a <code>set_fingerprint</code> method that accepts a fingerprint</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> IPhone(Phone):
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):
+    <span class="bu">super</span>().<span class="fu">__init__</span>(phone_number)
+
+    <span class="co"># Under the call to super, we can define unique IPhone variables.</span>
+    <span class="co"># Regular Phone objects won&#39;t have this!</span>
+    <span class="va">self</span>.fingerprint <span class="op">=</span> <span class="va">None</span>
+
+  <span class="co"># Here are methods unique to IPhone objects.</span>
+  <span class="kw">def</span> set_fingerprint(<span class="va">self</span>, fingerprint):
+    <span class="va">self</span>.fingerprint <span class="op">=</span> fingerprint
+
+  <span class="kw">def</span> unlock(<span class="va">self</span>, fingerprint<span class="op">=</span><span class="va">None</span>):
+    <span class="cf">if</span> (fingerprint <span class="op">==</span> <span class="va">self</span>.fingerprint):
+      <span class="bu">print</span>(<span class="st">&quot;Phone unlocked. Fingerprint matches.&quot;</span>)
+    <span class="cf">else</span>:
+      <span class="bu">print</span>(<span class="st">&quot;Phone locked. Fingerprint doesn&#39;t match.&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they're still following along, conceptually and in their file.<br />
+</li>
+<li>Walk through this carefully. Recap that methods are just class functions.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="side-discussion-edge-cases" class="level2">
+<h2>Side Discussion: Edge Cases</h2>
+<p>Look at:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> unlock(<span class="va">self</span>, fingerprint<span class="op">=</span><span class="va">None</span>):
+  <span class="cf">if</span> (fingerprint <span class="op">==</span> <span class="va">self</span>.fingerprint):
+    <span class="bu">print</span>(<span class="st">&quot;Phone unlocked. Fingerprint matches.&quot;</span>)
+  <span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Phone locked. Fingerprint doesn&#39;t match.&quot;</span>)</code></pre></div>
+<p>What if <code>self.fingerprint</code> is currently <code>None</code>? We need to account for this!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> unlock(<span class="va">self</span>, fingerprint<span class="op">=</span><span class="va">None</span>):
+  <span class="cf">if</span> (<span class="va">self</span>.fingerprint <span class="op">==</span> <span class="va">None</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Phone unlocked. No fingerprint needed.&quot;</span>)
+  <span class="cf">elif</span> (fingerprint <span class="op">==</span> <span class="va">self</span>.fingerprint):
+    <span class="bu">print</span>(<span class="st">&quot;Phone unlocked. Fingerprint matches.&quot;</span>)
+  <span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Phone locked. Fingerprint doesn&#39;t match.&quot;</span>)</code></pre></div>
+<p>When programming, always watch for <strong>edge cases</strong>. This isn't specific to classes!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Be very clear that this isn't specific to classes - it's something to always watch out for, in functions, for loops, and anything at all. Note that this is a reason why pseudocode is so important!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-testing-iphone" class="level2">
+<h2>We Do: Testing IPhone</h2>
+<p>Add some test lines at the bottom:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_iphone <span class="op">=</span> IPhone(<span class="dv">151</span>)
+my_iphone.unlock()
+my_iphone.set_fingerprint(<span class="st">&quot;Jory&#39;s Fingerprint&quot;</span>)
+my_iphone.unlock()
+my_iphone.unlock(<span class="st">&quot;Jory&#39;s Fingerprint&quot;</span>)
+
+<span class="co"># And we can call the Phone methods</span>
+my_iphone.call(<span class="dv">515</span>)
+my_iphone.text(<span class="dv">51121</span>, <span class="st">&quot;Hi!&quot;</span>)</code></pre></div>
+<p>Try it! Then - try this. Why does it fail?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Let&#39;s try a Phone object on an iPhone method</span>
+test_phone.unlock()</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We can create IPhones, Android phones, and still regular Phones. <code>Phone</code> is being used as a parent class, but it's still a class!</li>
+<li>Inheritance is an extremely powerful feature of classes.</li>
+<li>It allows us to create &quot;generic&quot; parent classes, such as the <code>Phone()</code> class, and then create child classes like <code>IPhone()</code> that represent subsets of the parent class.</li>
+<li>We change the characteristics of the object when we define the <code>IPhone()</code> class.</li>
+<li>Because it inherits from <code>Phone()</code>, we're still able to use the parent methods <code>call()</code> and <code>text()</code>.</li>
+<li>We don't need to rewrite these methods in the child class.</li>
+<li>Using inheritance, you can easily create hierarchies of functionality. This keeps your code clean and intuitive.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-inheritance" class="level2">
+<h2>Quick Recap: Inheritance</h2>
+<ul>
+<li>A class can inherit from another class - a parent class and child class.</li>
+<li>The child class can declare its own variables and methods, but it also has access to all the parents'.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">## Parent class: A regular class ##</span>
+<span class="kw">class</span> Phone:
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):
+    <span class="va">self</span>.number <span class="op">=</span> phone_number
+
+  <span class="kw">def</span> call(<span class="va">self</span>, other_number):
+    <span class="bu">print</span>(<span class="st">&quot;Calling from&quot;</span>, <span class="va">self</span>.number, <span class="st">&quot;to&quot;</span>, other_number)
+
+test_phone <span class="op">=</span> Phone(<span class="dv">5214</span>) <span class="co"># It&#39;s a regular class!</span>
+test_phone.call(<span class="dv">515</span>)
+
+<span class="co">## Child class: pass in the parent class and call super() ##</span>
+<span class="kw">class</span> IPhone(Phone):
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):
+    <span class="bu">super</span>().<span class="fu">__init__</span>(phone_number)
+
+    <span class="co"># Under the call to super, define unique child class variables and methods.</span>
+    <span class="co"># Parent class objects won&#39;t have this!</span>
+    <span class="va">self</span>.fingerprint <span class="op">=</span> <span class="va">None</span>
+
+  <span class="kw">def</span> set_fingerprint(<span class="va">self</span>, fingerprint):
+    <span class="va">self</span>.fingerprint <span class="op">=</span> fingerprint
+
+my_iphone <span class="op">=</span> IPhone(<span class="dv">151</span>) <span class="co"># Create an object as usual</span>
+my_iphone.set_fingerprint(<span class="st">&quot;Jory&#39;s Fingerprint&quot;</span>) <span class="co"># Call a method</span>
+my_iphone.call(<span class="dv">515</span>) <span class="co"># Call a method from the parent class.</span></code></pre></div>
+<hr />
+</section>
+<section id="i-do-overwriting-attributes" class="level2">
+<h2>I Do: Overwriting Attributes</h2>
+<p><strong>Now up: Overwriting Attributes!</strong></p>
+<p>Let's switch to a new example. You don't need to follow along.</p>
+<p>Here's a regular Building class:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Building(<span class="bu">object</span>):
+ <span class="co"># Class variables</span>
+ avg_sqft <span class="op">=</span> <span class="dv">12500</span>
+ avg_bedrooms <span class="op">=</span> <span class="dv">3</span>
+
+ <span class="co"># No __init__ - there are no instance variables to declare!</span>
+ <span class="co"># This is possible in any class, not just inheritance (Building is a normal class!)</span>
+
+ <span class="kw">def</span> describe_building(<span class="va">self</span>):
+  <span class="bu">print</span>(<span class="st">&#39;Avg. Beds:&#39;</span>, <span class="va">self</span>.avg_bedrooms)
+  <span class="bu">print</span>(<span class="st">&#39;Avg. Sq. Ft.:&#39;</span>, <span class="va">self</span>.avg_sqft)
+
+ <span class="kw">def</span> get_avg_price(<span class="va">self</span>):
+  price <span class="op">=</span> <span class="va">self</span>.avg_sqft <span class="op">*</span> <span class="dv">5</span> <span class="op">+</span> <span class="va">self</span>.avg_bedrooms <span class="op">*</span> <span class="dv">15000</span>
+  <span class="cf">return</span> price
+
+my_building <span class="op">=</span> Building()
+my_building.describe_building()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is run as an I Do to save time and typing. Run it as a We Do if you think students need the practice typing everything out (and you have time). Because it introduces new concepts, don't run it as a You Do.</li>
+<li>There's no init! This is new. Note that this isn't unique to inheritance - right now, this is a regular class.</li>
+<li>Call out the order of operations for the price math.</li>
+<li>This is a regular class, but walk through each line.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Here's a new class.</li>
+<li>In it, we have some attributes for the average square feet, bedrooms, and bathrooms of a building. We also have two functions: one to print the attributes out in <code>describe_building()</code>, and one to calculate the average price and return it based on those attributes in <code>get_avg_price()</code>.</li>
+<li><em>Note</em>: When we define our <code>Building()</code> class and specify <code>Building(object)</code> in the definition, we're indicating that the <code>Building()</code> class we're creating <em>inherits</em> characteristics from the <code>object</code> class.</li>
+<li>The built-in <code>object</code> class in Python is the most basic &quot;parent class&quot; we could have.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="i-do-inheriting-building" class="level2">
+<h2>I Do: Inheriting Building</h2>
+<p>Inheriting from Building, we can create a <code>Mansion</code> class.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Call in the parent, Building, to the class definition!</span>
+<span class="kw">class</span> Mansion(Building):
+  <span class="co"># Our child class definition goes here</span>
+  <span class="co"># Will have the same class variables, instance variables, and methods as Mansion objects</span></code></pre></div>
+<hr />
+</section>
+<section id="overwriting-variables" class="level2">
+<h2>Overwriting Variables</h2>
+<p>What if we want the class variables to have different values? We can set new ones; remember, child classes do not affect the parent class.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Mansion(Building):
+   <span class="co"># Overwrite the class variables</span>
+   avg_sqft <span class="op">=</span> <span class="dv">6</span>
+   avg_bedrooms <span class="op">=</span> <span class="dv">1</span>
+
+   <span class="co"># We don&#39;t have a call to super __init__. Why?</span>
+   <span class="co"># There&#39;s no __init__ in the parent to call!</span>
+
+<span class="co">### Now, let&#39;s try it out </span><span class="al">###</span>
+<span class="co"># This still has the old values</span>
+my_building <span class="op">=</span> Building()
+my_building.describe_building()
+
+<span class="co"># The mansion object has the new class variables!</span>
+avg_mansion <span class="op">=</span> Mansion()
+avg_mansion.describe_building()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this!</li>
+<li>Do this in the same file, so students can see the different class variables on the screen. Scroll up and point them out.</li>
+<li>Note that Mansion is an entire class! Classes don't need to be fancy.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;In this class definition, the average square feet, bedrooms, and bathrooms have been changed, but nothing else has been done.&quot;</li>
+<li>Because the <code>Mansion()</code> class <em>inherits</em> from the <code>Building()</code> parent class, it has access to the class methods we defined for <code>Building()</code>.&quot;</li>
+<li>&quot;It is important to note that child classes do not affect the functionality of the parent class. Below we've added a function <code>how_big()</code> to the <code>Mansion()</code> class.&quot;</li>
+<li>We don't have super because there's no init in the parent!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-child-class-methods" class="level2">
+<h2>Discussion: Child Class Methods</h2>
+<p>In the <code>Building</code> class, we have:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_avg_price(<span class="va">self</span>):
+ price <span class="op">=</span> <span class="va">self</span>.avg_sqft <span class="op">*</span> <span class="dv">5</span> <span class="op">+</span> <span class="va">self</span>.avg_bedrooms <span class="op">*</span> <span class="dv">15000</span>
+ <span class="cf">return</span> price</code></pre></div>
+<p>What if a Mansion's price calculation is different? What do you think we can do?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Start a discussion. See if they can guess that like overwriting class variables, we can overwrite methods.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="overwriting-methods" class="level2">
+<h2>Overwriting Methods</h2>
+<p>We know that can overwrite variables. Turns out, we can also overwrite methods!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Mansion(Building):
+
+ <span class="kw">def</span> get_avg_price(<span class="va">self</span>):
+  <span class="cf">return</span> <span class="dv">1000000</span>
+
+mans <span class="op">=</span> Mansion()
+bldg <span class="op">=</span> Building()
+
+bldg.get_avg_price()
+<span class="co"># # returns `self.avg_sqft * 5 + self.avg_bedrooms * 15000`</span>
+
+mans.get_avg_price()
+<span class="co"># Returns 1000000</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>When we make child classes, we can overwrite class variables and methods.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Building(<span class="bu">object</span>):
+   <span class="co"># Class variables</span>
+   avg_sqft <span class="op">=</span> <span class="dv">12500</span>
+   avg_bedrooms <span class="op">=</span> <span class="dv">3</span>
+
+   <span class="kw">def</span> get_avg_price(<span class="va">self</span>):
+      price <span class="op">=</span> <span class="va">self</span>.avg_sqft <span class="op">*</span> <span class="dv">5</span> <span class="op">+</span> <span class="va">self</span>.avg_bedrooms <span class="op">*</span> <span class="dv">15000</span>
+      <span class="cf">return</span> price
+
+
+<span class="kw">class</span> Mansion(Building):
+   <span class="co"># Overwrite the class variables</span>
+   avg_sqft <span class="op">=</span> <span class="dv">6</span>
+   avg_bedrooms <span class="op">=</span> <span class="dv">1</span>
+
+  <span class="kw">def</span> get_avg_price(<span class="va">self</span>):
+    <span class="cf">return</span> <span class="dv">1000000</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check" class="level2">
+<h2>Knowledge Check</h2>
+<p>Consider the following classes:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Animal(<span class="bu">object</span>):
+   <span class="kw">def</span> is_mammal(<span class="va">self</span>):
+      <span class="cf">return</span> <span class="va">True</span>
+   <span class="kw">def</span> is_alive(<span class="va">self</span>):
+      <span class="cf">return</span> <span class="va">True</span>
+
+<span class="kw">class</span> Grasshopper(Animal):
+   <span class="kw">def</span> is_small(<span class="va">self</span>):
+      <span class="cf">return</span> <span class="va">True</span></code></pre></div>
+<p>You instantiate two objects: <code>bug = Grasshopper()</code> and <code>cat = Animal()</code>. Which of the following instance methods are available for each?</p>
+<ol type="1">
+<li><code>bug.is_mammal()</code></li>
+<li><code>bug.is_alive()</code></li>
+<li><code>bug.is_small()</code></li>
+<li><code>bug.is_animal()</code></li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them a few minutes to guess.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Inheritance:</p>
+<ul>
+<li>Making classes using other classes as templates.</li>
+<li>Has a <strong>parent</strong> class (<code>Phone</code>) and a <strong>child</strong> class (<code>iPhone</code>).</li>
+<li>The parent class is still a usable class!</li>
+</ul>
+<p>Child classes:</p>
+<ul>
+<li><code>inherit</code> methods and properties from a parent class.</li>
+<li>Has access to all of the functionality of its parent.</li>
+<li>Can have new attributes and methods.</li>
+<li>They won't be available to the parent.</li>
+<li>Can overwrite values from the parent class.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+<li>If there's time, assign an exercise! It's in the <code>xx-additional-exercises</code> folder. Otherwise, assign it for homework.</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

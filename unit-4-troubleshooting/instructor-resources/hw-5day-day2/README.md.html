@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me to a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="intermediate-python-practice-problems" class="level1">
+<h1>Intermediate Python: Practice Problems</h1>
+<p>In this homework, you’re going to write code for a few problems. We’ll be building on older material like lists, loops, and functions, as well as adding in some practice from the new materials.</p>
+<p>You will practice these programming concepts we’ve covered in class: * Using functions with parameters. * Using dictionaries and sets. * Declaring and using classes to make objects. * Demonstrating inheritance and method overriding. * Using a variable number of keyword arguments.</p>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>For each of the challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python3 problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<ul>
+<li>By the end of this, you should have six different <code>.py</code> files (one for each problem).</li>
+</ul>
+<hr />
+</section>
+</section>
+<section id="homework-problems" class="level1">
+<h1>Homework Problems</h1>
+<section id="problem-1-call-me-maybe." class="level2">
+<h2>Problem 1: Call Me! (Maybe.)</h2>
+<section id="skills-youre-practicing-accessing-dictionaries-writing-functions-and-passing-parameters." class="level3">
+<h3>Skills you’re practicing: Accessing dictionaries, writing functions, and passing parameters.</h3>
+<p>Write a function called <code>get_contact()</code> that has two parameters. The first will be a dictionary called <code>contacts</code> and the second will be a string called <code>name</code> for which you would like to look up the phone number.</p>
+<section id="example-test-code" class="level4">
+<h4>Example Test Code</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">contacts <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="st">&quot;Carly&quot;</span>: <span class="st">&quot;333-3333&quot;</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="st">&quot;Blondie&quot;</span>: <span class="st">&quot;444-4444&quot;</span>,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="st">&quot;Jenny&quot;</span>: <span class="st">&quot;867-5309&quot;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">name <span class="op">=</span> <span class="st">&quot;Jenny&quot;</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">phone_number <span class="op">=</span> get_contact(contacts, name)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;The phone number of&quot;</span>, name, <span class="st">&quot;is&quot;</span>, phone_number)</a></code></pre></div>
+</section>
+<section id="example-test-output" class="level4">
+<h4>Example test output:</h4>
+<pre><code>The phone number of Jenny is 867-5309</code></pre>
+<p><strong>Hint 1:</strong></p>
+<p>Refer to your class notes for details about how to use dictionaries.</p>
+<p><strong>Hint 2:</strong></p>
+<p>As a reminder, let’s walk through an example of creating, assigning to, and checking if a value is in a dictionary.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Creating a dictionary called my_dict:</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">my_dict <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Assigning key-value pairs to my_dict:</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">my_dict[<span class="st">&quot;foo&quot;</span>] <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Checking if my_dict contains the key &quot;bar:&quot;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="cf">if</span> <span class="st">&quot;bar&quot;</span> <span class="kw">in</span> my_dict:</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;bar is here&quot;</span>)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="bu">print</span>(<span class="st">&quot;bar is not here&quot;</span>) <span class="co"># This is what prints.</span></a></code></pre></div>
+<p><strong>Hint 3:</strong></p>
+<p>Careful! Python requires that you insert a key into a dictionary before you try to modify its value. If you try to access a dictionary at a key that hasn’t been added, you’ll get an error and the program will crash. Remember to use an <code>if</code> statement to see if a key is <em>in</em> a dictionary before you try to read it!</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">d2 <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">d2[<span class="st">&quot;foo&quot;</span>]</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># KeyError: &#39;foo&#39;</span></a></code></pre></div>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-2-hey-jude-dont-make-me-count" class="level2">
+<h2>Problem 2: Hey Jude, Don’t Make Me Count!</h2>
+<section id="skills-youre-practicing-using-dictionaries-and-writing-a-function-with-a-parameter." class="level3">
+<h3>Skills you’re practicing: Using dictionaries and writing a function with a parameter.</h3>
+<p>Write a function called <code>letter_counter()</code> that returns a dictionary called <code>counts</code>, which has a character as the key and a count as a value. The goal is to count up the number of occurrences of each letter in a string.</p>
+<p>Here is how your function will be called, and what is expected as the output.</p>
+<section id="example-test-code-1" class="level4">
+<h4>Example test code:</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">word_to_count <span class="op">=</span> <span class="st">&quot;banana&quot;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">result <span class="op">=</span> letter_counter(word_to_count)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="bu">print</span>(result)</a></code></pre></div>
+</section>
+<section id="example-test-output-1" class="level4">
+<h4>Example test output:</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">{<span class="st">&#39;b&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;a&#39;</span>: <span class="dv">3</span>, <span class="st">&#39;n&#39;</span>: <span class="dv">2</span>}</a></code></pre></div>
+<p><strong>Hint 1:</strong></p>
+<p>Remember that you can iterate over a string one letter at a time using a <code>for</code> loop.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="cf">for</span> letter <span class="kw">in</span> <span class="st">&quot;alpha&quot;</span>:</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="bu">print</span>(letter)</a></code></pre></div>
+<p><strong>Hint 2:</strong></p>
+<p>Remember to write a return statement at the end of your function. No code will execute after the return statement because the return statement also exits the function. What you return from the function will be assigned to the <code>result</code> variable in the example above.</p>
+<p><strong>Hint 3:</strong></p>
+<p>Think you have the answer? To really test your function, try putting in a whole song as your string! Here are the lyrics to <a href="https://repl.it/@brandiw/Python-02-HW-1">“Hey Jude”</a> already written into a Python string. Here’s the expected output:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">{<span class="st">&#39;H&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;e&#39;</span>: <span class="dv">143</span>, <span class="st">&#39;y&#39;</span>: <span class="dv">45</span>, <span class="st">&#39; &#39;</span>: <span class="dv">368</span>, <span class="st">&#39;J&#39;</span>: <span class="dv">23</span>, <span class="st">&#39;u&#39;</span>: <span class="dv">53</span>, <span class="st">&#39;d&#39;</span>: <span class="dv">52</span>, <span class="st">&#39;,&#39;</span>: <span class="dv">44</span>, <span class="st">&#39;o&#39;</span>: <span class="dv">69</span>, <span class="st">&#39;n&#39;</span>: <span class="dv">191</span>, <span class="st">&quot;&#39;&quot;</span>: <span class="dv">11</span>, <span class="st">&#39;t&#39;</span>: <span class="dv">84</span>, <span class="st">&#39;m&#39;</span>: <span class="dv">23</span>, <span class="st">&#39;a&#39;</span>: <span class="dv">205</span>, <span class="st">&#39;k&#39;</span>: <span class="dv">15</span>, <span class="st">&#39;i&#39;</span>: <span class="dv">33</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">19</span>, <span class="st">&#39;.&#39;</span>: <span class="dv">20</span>, <span class="st">&#39;T&#39;</span>: <span class="dv">7</span>, <span class="st">&#39;s&#39;</span>: <span class="dv">18</span>, <span class="st">&#39;g&#39;</span>: <span class="dv">11</span>, <span class="st">&#39;r&#39;</span>: <span class="dv">49</span>, <span class="st">&#39;R&#39;</span>: <span class="dv">3</span>, <span class="st">&#39;l&#39;</span>: <span class="dv">24</span>, <span class="st">&#39;h&#39;</span>: <span class="dv">208</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">5</span>, <span class="st">&#39;f&#39;</span>: <span class="dv">7</span>, <span class="st">&#39;Y&#39;</span>: <span class="dv">3</span>, <span class="st">&#39;w&#39;</span>: <span class="dv">11</span>, <span class="st">&#39;A&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;p&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;D&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;F&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;B&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;N&#39;</span>: <span class="dv">18</span>, <span class="st">&#39;v&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;S&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;j&#39;</span>: <span class="dv">1</span>}</a></code></pre></div>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-3-kingdom-phylum-class" class="level2">
+<h2>Problem 3: Kingdom, Phylum, <strong>CLASS</strong>!</h2>
+<section id="skills-youre-practicing-making-classes-and-creating-instances." class="level3">
+<h3>Skills you’re practicing: Making classes and creating instances.</h3>
+<p>Let’s create a class. Remember a class is a pattern for an object. In this case, we will create an <code>Animal</code> class that will be able to generate any number of animal instances with the same properties.</p>
+<ul>
+<li>Create an <code>Animal</code> class.
+<ul>
+<li>When an animal is created, print <code>I am coming to life!</code>.</li>
+<li>Animals keep track of their current <code>energy</code> as an integer (this is assigned to the <code>self</code>).</li>
+<li>Animals have an <code>eat()</code> method, which takes one numerical argument, <code>amount</code>, and increases the <code>energy</code> by <code>amount</code>.</li>
+<li>Animals have a <code>move()</code> method, which depletes the <code>energy</code> by 10 and prints the statement <code>I am running!</code>.</li>
+<li>Animals have a <code>get_status()</code> method, which prints the current <code>energy</code> level as well as a message about their energy state. If the <code>energy</code> level is:
+<ul>
+<li>Below <code>0</code>: Print <code>I'm starving!</code>.</li>
+<li>Between <code>0</code> and <code>50</code>: Print <code>I'm getting hungry!</code>.</li>
+<li>Between <code>50</code> and <code>100</code>: Print <code>I'm happily full.</code>.</li>
+<li>Above <code>100</code>: Print <code>I'm feeling stuffed!</code>.</li>
+</ul></li>
+<li>Animals are created with a default <code>energy</code> of <code>50</code>.</li>
+<li>Animals have a <code>say_hi()</code> method that prints <code>Meep!</code>.</li>
+</ul></li>
+</ul>
+<section id="example-test-code-2" class="level4">
+<h4>Example test code:</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Making my first animal&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">first_animal <span class="op">=</span> Animal()</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">first_animal.get_status()</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">first_animal.eat(<span class="dv">55</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">first_animal.get_status()</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">first_animal.move()</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">first_animal.get_status()</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;first animal saying hi&quot;</span>)</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">first_animal.say_hi()</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="bu">print</span>(<span class="st">&quot;Making a second animal now&quot;</span>)</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">second_animal <span class="op">=</span> Animal()</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">second_animal.get_status()</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">second_animal.eat(<span class="op">-</span><span class="dv">45</span>)</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">second_animal.get_status()</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">second_animal.move()</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">second_animal.get_status()</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="bu">print</span>(<span class="st">&quot;second animal saying hi&quot;</span>)</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">second_animal.say_hi()</a></code></pre></div>
+</section>
+<section id="example-test-output-2" class="level4">
+<h4>Example test output:</h4>
+<pre><code>Making my first animal
+I&#39;m coming to life!
+My energy level is 50
+I&#39;m happily full.
+My energy level is 105
+I&#39;m feeling stuffed!
+I am running!
+My energy level is 95
+I&#39;m happily full.
+first animal saying hi
+Meep!
+
+Making a second animal now
+I&#39;m coming to life!
+My energy level is 50
+I&#39;m happily full.
+My energy level is 5
+I&#39;m getting hungry!
+I am running!
+My energy level is -5
+I&#39;m starving!
+second animal saying hi
+Meep!</code></pre>
+<p><strong>Hint:</strong></p>
+<p>Don’t forget the constructor! This is the code that runs when we are creating an instance. The constructor in Python is <code>__init__</code>.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-4-fly-like-an-eagle" class="level2">
+<h2>Problem 4: Fly Like an Eagle</h2>
+<section id="skill-youre-practicing-using-inheritance." class="level3">
+<h3>Skill you’re practicing: Using inheritance.</h3>
+<p>Let’s practice writing classes and using inheritance by modeling different types of animals. Use your <code>Animal</code> class fas the parent class from which your new classes, <code>Penguin</code> and <code>Eagle</code>, will inherit.</p>
+<ul>
+<li>Create a <code>Penguin</code> class that <strong>inherits</strong> from <code>Animal</code>.
+<ul>
+<li><code>Penguin</code>s are created with an <code>energy</code> level of <code>100</code>.</li>
+<li><code>Penguin</code>s shout, <code>I am a penguin!</code> when they are are created.</li>
+<li>A <code>Penguin</code>’s <code>move()</code> method depletes the <code>energy</code> by <code>5</code> and prints <code>I am sliding!</code>.</li>
+</ul></li>
+<li>Create an <code>Eagle</code> class that <strong>inherits</strong> from <code>Animal</code>.
+<ul>
+<li>An <code>Eagle</code> begins its life with an <code>energy</code> level of <code>20</code>.</li>
+<li><code>Eagle</code>s shout, <code>I am an eagle!</code> when they are are created.</li>
+<li>An <code>Eagle</code>’s <code>move()</code> method depletes the <code>energy</code> by <code>20</code> and prints <code>I am flying to the sea!</code>.</li>
+<li>An <code>Eagle</code>s <code>say_hi()</code> method prints <code>shrieeeeeek!</code>.</li>
+<li><code>Eagle</code>s cannot <code>move</code> if their <code>energy</code> is less than <code>0</code>. Instead print <code>I'm too tired to fly…</code>.</li>
+</ul></li>
+</ul>
+<section id="example-test-code-3" class="level4">
+<h4>Example test code:</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">animal <span class="op">=</span> Animal()</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">animal.get_status()</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">animal.eat(<span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">animal.get_status()</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">animal.move()</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">animal.get_status()</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">animal.say_hi()</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">penguin <span class="op">=</span> Penguin()</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">penguin.eat(<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">penguin.get_status()</a>
+<a class="sourceLine" id="cb12-13" data-line-number="13">penguin.move()</a>
+<a class="sourceLine" id="cb12-14" data-line-number="14">penguin.get_status()</a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">penguin.say_hi()</a>
+<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb12-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18">eagle <span class="op">=</span> Eagle()</a>
+<a class="sourceLine" id="cb12-19" data-line-number="19">eagle.say_hi()</a>
+<a class="sourceLine" id="cb12-20" data-line-number="20">eagle.get_status()</a>
+<a class="sourceLine" id="cb12-21" data-line-number="21">eagle.move()</a>
+<a class="sourceLine" id="cb12-22" data-line-number="22">eagle.get_status()</a>
+<a class="sourceLine" id="cb12-23" data-line-number="23">eagle.move()</a>
+<a class="sourceLine" id="cb12-24" data-line-number="24">eagle.get_status()</a>
+<a class="sourceLine" id="cb12-25" data-line-number="25">eagle.move()</a>
+<a class="sourceLine" id="cb12-26" data-line-number="26"><span class="bu">print</span>()</a></code></pre></div>
+</section>
+<section id="example-test-output-3" class="level4">
+<h4>Example test output:</h4>
+<pre><code>I&#39;m coming to life!
+My energy level is 50
+I&#39;m happily full.
+My energy level is 110
+I&#39;m feeling stuffed!
+I am running!
+My energy level is 100
+I&#39;m happily full.
+Meep!
+
+I&#39;m coming to life!
+I am a penguin!
+My energy level is 105
+I&#39;m feeling stuffed!
+I am sliding!
+My energy level is 100
+I&#39;m happily full.
+Meep!
+
+I&#39;m coming to life!
+I am an eagle!
+Shrieeeeek!
+My energy level is 20
+I&#39;m getting hungry!
+I am flying to the sea!
+My energy level is 0
+I&#39;m getting hungry!
+I am flying to the sea!
+My energy level is -20
+I&#39;m starving!
+I&#39;m too tired to fly…</code></pre>
+<p><strong>Hint 1:</strong></p>
+<p>Don’t forget to call the parent’s constructor! You can do this by calling <code>super().__init__()</code> in the child class’ constructor.</p>
+<p><strong>Hint 2:</strong></p>
+<p>Remember, you only need to write a method in the child class if it is <strong>different</strong> than the one in the parent class. For example, the <code>Penguin</code> class does not need its own <code>say_hi()</code> method because we know our <code>Animal</code> class has a <code>say_hi()</code> method already that does exactly what we want it to do. On the contrary, with <code>Eagle</code>, we will have to override the <code>say_hi()</code> method in order to make it do what we want instead of the default behavior.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-5-ready-set-go" class="level2">
+<h2>Problem 5: Ready, <strong>SET</strong>, Go!</h2>
+<section id="skill-youre-practicing-using-sets." class="level3">
+<h3>Skill you’re practicing: Using sets.</h3>
+<p>Let’s say you own a restaurant. You ask the manager to take stock of the spices you have on hand so you know what you need to buy. Unfortunately, you get a list with a bunch of duplicates!</p>
+<p>Convert this <code>spices_onhand</code> list to a set. Then, given the <code>spices_needed</code> set, print out what you need to buy.</p>
+<p>You know that you need the following ingredients on hand at all times. It’s a unique set of items, so you’ve stored this data in a <code>Set</code>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">spices_needed <span class="op">=</span> <span class="bu">set</span>({<span class="st">&quot;salt&quot;</span>, <span class="st">&quot;pepper&quot;</span>, <span class="st">&quot;ginger&quot;</span>, <span class="st">&quot;oregano&quot;</span>, <span class="st">&quot;paprika&quot;</span>, <span class="st">&quot;basil&quot;</span>, <span class="st">&quot;curry powder&quot;</span>, <span class="st">&quot;cumin&quot;</span>, <span class="st">&quot;cayenne&quot;</span>, <span class="st">&quot;lemon pepper&quot;</span>, <span class="st">&quot;chili powder&quot;</span>, <span class="st">&quot;nutmeg&quot;</span>, <span class="st">&quot;cinnamon&quot;</span>, <span class="st">&quot;star anise&quot;</span>, <span class="st">&quot;garlic salt&quot;</span>, <span class="st">&quot;coriander&quot;</span>, <span class="st">&quot;cardamom&quot;</span>, <span class="st">&quot;thyme&quot;</span>})</a></code></pre></div>
+<section id="example-test-input" class="level4">
+<h4>Example test input:</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">spices_onhand <span class="op">=</span> [<span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;coriander&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;coriander&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;coriander&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;coriander&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;basil&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;cardamom&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;pepper&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;cinnamon&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;cumin&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;coriander&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;nutmeg&#39;</span>, <span class="st">&#39;chili powder&#39;</span>, <span class="st">&#39;star anise&#39;</span>, <span class="st">&#39;paprika&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;salt&#39;</span>, <span class="st">&#39;cayenne&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;thyme&#39;</span>, <span class="st">&#39;oregano&#39;</span>, <span class="st">&#39;curry powder&#39;</span>, <span class="st">&#39;curry powder&#39;</span>]</a></code></pre></div>
+</section>
+<section id="example-test-output-4" class="level4">
+<h4>Example test output:</h4>
+<pre><code>Go shopping for: {&#39;garlic salt&#39;, &#39;ginger&#39;, &#39;lemon pepper&#39;}</code></pre>
+<p><strong>Hint:</strong></p>
+<p>Look up <a href="https://www.geeksforgeeks.org/python-set-difference/">set difference</a>. This is basically subtracting the items of one set from another. If you had two sets — one of ingredients you need and one of ingredients you have — you could subtract the items you have from the ones you need in order to know what you will have to purchase.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-6-kwargosaurus" class="level2">
+<h2>Problem 6: Kwargosaurus</h2>
+<section id="skills-youre-practicing-using-variable-number-of-keyword-arguments-kwargs-and-writing-functions." class="level3">
+<h3>Skills you’re practicing: Using variable number of keyword arguments (<code>**kwargs**</code>) and writing functions.</h3>
+<p>The mighty Kwargosaurus stomps through the prehistoric Pythonic jungle, fighting with any dinosaur smaller than him. However, if a dinosaur his own age comes along, he cries and runs away! Write a function called <code>kwargosaurus()</code> that takes in a variable number of other dinosaurs for Kwargosaurus to encounter, with the key being the dinosaur name and the value being either <code>bigger</code> or <code>smaller</code>.</p>
+<section id="example-function-call" class="level4">
+<h4>Example function call:</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">kwargosaurus(Velociraptor<span class="op">=</span><span class="st">&quot;smaller&quot;</span>, Stegosaurus<span class="op">=</span><span class="st">&quot;smaller&quot;</span>, Triceratops<span class="op">=</span><span class="st">&quot;smaller&quot;</span>, Trex<span class="op">=</span><span class="st">&quot;bigger&quot;</span>)</a></code></pre></div>
+</section>
+<section id="example-output" class="level4">
+<h4>Example output:</h4>
+<pre><code>Velociraptor is small! Mighty Kwargosaurus will fight you!
+Stegosaurus is small! Mighty Kwargosaurus will fight you!
+Triceratops is small! Mighty Kwargosaurus will fight you!
+Trex is big! Whimpering Kwargosaurus cries and runs away!</code></pre>
+<p><strong>Hint:</strong> Remember that, for a variable number of arguments, you need a loop! You can access both the key and value of each parameter by using <code>kwargs.items()</code>. If you need syntax help with kwargs, check out <a href="https://hackernoon.com/python-functions-args-kwargs-5d2d00f09c74">this article</a>.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="last-but-not-least" class="level2">
+<h2>Last, But Not Least</h2>
+<p>We threw more difficult problems your way than we did the last time, but you handled it! Shake it off and go relax!</p>
+<p><img src="https://media.giphy.com/media/14ivBLRRRmyQw0/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

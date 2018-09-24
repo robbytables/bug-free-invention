@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Python Basics: Intro to Python Web Dev
+type: lesson
+duration: “:60”
+creator: Chandler Moisen
+---
+-->
+<section id="intro-to-web-development" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Intro to Web Development</h2>
+<!--
+
+
+## Overview
+This lesson starts with an overview of DNS and client-server relationships, then briefly introduces the terms HTML/CSS. Lastly, it overviews front-end vs back-end and frameworks.
+
+## Important Notes or Prerequisites
+- This lesson is completely language-agnostic and standalone.
+- There aren't any exercises we can do in this lesson, so really encourage discussion at every point.
+
+## Learning Objectives
+In this lesson, students will:
+- Describe how the web works.
+- Explain what front-end and back-end means.
+- List the types of web developers.
+
+
+## Duration
+30 minutes.
+
+## Suggested Agenda
+
+| Time | Activity | Purpose |
+| --- | --- | --- |
+| 0:00 - 0:02 | Welcome |
+| 0:02 - 0:15 | How the Web Works |
+| 0:15 - 0:28 | Front vs Back End |
+| 0:28 - 0:30 | Summary |
+
+Materials needed:
+- Projector
+- Slides
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives:</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Describe how the web works.</li>
+<li>Explain what front-end and back-end means.</li>
+<li>List the types of web developers.</li>
+</ul>
+<hr />
+</section>
+<section id="discussion-whats-the-web" class="level2">
+<h2>Discussion: What's the Web?</h2>
+<p>How do you think the web works?</p>
+<p>Before we go about making a web app, let's start with how the web works at all.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Just get them talking.</li>
+<li>All answers are good ones!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="finding-a-florist" class="level2">
+<h2>Finding a Florist</h2>
+<ul>
+<li>How does the browser know what page to display?</li>
+</ul>
+<p><em>Also known as</em></p>
+<ul>
+<li>How do I call my florist? I can just call &quot;Joe's Florist&quot; in my phone contacts.</li>
+</ul>
+<figure>
+<img src="http://fewd.nyc/notes/img/class02/florist.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Joe's florist is just the name of it. It's not the actual address or phone number. They exist and are reachable, but we have to look them up.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="ip-addresses" class="level2">
+<h2>IP Addresses</h2>
+<ul>
+<li>Website URLs - &quot;Joe's Florist&quot;
+<ul>
+<li>Just names to make our lives easier.</li>
+<li><code>https://google.com</code></li>
+<li><code>https://reddit.com</code></li>
+</ul></li>
+<li>IP Addresses - &quot;515-115-5156&quot;
+<ul>
+<li>The actual address your browser goes to.</li>
+<li><code>Google.com</code> is at <code>172.217.12.142</code></li>
+<li><code>reddit.com</code> is at <code>151.101.129.140</code></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>The same way, google.com is just the name of it. It's not the actual address on the internet. They exist and are reachable, but we have to look them up.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="clientserver-relationship-review" class="level2">
+<h2>Client/Server Relationship Review</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/client-server.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Computers communicate with one another through the client-server model. The browser (a.k.a. client) makes a request to the server to view a website, and the server responds by sending back the corresponding files to the client.</li>
+<li>Our computers make an ask of the server, and then the server sends back a response - we are going to learn how to make those &quot;asks&quot; with Python + HTML, and then also how to write programs that guide the &quot;responses&quot; with Python.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="in-real-terms" class="level2">
+<h2>In Real Terms</h2>
+<ul>
+<li>Websites are just files your browser can read.</li>
+</ul>
+<figure>
+<img src="http://fewd.nyc/notes/img/class02/dns.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Websites are just files your browser can read!</li>
+<li>Different kinds of files can be retrieved from the server, including HTML + CSS files, which the client then reads and renders as a website!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-types-of-files" class="level2">
+<h2>What Types of Files?</h2>
+<p>HTML - <code>.html</code></p>
+<ul>
+<li>Provides website structure.</li>
+</ul>
+<p>CSS - <code>.css</code></p>
+<ul>
+<li>Adds colors and fonts.</li>
+</ul>
+<p>JavaScript - <code>.js</code></p>
+<ul>
+<li>Makes the website interactive.</li>
+</ul>
+<p>Images, text files, etc.</p>
+<ul>
+<li>Additional info on the page</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Note that we're going to learn HTML and CSS - don't spend a lot of time here!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>Where are websites?</p>
+<ul>
+<li>IP Address: The actual location of a website on the internet.</li>
+<li><code>Google.com</code> is a friendly name for the IP address <code>172.217.12.142</code>, just like &quot;Joe's Florist&quot; is a friendly name for &quot;515-115-5156&quot;.</li>
+</ul>
+<p>What do websites have?</p>
+<ul>
+<li>Websites are actually just a bunch of files - images, text, and website-specific code.</li>
+<li>They're hosted on servers - all the files for Google.com are on Google's servers.</li>
+<li>Your browser is the client - it asks Google for the Google.com files, so it can show them to you!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-is-web-development" class="level2">
+<h2>Discussion: What is Web Development?</h2>
+<p>Does anyone want to guess (or know) what web development consists of?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Encourage discussion!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="web" class="level2">
+<h2>Web</h2>
+<p>The work involved with building and maintaining a live website.</p>
+<p>Split into two sides:</p>
+<p><strong>Front-End</strong></p>
+<ul>
+<li>In a restaurant:</li>
+<li>The dining room.</li>
+<li>In web development:</li>
+<li>What the user sees.</li>
+</ul>
+<p><strong>Back-End</strong></p>
+<ul>
+<li>In a restaurant:</li>
+<li>The kitchen, loading dock, and offices.</li>
+<li>In web development:</li>
+<li>Makes the website work - e.g. connects to servers.</li>
+<li>Behind the scenes code.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Web Development: using programming to build websites that render in the users browser.</li>
+<li>A website is a collection of code that can be categorized into two types: <em>frontend</em> and <em>backend</em></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="front-end-vs-back-end-a-visual" class="level2">
+<h2>Front-End vs Back-End: A Visual</h2>
+<figure>
+<img src="https://vironit-bevc00m.netdna-ssl.com/wp-content/uploads/2016/08/front-end-vs-back-end-750x375.jpg" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Note that front-end is also programming, but back-end developers usually don't see the website.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="front-end-vs-back-end-a-better-visual" class="level2">
+<h2>Front-End vs Back-End: A Better Visual</h2>
+<figure>
+<img src="https://images-cdn.9gag.com/photo/a8pzYPp_700b.jpg" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>The back-end is seen as much scarier, as it's more programming intensive.</li>
+<li>It's where we work out all the bugs!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-front-vs-back-end" class="level2">
+<h2>We Do: Front vs Back End</h2>
+<p>Head to the <a href="https://www.nypl.org/">New York Public Library</a>'s website: <code>https://www.nypl.org/</code></p>
+<ul>
+<li>What is front end?</li>
+<li>What is happening on the back end?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this with them. Call out as much as you can; encourage discussion. (images, loging in, links, etc.)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="types-of-web-developers" class="level2">
+<h2>Types of Web Developers:</h2>
+<p>Front-end developer</p>
+<ul>
+<li>HTML/CSS/JS</li>
+<li>Works on what the user sees.</li>
+</ul>
+<p>Back-end developer</p>
+<ul>
+<li>Python, PHP, Ruby, or many others</li>
+<li>Works on making the website work.</li>
+</ul>
+<p>Full stack developer</p>
+<ul>
+<li>Does both!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>We learn HTML and CSS in a later presentation; for now, just get the idea across that they're languages used in front-end web development and control how the site looks.</li>
+<li>We won't cover JS, PHP, or Ruby - just point out that they exist. For added context, note that Ruby is a language similar to Python.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap" class="level2">
+<h2>Quick Recap</h2>
+<p>Front-end:</p>
+<ul>
+<li>The visuals.</li>
+<li>How a website looks and a user interacts with it.</li>
+</ul>
+<p>Back-end:</p>
+<ul>
+<li>The underlying code.</li>
+<li>How the website actually works.</li>
+</ul>
+<p>Full stack developer:</p>
+<ul>
+<li>Works on both!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-is-a-web-framework" class="level2">
+<h2>Discussion: What is a Web Framework?</h2>
+<p>Does anyone want to guess (or know) what a web framework is?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Encourage discussion!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="web-framework" class="level2">
+<h2>Web Framework</h2>
+<p>These are used by front-end and back-end developers!</p>
+<ul>
+<li><p>Programming libraries</p>
+<ul>
+<li>Free for your use!</li>
+</ul></li>
+<li><p>Make front-end and back-end far easier.</p>
+<ul>
+<li>Provides the client-server relationship piece.</li>
+<li>Added features to make writing a larger web app easier.</li>
+</ul></li>
+<li><p>Example frameworks:</p>
+<ul>
+<li>Flask, Django, React.js, Angular.js</li>
+<li>Usually language specific</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note how some frameworks have extensions - they're language specific.</li>
+<li>Flask isn't introduced until the next lesson, but you can drop comments like &quot;This is what we'll be using Python for - note Flask on the list!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-web-app-vs-website" class="level2">
+<h2>Discussion: Web App vs Website</h2>
+<p>Does anyone want to guess (or know) what the difference is?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage Discussion</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="web-app-vs-website" class="level2">
+<h2>Web App vs Website</h2>
+<p>Website:</p>
+<ul>
+<li>Typically informational</li>
+<li>Little to no interactive capabilities.</li>
+<li>New York Times or a small company's website.</li>
+</ul>
+<p>Web app:</p>
+<ul>
+<li>An app hosted on the internet</li>
+<li>Uses the client-server relationship to render a website.</li>
+<li>Offers the user greater features then a static website.</li>
+<li>A bank's web page or an auction site.</li>
+</ul>
+<p>You can have a hybrid!</p>
+<ul>
+<li>For example, a static website until the user logs in.</li>
+<li>Then, a full fledged web app.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Be clear about the terms &quot;web app&quot; and &quot;website&quot; and &quot;web page&quot;</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p><em>Note: This was taken liberally from https://modeeffect.com/key-differences-between-website-web-app/</em></p></li>
+<li><p>Websites are typically informational in nature. Think about your favorite blog or news based site. Its primary purpose is to convey information to the end user, whether it in the form of news, like CNN, or recipes, like you’ll find on Martha Stewart.</p></li>
+<li><p>As a general rule, there is little or no interaction on the part of the visitor, other than possibly submitting an email address to receive a monthly newsletter or performing a search. So the real question is, how does this apply to you?</p></li>
+<li><p>Well, if you’re a local charity who wants to convey information only — a homepage, an about page, contact information, upcoming events, and maybe a description of how you’ve helped your cause — a website might be all that you need.</p></li>
+<li>You also need to consider that many websites are actually website/web application hybrids. Your startup might provide all kinds of information to visitors, but once they register, they could have access to an integrated web application that performs a specific function</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="web-dev-is-hard" class="level2">
+<h2>Web Dev is Hard</h2>
+<ul>
+<li>Don't worry!</li>
+<li>GA has several classes dedicated to it.</li>
+<li>There's a lot of information out there!</li>
+</ul>
+<p>Right now, we're going to be building web apps with Python!</p>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>What'd we do?</p>
+<ul>
+<li>DNS
+<ul>
+<li>The actual address of a website.</li>
+</ul></li>
+<li>Client/Server Relationship
+<ul>
+<li>Server sends website files to the client (your browser).</li>
+</ul></li>
+<li>Front-end Vs Back-end
+<ul>
+<li>What the user sees vs making the website work.</li>
+</ul></li>
+</ul>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="http://interactivepython.org/runestone/static/webfundamentals/WWW/history.html">Fundamentals of Web Programming</a></li>
+<li><a href="https://www.techrepublic.com/article/understanding-the-differences-between-client-server-and-peer-to-peer-networks/">Understanding the Difference Between Client/Server and P2P</a></li>
+<li><a href="https://www.youtube.com/watch?v=RsQ1tFLwldY">Web Applications and the HTTP Protocol</a></li>
+<li><a href="https://www.youtube.com/watch?v=7_LPdttKXPc">Client-server</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

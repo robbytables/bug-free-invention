@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Control Flow
+type: lesson
+duration: "1:10"
+creator: Sonyl Nagale adapted from Susi Remondi
+Private gist location: xxxxxx
+Presentation URL: xxxxx
+---
+-->
+<section id="conditionals" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Conditionals</h2>
+<!--
+
+## Overview
+This lesson introduces students to the concept of control flow - booleans (including `truthy` and `falsey`), comparison operators, and `if`/`elif`/`else`.
+
+## Learning Objectives
+In this lesson, students will:
+- Use comparison and equality operators to evaluate and compare statements.
+- Use if / elif / else conditionals to control program flow.
+
+## Duration
+60 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:05 | Welcome |
+| 0:07 - 0:25 | Booleans and Logical Operators |
+| 0:25 - 0:47 | `if`, `else`, and `elif` |
+| 0:47 - 0:57 | Exercises |
+| 0:57 - 0:60 | Summary |
+
+## Before Class: Preparation
+- Modify the slides and exercises in this file as you see fit.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+
+## Differentiation and Extensions
+- If students are excelling, give them more complex exercises and examples - chain comparisons inside `if` statements and make use of `Truthy` / `Falsey`.
+- If students are struggling, continuously recap the real world comparison (e.g. a temperature range or comparing numbers), and once they grasp that, more slowly recap each individual concept. Start with the variables and an easier comparison, then build up. You can always add more simple demos, codealongs, and exercises.
+- Feel free to come up with more exercises at the end! (And throughout). If there is extra time, write more exercises on the board (or bring up sample code) for students to work out.
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Use comparison and equality operators to evaluate and compare statements.</li>
+<li>Use <code>if</code> / <code>elif</code> / <code>else</code> conditionals to control program flow.</li>
+</ul>
+<hr />
+</section>
+<section id="unit-2-kickoff" class="level2">
+<h2>Unit 2 Kickoff!</h2>
+<p>In Unit 1, we ended by print the rating for a movie: <code>print('The rating for', movie_title, 'is', movie_rating)</code>.</p>
+<p>In Unit 2, we're going to learn to add logic and make this much more complex! By the end of this...</p>
+<ul>
+<li>We'll have a variable that's set to either 1 or 2. If the variable is a <code>1</code>, we'll print the movie title, and if the variable is a <code>2</code>, we'll print the rating.</li>
+<li>We'll have many movies in a <code>list</code> and print them all out with just one print statement using a <code>loop</code>.</li>
+<li>We'll make pieces of our program easy to reuse using <code>functions</code>.</li>
+</ul>
+<p>Ready? Let's go!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Recap what they learned in Unit 1. Give a quick overview of what they'll learn in unit 2.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Now that you have a feel for programming in pseudocode and in Python, and an understanding of how variables work, we’re going to add some additional complexity by diving in to Control Flow.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-do-you-notice" class="level2">
+<h2>Discussion: What Do You Notice?</h2>
+<p>Consider the following pseudocode for &quot;French Toast à la GA.&quot;</p>
+<pre><code>1) Dip the bread in eggs.
+2) Cook the bread for 3 minutes on each side.</code></pre>
+<p>Now, consider this:</p>
+<pre><code>1) Dip bread in eggs.
+2) If the bread is thicker, dip the bread again until it&#39;s soaked through.
+3) Cook the bread for 3 minutes.
+4) Check if the bread is brown on the bottom. If not, keep cooking the bread.
+5) Flip the bread, and repeat steps 3 and 4.</code></pre>
+<p>What do you notice?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them a few minutes to think about it.</li>
+<li>If French toast isn't your thing, feel free to choose another real-life example. Make sure it has an if or comparison in it - some decision that the program needs to make.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Have you ever seen a recipe require a decision?&quot;</li>
+<li>Call out the <strong>repeat</strong>, the <strong>if</strong>, and the <strong>until</strong>.</li>
+<li>&quot;This is <strong>Control Flow</strong>: Changing what the program does based on a decision.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="saying-yes-or-no" class="level2">
+<h2>Saying &quot;Yes&quot; or &quot;No&quot;</h2>
+<pre><code>- **If** the bread is thicker...
+- **If** the bread is brown...</code></pre>
+<p>Goal: Programs need to make choices.</p>
+<p>To do that, programs need to be able to say, &quot;Is this bread thick? Yes or no?&quot;</p>
+<p>Question: How does a computer say yes or no?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make it clear that the goal is that the computer does one thing depending on if the question's answer is yes or no, so first we have to teach the computer to say yes and no.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="boolean-values-the-foundation-of-programming" class="level2">
+<h2>Boolean Values: The Foundation of Programming</h2>
+<p>&quot;Yes&quot; in computer is &quot;True&quot;. &quot;No&quot; in computer is &quot;False&quot;.</p>
+<p>This is the case in every programming language - it's specific to computers themselves.</p>
+<p>These are called <strong>boolean values</strong>.</p>
+<ul>
+<li>Is the bread sliced?
+<ul>
+<li><code>True</code>.</li>
+</ul></li>
+<li>Is the bread brown?
+<ul>
+<li><code>False</code>.</li>
+</ul></li>
+<li>Is 2 larger than 6?
+<ul>
+<li><code>False</code>.</li>
+</ul></li>
+<li>Is 6 larger than 2?
+<ul>
+<li><code>True</code>.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<p>&quot;First, it's important to understand that the result of comparing two values is always either the value <code>True</code> or the value <code>False</code>. These are called <strong>Boolean values</strong> and they are the basis for all decisions in programming. Comparison operators compare two values with one another and return either <code>True</code> or <code>False</code>.&quot;</p>
+</aside>
+<hr />
+</section>
+<section id="comparison-and-logic-in-programming" class="level2">
+<h2>Comparison and Logic in Programming</h2>
+<p>Now we can say yes or no, but how do we ask the question?</p>
+<p>The first way is with comparison operators.</p>
+<p>How does a computer decide <code>True</code> or <code>False</code>?</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/comparison_operators.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<p>&quot;Now that we can have a computer say yes or no, we can bring in comparisons and logic. Comparison operators take two variables and contrast them. Mostly, we will be comparing strings and numbers.&quot;</p>
+<p>&quot;Python also allows us to compare some more complex data types, which we will learn about soon.&quot;</p>
+<p>&quot;Can you think of any use cases for comparison? What programs might need this?&quot;</p>
+</aside>
+<hr />
+</section>
+<section id="comparison-types-practice" class="level2">
+<h2>Comparison Types Practice</h2>
+<p>Check out these comparison operators. Why do you think the last one is false?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-comparison-operators?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Why is that last one false? Because &quot;d&quot; occurs after &quot;a&quot; in the character set. To a computer, characters go &quot;a,&quot; &quot;b,&quot; &quot;c,&quot; &quot;d&quot;... Because &quot;d&quot; is after &quot;a&quot; in a computer's order, &quot;a&quot; &lt; &quot;d.&quot; Therefore, this string comparison will evaluate to <code>False</code>.&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This replit has the following code:</p>
+<p>print(&quot;3 &lt; 5 is...&quot;, (3 &lt; 5))</p>
+<p>print(&quot;13 &gt;= 13 is....&quot;, (13 &gt;= 13))</p>
+<p>print(&quot;50 &gt; 100 is...&quot;, (50 &gt; 100))</p>
+print(&quot;'d' &lt; 'a' is...&quot;, (&quot;d&quot; &lt; &quot;a&quot;))
+</aside>
+<hr />
+</section>
+<section id="equality-operators-equality" class="level2">
+<h2>Equality Operators: Equality (<code>==</code>)</h2>
+<ul>
+<li>Accept any two types of data as inputs.</li>
+<li>Will only evaluate to <code>True</code> if both sides are completely identical in <em>data type and value.</em></li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-comparison-equality?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Spend just a minute on this slide! The repl.it is there for them to run it and see, not to do any exercises on. It's especially important to point out the string versus number.</li>
+<li>Make sure students understand types - strings vs numbers, for example. <code>&quot;7&quot;</code> compared to <code>7</code> can be tough.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Now, let's take a look at equality operators.&quot;</p></li>
+<li><p>&quot;Equality operators check to see whether or not two values are the same as, or equal to, one another.&quot;</p></li>
+<li><p>&quot;This operator will accept any two types of data as inputs and evaluate to a Boolean value (<code>True</code> or <code>False</code>).&quot;</p></li>
+<li><p>&quot;It will only evaluate to <code>True</code> if both sides are completely identical in data type and value (i.e., a string and a number will never be equal because they are different data types.)&quot;</p></li>
+<li><p>&quot;For example, <code>5 == 5</code> will evaluate to <code>True</code>, while <code>5 == &quot;5&quot;</code> will evaluate to <code>False</code>, as, while the values are the same, <code>5</code> is a number and <code>&quot;5&quot;</code> is a string. (Strings always have quotes.)&quot;</p></li>
+</ul>
+<p><strong>Repl.it Note:</strong> This replit has the following code:</p>
+<p>print(&quot;5 == 5 is..&quot;, 5 == 5)</p>
+<p>print(&quot;6 == 3 is...&quot;, 6 == 3)</p>
+<p>print(&quot;'5' == 5 is..&quot;, &quot;5&quot; == 5)</p>
+</aside>
+<hr />
+</section>
+<section id="equality-operators-inequality" class="level2">
+<h2>Equality Operators: Inequality (<code>!=</code>):</h2>
+<ul>
+<li>Will accept any two types of data as inputs.</li>
+<li>The reverse of the equality operator.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-comparison-inequality?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Spend just a minute on this slide! The repl.it is there for them to run it and see, not to do any exercises on. It's especially important to point out the string versus number.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;This operator will also accept any two types of data as inputs and evaluate to a Boolean value.&quot;</li>
+<li>&quot;It is essentially the reverse of the equality operator — it compares two values to check that either the data type or the value are not the same.&quot;</li>
+<li>&quot;For example, <code>5 !== 5</code> will evaluate to <code>False</code>, while<code>5 != &quot;5&quot;</code> will evaluate to <code>True</code>.&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This repl.it has the following code:</p>
+<p>print(&quot;5 != 5 is..&quot;, (5 != 5)) print(&quot;6 != 5 is..&quot;, (6 != 5)) print(&quot;'5' != 5 is..&quot;, (&quot;5&quot; != 5))</p>
+</aside>
+<hr />
+</section>
+<section id="comparison-operators-knowledge-check" class="level2">
+<h2>Comparison Operators: Knowledge Check</h2>
+<p>What do you think the following will equal?</p>
+<ul>
+<li><p><code>8 &gt; 8</code></p></li>
+<li><p><code>8 &gt;= 8</code></p></li>
+<li><p><code>8 &lt;= 15</code></p></li>
+<li><p><code>7 != &quot;7&quot;</code></p></li>
+<li><p><code>6 == 7</code></p></li>
+<li><p><code>6 != 7</code></p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Spend just a minute on this slide, but give them time to guess.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="truthy-and-falsey" class="level2">
+<h2>&quot;Truthy&quot; and &quot;Falsey&quot;</h2>
+<p>Something that's <code>True</code> is always <strong>true</strong>... right?</p>
+<pre><code>Yes, I totally cleaned my room. Just don&#39;t look under the bed...</code></pre>
+<p>Sometimes, we need &quot;truthy&quot; and &quot;falsey&quot;. They're not explicitly <code>True</code> or <code>False</code>, but implicitly behave in the same way.</p>
+<ul>
+<li>Sometimes, <code>True</code> and <code>False</code> really mean &quot;Is there anything there?&quot;</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">&quot;Hello, World!&quot;</span>  <span class="co"># A non-empty string: Truthy / True.</span>
+<span class="dv">13</span>               <span class="co"># A non-zero number: Truthy / True.</span>
+<span class="co">&quot;&quot;</span>               <span class="co"># An empty string: Falsey / False.</span>
+<span class="dv">0</span>                <span class="co"># The number 0: Falsey / False.</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Give many real world examples to contextualize these concepts, especially for truthy and falsey.</p></li>
+<li><p>It can be difficult to remember what gets returned in an <code>and</code> or <code>or</code> statement. Continuously recap both whether something is <code>True</code> or <code>False</code>, but also what value would get returned.</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;<code>True</code> and <code>False</code> are the standard Boolean values that we'll be using with our comparisons. However, in Python, there are also other values that will evaluate to <code>True</code> or <code>False</code> if they are used in a comparison. These are called &quot;truthy&quot; and &quot;falsey&quot; values because they are not explicitly <code>True</code> or <code>False</code> but they implicitly behave in the same way.&quot;</p></li>
+<li><p>&quot;Any string (or other collection, like a list, which we'll learn about soon) that is <strong>empty</strong> is considered &quot;falsey,&quot; so it evaluates to <code>False</code>. Similarly, any number with a value of zero is considered <code>False</code>. In these situations, <code>True</code> and <code>False</code> results basically indicate whether or not the variable you are comparing contains a value.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-logical-operators-or-and-and" class="level2">
+<h2>The Logical Operators: <code>or</code> and <code>and</code></h2>
+<p>What if we need to check multiple things that must all be <code>True</code>?</p>
+<pre><code>To make a pb&amp;j sandwich, we need peanut butter, and jelly, and bread.</code></pre>
+<p>Or check multiple things, and only one needs to be <code>True</code>?</p>
+<pre><code>To make a fruit salad, we only need oranges, or apples, or strawberries.</code></pre>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Now we know how to compare two values and get a Boolean result. But, what if we need to compare multiple things that must all be <code>True</code>? Or compare multiple things, any one of which must be <code>True</code>?&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>See if they can come up with the idea of &quot;or&quot; and &quot;and&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-logical-operators-or" class="level2">
+<h2>The Logical Operators: <code>or</code></h2>
+<p>&quot;<code>or</code> checks if <strong>either</strong> comparison is <code>True</code>.</p>
+<iframe height="500px" width="100%" src="https://repl.it/@SuperTernary/python-practicing-or?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>The repl.it is for an example, not an exercise. Run the code and walk them through it.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<p>&quot;<code>or</code> checks if <strong>either</strong> comparison is <code>True</code> and returns the first <code>True</code> value it finds. If neither side is <code>True</code>, then <code>or</code> returns <code>False</code> and the last <code>False</code> value.</p>
+<p><strong>Repl.it Note:</strong> The replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">red_score <span class="op">=</span> <span class="dv">7</span>
+blue_score <span class="op">=</span> <span class="dv">5</span>
+green_score <span class="op">=</span> <span class="dv">0</span>
+yellow_score <span class="op">=</span> <span class="dv">0</span>
+
+<span class="co"># or prints the first Truthy statement</span>
+<span class="bu">print</span>(red_score <span class="kw">or</span> blue_score)
+<span class="co"># 0 is considered &quot;False&quot;</span>
+<span class="bu">print</span>(green_score <span class="kw">or</span> blue_score)
+<span class="co"># If all are false, or prints the last &quot;False&quot; statement</span>
+<span class="bu">print</span>(green_score <span class="kw">or</span> yellow_score)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="the-logical-operators-or-truth-table" class="level2">
+<h2>The Logical Operators: <code>or</code> Truth Table</h2>
+<p>The <code>or</code> truth table:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="va">True</span> <span class="kw">or</span> <span class="va">True</span>
+<span class="co"># =&gt; True</span>
+<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>
+<span class="co"># =&gt; True</span>
+<span class="va">False</span> <span class="kw">or</span> <span class="va">True</span>
+<span class="co"># =&gt; True</span>
+<span class="va">False</span> <span class="kw">or</span> <span class="va">False</span>
+<span class="co"># =&gt; False</span></code></pre></div>
+<aside class="notes">
+<p>Here is a list to help keep track. A list like this is called a <em>truth table</em>.&quot;</p>
+</aside>
+<hr />
+</section>
+<section id="the-logical-operators-and" class="level2">
+<h2>The Logical Operators: <code>and</code></h2>
+<p><code>and</code> checks if <strong>both</strong> comparisons are <code>True</code>.</p>
+<iframe height="500px" width="100%" src="https://repl.it/@SuperTernary/python-and-practice?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>The repl.it is for an example, not an exercise. Run the code and walk them through it.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;<code>and</code> checks if <strong>both</strong> comparisons are <code>True</code>. If both sides are <code>True</code>, then <code>and</code> will give back the last <code>True</code> value. If either side is <code>False</code>, <code>and</code> will return the first <code>False</code> value it finds.&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> The replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">red_score <span class="op">=</span> <span class="dv">7</span>
+blue_score <span class="op">=</span> <span class="dv">5</span>
+green_score <span class="op">=</span> <span class="dv">0</span>
+yellow_score <span class="op">=</span> <span class="dv">0</span>
+
+<span class="co"># and returns the last True statement</span>
+<span class="bu">print</span>(red_score <span class="kw">and</span> blue_score)
+<span class="co"># and returns the first False statement</span>
+<span class="bu">print</span>(green_score <span class="kw">and</span> blue_score)
+<span class="bu">print</span>(green_score <span class="kw">and</span> yellow_score)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="the-logical-operators-and-truth-table" class="level2">
+<h2>The Logical Operators: <code>and</code> Truth Table</h2>
+<p>The <code>and</code> truth table:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="va">True</span> <span class="kw">and</span> <span class="va">True</span>
+<span class="co"># =&gt; True</span>
+<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>
+<span class="co"># =&gt; False</span>
+<span class="va">False</span> <span class="kw">and</span> <span class="va">True</span>
+<span class="co"># =&gt; False</span>
+<span class="va">False</span> <span class="kw">and</span> <span class="va">False</span>
+<span class="co"># =&gt; False</span></code></pre></div>
+<aside class="notes">
+<p>Here is a truth table to help keep track.</p>
+</aside>
+<hr />
+</section>
+<section id="quick-review-comparing-variables-using-operators" class="level2">
+<h2>Quick Review: Comparing Variables Using Operators</h2>
+<ul>
+<li><p>When comparing, a computer always returns a boolean value: <code>True</code> or <code>False</code>.</p></li>
+<li><p>We compare with operators like <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>.</p></li>
+<li><p>We can also use the logical operators <code>and</code> and <code>or</code>.</p></li>
+</ul>
+<p><em>Protip: Using only one equal <code>=</code> always assigns the variable!</em></p>
+<p>Up next: Conditionals!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly review and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="conditionals-if" class="level2">
+<h2>Conditionals: <code>if</code></h2>
+<p>Do you remember this?</p>
+<pre><code>- **If** the bread is thicker...
+- **If** the bread is brown...</code></pre>
+<p>How can we put that in a program?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> the bread <span class="kw">is</span> thick
+    <span class="co"># print(&quot;Dunk the bread longer!&quot;)</span>
+
+<span class="co"># No matter what:</span>
+<span class="bu">print</span>(<span class="st">&quot;Finished dunking the bread&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Point out that there is the if, then the question.</li>
+<li>What to do is on the next line, so that it's easy to follow.</li>
+<li>Point out the indent, so we know which part of the pseudocode goes with the if. The print statement is not indented, so we know that it's not part of the if and always happens.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="if-syntax" class="level2">
+<h2><code>if</code> Syntax</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> condition:
+  <span class="co"># Run these lines if condition is True</span>
+  <span class="co"># These lines are indented</span>
+
+<span class="co"># Unindented things always happen</span></code></pre></div>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-learning-if?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-programs allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Talk through the syntax, then run the code. Then, change the value of the code so that it's false and show the statement not printing.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Here's how you write an <code>if</code> statement. We use the word <code>if</code> and then put in the logical comparison we want to make. The <code>if</code> line ends in a colon. The indented lines that follow are the lines that will only be run if the condition results in <code>True</code>.&quot;</p></li>
+<li><p>&quot;This program sets up two variables and then compares them to certain values to decide if the next lines should be executed.&quot;</p></li>
+<li><p>&quot;We check to see if <code>bread</code> is equal to <code>&quot;thick&quot;</code>. If it is, we print this message.&quot;</p></li>
+<li><p>&quot;Because the bread was thick, the condition evaluated to <code>True</code> and the next line ran.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-its-too-hot-in-here" class="level2">
+<h2>We Do: It's Too Hot In Here</h2>
+<p>Remember, in a we do, you follow along!</p>
+<p>Our goal: A temperature program that lets us know when it is too hot.</p>
+<ul>
+<li><p>On your computer, open Atom and create a new file; save it as <code>control_flow.md</code>.</p></li>
+<li><p>Set up a temperature variable.</p></li>
+<li><p><strong>Type this; don't just copy!</strong> The more practice you have typing it, the easier it will be to remember.</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">temperature <span class="op">=</span> <span class="dv">55</span>
+<span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Have them start a program on their computers. Make sure they've all opened Atom and are following along.</p></li>
+<li><p>Encourage students to type, not copy. They'll need to be used to typing code out; it will help drill it in.</p></li>
+<li><p>Feel free to change the examples to not be a temperature gauge.</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's write a program that sets the temperature to 55 degrees (F) and then immediately prints that it is too hot.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-add-an-if-statement" class="level2">
+<h2>We Do: Add an <code>if</code> Statement:</h2>
+<p>That's not hot! Let's add an <code>if</code> statement:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">temperature <span class="op">=</span> <span class="dv">55</span>
+<span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">80</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)</code></pre></div>
+<p>What about a higher temperature? Like <code>95</code>?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this, and have them run this.</li>
+<li>Encourage students to type, not copy.</li>
+<li>Make sure they have the indent - they shouldn't see anything print!</li>
+<li>Then, change the temperature to <code>95</code> and run it.</li>
+<li>This is an <em>excellent</em> time to mention space indents versus tab indents. Note that the Python style guide calls for 4 spaces, so that's the students' goal. Help them set up their text editor to use 4 spaces when they hit &quot;tab&quot;, for example. Show them that different numbers of spaces don't work.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Okay, we have a program that sets the temperature to 55 degrees (F) and then immediately prints that it is too hot. But 55 degrees isn't really hot so our app is kind of useless. Let's give it the ability to make a decision about whether it is too hot or not. Now our program will only complain about the heat if it is over 80 degrees.&quot;</li>
+<li>&quot;At present, the program prints nothing. Let's make sure our if statement works.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-the-else-statement" class="level2">
+<h2>We Do: The <code>else</code> Statement</h2>
+<p>What about printing a message for when it isn't too hot?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> condition:
+  <span class="co"># do something</span>
+<span class="cf">else</span>:
+  <span class="co"># do something else</span></code></pre></div>
+<p>The <code>else</code> block is executed <strong>only</strong> if the <code>if</code> condition evaluates to <code>False</code>.</p>
+<p>Let's try it:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">temperature <span class="op">=</span> <span class="dv">95</span>
+<span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">80</span>:
+  <span class="co"># If true, run this code block</span>
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)
+<span class="cf">else</span>:
+  <span class="co"># Otherwise, run this code block.</span>
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s just right!&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this, and have them run this.</li>
+<li>Encourage students to type, not copy.</li>
+<li>Make sure they have the indents correct!</li>
+<li>Then, change the temperature to <code>25</code> and run it again.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Using the <code>if</code> statement like above gives us a situation where the program will do something if the condition is true but it will do nothing if the condition is false. What if we want it to do one thing if it's true and a completely different thing if it is false? Python gives us the <code>else</code> statement. It has this basic structure. This works exactly the same as a simple <code>if</code> statement except that it adds <code>else</code> and another line that will be executed only if the condition evaluates to False.&quot;</p></li>
+<li><p>&quot;Let's use this to add some more messages to our temperature program so that it will say something for any temperature. Now for any value over 80, the program will print a complaint. <strong>Else</strong>, if the temperature is not over 80, the program will express its satisfaction. Change the temperature to 65 and run it again. Python chooses the other path now and executes the line saying that it is just right.&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-other-cases" class="level2">
+<h2>Discussion: Other Cases</h2>
+<p>What if it's too cold? We need more conditions.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">80</span>:
+  <span class="co"># If it is too hot, run this code block</span>
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)
+
+<span class="co"># We want: Else if temperature &lt; 40</span>
+<span class="co"># We want: Print that it&#39;s too cold  </span>
+
+<span class="cf">else</span>:
+  <span class="co"># Otherwise, run this code block.</span>
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s just right!&quot;</span>)</code></pre></div>
+<p>What do you think we need?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Spend just a minute or two on this - can they come up with 'else if'?</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;This is great! Now we can have our programs actually look at some data and make a different decision based on its value. It reads the <code>temperature</code> variable and compares the value to <code>80</code>. Since the temperature we coded in was lower than <code>80</code>, it evaluated to False and printed the &quot;just right&quot; comment. But as we all know, the world is not all black and white and frequently we will need to have more than just two branches for our program to choose from.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-the-elif-statement" class="level2">
+<h2>We Do: The <code>elif</code> Statement</h2>
+<p>That's where the <code>elif</code> (&quot;else if&quot;) statement works its magic.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">temperature <span class="op">=</span> <span class="dv">60</span>
+
+<span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">80</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)
+
+<span class="cf">elif</span> temperature <span class="op">&lt;</span> <span class="dv">40</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too cold!&quot;</span>)
+
+<span class="cf">else</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s just right!&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this, and have them run this.</li>
+<li>Make sure they have the indents correct!</li>
+<li>Then, change the temperature to different values and see it working.</li>
+<li>Walk through this line by line.</li>
+<li>Be clear that &quot;else&quot; always comes at the bottom - there is only one else! Any middle conditional is &quot;elif&quot;.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;That's where the <code>elif</code> statement works its magic. <code>Elif</code> is a portmanteau of &quot;else if&quot;. It is used when you need to have multiple branches of execution but each one needs to use a different comparison. Let's use this to really beef up our temperature program to give some really nice feedback.&quot;</li>
+<li>Let's look at this line by line. We make our <code>temperature</code> variable and set it to 95. Then we check to see if it is greater than 80. If it is, we print the &quot;hot&quot; message. If that condition is false, we then move to the next one which checks to see if the temperature is between 60 and 80. Note the use of the <code>and</code> operator to make sure that both of those comparisons must be true for the whole conditional to be true. If the temperature is less than or equal to 80 <strong>and</strong> greater than 60, then we print the &quot;just right&quot; message. If that one is false we proceed to the next <code>elif</code> which checks for cold temperatures. Finally, we end with <code>else</code>. You will use <code>else</code> as the last statement in any block that uses <code>elif</code> statements.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-more-elif" class="level2">
+<h2>We Do: Adding more <code>elif</code>!</h2>
+<p>We can have as many <code>elif</code> as we'd like, but only one <code>else</code>.</p>
+<p>Let's change this up - remember, type this out for practice.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">temperature <span class="op">=</span> <span class="dv">95</span>
+<span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">80</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s too hot!&quot;</span>)
+<span class="cf">elif</span> temperature <span class="op">&lt;=</span> <span class="dv">80</span> <span class="kw">and</span> temperature <span class="op">&gt;</span> <span class="dv">60</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s just right!&quot;</span>)
+<span class="cf">elif</span> temperature <span class="op">&lt;=</span> <span class="dv">60</span> <span class="kw">and</span> temperature <span class="op">&gt;</span> <span class="dv">40</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s pretty cold!&quot;</span>)
+<span class="cf">else</span>:
+  <span class="bu">print</span>(<span class="st">&quot;It&#39;s freezing!&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to type, not copy.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's use this to really beef up our temperature program to give some really nice feedback.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="thought-exercise" class="level2">
+<h2>Thought Exercise</h2>
+<p>What do you think the following code will print? Why?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+bar <span class="op">=</span> <span class="dv">1</span>
+<span class="cf">if</span> foo <span class="op">&gt;</span> <span class="dv">13</span>:
+  <span class="bu">print</span>(<span class="st">&quot;Flip&quot;</span>)
+<span class="cf">elif</span> bar:
+  <span class="bu">print</span>(<span class="st">&quot;Flop&quot;</span>)
+<span class="cf">else</span>:
+  <span class="bu">print</span>(<span class="st">&quot;Fly&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>It prints &quot;Flop&quot;</li>
+<li>Use this slide to check for understanding.</li>
+<li>See if a student can explain it, not you.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-even-or-odd" class="level2">
+<h2>Partner Exercise: Even or Odd</h2>
+<p>Get with a new partner. Decide who will drive and who will navigate.</p>
+<p>Open a new file in Atom, saved as <code>check_even.py</code>.</p>
+<p>In it, write a program that prints whether a number is even or odd.</p>
+<p>Do you remember how to determine that?</p>
+<ul>
+<li>We can use the modulus operator (<code>%</code>) to check the remainder.</li>
+</ul>
+<p>Here is some code to get you started:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="dv">10</span>
+remainder <span class="op">=</span> number <span class="op">%</span> <span class="dv">2</span>
+<span class="co"># For an even number, print &quot;It&#39;s even!&quot;</span>
+<span class="co"># For an odd number, print &quot;It&#39;s odd!&quot;</span></code></pre></div>
+<aside class="notes">
+<p>3 minutes!</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Circulate the room to ask questions, help overcome challenges, and check completed work.</li>
+<li>If anyone is still stuck, go over the answer.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-and-and-or" class="level2">
+<h2>Partner Exercise: And and Or</h2>
+<p>Switch driver and navigator.</p>
+<p>In a file (it can be the same one), write a program that compares two variables and prints out statements accordingly. Start here and follow this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">8</span>
+y <span class="op">=</span> <span class="dv">0</span>
+a <span class="op">=</span> <span class="st">&quot;Hello!&quot;</span>
+b <span class="op">=</span> <span class="st">&quot;&quot;</span>
+
+<span class="co"># Check if x and b are both true. If they are, print &quot;Both of these are true.&quot;</span>
+<span class="co"># Check if y or a is false. If one is, print &quot;One of these is false.&quot;</span>
+<span class="co"># Check if either x or y is false. If one is, print out &quot;One is false.&quot;</span>
+<span class="co"># Then, only if either x or y is false, check if x is greater than y. If it is, print out &quot;x is greater than y.&quot;</span></code></pre></div>
+<aside class="notes">
+<p>5 minutes!</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Circulate the room to ask questions, help overcome challenges, and check completed work.</li>
+<li>If anyone is still stuck, go over the answer.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-boolean-values-and-operators" class="level2">
+<h2>Summary: Boolean Values and Operators</h2>
+<p>We've started control flow - changing what your program does based on a decision. We used:</p>
+<p><strong>Boolean values</strong>: - <code>True</code>, <code>False</code> - Their corresponding <code>Truthy</code>, <code>Falsey</code></p>
+<p><strong>Conditional operators</strong></p>
+<ul>
+<li>Comparison: <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code></li>
+<li>Equality: <code>==</code> and <code>!=</code></li>
+</ul>
+<p><strong>Logical operators</strong>: <code>all</code> and <code>or</code></p>
+<ul>
+<li><code>or</code> evaluates to <code>True</code> if <strong>any</strong> of the comparisons are <code>True</code>.</li>
+<li><code>and</code> evaluates to <code>True</code> only if <strong>all</strong> of the comparisons are <code>True.</code></li>
+</ul>
+<aside class="notes">
+<p>1 minute.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-qa-conditionals" class="level2">
+<h2>Summary &amp; Q/A: Conditionals</h2>
+<p>Then, we went into <code>if</code> and <code>else</code>:</p>
+<p>&quot;<strong>If</strong> your toast is thick, dip the bread for longer, <strong>else</strong> do not.&quot;</p>
+<ul>
+<li><code>if</code> - only as the first conditional operator.</li>
+<li><code>elif</code> - to add multiple comparisons to your <code>if</code> blocks.</li>
+<li><code>else</code> - only at the end, for if the previous conditional tests are false.</li>
+</ul>
+<aside class="notes">
+<p>1 minute.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding.</li>
+<li>Talk about what's up next.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Just like using the words &quot;if&quot; and &quot;else&quot; in real life, these let us make decisions in our programs.&quot;</li>
+<li>&quot;<code>if</code> statements let us control the flow of execution in our programs.&quot;</li>
+<li>&quot;We use conditional operators in our <code>if</code> statements to perform the comparisons.&quot;</li>
+<li>&quot;The <code>else</code> statement lets us define what to do when our primary conditional test is false.&quot;</li>
+<li>&quot;The <code>elif</code> statement lets us add multiple comparisons to our <code>if</code> blocks.&quot;</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

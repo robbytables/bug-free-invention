@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Modules and Libraries
+type: lesson
+duration: "00:40"
+creator: Brandi Butler
+-->
+<section id="modules-and-packages" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Modules and Packages</h2>
+<!--
+
+## Overview
+This lesson walks through the idea of modules, using the `random` module to look at documentation and methods. Then, it segues into a few longer exercises with PyTime.
+
+## Important Notes or Prerequisites
+
+Libraries were covered extremely briefly in the pre-work (in the Python Introduction lesson), so you can call back to that. They've also used itertools, so you can reference that. This is just a small taste of the many, many modules out there. Highly encourage students to explore more on their own!
+
+## Learning Objectives
+In this lesson, students will:
+
+* Add packages and modules to a Python program.
+* Create a program utilizing Pytime.
+* Navigate library documentation.
+
+
+
+## Duration
+40 minutes.
+
+### Notes on Timing
+
+It would be easy to get carried away and spend a lot of time either playing around with the modules or reading through the docs. Keep an eye on the clock and move on to the next topic once you've covered a few basic examples. The goal is to understand modules, not to become a pro at any particular one.
+
+### Use the Parking Lot!
+
+Since there are many modules, students may start asking questions along the lines of `Hey, have you used the XXX module?` These are great questions as they reveal a lot of the student's passion and interest! Insofar as possible, try to answer those questions! If you find yourself running short of time, however, write the module name down in the parking lot so you can follow up with that student during a lab or a break.
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:04 - 0:24 | Exploring Modules |
+| 0:24 - 0:42 | Pytime Module |
+| 0:42 - 0:45 | Summary |
+
+## Differentiation and Extensions
+- Don't let slower students be frustrated if they're hung up on a particular function. The main point is that there are other files that they can use that have functions - that's really it.
+- For more advanced students, encourage them to experiment with other functions in the modules.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Add packages and modules to a Python program.</li>
+<li>Create a program utilizing PyTime.</li>
+<li>Navigate library documentation.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching tips</strong>:</p>
+<ul>
+<li>Note that this lesson will be cool! It's easy to be drained after itertools, so stress that this lesson will have easy but awesome things in it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-lets-dive-in" class="level2">
+<h2>Discussion: Let's Dive In</h2>
+<p>Do you remember <code>itertools</code>?</p>
+<p>What do you think these have in common?</p>
+<ul>
+<li><code>itertools</code>.</li>
+<li>A Python function that tells us when Mother's Day is.</li>
+<li>A Python function that gets all the contents of a webpage for us.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Answer - they're all accomplished with code other people have written for us.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-a-module" class="level2">
+<h2>What is a Module?</h2>
+<p>Answer: They're all available to us via modules! (In fact, <code>itertools</code> IS a module).</p>
+<p>Modules are collections of useful Python code and functions that we can use.</p>
+<ul>
+<li>This is much like a class that someone else has written.</li>
+<li>It's free - less work for us!</li>
+</ul>
+<p>Use a function by <code>import &lt;module&gt;</code> at the top of your code, then <code>&lt;module&gt;.function_you_want()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># import &lt; module name &gt; - brings in the module file, so we can use it.</span>
+<span class="im">import</span> itertools
+
+food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+
+<span class="co"># itertools.chain : &quot;Look in the itertools module, and use the chain function&quot;</span>
+chained_list <span class="op">=</span> <span class="bu">list</span>(itertools.chain(food, colors))</code></pre></div>
+<p><strong>Pro Tip</strong>: Check the Additional Reading at the end of the lesson to see how to write your own module!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go through this code - be sure they understand the import</li>
+<li>Ask the students if they think module names are case sensitive</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;If you recall back to the itertools lesson, you will now see that we are using a module for that extended functionality.&quot;</p></li>
+<li><p>&quot;A <strong>module</strong>, according to the <a href="https://docs.python.org/3/tutorial/modules.html">Python Docs</a>, &quot;is a file containing Python definitions and statements. The file name is the module name with the suffix <code>.py</code> appended.&quot;</p></li>
+<li>You will encounter many modules that others have written. They are free-to-use and you can think of them as extensions of Python's functionality.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="python-standard-library" class="level2">
+<h2>Python Standard Library</h2>
+<p>We're going to look at several different modules to get you used to them.</p>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> bundles all common modules, so we can just <code>import</code> (use) them.</p>
+<p>We've seen the <code>itertools</code> module already. Let's look at another module, <code>random</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
+<span class="co"># Done! Now we can use any functions in the random module!</span>
+
+<span class="co"># randint is a function in the random module</span>
+my_random_number <span class="op">=</span> random.randint(<span class="dv">2</span>,<span class="dv">8</span>)
+
+<span class="co"># This could be 2, 3, 4, 5, 6, 7, or 8</span>
+<span class="bu">print</span>(my_random_number)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;This means that they are so commonly used, that they are already included and you don't have to download them separately.&quot;</li>
+<li>&quot;There are modules to help with databases, operating systems, logging, data processing, file I/O, and testing, just to name a few!&quot;</li>
+<li>&quot;If you want to use any functions from a module in the standard library, all you need to do is include an import statement for that module at the top of your file.&quot;</li>
+<li>&quot;Let's say we're using the random module. We import it; now, we can use the functions in it. Randint returns a random integer between two numbers we give it, including both those numbers.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-lets-import-random" class="level2">
+<h2>We Do: Let's Import Random</h2>
+<p>Run the code in the repl below. What happened? Why?</p>
+<p>Uncomment the first line: <code>import random</code>. Run it again. Try changing the values.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-modules-random?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Use this as a teaching aid, not an exercise.</li>
+<li>Demonstrate how to import a module.</li>
+<li>Point out what happens when we forget the import statement.</li>
+<li>Show the correct way to use the basic <code>randint</code> function.</li>
+<li>Demonstrate</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Post-activity: &quot;Importing the module tells your program that the module exists - there are thousands of modules, so to save space, your program will only use the ones you tell it to.&quot;</li>
+<li>&quot;You may have noticed a NameError. That means it doesn't know what module you're referring to since it wasn't imported.&quot; different values for the randint function as a short &quot;we do&quot; activity. Show a large range and a small range.</li>
+</ul>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># import random</span>
+<span class="co"># Done! Now we can use the random module all we want!</span>
+
+<span class="co"># randint is a function in the random module</span>
+my_random_number <span class="op">=</span> random.randint(<span class="dv">2</span>,<span class="dv">8</span>)
+
+<span class="co"># This could be 2, 3, 4, 5, 6, 7, or 8</span>
+<span class="bu">print</span>(my_random_number)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="we-do-exploring-the-random-module" class="level2">
+<h2>We do: Exploring the Random Module</h2>
+<p>How do we know:</p>
+<ul>
+<li>What <code>randint</code> does?</li>
+<li>What the <code>random</code> module has?</li>
+</ul>
+<p>Every module has documentation, which has:</p>
+<ul>
+<li>What functions are in the module.</li>
+<li>How to use them.</li>
+</ul>
+<p>Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>_.</p>
+<ul>
+<li>Can you find our <code>randint</code> function?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through the documentation, though not in depth - point out the description at the top, that it tells you what module you're in, that it has the functions and brief descriptions. Reminder that they've just seen randint, so point that out.</li>
+<li>End with walking through random, since that's what's next.</li>
+<li>Don't go too in depth in the documentation - introduce the idea of consulting it and the basic idea, but focus on a few simple functions.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;So, how do we go about using the <code>random</code> module now that we know how to include it?&quot; Let's consult the documentation to get an idea of what functions are available from the random module.&quot;</li>
+<li>&quot;There's a lot more functions than you might expect!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-random-numbers" class="level2">
+<h2>Partner Exercise: Random Numbers</h2>
+<p>Get with a partner and pick a driver! Together:</p>
+<ul>
+<li>Find the <code>random</code> function in the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation</a>_. (Yes, a function can have the same name as the module).</li>
+<li>Print out a randomly generated number using <code>random()</code>.</li>
+<li>Run the program several times; is your random number different every time?</li>
+<li>Why do you think this is useful?</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<blockquote>
+<p><strong>Protip</strong>: The <code>[</code>, in mathematics means <code>inclusive</code>, whereas the <code>)</code> means <code>exclusive</code>. Thus the possible values include 0.0, but do <strong>not</strong> include 1.0!</p>
+</blockquote>
+<aside class="notes">
+<p>3 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After a few minutes, go over the answer.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;There's a lot more functions than you might expect!&quot;</li>
+<li>&quot;The <code>[</code>, in mathematics means <code>inclusive</code>, whereas the <code>)</code> means <code>exclusive</code>. Thus the possible values include 0.0, but do <strong>not</strong> include 1.0!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>Modules are collections of useful Python code and functions that we can use.</p>
+<p>Use a function by <code>import &lt;module&gt;</code> at the top of your code, then <code>&lt;module&gt;.function_you_want()</code>.</p>
+<p>We've looked at two modules: <code>itertools</code> and <code>random</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Import statements go at the top of your file</span>
+<span class="im">import</span> itertools
+<span class="im">import</span> random
+
+<span class="co"># Using the randint function in the random module</span>
+my_random_number <span class="op">=</span> random.randint(<span class="dv">2</span>,<span class="dv">8</span>)
+<span class="bu">print</span>(my_random_number)
+
+<span class="co"># Using the chain function in the intertools module</span>
+food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+chained_list <span class="op">=</span> <span class="bu">list</span>(itertools.chain(food, colors))</code></pre></div>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> bundles all common modules, so we can just <code>import</code> (use) them.</p>
+<p><strong>Next up:</strong> More <code>random</code> module practice.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-do-you-feel-lucky" class="level2">
+<h2>We Do: Do You Feel Lucky?</h2>
+<p>How could you pick a random value from a list? The <code>random</code> module has a function called <code>choice</code> - it works on any non-empty list.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">people_in_lottery <span class="op">=</span> [<span class="st">&quot;Tina&quot;</span>, <span class="st">&quot;Batu&quot;</span>, <span class="st">&quot;Gina&quot;</span>, <span class="st">&quot;Jim&quot;</span>, <span class="st">&quot;Andres&quot;</span>]
+lottery_winner <span class="op">=</span> random.choice(people_in_lottery)
+<span class="bu">print</span>(lottery_winner, <span class="st">&quot;wins a new car!&quot;</span>) <span class="co"># Gina</span></code></pre></div>
+<p>Let's try.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-module-chance?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's switch gears a little bit. Random numbers are nice, but sometimes we have a list and we just want to pick a random item on that list. Suppose we run a lottery. We have a list of everyone who bought a lottery ticket and the winner will get a new car. How can we pick a winner?&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Ask the students to change the names to the people sitting around them. If you have a shy class, this gets people talking.</li>
+<li>Try changing the list to hold numbers and other elements.</li>
+</ul>
+<p><strong>Repl.it Note</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
+
+<span class="co"># Directions</span>
+<span class="co"># - Replace the names with your name and 4 nearby classmates.</span>
+<span class="co"># - Run the program</span>
+<span class="co"># - Who won the car?</span>
+
+<span class="co"># Create a list of candidates</span>
+people_in_lottery <span class="op">=</span> []
+
+<span class="co"># This is selecting one winner</span>
+lottery_winner <span class="op">=</span> random.choice(people_in_lottery)
+
+<span class="co"># This announces the winner!</span>
+<span class="bu">print</span>(lottery_winner, <span class="st">&quot;wins a new car!&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-lets-get-random" class="level2">
+<h2>Partner Exercise: Let's Get Random!</h2>
+<p>Get with a partner and create a local file, <code>random_test.py</code></p>
+<ul>
+<li>Generate a random number with <code>random.randrange()</code>. Print it out.</li>
+<li>Create a list, like <code>deck = [&quot;ten&quot;, &quot;jack&quot;, &quot;queen&quot;, &quot;king&quot;, &quot;ace&quot;]</code></li>
+<li>Use <code>random.choice()</code> to pick a random card in your deck. Print it out.</li>
+<li>Use <code>random.shuffle()</code> to mix up your deck; print that out.</li>
+</ul>
+<p>Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>, so you can look up functions._</p>
+<aside class="notes">
+<p>5 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>They'll need to look in the documentation to see shuffle; we haven't gone over it. This is a good exercise to get them used to looking at docs.</li>
+<li>Walk around and see if there are questions.</li>
+<li>Go over the answer when time's up or you feel it's time to do so - walk through finding <code>shuffle</code> in the docs as well.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>Modules are collections of useful Python code and functions that we can use.</p>
+<p>Use a function by <code>import &lt;module&gt;</code> at the top of your code, then <code>&lt;module&gt;.function_you_want()</code>.</p>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> bundles all common modules, so we can just <code>import</code> (use) them. <code>itertools</code> and <code>random</code> are modules inside the Python Standard Library.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Import statements go at the top of your file - they import straight from the Python Standard Library!</span>
+<span class="im">import</span> itertools
+<span class="im">import</span> random
+
+<span class="co"># Using the randint function in the random module</span>
+my_random_number <span class="op">=</span> random.randint(<span class="dv">2</span>,<span class="dv">8</span>)
+<span class="bu">print</span>(my_random_number)
+
+<span class="co"># Using the chain function in the intertools module</span>
+food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+chained_list <span class="op">=</span> <span class="bu">list</span>(itertools.chain(food, colors))</code></pre></div>
+<p><strong>Up Next</strong>: What about modules that <em>aren't</em> in the standard library?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-a-package" class="level2">
+<h2>What is a Package?</h2>
+<p>A package, also called a <strong>library</strong>, is a place where one or more related modules are stored.</p>
+<ul>
+<li>In technical terms, <em>one or more</em> modules bundled together under a single namespace.</li>
+<li>A package is like a folder, while a module is like a file.</li>
+</ul>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> bundles all common modules - it's the package with <code>itertools</code> and <code>random</code> modules inside it.</p>
+<p><strong>All packages are modules, but not all modules are packages.</strong></p>
+<aside class="notes">
+<strong>Talking Points</strong>: - &quot;Both <code>library</code> and <code>package</code> are technically correct and we can use the terms interchangeably.&quot; - &quot;PyTime is an interesting example of a package, because it only has one module in it&quot;
+</aside>
+<hr />
+</section>
+<section id="we-do-modulenotfounderror" class="level2">
+<h2>We Do: ModuleNotFoundError</h2>
+<p>The Python Standard Library has a <a href="https://docs.python.org/3/library/index.html">huge list</a> of modules. But not every Python module in the world is part of it!</p>
+<p><code>pytime</code> is a non-standard module. PyTime can:</p>
+<ul>
+<li>Get dates, date ranges, and times.</li>
+<li>Find the date of a particular holiday.</li>
+</ul>
+<p>Create a new file called <code>pytime_test.py</code>. Put this line in it and run it:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pytime</code></pre></div>
+<p>What's happened?</p>
+<p><code>ModuleNotFoundError</code>:</p>
+<ul>
+<li>The module isn't part of the standard library.</li>
+<li>If we want to use modules from other packages, we'll have to tell Python that those packages exist.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have them open a file and run this with you. If they protest that it's just one line, note that you'll be building on it.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Of course, not every module or package out there is part of the standard library. Those that are more industry-specific such as <code>numpy</code> for data science, <code>flask</code> for web development, or <code>pygame</code> for game development are excellent tools for you to use. They just aren't included because not everyone uses them.&quot;</p></li>
+<li><p>&quot;ModuleNotFoundError happens when you try to use a module that doesn't exist. This could be because it isn't installed or it actually doesn't exist - maybe you made a typo. In any case, Python can't find it!</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="including-pytime" class="level2">
+<h2>Including PyTime</h2>
+<p>When importing from the standard library, the package is implied:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># (from standard) import MODULE</span>
+<span class="im">import</span> random</code></pre></div>
+<p>Otherwise, you need to specify the package!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># from PACKAGE import MODULE</span>
+<span class="im">from</span> pytime <span class="im">import</span> pytime
+
+<span class="co"># The names don&#39;t need to be the same:</span>
+<span class="im">from</span> pygame <span class="im">import</span> joystick
+<span class="co"># Yes - that&#39;s real!</span></code></pre></div>
+<p>Change your file to read <code>from pytime import pytime</code>. Does it work?</p>
+<blockquote>
+<p><strong>Protip</strong>: Remember that <em>package</em> means <em>library</em>!</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have them do this with you. For them, it won't work - it's not installed.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Because pytime is a package, we need to import the pytime module FROM the pytime package. It's a little confusing because they have the same name! But as you'll see in a moment, in the code itself, one is a folder name and the other is a file name.&quot;</li>
+<li>&quot;You can see with joystick and pygame that modules and packages don't need to have the same name.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="installing-pytime" class="level2">
+<h2>Installing PyTime</h2>
+<p>New packages need to be installed.</p>
+<ul>
+<li>Let's install <code>pytime</code>.</li>
+</ul>
+<p>In your command prompt:</p>
+<pre><code>pip3 install pytime</code></pre>
+<p>Once that's successful, try again to run your file.</p>
+<blockquote>
+<p><strong>Protip</strong>: <code>pip</code> stands for <code>Pip Installs Packages</code>. <code>pip3</code> uses Python3.</p>
+</blockquote>
+<blockquote>
+<p>Note: Repl.it is a great website for testing, because it automatically installs libraries for us.</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they all successfully install pytime and run their file.</li>
+<li>Students might get stuck on <code>pip</code> - walk around the room to be sure they've all installed pytime successfully. Consider they might need <code>python3 -m pip install pytime</code></li>
+<li>Bring up a blank repl.it to show that you can test modules without needing to install them. Repl.it is great for this! (https://repl.it/<span class="citation" data-cites="SuperTernary/Empty-Replit?lite">@SuperTernary/Empty-Replit?lite</span>=true)</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;If we want to use <code>pytime</code> in repl.it, it will automatically download it for us. How nice!&quot;</li>
+<li>PIP3: &quot;<strong>Note</strong>: Remember <code>pip</code> stands for <code>Pip Installs Packages</code>. This helps us download and use the modules/packages we need. The <code>3</code> just makes sure we're using Python 3!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="pytime-holidays" class="level2">
+<h2>PyTime Holidays</h2>
+<p>Let's explore PyTime:</p>
+<ul>
+<li>Scan the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>,_ to find the <code>mother</code> function.</li>
+</ul>
+<p>When is Mother's Day?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This gets mother&#39;s day of 2016</span>
+mothers_day <span class="op">=</span> pytime.mother(<span class="dv">2016</span>) <span class="co"># 2016-05-08</span></code></pre></div>
+<p>What about this year?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This gets mother&#39;s day of this year</span>
+mothers_day <span class="op">=</span> pytime.mother()</code></pre></div>
+<p>Try these in your file to be sure you can call PyTime functions!</p>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>Open the docs with the students and pick out mother's day to explain. Encourage discussion on the docs.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Let's explore the PyTime docs together.&quot;</li>
+<li>&quot;To start out, let's just focus on the holidays&quot;</li>
+<li>After Examples: &quot;<strong>Note</strong>: It turns out that pytime defaults to the current date when there are no arguments provided.&quot;</li>
+<li>Before Going to Next Slide: &quot;Looking through the documentation, we see uses of <code>father</code> and <code>easter</code> functions. They work the same way as <code>mother</code> where you may provide a <code>year</code> as an argument or let it default to the current year.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-2" class="level2">
+<h2>Quick Review</h2>
+<p>Not all modules are in the standard library. If you try to import a module Python doesn't recognize, you'll get a <code>ModuleNotFoundError</code>.</p>
+<p>When importing from the standard library, the package is implied:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># (from standard) import MODULE</span>
+<span class="im">import</span> random</code></pre></div>
+<p>Otherwise, you need to specify the package!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># from PACKAGE import MODULE</span>
+<span class="im">from</span> pytime <span class="im">import</span> pytime
+<span class="im">from</span> pygame <span class="im">import</span> joystick</code></pre></div>
+<p>If you're using a non-standard package like <code>pytime</code> or <code>pygame</code>, you'll have to also install it.</p>
+<p>You can use the website repl.it for testing small pieces of code - it has packages installed.</p>
+<p><strong>Up next</strong>: Continuing exploring documentation.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-pytime-festivals" class="level2">
+<h2>You Do: PyTime Festivals</h2>
+<p>Look through the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>;_ can you find the <code>father</code> and <code>easter</code> functions?</p>
+<p>In your local file, pick a year. In that year, print the month and day of:</p>
+<ul>
+<li>Mother's Day.</li>
+<li>Father's Day.</li>
+<li>Easter Sunday.</li>
+</ul>
+<aside class="notes">
+<p>5 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give students a chance to do this on their computers.</li>
+<li>Then, go over it - point out the functions in the documentation.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-the-grinch-who-stole-christmas" class="level2">
+<h2>We Do: The Grinch Who Stole Christmas?</h2>
+<p>Why does the documentation only have 3 holidays?</p>
+<p>Time for some sleuthing! Most times, you only need to look at a module's documentation. However, sometimes the person that did the documenting didn't write everything down.</p>
+<p>Because a module is simply a <code>.py</code> file, we can view it.</p>
+<ul>
+<li>Open up the project's <a href="https://github.com/shinux/PyTime">Github page</a>.</li>
+<li>Look at the files and folders near the top of the page.</li>
+<li>Click on the folder <code>pytime</code>.</li>
+<li>Click on the file <code>pytime.py</code>.</li>
+<li>Scroll down to the <code>Festivals</code> section at the bottom of the file.</li>
+<li>What function do you see which would likely give you Christmas Day?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Start a discussion here - see if students can figure out how to solve this on their own. Give reminder hints that a module is just a python file filled with functions.</li>
+<li>Show examples of a couple other holidays, such as Valentine's Day</li>
+<li>Be sure everyone understands what they've done here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-using-the-pytime-module" class="level2">
+<h2>You Do: Using the PyTime Module</h2>
+<p>In your <code>pytime_test.py</code>:</p>
+<ol type="1">
+<li>Decide on a list of three holidays you like.</li>
+</ol>
+<ul>
+<li>(e.g. Christmas, Halloween...)</li>
+</ul>
+<ol type="1">
+<li>Write a function that prompts a user for a year and a holiday.</li>
+</ol>
+<ul>
+<li>(e.g. &quot;Enter a year&quot;, then &quot;Choose Christmas, Halloween, or Mother's Day&quot;)</li>
+</ul>
+<ol type="1">
+<li>Have your function print out the date of that holiday for that year.</li>
+</ol>
+<ul>
+<li>(e.g. &quot;In 2016, Mother's Day was on 2016-05-08&quot;)</li>
+</ul>
+<aside class="notes">
+<p>5 min</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give students a few minutes to do this themselves. Walk around for questions.</li>
+<li>After time, write up and demo the answer.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Modules are <code>.py</code> files with functions. They're written by other people for us to use!</p>
+<ul>
+<li>A packages (a.k.a. library) is a bundle of one or more modules.</li>
+<li>Python's standard library has a lot of common modules! <code>random</code>, <code>itertools</code>, etc.</li>
+<li>Nonstandard libraries need to be installed (<code>pip3 install pytime</code>).</li>
+</ul>
+<p>To use modules, at the top of your file, put:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># From the standard library: `import MODULE`</span>
+<span class="im">import</span> random
+
+<span class="co"># From non-standard packages: `from PACKAGE import MODULE`</span>
+<span class="im">from</span> pytime <span class="im">import</span> pytime
+<span class="im">from</span> pygame <span class="im">import</span> joystick
+
+<span class="co"># And preface your function with the module name.</span>
+mothers_day <span class="op">=</span> pytime.mother(<span class="dv">2016</span>) <span class="co"># 2016-05-08</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a summary check for understanding.</li>
+<li>If questions are not forthcoming, see if students can describe the random and pytime modules in their own words. Pop quiz!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html">Python Modules</a></li>
+<li><a href="https://docs.python.org/3/library/index.html">Python's Standard Library</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-write-modules-in-python-3">Write a module in python 3 - Digital Ocean</a></li>
+<li><a href="https://docs.python.org/3/library/itertools.html">Itertools</a></li>
+<li><a href="https://docs.python.org/3/library/random.html">Random</a></li>
+<li><a href="https://pypi.org/project/pytime/">PyTime</a></li>
+<li><a href="https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/">List of Commonly Used Packages</a></li>
+<li><a href="https://wiki.python.org/moin/UsefulModules">Useful Modules by Discipline</a></li>
+<li><a href="https://www.learnpython.org/en/Modules_and_Packages">Further Reading</a></li>
+<li><a href="https://docs.python.org/3.0/library/datetime.html#strftime-behavior">Formatting Datetime</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

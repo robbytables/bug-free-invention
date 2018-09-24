@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Intro to Intermediate Python
+type: introduction
+duration: "00:15"
+creator: Brandi Michelle Butler
+Private gist location: https://gist.github.com/brandiw/cf0f21e0d6eebd399c2c124512fa945b
+Presentation URL: https://presentations.generalassemb.ly/cf0f21e0d6eebd399c2c124512fa945b#/
+---
+-->
+<section id="intro-to-intermediate-python" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Intro to Intermediate Python</h2>
+<!--
+
+
+## Overview
+This lesson starts with a recap of all the topics up to this point, giving students a final chance to express their questions before we move beyond the basics. Most slides are in a "Lecture + Question -> Answer" format. It then has a very quick overview of the upcoming unit - user input & file I/O, abstraction, modules, and APIs.
+
+- As you go through this lesson, do frequent checks for understanding. It's important that they understand everything before we add more complicated things like itertools and APIs.
+
+- When you get to the new unit overview, put questions in the parking lot - there's a presentation on each topics.
+
+## Differentiation and Extensions
+
+- If students are breezing through this lesson, that's great! Don't stop long on each slide.
+- If students are having trouble in the recap, add in We Dos.
+
+
+## Learning Objectives
+In this lesson, students will:
+
+- Confidently recap the previous units.
+- Describe key components of the upcoming unit.
+
+## Duration
+20 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:04 - 0:12 | Basic Topics Recap |
+| 0:13 - 0:17 | Intermediate Topics Preview |
+| 0:17 - 0:20 | Summary |
+
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Confidently recap the previous units.</li>
+<li>Describe key components of the upcoming unit.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>This lesson is pretty solidly a review.</li>
+<li>Then, we'll very briefly introduce all the concepts in the next unit. Don't worry about learning them here! It's the final Python unit and it covers quite a lot, so we'll just give you an overview in advance.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="leveling-up" class="level2">
+<h2>Leveling Up!</h2>
+<p>You're leveling up!</p>
+<p>You have the proper foundation.</p>
+<p>Let's check how you're doing.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Reassure them that they're great for hanging in this far!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-lists" class="level2">
+<h2>Let's Review: Lists</h2>
+<ul>
+<li>A collection of items stored in a single variable.</li>
+<li>Created with square brackets <code>[]</code></li>
+<li>Begin counting at <code>0</code>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_queens <span class="op">=</span> [<span class="st">&quot;Cersei&quot;</span>, <span class="st">&quot;Danerys&quot;</span>, <span class="st">&quot;Arwen&quot;</span>, <span class="st">&quot;Elsa&quot;</span>, <span class="st">&quot;Guinevere&quot;</span>]
+step_counts_this_week <span class="op">=</span> [<span class="dv">8744</span>, <span class="dv">5256</span>, <span class="dv">7453</span>, <span class="dv">3097</span>, <span class="dv">4122</span>, <span class="dv">2908</span>, <span class="dv">6720</span>]
+
+<span class="co"># We can also mix types</span>
+weird_list <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;weird&quot;</span>, [<span class="st">&quot;nested list&quot;</span>], <span class="st">&quot;eh?&quot;</span>]</code></pre></div>
+<blockquote>
+<p><strong>Challenge</strong>: Can you recall how to slice a section of the list? For example, items 2 through 5 of <code>step_counts_this_week</code>?</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Lists are a collection of items stored in a single variable&quot;</li>
+<li>&quot;Lists can be of any type, but they are typically of related items&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="answer-lists-challenge" class="level2">
+<h2>Answer: Lists Challenge</h2>
+<ul>
+<li>Python uses a <code>:</code> to represent a range of indexes.</li>
+<li>Beware of off-by-one errors!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">step_counts_this_week <span class="op">=</span> [<span class="dv">8744</span>, <span class="dv">5256</span>, <span class="dv">7453</span>, <span class="dv">3097</span>, <span class="dv">4122</span>, <span class="dv">2908</span>, <span class="dv">6720</span>]
+days_2_thru_5 <span class="op">=</span> step_counts_this_week[<span class="dv">2</span>:<span class="dv">6</span>] <span class="co"># Items 2, 3, 4, and 5</span></code></pre></div>
+<blockquote>
+<p><strong>Protip</strong>: It's 6 instead of 5 because the range is exclusive.</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Many languages have a slice method, but python simply uses the colon to represent a range of indexes&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-loops-and-iteration" class="level2">
+<h2>Let's Review: Loops and Iteration</h2>
+<p>What about looping a list?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_queens <span class="op">=</span> [<span class="st">&quot;Cersei&quot;</span>, <span class="st">&quot;Danerys&quot;</span>, <span class="st">&quot;Arwen&quot;</span>, <span class="st">&quot;Elsa&quot;</span>, <span class="st">&quot;Guinevere&quot;</span>]
+
+<span class="cf">for</span> queen <span class="kw">in</span> my_queens:
+    <span class="bu">print</span>(queen, <span class="st">&quot;is the most beautiful queen!&quot;</span>)</code></pre></div>
+<blockquote>
+<p><strong>Challenge</strong>: What if I want to loop from 1 to 10 and print out the numbers. How do I do this without a data structure to loop over?</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We just reviewed looping over a dictionary. Let's loop over a list.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="answer-loops-challenge" class="level2">
+<h2>Answer: Loops Challenge</h2>
+<p>To loop 1-10 without a data structure:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Remember, &quot;i&quot; is a common name for a counter/index in programming!</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):
+    <span class="bu">print</span>(i)</code></pre></div>
+<ul>
+<li>Why do you think we put <code>11</code> in the code below?</li>
+<li>What values does this print?</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Remember that ranges in Python are exclusive on the end!&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-sets" class="level2">
+<h2>Let's Review: Sets</h2>
+<ul>
+<li>Lists that don't have duplicates.</li>
+<li>Created with curly braces <code>{}</code> or from lists with the <code>set()</code> function.</li>
+<li>Aren't indexed - elements are in any order!</li>
+<li>Handy for storing emails, usernames, and other unique elements.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">email_set <span class="op">=</span> {<span class="st">&#39;my_email@gmail.com&#39;</span>, <span class="st">&#39;second_email@yahoo.com&#39;</span>, <span class="st">&quot;third_email@hotmail.com&quot;</span>}
+<span class="co"># Or from a list:</span>
+my_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>]
+my_set <span class="op">=</span> <span class="bu">set</span>(my_list)
+<span class="co"># =&gt; {&quot;red&quot;,  &quot;yellow&quot;, &quot;green&quot;}</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Sets are lists that don't have duplicates.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-tuples" class="level2">
+<h2>Let's Review: Tuples</h2>
+<ul>
+<li>Lists that can't be changed!</li>
+<li>Created with parentheses <code>()</code>.</li>
+<li>Can't add, pop, remove, or otherwise change elements after creation.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Tuples are lists that can't be changed.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-dictionaries" class="level2">
+<h2>Let's Review: Dictionaries</h2>
+<ul>
+<li>A collection of key-value pairs.</li>
+<li>Created with curly braces <code>{key: value, key: value}</code></li>
+<li>Values can be anything!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_puppy <span class="op">=</span> {
+    <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Fido&quot;</span>,
+    <span class="st">&quot;breed&quot;</span>: <span class="st">&quot;Corgi&quot;</span>,
+    <span class="st">&quot;age&quot;</span>: <span class="dv">3</span>,
+    <span class="st">&quot;vaccinated&quot;</span>: <span class="va">True</span>,
+    <span class="st">&quot;fave toy&quot;</span>: [<span class="st">&quot;chew sticks&quot;</span>, <span class="st">&quot;big sticks&quot;</span>, <span class="st">&quot;any sticks&quot;</span>]
+}</code></pre></div>
+<blockquote>
+<p><strong>Challenge</strong>: Can you recall how to iterate (loop) over each key of <code>my_puppy</code> and print out both the key and the corresponding value?</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Dictionaries are made of key-value pairs&quot;</li>
+<li>&quot;We split lines for readability&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="answer-dictionaries-challenge" class="level2">
+<h2>Answer: Dictionaries Challenge</h2>
+<p>Iterating a dictionary is similar to a list:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> key <span class="kw">in</span> my_puppy:
+    <span class="bu">print</span>(key, <span class="st">&quot;-&quot;</span>, my_puppy[key])</code></pre></div>
+<p>Outputs:</p>
+<pre><code>name - Fido
+breed - Corgi
+age - 3
+vaccinated - True
+fave toy - chew sticks</code></pre>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Dictionaries are made of key-value pairs&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-functions" class="level2">
+<h2>Let's Review: Functions</h2>
+<ul>
+<li>Bits of code that can be used repeatedly.</li>
+<li>Enable DRY - Don't Repeat Yourself.</li>
+<li>Declared with <code>def</code>, <code>()</code>, and <code>:</code></li>
+<li>Declare the function <em>above</em> the function call!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function definition</span>
+<span class="kw">def</span> say_hello():
+    <span class="bu">print</span>(<span class="st">&quot;hello!&quot;</span>)
+
+<span class="co"># Run the function 3 times</span>
+say_hello()
+say_hello()
+say_hello()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-function-parameters" class="level2">
+<h2>Let's Review: Function Parameters</h2>
+<p>Parameters are in the function definition.</p>
+<ul>
+<li>Arguments are in the function call.</li>
+<li>Useful for very similar code with only minor variations.</li>
+</ul>
+<p><strong>Challenge</strong>: Rewrite the code below to use a single function with one parameter</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-intermed?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is long - encourage them to open it in a new window.</li>
+<li>Review the answer afterward</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Parameters to functions allow us to pass in arguments to use within the function. This is useful when you have very similar code.&quot;</li>
+</ul>
+<p><strong>Repl.it Note:</strong> The code here is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function definitions</span>
+<span class="kw">def</span> say_hello_ada():
+  <span class="bu">print</span>(<span class="st">&quot;hello, Ada&quot;</span>)
+
+<span class="kw">def</span> say_hello_alan():
+  <span class="bu">print</span>(<span class="st">&quot;hello, Alan&quot;</span>)
+
+<span class="kw">def</span> say_hello_linus():
+  <span class="bu">print</span>(<span class="st">&quot;hello, Linus&quot;</span>)
+
+<span class="co"># Call the functions</span>
+say_hello_ada()
+say_hello_alan()
+say_hello_linus()
+
+<span class="co"># Challenge: Could we do this with a single function that has a parameter called &quot;name&quot;?</span></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="lets-review-return-statements" class="level2">
+<h2>Let's Review: Return Statements</h2>
+<ul>
+<li>Bring data out of a function.</li>
+<li>Cause the function to exit.</li>
+<li>Aren't a <code>print</code> statement!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> multiply(x, y):
+    <span class="cf">return</span> x <span class="op">*</span> y
+
+result <span class="op">=</span> multiply(<span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># result is now equal to 12</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Return statements bring data out of a function. They are not the same thing as print statements, which simply output text.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly check for understanding; bring up an interpreter, file, or blank repl.it to demo only if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-classes" class="level2">
+<h2>Let's Review: Classes</h2>
+<ul>
+<li>Templates (a.k.a. blueprints) for objects.</li>
+<li>Can contain methods and/or variables.</li>
+<li><code>self</code> is a reference to the created object.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Animal():
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.energy <span class="op">=</span> <span class="dv">50</span>
+
+    <span class="kw">def</span> get_status(<span class="va">self</span>):
+        <span class="cf">if</span> <span class="va">self</span>.energy <span class="op">&lt;</span> <span class="dv">20</span>:
+            <span class="bu">print</span>(<span class="st">&quot;I&#39;m hungry!&quot;</span>)
+        <span class="cf">elif</span> <span class="va">self</span>.energy <span class="op">&gt;</span> <span class="dv">100</span>:
+            <span class="bu">print</span>(<span class="st">&quot;I&#39;m stuffed!&quot;</span>)
+        <span class="cf">else</span>:
+            <span class="bu">print</span>(<span class="st">&quot;I&#39;m doing well!&quot;</span>)</code></pre></div>
+<blockquote>
+<p><strong>Challenge</strong>: How do you declare a new <code>Animal</code>?</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Classes are essentially blueprints. object making factories. They can be used to make several objects of the same type.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Answer on the next slide.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="answer-classes" class="level2">
+<h2>Answer: Classes</h2>
+<p>Declaring a new <code>Animal</code> from the class:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_animal <span class="op">=</span> Animal() <span class="co"># Creates a new Animal instance</span>
+my_animal.get_status() <span class="co"># Prints &quot;I&#39;m doing well!&quot;</span>
+my_animal.energy <span class="op">+=</span> <span class="dv">100</span> <span class="co"># We can access properties!</span>
+my_animal.get_status() <span class="co"># Prints &quot;I&#39;m stuffed!&quot;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Review the answer with the class and demonstrate how there may be multiple animals created</li>
+<li>Show how we can directly access properties</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="lets-review-inheritance" class="level2">
+<h2>Let's Review: Inheritance</h2>
+<p>A class can inherit properties and methods from another class.</p>
+<p><strong>You Do:</strong> Create a new class, <code>Dog</code>, which inherits from <code>Animal</code>.</p>
+<ul>
+<li><code>Dog</code> has an extra function <code>bark</code> that prints <code>&quot;bark&quot;</code></li>
+<li><code>Dog</code> has an extra property <code>breed</code>.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-inter-classes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Inheritance is all about reusing code. You may have two classes that are related. Inheritance allows you to take advantage of that&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After a minute, go over the answer.</li>
+</ul>
+<p><strong>Repl.it Note:</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Animal():
+<span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+<span class="va">self</span>.energy <span class="op">=</span> <span class="dv">50</span>
+
+<span class="kw">def</span> get_status(<span class="va">self</span>):
+<span class="cf">if</span> <span class="va">self</span>.energy <span class="op">&lt;</span> <span class="dv">20</span>:
+  <span class="bu">print</span>(<span class="st">&quot;I&#39;m hungry!&quot;</span>)
+<span class="cf">elif</span> <span class="va">self</span>.energy <span class="op">&gt;</span> <span class="dv">100</span>:
+  <span class="bu">print</span>(<span class="st">&quot;I&#39;m stuffed!&quot;</span>)
+<span class="cf">else</span>:
+  <span class="bu">print</span>(<span class="st">&quot;I&#39;m doing well!&quot;</span>)
+
+<span class="co"># Directions Part 1: Create a class Dog</span>
+<span class="co"># * `Dog` inherits from `Animal`</span>
+<span class="co"># * `Dog` has an extra function `bark`</span>
+<span class="co"># * `Dog` has an extra property `breed`</span>
+
+<span class="co"># Directions Part 2: Declare a new dog</span>
+<span class="co"># * Call the bark function</span>
+<span class="co"># * Give the dog a breed</span></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check" class="level2">
+<h2>Knowledge Check</h2>
+<p>We're about to move on to the next unit - intermediate Python.</p>
+<p>Any Questions?</p>
+<blockquote>
+<p>Don't be shy! If you have a question, so do others!</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage questions. Remind them that there are no bad ones.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="switching-gears-preview" class="level2">
+<h2>Switching Gears: Preview</h2>
+<p>The next unit covers many topics:</p>
+<ul>
+<li>User input.</li>
+<li>File I/O.</li>
+<li>Abstraction.</li>
+<li>Modules and Libraries.</li>
+<li>APIs.</li>
+</ul>
+<p>You don't need to memorize them now! This is just an overview.</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Here's a preview of what's coming. We'll have lessons on the following topics.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>The idea is not to teach these topics in this lesson. Instead, just give them a quick demo or a few talking notes so they have an idea of what's coming.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="user-input-file-io" class="level2">
+<h2>User input &amp; File I/O</h2>
+<p>You've seen this a few times already with <code>input()</code>.</p>
+<p>We'll build real interaction between your Python programs and other files - or the person using your app!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Opening, reading, writing, and closing files as well as browsing directory contents will be covered in this section.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="abstraction" class="level2">
+<h2>Abstraction</h2>
+<p>Python has built in functions for common tasks.</p>
+<p>You've seen things like <code>my_list.len()</code>, which tells you how long a list is.</p>
+<p>But Python has more specialized built in functions, like chaining lists together:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">food <span class="op">=</span> [<span class="st">&#39;pizza&#39;</span>, <span class="st">&#39;tacos&#39;</span>, <span class="st">&#39;sushi&#39;</span>]
+colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]
+<span class="co"># =&gt; lists_chained =[&#39;pizza&#39;, &#39;tacos&#39;, &#39;sushi&#39;, &#39;red&#39;, &#39;green&#39;]</span></code></pre></div>
+<p>This helps you get complex things done quicker.</p>
+<p>We'll learn several of these.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>: - Abstraction is best explained in an example. Ask the students to come up with their own examples.</p>
+<strong>Talking Points</strong>: - &quot;A rectangle is a simple concept... or is it? Can you describe the definition of a rectangle?&quot;
+</aside>
+<hr />
+</section>
+<section id="modules-and-libraries" class="level2">
+<h2>Modules and Libraries</h2>
+<p>We mentioned these in the pre-work!</p>
+<ul>
+<li>Code that others have written.</li>
+<li>Free to use!</li>
+<li>Useful extensions of the Python language (e.g., a fancy date and time formatter).</li>
+</ul>
+<p>This one tells us when Mother's Day is for a given year:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-inter-modules?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is just a demo slide - just run it and mention what it does. Don't go into modules or syntax or anything.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We can use code other people have written. Here, we can get the date of Mother's Day from 2013 - just with one line of code!&quot;</li>
+</ul>
+<p><strong>Repl.it Note</strong> this replit has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> pytime <span class="im">import</span> pytime
+<span class="co"># Now we can use any function in the datetime module</span>
+
+<span class="bu">print</span>(pytime.mother(<span class="dv">2013</span>))</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="whats-an-api" class="level2">
+<h2>What's an API?</h2>
+<p>Not only can we use code other people have written, we can use data that they've made available to us.</p>
+<p>We can get stocks, movie ratings, gifs from the internet to your program!</p>
+<p>This API lists Star Wars characters.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-intermediate-apis?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is just a demo slide - just run it and mention what it does. Don't go into modules or syntax or anything.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;API is a very general term. Usually we actually mean some information from other people.&quot;</li>
+</ul>
+<p><strong>Repl.it Note</strong>: This code is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Import requests module</span>
+<span class="im">import</span> requests
+
+<span class="co"># Call the Star Wars API (swapi)</span>
+res <span class="op">=</span> requests.get(<span class="st">&#39;https://swapi.co/api/people&#39;</span>).json()
+
+<span class="co"># Print the result count</span>
+<span class="bu">print</span>(<span class="st">&quot;found&quot;</span>, res[<span class="st">&quot;count&quot;</span>], <span class="st">&quot;results. Here are the first 10:</span><span class="ch">\n</span><span class="st">&quot;</span>)
+
+<span class="co"># Loop through characters: append to file and print to screen</span>
+<span class="cf">for</span> person <span class="kw">in</span> res[<span class="st">&quot;results&quot;</span>]:
+<span class="bu">print</span>(person[<span class="st">&quot;name&quot;</span>])</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>We reviewed topics from earlier lessons:</p>
+<ul>
+<li>Lists, sets, tuples, and dictionaries</li>
+<li>Loops and iteration</li>
+<li>Functions, parameters, and return statements</li>
+<li>Classes and inheritance</li>
+</ul>
+<p>We brushed the surface on some upcoming lesson topics:</p>
+<ul>
+<li>User input and file I/O.</li>
+<li>Abstraction.</li>
+<li>Modules and libraries.</li>
+<li>APIs.</li>
+</ul>
+<p>Let's jump in to it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Address any questions from earlier lessons.</li>
+<li>If there are questions on the topics for the upcoming unit, put them in the parking lot - this is just a general overview and there are full presentations on each of these.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading-and-resources" class="level2">
+<h2>Additional Reading and Resources</h2>
+<p>Now that you have an understanding of basic programming, here are some cool people to read about:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Ada_Lovelace">Info on Ada Lovelace</a> - Regarded as the first programmer.</li>
+<li><a href="https://en.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> - Considered the father of theoretical computer and artificial intelligence; helped crack the enigma code during WWII.</li>
+<li><a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> - Creator of Linux OS; Creator of Git.</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

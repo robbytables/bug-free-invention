@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @brandib
+--->
+</section>
+<section id="python-basics-variables-and-local-python-files" class="level1">
+<h1>Python Basics: Variables and Local Python Files</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>So, you’ve just installed Python! Let’s put your skills to the test!</p>
+<p>You will practice these programming concepts we’ve covered in class: * Declaring and using variables * Using mathematical operators * Running local <code>.py</code> files from your terminal</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>For the challenges below, you will create a new <code>.py</code> file and write code to solve the problem. In this case, you will create <code>solution.py</code> for your solution code to the problem. Run the file from the command line to check your work. Detailed directions are given below</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python solution.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint</strong>: Make sure you are printing something out with the print statement! Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<ul>
+<li>By the end of this, you should have a <code>.py</code> file for the solution</li>
+<li>We know you’re just starting out, so there is just one challenge problem!</li>
+</ul>
+<hr />
+</section>
+<section id="problem-decoding-r2d2" class="level2">
+<h2>Problem: Decoding R2D2</h2>
+<p>You have a robot who communicates in a series of beeps and boops. You usually get the gist of what he means, but just once it would be nice to know what’s really on his mind! You’ve noticed a pattern in the beeps and boops, and it seems like the number of beeps and boops correspond to specific letters.</p>
+<section id="example-code" class="level4">
+<h4>Example Code</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">beeps <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">boops <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">total <span class="op">=</span> beeps <span class="op">+</span> boops</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">print</span>(total) <span class="co"># prints 8</span></a></code></pre></div>
+<p>You got a result of <code>8</code>. Now, look that up in the corresponding key-value chart:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Letter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>H</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>I</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>J</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>K</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>L</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>N</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>O</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>P</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Q</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>R</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>U</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>V</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>W</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Y</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>Z</td>
+</tr>
+</tbody>
+</table>
+<p>So, according to the chart, the first letter is <code>H</code>! It’s your job to figure out the rest of the message! Here is the full list of inputs you’ve got written down.</p>
+<pre><code>2 beeps, 6 boops
+0 beeps, 5 boops
+9 beeps, 3 boops
+4 beeps, 8 boops
+10 beeps, 5 boops
+BOP! (pretty sure this is a space!)
+11 beeps, 12 boops
+5 beeps, 5 boops
+1 beep, 17 boops
+5 beeps, 7 boops
+4 beeps, 0 boops</code></pre>
+<p>In a separate file, print out the numerical total for each beep-boop combo as we did above. In a comment, write the letter that the number corresponds to.</p>
+</section>
+<section id="example-code-1" class="level4">
+<h4>Example Code</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># H</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">beeps <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">boops <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">total <span class="op">=</span> beeps <span class="op">+</span> boops</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="bu">print</span>(total)</a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>8
+5
+12
+12
+15
+23
+10
+18
+12
+4</code></pre>
+</section>
+<section id="run-it" class="level3">
+<h3>Run it!</h3>
+<ol type="1">
+<li><p>Create a new file called <code>solution.py</code>.</p></li>
+<li><p>Open <code>solution.py</code> in <code>Atom</code>.</p></li>
+<li><p>Write your code - solve the problem! Remember to hit <code>save</code>!</p></li>
+<li><p>Open your Terminal.</p></li>
+</ol>
+<blockquote>
+<p><strong>Protip</strong>: Consult the class notes if you have forgotten how to do this!</p>
+</blockquote>
+<ol start="5" type="1">
+<li>Navigate to the correct location in your file system</li>
+</ol>
+<blockquote>
+<p><strong>Protip</strong>: You may need to use the <code>cd</code> command to navigate to the location you have saved <code>solution.py</code> at. <code>cd ..</code> navigates to the parent folder of the one you’re currently in.</p>
+</blockquote>
+<ol start="6" type="1">
+<li>Type the following command:</li>
+</ol>
+<section id="maclinux" class="level4">
+<h4>Mac/Linux</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">python</span> solution.py</a></code></pre></div>
+</section>
+<section id="windows" class="level4">
+<h4>Windows</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">py</span> solution.py</a></code></pre></div>
+<ol start="7" type="1">
+<li>Until you get the expected output, you can make changes to your code and run it again to see if you have the answer. Repeat as needed!</li>
+</ol>
+<hr />
+</section>
+</section>
+</section>
+<section id="yay-all-done" class="level2">
+<h2>Yay! All done!</h2>
+<p><img src="https://media.giphy.com/media/rl1aX0WUmGcKs/giphy.gif" /></p>
+<p>Now, if you want to know a little more about why that particular message was chosen, <a href="https://blog.hackerrank.com/the-history-of-hello-world/">read up here</a>!</p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

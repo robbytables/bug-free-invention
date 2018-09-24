@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="for-andrea-and-claire-link-to-view-unformatted-slides" class="level1">
+<h1>For Andrea and Claire: <a href="https://slides.com/sonylnagale/python-17?token=sjdGFqAF">Link to view (unformatted) slides</a></h1>
+<!---
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @Kevin.Coyle.
+--->
+</section>
+<section id="apis-and-requests-in-flask" class="level1">
+<h1><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> APIs and Requests in Flask</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This is a lesson on creating an API in Flask. It starts by recapping web terms like HTTP, then has students create a JSON list in their Flask app. They <code>GET</code> the list with one route, then <code>POST</code> to it with another.</p>
+</section>
+<section id="important-notes-or-prerequisites" class="level2">
+<h2>Important Notes or Prerequisites</h2>
+<p>There are a few notes on calling the OMDb API, but it’s agnostic enough that it can be spun as an example, if you’re teaching standalone.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p>In this lesson, students will: - Create an API that makes a <code>GET</code> request with Flask. - Create an API that makes a <code>POST</code> request with Flask.</p>
+<hr />
+</section>
+<section id="duration" class="level2">
+<h2>Duration</h2>
+<p>30 minutes</p>
+<hr />
+</section>
+<section id="suggested-agenda" class="level2">
+<h2>Suggested Agenda</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00 - 0:02</td>
+<td><a href="#activity-welcome-2-min">Welcome</a></td>
+<td>Introduce the lesson’s objectives and agenda.</td>
+</tr>
+<tr class="even">
+<td>0:02 - 0:10</td>
+<td><a href="#activity-apis-and-http-8-min">APIs and HTTP</a></td>
+<td>Recap the main terminology involved in APIs.</td>
+</tr>
+<tr class="odd">
+<td>0:10 - 0:19</td>
+<td><a href="#activity-creating-a-get-request-9-min">Creating a GET Request</a></td>
+<td>Create an API that makes a <code>GET</code> request with Flask.</td>
+</tr>
+<tr class="even">
+<td>0:19 - 0:27</td>
+<td><a href="#activity-creating-a-post-request-8-min">Creating a POST Request</a></td>
+<td>Create an API that makes a <code>POST</code> request with Flask.</td>
+</tr>
+<tr class="odd">
+<td>0:27 - 0:30</td>
+<td><a href="#activity-summary-3-min">Summary</a></td>
+<td>Wrap up the learning and share next steps.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+<section id="differentiation-and-extensions" class="level2">
+<h2>Differentiation and Extensions</h2>
+<ul>
+<li>More advanced students may work on adding authentication into their Flask app.</li>
+<li>Struggling students should review the lesson on APIs from Unit 5.</li>
+<li>Students may also wish to explore their <code>POST</code>/<code>GET</code> requests in the Chrome extension Postman.
+<ul>
+<li>This is a GUI-friendly version of the command line version taught in the lesson.</li>
+</ul></li>
+</ul>
+</section>
+<section id="lesson-procedure" class="level2">
+<h2>Lesson Procedure</h2>
+<!--- This section outlines the lesson plan with relevant sections and subsections, providing both the total time required as well as suggestions for timing in each subsection. --->
+<hr />
+<section id="activity-welcome-2-minutes" class="level3">
+<h3>Activity: Welcome (2 minutes)</h3>
+<blockquote>
+<p>Introduce the lesson objectives and agenda.</p>
+</blockquote>
+<hr />
+</section>
+<section id="activity-apis-and-http-8-minutes" class="level3">
+<h3>Activity: APIs and HTTP (8 minutes)</h3>
+<blockquote>
+<p>Recap the main terminology involved in APIs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching Tips:</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>APIs are the vehicle that drive most of the modern web.</li>
+<li>Knowing how to create and consume APIs is important for a variety of coding tasks, regardless of job title.</li>
+<li>Flask provides an incredibly lightweight module for our purposes.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Talking Points:</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Ask students if they have any familiarity interacting with APIs outside of the last unit’s materials.</li>
+<li>It’s <strong>important</strong> to explain to students that in Unit 5 we <em>called</em> an API. Today we are <em>creating</em> an API.</li>
+<li>This can be explained with an example like, “In Unit 5 we were reading a book, and today, we’re writing a book that others can read.”</li>
+<li>“Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible.”</li>
+</ul>
+</blockquote>
+<hr />
+</section>
+<section id="activity-creating-a-get-request-9-minutes" class="level3">
+<h3>Activity: Creating a GET Request (9 minutes)</h3>
+<blockquote>
+<p>Create an API that makes a <code>GET</code> request with Flask.</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching Tips:</strong></p>
+</blockquote>
+<ul>
+<li>Explain how this differs from just returning a variable. What makes this an API?</li>
+<li>This is a code-along/We Do. Have students open code editors and terminal, then follow along.</li>
+<li>We are actually doing two things at once here: We’re creating data, and then we’re creating an API where one could obtain that data. We’re focusing more on the latter task, so as to emphasize creating the API.</li>
+</ul>
+<hr />
+</section>
+<section id="activity-creating-a-post-request-8-minutes" class="level3">
+<h3>Activity: Creating a <code>POST</code> Request (8 minutes)</h3>
+<blockquote>
+<p>Create an API that makes a <code>POST</code> request with Flask.</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching Tips:</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>This is a code-along/We Do. Students will extend the app they have been creating since the <code>hello_world</code> app.</li>
+<li>Similar to the <code>GET</code> activity, we’re creating the data that we will append to the list with a <code>POST</code> request.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Talking Points:</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>This <code>POST</code> request is using a simple example.</li>
+<li>Explain why we would do this! The example is very simple. This can extend to Create/Update data into a number of other applications: search bars, adding data into databases, and so on.</li>
+</ul>
+</blockquote>
+<hr />
+</section>
+<section id="activity-summary-3-minutes" class="level3">
+<h3>Activity: Summary (3 minutes)</h3>
+<blockquote>
+<p>Wrap up the learning and share next steps.</p>
+</blockquote>
+</section>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

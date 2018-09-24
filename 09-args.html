@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Python Programming: Advanced Function Arguments
+type: lesson
+duration: "01:00"
+creator: Brandi Butler
+-->
+<section id="python-programming-advanced-function-arguments" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Advanced Function Arguments</h2>
+<!--
+
+## Overview
+This lesson starts with a review of the previous function lesson, leading into a few recap exercises. After that, it discusses `*args`, `kwargs`, and default argument values.
+
+## Important Notes or Prerequisites
+- Important Note: They don't know dictionaries yet! We introduce `**kwargs`, but are careful not to phrase it in terms of dictionaries.
+
+## Learning Objectives
+In this lesson, students will:
+- Use arbitrary numbers of arguments in functions.
+- Use keyword arguments in functions.
+- Use default values in functions.
+
+## Duration
+40 minutes
+
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:10 | Function Review |
+| 0:10 - 0:30 | Args / Kwargs |
+| 0:30 - 0:42 | Other Args |
+| 0:42 - 0:45 | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Review all topics to this point.</li>
+<li>Use keyword arguments in functions.</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Quickly go over the learning objectives.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>What if I want to have a variable number of arguments?</li>
+<li>What if I want to have my arguments out of order?</li>
+<li>What if I want to specify some arguments but not others?</li>
+<li>We're going to learn all of this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="review-functions" class="level2">
+<h2>Review: Functions</h2>
+<p>Main points:</p>
+<ul>
+<li>Define functions using the <code>def</code> keyword.</li>
+<li>A function must be <strong>called</strong> before the code in it will run!</li>
+<li>You will recognize function calls by the <code>()</code> at the end.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This part is the function definition!</span>
+<span class="kw">def</span> say_hello():
+    <span class="bu">print</span>(<span class="st">&quot;hello world!&quot;</span>)
+
+<span class="co"># This part is actually calling/running the function!</span>
+say_hello()</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>They've seen this a few times, but make sure to recap the syntax again. We're throwing a lot at them quickly.</li>
+<li>Try not to spend too much time on any of these review slides; there's a lot of new stuff to cover.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>Recap the point of functions (e.g. DRY)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="review-function-arguments" class="level2">
+<h2>Review: Function Arguments</h2>
+<ul>
+<li>Provide an argument to a function when you need something small to vary.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-args-practice?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is a demo and recap, not an exercise.</li>
+<li>They've seen this a few times, but make sure to recap the syntax again. We're throwing a lot at them quickly.</li>
+<li>Give other examples where parameters would be useful.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>&quot;A lot of times, you want to run the same code, but with a teeny tiny difference. Remember the function we looked at before which had the orders with the $5 shipping charge?&quot;</li>
+</ul>
+<p><strong>Repl.it Note</strong>: The code here is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_order(product):
+  <span class="bu">print</span>(<span class="st">&quot;Thank you for ordering the &quot;</span> <span class="op">+</span> product <span class="op">+</span> <span class="st">&quot;.&quot;</span>)
+  <span class="bu">print</span>(<span class="st">&quot;There will be a $5.00 shipping charge for this order.&quot;</span>)
+
+print_order(<span class="st">&quot;Trampoline&quot;</span>)
+print_order(<span class="st">&quot;Spider-Man Comic&quot;</span>)
+print_order(<span class="st">&quot;Hot Cheetos&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="multiple-parameters" class="level2">
+<h2>Multiple Parameters</h2>
+<p>Functions can have...</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># No parameters</span>
+<span class="kw">def</span> add_2_and_3():
+    x <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>
+    <span class="bu">print</span>(x)
+
+<span class="co"># One parameter</span>
+<span class="kw">def</span> add_2(x):
+    <span class="bu">print</span>(x <span class="op">+</span> <span class="dv">2</span>)
+
+<span class="co"># Multiple parameters</span>
+<span class="kw">def</span> add(x, y, z):
+    <span class="bu">print</span>(x <span class="op">+</span> y <span class="op">+</span> z)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>They've seen this a few times, but make sure to recap the syntax again. We're throwing a lot at them quickly.</li>
+<li>Give an example where each case would be useful.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>&quot;Functions can have many parameters... or not!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-print-vs-return" class="level2">
+<h2>Discussion: Print vs Return</h2>
+<p>Why doesn't this do anything?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(x, y, z):
+    <span class="cf">return</span> x <span class="op">+</span> y <span class="op">+</span> z
+
+add(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># does nothing!</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Facilitate a discussion! See if one of the students can tell you.</li>
+<li>Bring it up in a repl.it - <a href="https://repl.it/@SuperTernary/python-programming-return-print?lite=true">here it is with the code</a>. Add back in the print statement.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-review-exercises" class="level2">
+<h2>We Do: Review Exercises</h2>
+<p>Locally, let's create a file called <code>function_practice.py</code>.</p>
+<ul>
+<li><p>We'll define a function named <code>areBothEven</code>.</p></li>
+<li><p>It will accept two parameters: <code>num1</code> and <code>num2</code>.</p></li>
+<li><p>Inside the function, we'll return <code>True</code> if <code>num1</code> and <code>num2</code> are both even but <code>False</code> if they are not.</p></li>
+<li><p>We'll test this with <code>print(areBothEven(1, 4))</code>, <code>print(areBothEven(2, 4))</code>, and <code>print(areBothEven(2, 3))</code>.</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li><p>Do this with them, but make sure they pull up a file and are following along. We don't have time for a full exercise - we just want to be sure everyone understands functions before we make this far harder.</p></li>
+<li><p>Talk them through this - &quot;Use the modulus operator (<code>%</code>) to see if both numbers are even. If you use <code>num % 2</code>, it will return <code>1</code> if the number is odd and <code>0</code> if the number is even.&quot;&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-another-review-exercise" class="level2">
+<h2>We Do: Another Review Exercise!</h2>
+<p>In our file, we'll define another function named <code>lightOrDark</code> that takes the parameter <code>hour</code>.</p>
+<ul>
+<li><p>If <code>hour</code> is greater than 24, the function will print &quot;That's not an hour in the day!&quot; and <strong>return nothing.</strong></p></li>
+<li><p>If <code>hour</code> is less than 7 or greater than 17, the function will return &quot;It's dark outside!&quot;</p></li>
+<li><p>Otherwise, the function will return &quot;It's light outside!&quot;</p></li>
+<li><p>We'll test this with <code>print(lightOrDark(4))</code>, <code>print(lightOrDark(26))</code>, and <code>print(lightOrDark(</code>10<code>))</code>.</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li><p>Do this with them, but make sure they pull up a file and are following along. We don't have time for a full exercise - we just want to be sure everyone understands functions before we make this far harder.</p></li>
+<li><p>Talk about how we can just have <code>if</code> statements - we don't need an <code>elif</code> because the <code>return</code> exits the function.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-arguments" class="level2">
+<h2>Discussion: Arguments</h2>
+<p>Now, let's make functions a little more sophisticated.</p>
+<p>What do you think the following code does?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> multiply(x, y):
+    <span class="bu">print</span>(x <span class="op">*</span> y)
+
+multiply(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># Too many arguments! What happens?</span></code></pre></div>
+<p>What if we want all of these to work?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> multiply(x, y):
+    <span class="bu">print</span>(x <span class="op">*</span> y)
+
+multiply(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)
+multiply(<span class="dv">4</span>, <span class="dv">5</span>)
+multiply(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">9</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>After they guess, show them the error in an interpreter.</li>
+<li>There's a lesson on errors later - don't go into it here. Just show that it breaks, but we want to be able to pass <code>multiply</code> any number of arguments.</li>
+</ul>
+<p>Talking point:</p>
+<ul>
+<li>&quot;When we tried to run the function with too many arguments, we got an error.&quot;</li>
+<li>&quot;What if I want to have any number of arguments?&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-args" class="level2">
+<h2>Introducing <code>*args</code></h2>
+<p><code>*args</code> is a parameter that says &quot;Put as many parameters as you'd like!&quot;</p>
+<ul>
+<li>Pronounced like a pirate - &quot;arrrrghhhs!&quot;</li>
+<li>Known as <strong>positional arguments</strong></li>
+<li>The <code>*</code> at the beginning is what specifies the variable number of arguments</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> multiply(<span class="op">*</span>args):
+    product <span class="op">=</span> <span class="dv">1</span>
+
+    <span class="co"># We don&#39;t know the number of args, so we need a loop</span>
+    <span class="cf">for</span> num <span class="kw">in</span> args:
+        product <span class="op">*=</span> num
+    <span class="bu">print</span>(product)
+
+multiply(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="co"># Prints 120!</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Point out why we need a loop, and why we need the <code>product</code> declaration at the top.</li>
+<li>Remind students about the shorthand <code>*=</code> syntax.</li>
+<li>Make sure students don't forget the <code>*</code> or the <code>s</code> in <code>*args</code></li>
+<li>There's a repl.it <a href="https://repl.it/@SuperTernary/python-programming-args-multiplication?lite=true">here</a> if you want to run this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-args" class="level2">
+<h2>We Do: <code>*args</code></h2>
+<p>Let's create a local file for this lesson - <code>args_practice.py</code>.</p>
+<ul>
+<li>We'll write a function, <code>sum_everything</code> that takes any numbers of arguments and adds them together.</li>
+<li>At the end, we'll print out the sum.</li>
+<li>Let's try it with <code>sum_everything(4, 5, 6)</code> and <code>sum_everything(6, 4, 5)</code>. The order doesn't matter!</li>
+<li><code>*args</code> says &quot;any number&quot; - you can pass in none at all!</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do this with them, but make sure they have a file out and are following along. The more they practice writing this, the better.</li>
+<li>See if they can guess what a line should be before you write it.</li>
+<li>Since it's a loop, the order of arguments doesn't matter.</li>
+<li>Once the code is written, show them a varying number of arguments being passed in. 1? 4? Without any arguments passed in at all (especially this one!).</li>
+</ul>
+<p><strong>Solution Code</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> sum_everything(<span class="op">*</span>args):
+    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span>
+
+    <span class="co"># We don&#39;t know the number of args, so we need a loop</span>
+    <span class="cf">for</span> num <span class="kw">in</span> args:
+        <span class="bu">sum</span> <span class="op">+=</span> num
+    <span class="bu">print</span>(<span class="bu">sum</span>)
+
+sum_everything(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="co"># Prints 15</span></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-often-order-does-matter." class="level2">
+<h2>Discussion: Often, Order Does Matter.</h2>
+<p>Let's switch gears. Back to a set number of arguments!</p>
+<p>What if we DO want order to matter?</p>
+<p>Check this out:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> divide(first, second, third):
+    <span class="bu">print</span>(first <span class="op">/</span> second <span class="op">/</span> third)
+
+divide(<span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">1</span>)</code></pre></div>
+<p>Without otherwise specifying, <code>first</code> is <code>10</code>, <code>second</code> is <code>2</code>, and <code>third</code> is <code>1</code>.</p>
+<ul>
+<li>What if we want <code>first</code> to be the <code>2</code>?</li>
+<li>Is there a way to specify which argument goes to which parameter?</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Emphasize that we're done with <code>*args</code> specifically; we're moving on to a different type of arg specifics.</li>
+<li>Run this a few different ways to show order matters.</li>
+<li>Remind them what &quot;argument&quot; versus &quot;parameter&quot; is.</li>
+<li>Try to get them guessing, here.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>&quot;This lesson is about all types of arguments in functions. We've seen a variable number - now let's look at something else.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="keyword-arguments-kwargs" class="level2">
+<h2>Keyword Arguments (kwargs)</h2>
+<p>Using kwargs, odrer deons't mtater:</p>
+<ul>
+<li>Arguments are named according to their corresponding parameters.</li>
+<li>Order doesn't matter - Python will check the names and match them!</li>
+<li>Values are assigned because the <em>keyword argument</em> and the <em>parameter name</em> match.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> divide(first, second, third):
+    <span class="bu">print</span>(first <span class="op">/</span> second <span class="op">/</span> third)
+
+divide(first<span class="op">=</span><span class="dv">10</span>, second<span class="op">=</span><span class="dv">2</span>, third<span class="op">=</span><span class="dv">1</span>)
+<span class="co"># This runs 10 / 2 / 1, and prints 5</span>
+divide(second<span class="op">=</span><span class="dv">2</span>, third<span class="op">=</span><span class="dv">1</span>, first<span class="op">=</span><span class="dv">10</span>)
+<span class="co"># This ALSO runs 10 /  2 / 1, and prints 5.</span></code></pre></div>
+<blockquote>
+<p><strong>Protip</strong>: Keep your parameter names simple and concise to prevent typos and misspellings!</p>
+</blockquote>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Show this in an interpreter, or bring up a repl.it. Change the values and order of x, y, and z here so students can really understand.</li>
+<li>Get students comfortable with when order matters and what we can do about it.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>&quot;In normal cases for function args a default order is assumed. Much in the same way, if you go to a restaurant, by default you will get drinks, then appetizers, then entrees, then desserts. However, you are free to ask your waiter to bring your dessert first or bring your appetizer with the meal. You don't need to specify anything if the default order will do, but if you are going to reinvent dinner order, you will need to say something!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="mix-it-up....-but-not-with-every-argument" class="level2">
+<h2>Mix It Up.... but Not With Every Argument?</h2>
+<p>Fun fact: You can provide some args in order - <strong>positional</strong> - and some with keywords.</p>
+<ul>
+<li>Undefined are assigned in sequential order.</li>
+<li>Keywords have to come last! - then, in any order.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">dinner(app<span class="op">=</span><span class="st">&quot;chicken wings&quot;</span>, main_course<span class="op">=</span><span class="st">&quot;medium rare steak&quot;</span>, drink<span class="op">=</span><span class="st">&quot;water&quot;</span>, dessert<span class="op">=</span><span class="st">&quot;milkshake&quot;</span>)
+dinner(<span class="st">&quot;chicken wings&quot;</span>, <span class="st">&quot;water&quot;</span>, dessert<span class="op">=</span><span class="st">&quot;medium rare steak&quot;</span>, main_course<span class="op">=</span><span class="st">&quot;medium rare steak&quot;</span>)</code></pre></div>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-kwargs-dessert?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>As you make the demo more and more complex, make sure to talk about what you're doing.</li>
+</ul>
+<p>Teaching tips:</p>
+<ul>
+<li>This is a demo, so don't worry about them following along (though it's great if they do!).</li>
+<li>First, recap and call the function with the kwargs in different orders: <code>dinner(app=&quot;nachos&quot;, main_course=&quot;steak&quot;, drink=&quot;water&quot;, dessert=&quot;cake&quot;)</code></li>
+<li>Then, talk about how you don't necessarily need every keyword defined - but they'll automatically be assigned in order. Demo that: <code>dinner(&quot;water&quot;, &quot;nachos&quot;, dessert=&quot;cake&quot;, main_course=&quot;steak&quot;)</code> <code>dinner(&quot;nachos&quot;, &quot;water&quot;, dessert=&quot;steak&quot;, main_course=&quot;steak&quot;)</code></li>
+<li>Then, show what happens if you put a kwarg first: <code>dinner(main_course= &quot;steak&quot;, &quot;nachos&quot;, &quot;water&quot;, dessert=&quot;cake&quot;)</code></li>
+<li>What happens if you name two arguments the same? <code>dinner(app=&quot;nachos&quot;, app=&quot;steak&quot;, app=&quot;water&quot;, dessert=&quot;cake&quot;)</code></li>
+<li>End with correct syntax, so that's freshest in their mind.</li>
+</ul>
+<p><strong>Repl.it Note:</strong> The code here is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> dinner(drink, app, main_course, dessert):
+  <span class="bu">print</span>(<span class="st">&quot;You&#39;re drinking&quot;</span>, drink)
+  <span class="bu">print</span>(<span class="st">&quot;You&#39;re snacking on&quot;</span>, app)
+  <span class="bu">print</span>(<span class="st">&quot;You&#39;re drinking&quot;</span>, main_course)
+  <span class="bu">print</span>(<span class="st">&quot;You&#39;re wrapping up with&quot;</span>, dessert)
+
+dinner(app<span class="op">=</span><span class="st">&quot;nachos&quot;</span>, main_course<span class="op">=</span><span class="st">&quot;steak&quot;</span>, drink<span class="op">=</span><span class="st">&quot;water&quot;</span>, dessert<span class="op">=</span><span class="st">&quot;cake&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p><code>*args</code>: Any number of arguments - even 0! - can be passed in.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> sum_everything(<span class="op">*</span>args):
+    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span>
+
+    <span class="cf">for</span> num <span class="kw">in</span> args:
+        <span class="bu">sum</span> <span class="op">+=</span> num
+    <span class="bu">print</span>(<span class="bu">sum</span>)
+
+sum_everything(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="co"># Prints 15</span></code></pre></div>
+<p>Keyword arguments (kwargs): Arguments can be passed in out of order.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> divide(first, second, third):
+    <span class="bu">print</span>(first <span class="op">/</span> second <span class="op">/</span> third)
+
+divide(first<span class="op">=</span><span class="dv">10</span>, second<span class="op">=</span><span class="dv">2</span>, third<span class="op">=</span><span class="dv">1</span>)
+divide(second<span class="op">=</span><span class="dv">2</span>, third<span class="op">=</span><span class="dv">1</span>, first<span class="op">=</span><span class="dv">10</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-variable-numbers-of-kwargs" class="level2">
+<h2>Discussion: Variable Numbers of Kwargs?</h2>
+<p>What if I go to Froyo? I need:</p>
+<ul>
+<li>One argument <code>spoon</code>, to pick a spoon size.</li>
+<li>A variable number of arguments for all the flavors of frozen yogurt I might eat!</li>
+</ul>
+<p><code>def yogurt_land(*args)</code>?</p>
+<ul>
+<li>No! <code>*args</code> won't work - we need to know which arg is the spoon.</li>
+</ul>
+<p><code>def yogurt_land(spoon, froyo)</code>?</p>
+<ul>
+<li>No! We don't know the number of froyo arguments.</li>
+</ul>
+<p>Any ideas?</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Encourage them to give ideas. See if they can come up with putting the two ideas together. Remind them that the <code>*</code> is the important part of <code>*args</code>.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-kwargs" class="level2">
+<h2>Introducing: <code>**kwargs</code></h2>
+<p>The <code>*</code> in <code>*args</code> means: Any number of arguments.</p>
+<p>Let's add <code>**</code> to our kwargs: <code>**kwargs</code> can take a variable number of arguments. Note the double <code>**</code>!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> yogurt_land(spoon, <span class="op">**</span>kwargs):
+  <span class="bu">print</span>(spoon)
+  <span class="co"># We need a loop, because we don&#39;t know how many kwargs there are.</span>
+  <span class="cf">for</span> keyword, flavor <span class="kw">in</span> kwargs.items():
+    <span class="co"># kwargs.items has the keyword and the value, which we&#39;re calling &quot;flavor&quot; in the loop.</span>
+    <span class="bu">print</span>(<span class="st">&quot;My&quot;</span>, keyword, <span class="st">&quot;is a&quot;</span>, flavor)
+
+<span class="co"># Like before, the unnamed arg has to come first!</span>
+yogurt_land(<span class="st">&quot;large!&quot;</span>, first_froyo<span class="op">=</span><span class="st">&quot;vanilla&quot;</span>, second_froyo<span class="op">=</span><span class="st">&quot;chocolate&quot;</span>, third_froyo<span class="op">=</span><span class="st">&quot;banana&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>The next slide has a repl.it so you can demo the code! If students are lost, just turn the slide earlier.</li>
+<li>They <strong>haven't learned dictionaries</strong>. Don't stress on the structure of kwargs. Just get them to understand that <code>kwargs</code> will hold the keyword and then the value.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>Walk through this. Note that the spoon size has to come first, and stress that here, it's two <code>**</code>, not just one. Note the <code>for</code> loop!</li>
+<li>Note that 'kwargs' is just a convention, but don't press this point - it's a lot to take in already.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-4-froyos" class="level2">
+<h2>We Do: 4 Froyos</h2>
+<ul>
+<li>Can we subtract one of the froyos?</li>
+<li>Where is my 4th froyo?</li>
+<li>What if I drop all my froyos on the ground? (No kwargs)</li>
+<li>Can I skip the drink or spoon positional arguments?</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-args-froyo?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is a demo slide, not an exercise. Spend enough time to make sure they understand what's going on, then move on.</li>
+<li>Show changing the order and number of kwargs. Show having no kwargs. Trying giving all kwargs the same keyword. For each of these, talk about what's happening and why. Try putting the kwargs in the definition first, and in the function call first. Remember not to mention dictionaries!</li>
+<li>Show all variations with <code>spoon</code>: having no spoon, then giving the spoon the kwarg <code>spoon</code>, then putting the <code>spoon</code> at the end (and then in the middle) of the kwargs, then putting the spoon argument (with no <code>spoon</code> kwarg at other places). For each of these, talk about what's happening and why.</li>
+<li>End again with the correct syntax, so students remember what it should look like.</li>
+</ul>
+<p><strong>Repl.it Note:</strong> The replit has</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> yogurt_land(drink, spoon, <span class="op">**</span>kwargs):
+  <span class="cf">if</span> spoon:
+    <span class="bu">print</span>(<span class="st">&quot;Here is your spoon!&quot;</span>)
+
+  <span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;No spoon, no worries&quot;</span>)
+
+  <span class="bu">print</span>(<span class="st">&quot;Here is your&quot;</span>, drink)
+
+  <span class="cf">for</span> keyword, flavor <span class="kw">in</span> kwargs.items():
+    <span class="bu">print</span>(<span class="st">&quot;My&quot;</span>, keyword, <span class="st">&quot;is a&quot;</span>, flavor)
+
+
+yogurt_land(<span class="st">&quot;water&quot;</span>, <span class="st">&quot;large&quot;</span>, first_froyo<span class="op">=</span><span class="st">&quot;vanilla&quot;</span>, second_froyo<span class="op">=</span><span class="st">&quot;chocolate&quot;</span>, third_froyo<span class="op">=</span><span class="st">&quot;banana&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-of-useful-argument-types" class="level2">
+<h2>Quick Review of Useful Argument Types:</h2>
+<p>At this point, we have <code>*args</code>, <code>kwargs</code> and <code>**kwargs</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Args: Any number of arguments:</span>
+<span class="kw">def</span> multiply(<span class="op">*</span>args):
+    product <span class="op">=</span> <span class="dv">1</span>
+    <span class="cf">for</span> num <span class="kw">in</span> args:
+        product <span class="op">*=</span> num
+
+multiply(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)
+
+<span class="co"># Kwargs: Named (keyword) arguments</span>
+<span class="kw">def</span> divide(x, y, z):
+    <span class="bu">print</span>(x <span class="op">/</span> y <span class="op">/</span> z)
+
+divide(x<span class="op">=</span><span class="dv">10</span>, y<span class="op">=</span><span class="dv">2</span>, z<span class="op">=</span><span class="dv">1</span>)
+
+<span class="co"># **Kwargs: Any number of Kwargs</span>
+<span class="kw">def</span> my_froyo(spoon, <span class="op">**</span>kwargs):
+  <span class="cf">for</span> froyo, flavor <span class="kw">in</span> kwargs.items():
+    <span class="bu">print</span>(froyo, <span class="st">&quot;is a&quot;</span>, flavor)
+
+my_froyo(<span class="st">&quot;large!&quot;</span>, froyo1<span class="op">=</span><span class="st">&quot;vanilla&quot;</span>, froyo2<span class="op">=</span><span class="st">&quot;chocolate&quot;</span>, froyo3<span class="op">=</span><span class="st">&quot;banana&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-printing" class="level2">
+<h2>Discussion: Printing</h2>
+<p><code>print</code> is a function! That's why it has parentheses! - It's built into Python, so you don't have to define it. You can just use it.</p>
+<p>When printing, commas automatically add spaces:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;Hi!&quot;</span>, <span class="st">&quot;Vanilla,&quot;</span>, <span class="st">&quot;please.&quot;</span>)</code></pre></div>
+<p>But since <code>print</code> is a function, too - do you think there's anything we can do to change those spaces to something else?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Hi!-Vanilla,-please,-but-chocolate-is-cool.</span>
+<span class="co"># Hi!-and-Vanilla,-and-please.</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>It's probably a revelation that <code>print</code> is a function. Start with that - make sure they understand that, first.</li>
+<li>Encourage a discussion. Can they get to the idea of adding arguments to <code>print</code>?</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="print-is-awesome-optional-parameters" class="level2">
+<h2>Print is AWESOME: Optional Parameters</h2>
+<p>Turns out...</p>
+<ul>
+<li><code>print</code> accepts an optional keyword argument: <code>sep</code>.</li>
+</ul>
+<p>The <code>sep</code> value given will be used as a <strong>separator.</strong></p>
+<ul>
+<li>It's optional! Without it, <code>print</code> by default uses a space, which is why you haven't seen it.</li>
+<li><strong>This only applies when using commas.</strong></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;Hi!&quot;</span>, <span class="st">&quot;Vanilla&quot;</span>, <span class="st">&quot;please,&quot;</span>,  <span class="st">&quot;but&quot;</span>, <span class="st">&quot;chocolate&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;cool.&quot;</span>, sep<span class="op">=</span><span class="st">&quot;--&quot;</span>)
+<span class="co"># =&gt; Hi!--Vanilla,--please,--but--chocolate--is--cool.</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Stress that this only works for commas, not for using <code>+</code>!</li>
+<li>Note that the default value, or optional value, is what happens for an argument when you don't specify it. We'll get to optional parameters next.</li>
+<li>There's a replit on the next slide to demo this.</li>
+</ul>
+<p>Talking Points:</p>
+<ul>
+<li>Remind them again that <code>print</code> is a function.</li>
+<li>&quot;Remember at the beginning of the class when we were learning variables, and we had a section on how awesome the print statement is? Well, it has even more neat options to offer!&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="delicious-printing" class="level2">
+<h2>Delicious Printing</h2>
+<ul>
+<li>We can replace <code>name</code> and <code>dessert</code> with your own name and favorite dessert. It's a regular print!</li>
+<li><code>sep</code> can be any string, or even an icon (they're made of strings - we'll see later!) - but not an int.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/02-Python-Kwargs-6?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is just a demo! Show it working and check for understanding.</li>
+<li>Change the value of sep to numbers, other strings, and even back to the default space. Then, leave it out again to remind them that this is a normal print statement. Then try putting <code>sep</code> first and show that it doesn't work - it's a kwarg, after all!</li>
+<li>Point out the special character and how cool Python is, but don't go into unicode or how it's done. We can talk about that in unit 4.</li>
+</ul>
+<p><strong>Repl.it Note</strong> The code here is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="st">&quot;Brandi&quot;</span>
+desert <span class="op">=</span> <span class="st">&quot;froyo&quot;</span>
+<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;my&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, name, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;enjoy&quot;</span>, desert, <span class="st">&quot;:)&quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;my&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, name, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;enjoy&quot;</span>, desert, <span class="st">&quot;:)&quot;</span>, sep<span class="op">=</span><span class="st">&quot; HELLO &quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;my&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, name, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;enjoy&quot;</span>, desert, <span class="st">&quot;:)&quot;</span>, sep<span class="op">=</span><span class="st">&quot;🍧&quot;</span>)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>So far, we've learned:</p>
+<ul>
+<li><code>*args</code>:
+<ul>
+<li>​A variable number of function arguments.</li>
+</ul></li>
+<li>kwargs:
+<ul>
+<li>​A set number of function arguments.</li>
+<li>Can be defined out of order</li>
+</ul></li>
+<li><code>**kwargs</code>:
+<ul>
+<li>Any number of positional arguments.</li>
+</ul></li>
+<li><code>sep</code> in print.</li>
+</ul>
+<p>There's one more: Optional parameters.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="optional-parameters-with-default-values" class="level2">
+<h2>Optional Parameters with Default Values</h2>
+<p>This idea exists in programming - you've already seen it!</p>
+<p>The default value for <code>sep</code> in <code>print</code> is <code>&quot; &quot;</code>. You don't <strong>need</strong> to include it.</p>
+<p>This makes it optional! <strong>Optional parameters</strong> have default values, so you don't need to include them.</p>
+<ul>
+<li>Only include them if you want to change them!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># Here, `sep` is optional to include. It defaults to a space &quot; &quot;.</span>
+<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;my&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, name, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;enjoy&quot;</span>, desert, <span class="st">&quot;:)&quot;</span>)
+
+<span class="co"># But we can include it, if we want, and `sep` will use our value instead of the space.</span>
+<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;my&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, name, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;enjoy&quot;</span>, desert, <span class="st">&quot;:)&quot;</span>, sep<span class="op">=</span><span class="st">&quot; HELLO &quot;</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>If they seem confused here, add more real world examples. For example...</li>
+<li>By default, the name people call you is your legal name, but you can optionally specify a nickname - &quot;Joseph&quot; versus &quot;Joe&quot;.<br />
+</li>
+<li>By default, the address the mail man delivers to is your house, unless you optionally specify a P.O. Box.</li>
+<li><p>By default, the seat you sit in is the same one every day, unless you specify you want to sit somewhere else.</p></li>
+<li><p>Remind them that this optional argument had to come last when calling the function.</p></li>
+</ul>
+</aside>
+<p>Default parameters are in the <em>function declaration</em>.</p>
+<p>They're there if you don't include a value.</p>
+<hr />
+</section>
+<section id="any-functions-optional-parameters-with-default-values" class="level2">
+<h2>Any Functions: Optional Parameters with Default Values</h2>
+<p>These can be added to any functions.</p>
+<p>Here, <code>c</code> has a default of <code>20</code>. We don't need to include it!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Optional parameters: Default values are only used if needed.</span>
+<span class="kw">def</span> my_func(a, b, c<span class="op">=</span><span class="dv">20</span>):
+    <span class="bu">print</span>(a <span class="op">+</span> b <span class="op">+</span> c)
+my_func(<span class="dv">1</span>, <span class="dv">2</span>)
+<span class="co"># Uses the default! Prints 23.</span>
+my_func(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>)
+<span class="co"># Overrides the default! Prints 7.</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Show this running a few ways. <a href="https://repl.it/@SuperTernary/python-programming-optional-parameters">Here is the code in a repl.it</a> - open this in a new window and talk through it.</li>
+<li>For advanced students, show kwargs and optional parameters together.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>What are the default values doing?</li>
+<li>Why is this different than keyword arguments?</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-poke-at-it" class="level2">
+<h2>Partner Exercise: Poke At It!</h2>
+<p>Pair up! Choose a driver and a navigator.</p>
+<ul>
+<li>In your local file, write a function, <code>print_food</code> that has four optional parameters (all with defaults of your choice): <code>favorite_food</code>, <code>lunch_today</code>, <code>lunch_yesterday</code>, and <code>breakfast</code>.</li>
+</ul>
+<p><code>print_food</code> should print out each of these.</p>
+<p>Call this with a couple different arguments:</p>
+<ul>
+<li>No arguments.</li>
+<li>All arguments - a regular function call.</li>
+<li>2 keyword arguments. Give all four arguments, but use a keyword for <code>lunch_yesterday</code> and <code>breakfast</code>.</li>
+<li>All keyword arguments - out of order.</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<p>5 minutes or so.</p>
+<ul>
+<li>Pair students up.</li>
+<li>Walk around and offer advice, key questions, and help overcome challenges.</li>
+<li>When everyone, or the majority, have it figured out, go over the answers - bring up a file and walk through this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-keep-poking" class="level2">
+<h2>Partner Exercise: Keep Poking!</h2>
+<p>Change roles!</p>
+<p>Underneath <code>print_food</code>, rewrite it, twice.</p>
+<p>First, write <code>print_food_args</code>, using <code>*args</code> as the parameter. Start the function by printing <code>args</code>, so you can see what's going on. Then, print the values you pass in.</p>
+<p>Then, write <code>print_food_kwargs</code>, using <code>**kwargs</code> as the parameter. Start the function by printing <code>kwargs</code>, so you can see what's going on. Then, as above, print the values you pass in.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<p>5 minutes or so.</p>
+<ul>
+<li>Pair students up.</li>
+<li>Walk around and offer advice, key questions, and help overcome challenges.</li>
+<li>When everyone, or the majority, have it figured out, go over the answers - bring up a file and walk through this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-qa" class="level2">
+<h2>Summary + Q&amp;A</h2>
+<ul>
+<li><code>*args</code>:
+<ul>
+<li>​A variable number of function arguments.</li>
+<li>Taken in any order.</li>
+<li><code>def multiply(*args):</code></li>
+</ul></li>
+<li>kwargs:
+<ul>
+<li>​A set number of function arguments.</li>
+<li>Can be defined out of order</li>
+<li><code>my_func(a=1, b=2, c=3)</code></li>
+</ul></li>
+<li><code>**kwargs</code>: ​- Any number of positional arguments.
+<ul>
+<li><code>def froyo(*kwargs)</code></li>
+</ul></li>
+<li>sep in print.</li>
+<li>Optional parameters:
+<ul>
+<li>Default values in the function declaration</li>
+<li><code>def my_func(a=10, b=15, c=20)</code></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Summarize the lesson and provide a preview of what’s coming next.</li>
+<li>Open your own blank <a href="https://repl.it/languages/python3">repl.it</a> in a new tab if needed to recap and be sure everyone is clear.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://repl.it/@SuperTernary/python-programming-optional-parameters">Optional Parameter Repl.it</a></li>
+<li><a href="http://treyhunner.com/2018/04/keyword-arguments-in-python/">Keyword Args</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3">Args and Kwargs</a></li>
+<li><a href="https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions">Defining Functions</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

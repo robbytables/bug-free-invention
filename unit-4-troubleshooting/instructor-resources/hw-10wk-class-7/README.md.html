@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="python-debugging-and-intermediate-variables-practice-problem-reading-quiz" class="level1">
+<h1>Python Debugging and Intermediate Variables: Practice Problem + Reading Quiz</h1>
+<p>In this homework, you’re going to write code for a challenge problem and answer some reading comprehension questions.</p>
+<p>You will practice these programming concepts we’ve covered in class:</p>
+<ul>
+<li>Type conversion</li>
+<li>Escape characters and string formatting</li>
+<li>Debugging techniques</li>
+<li>Variable scope</li>
+</ul>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>Part of this homework will be code challenges and part will be reading with comprehension questions.</p>
+<p>For the reading quiz, make a text file called <code>answers.txt</code> and use it to compile your answers to the numbered questions.</p>
+<p>For each of the code challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you should have: * One <code>.py</code> file for the code challenge. * One text file with answers to the five reading comprehension questions.</p>
+<hr />
+</section>
+</section>
+<section id="code-challenge" class="level1">
+<h1>Code Challenge</h1>
+<section id="problem-1-were-in-a-good-place" class="level2">
+<h2>Problem 1: We’re in a Good Place!</h2>
+<section id="skill-youre-practicing-debugging-techniques-and-variable-scope." class="level3">
+<h3>Skill you’re practicing: Debugging techniques and variable scope.</h3>
+<p>Jason is a huge Jacksonville Jaguars fan. The team isn’t doing great now, but he has faith: “All we need is a defense, and an offense, and some rule changes!”</p>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">offense <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">defense <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">rule_changes <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">def</span> get_offense():</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  offense <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw">def</span> get_defense():</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  defense <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="kw">def</span> get_rule_changes():</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    rule_changes <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">  <span class="cf">if</span> offense <span class="kw">and</span> defense:</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    get_rule_changes()</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">get_offense()</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">get_defense()</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="bu">print</span>(<span class="st">&quot;How are the Jags doing?</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="bu">print</span>(<span class="st">&quot;We have offense:&quot;</span>, offense)</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="bu">print</span>(<span class="st">&quot;We have defense:&quot;</span>, defense)</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="bu">print</span>(<span class="st">&quot;We have some rule changes:&quot;</span>, rule_changes)</a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="cf">if</span> offense <span class="kw">and</span> defense <span class="kw">and</span> rule_changes:</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">  <span class="bu">print</span>(<span class="st">&quot;We&#39;re going to the Super Bowl!&quot;</span>)</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">  <span class="bu">print</span>(<span class="st">&quot;I can&#39;t predict the future, but no, the Jaguars will never win the Super Bowl.&quot;</span>)</a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>How are the Jags doing?
+
+We have offense: True
+We have defense: True
+We have some rule changes: True
+We&#39;re going to the Super Bowl!</code></pre>
+</section>
+<section id="actual-output" class="level4">
+<h4>Actual Output</h4>
+<pre><code>How are the Jags doing?
+
+We have offense: False
+We have defense: False
+We have some rule changes: False
+I can&#39;t predict the future, but no, the Jaguars will never win the Super Bowl.</code></pre>
+<p>If you want to run the code in a repl.it, the code is also <a href="https://repl.it/@brandiw/03-Python-10-Wk-HW">written here</a>.</p>
+<blockquote>
+<p><strong>Hint:</strong> Include a bunch of <code>print</code> statements everywhere to print out the values of the variables at various times. For example, inside <code>get_offense()</code>, put a <code>print</code> statement like <code>print(&quot;offense is&quot;, offense)</code>.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="reading-material" class="level2">
+<h2>Reading Material</h2>
+<p>Read through the examples in this Data Camp article about <a href="https://www.datacamp.com/community/tutorials/python-data-type-conversion">data types and type conversion</a>. Then, answer the following questions.</p>
+<section id="coercion-is-another-term-for-which-of-the-following-concepts-in-python" class="level4">
+<h4>1. <em>Coercion</em> is another term for which of the following concepts in Python?</h4>
+<ul>
+<li><ol type="a">
+<li>Encapsulation</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Inheritance</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Explicit type conversion</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>Implicit type conversion</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>Floor division</li>
+</ol></li>
+</ul>
+</section>
+<section id="type-casting-is-another-term-for-which-of-the-following-concepts-in-python" class="level4">
+<h4>2. <em>Type casting</em> is another term for which of the following concepts in Python?</h4>
+<ul>
+<li><ol type="a">
+<li>Encapsulation</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Inheritance</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Explicit type conversion</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>Implicit type conversion</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>Floor division</li>
+</ol></li>
+</ul>
+</section>
+<section id="what-function-in-python-can-we-use-to-check-a-variables-type" class="level4">
+<h4>3. What function in Python can we use to check a variable’s type?</h4>
+<ul>
+<li><ol type="a">
+<li><code>type()</code></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><code>typeof()</code></li>
+</ol></li>
+<li><ol start="3" type="a">
+<li><code>typeof</code>, but it is an operator not a function</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li><code>get_type()</code></li>
+</ol></li>
+</ul>
+</section>
+<section id="which-of-the-following-is-not-a-primitive-data-structure" class="level4">
+<h4>4. Which of the following is NOT a primitive data structure?</h4>
+<ul>
+<li><ol type="a">
+<li>Float</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Integer</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>List</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>String</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>Both a and c are not primitives</li>
+</ol></li>
+</ul>
+</section>
+<section id="according-to-the-article-what-is-the-main-reason-to-convert-a-tuple-into-a-list" class="level4">
+<h4>5. According to the article, what is the main reason to convert a tuple into a list?</h4>
+<hr />
+</section>
+</section>
+<section id="see-ya-later" class="level2">
+<h2>See Ya Later!</h2>
+<p>You’re all done. Bye now!</p>
+<p><img src="https://media.giphy.com/media/fWgQH01z4rjwrZckyM/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

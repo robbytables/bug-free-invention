@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Plotting with Pandas and Matplotlib
+type: lesson
+duration: "01:00"
+creator: Emma Freeman [originating from xx's xx lesson] for Python 5-day course.
+-->
+<section id="lesson-plan-plotting-with-pandas-and-matplotlib" class="level1">
+<h1><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Lesson Plan: Plotting with Pandas and Matplotlib</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This lesson introduces students to using data visualization with Pandas and Matplotlib. Students already know the types of graphs (line, bar, histogram, scatter), so that knowledge is reinforced as we walk students through each type of graph, how to implement with Pandas and Matplotlib, and what each plot type is used for.</p>
+</section>
+<section id="important-notes-or-prerequisites" class="level2">
+<h2>Important Notes or Prerequisites</h2>
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, students will be able to:</em></p>
+<ul>
+<li>Implement different types of graphs on a given dataset.</li>
+</ul>
+</section>
+<section id="duration" class="level2">
+<h2>Duration</h2>
+<p>60 minutes.</p>
+<hr />
+</section>
+<section id="suggested-agenda" class="level2">
+<h2>Suggested Agenda</h2>
+<!--- Provide a breakdown of what will happen in this lesson. --->
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00 - 0:03</td>
+<td><a href="#activity-welcome-3-min">Welcome</a></td>
+<td>Introduce the lesson’s objectives and agenda.</td>
+</tr>
+<tr class="even">
+<td>0:03 - 0:10</td>
+<td><a href="#activity-choosing-your-plot-type-7-min">Choosing Your Plot Type</a></td>
+<td>Get students thinking about choosing plot types.</td>
+</tr>
+<tr class="odd">
+<td>0:10 - 0:18</td>
+<td><a href="#activity-set-up-matplotlib-8-min">Set Up Matplotlib</a></td>
+<td>Import packages and load in datasets.</td>
+</tr>
+<tr class="even">
+<td>0:18 - 0:58</td>
+<td><a href="#activity-we-do---plotting-40-min">Plotting</a></td>
+<td>Walk through creating different types of plots.</td>
+</tr>
+<tr class="odd">
+<td>0:58 - 1:00</td>
+<td><a href="#activity-summary-2-min">Summary</a></td>
+<td>Wrap up the learning and share additional resources and next steps.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="materials-and-preparation" class="level2">
+<h2>Materials and Preparation</h2>
+<ul>
+<li>Give the students the link to the notebook or help them download it.</li>
+<li>No out of the ordinary prep needed</li>
+</ul>
+</section>
+<section id="differentiation-and-extensions" class="level2">
+<h2>Differentiation and Extensions</h2>
+<ul>
+<li>For more advanced students, encourage them to experiment in the code-alongs and look up more features in the documentation.</li>
+</ul>
+</section>
+<section id="lesson-procedure" class="level2">
+<h2>Lesson Procedure</h2>
+<hr />
+<section id="activity-welcome-3-min" class="level3">
+<h3>Activity: Welcome (3 min)</h3>
+<blockquote>
+<p>Introduce the lesson’s objectives and agenda.</p>
+</blockquote>
+<hr />
+</section>
+<section id="activity-choosing-your-plot-type-7-min" class="level3">
+<h3>Activity: Choosing Your Plot Type (7 min)</h3>
+<blockquote>
+<p>Get students thinking about choosing plot types.</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching Tips</strong>: - Ask students to explain the types of plots with examples. - Allow time for students to ask any anticipatory questions here.</p>
+</blockquote>
+<hr />
+</section>
+<section id="activity-set-up-matplotlib-8-min" class="level3">
+<h3>Activity: Set Up Matplotlib (8 min)</h3>
+<blockquote>
+<p>Import packages and load in datasets</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching Tips</strong>: - Make sure everyone is on the same page and ready to start plotting! This could take a while if some students have trouble.</p>
+</blockquote>
+<hr />
+</section>
+<section id="activity-we-do---plotting-40-min" class="level3">
+<h3>Activity: We Do - Plotting (40 min)</h3>
+<blockquote>
+<p>Walk through creating different types of plots.</p>
+</blockquote>
+<blockquote>
+<p><strong>Teaching tips</strong>: - Most of this lesson is a code-along, so they should all be typing. Make sure the students are all keeping up and on the same page. Check frequently on where everyone is. Encourage them to ask questions about what the code does. - Some of the Pandas code is stuff they haven’t learned yet, so if they are confused, mention that this is something more advanced they will learn later, but is necessary for demonstrating the plotting techniques - like value_counts(). Preferably, if there’s time, explain now to them how it works.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>There are a couple “You Try” and Challenges. Have them try to write the code first, and help each other if they want. Then go over the solution. <strong>Try not to show the solution until they’ve tried!</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>In the knowledge checks, ask them questions and get them talking.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Reiterate, slowly, what you’re doing throughout as you go - go through each line of code every time! This is the first time they’ve done this. Repetition is key.</li>
+</ul>
+</blockquote>
+</section>
+<section id="activity-summary-2-min" class="level3">
+<h3>Activity: Summary (2 min)</h3>
+<blockquote>
+<p>Wrap up the learning and share additional resources and next steps.</p>
+</blockquote>
+</section>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

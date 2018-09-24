@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Pandas I
+type: lesson
+duration: "1:00"
+creator: [Joseph Nelson](https://twitter.com/josephofiowa)
+-->
+<section id="pandas-i" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Pandas I</h2>
+<!--
+
+## Overview
+This lesson introduces the Pandas library and the beginnings of Exploratory Data Analysis. The majority of the lesson should be spent going through code -- whether that is via Jupyter Slides or a Jupyter Notebook demonstration.
+
+To present this content, begin with `02-pandas-i.md` to introduce Pandas as a library and data integrity. Transition to the Jupyter Notebook to introduce reading in data, column manipulation, filtering and sorting; conclude with exercises.
+
+
+## Important Notes or Prerequisites
+
+- Review the Iowa liquor dataset [here](https://data.iowa.gov/Economy/Iowa-Liquor-Sales/m3tr-qhgy)
+- Be aware that the dataset you are examining is a **subset** of that dataset: it is only May 2017 and May 2018. **New columns** have been created to delineate: `is_may_2017` and `is_may_2018`. These are demonstrated for the purposes of showing filters.
+- There are **Class Questions** littered throughout the notebook. Use as much/little time on these as you see fit relative to how your class is pacing
+- There is an **Independent Exercise** at the end of this lesson. It is aspirational to have time to let students work entirely independently on this time-wise, so consider doing a guided code-along or paired programming. Answers are included.
+
+
+## Learning Objectives
+In this lesson, students will:
+- Use Pandas to read in a dataset.
+- Investigate a dataset's integrity.
+- Filter, sort, and manipulate DataFrame series.
+
+
+## Duration
+60 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+
+## Suggested Agenda
+
+|    Time     | Activity | Purpose |
+|-------------|----------|---------|
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:07 | Pandas and EDA |
+| 0:07 - 0:15 | Data Sets and Integrity |
+| 0:15 - 0:17 | NOTE: Switch to Notebook |
+| 0:17 - 0:25 | Basic Pandas |
+| 0:25 - 0:35 | Columns |
+| 0:35 - 0:44 | Filtering and Sorting |
+| 0:44 - 0:58 | Independent Exercise |
+| 0:58 - 1:00 | Summary |
+
+## Materials and Preparation
+- Send out the presentation link.
+- Students will need the data sets and notebook. Consider having a zip file of all notebooks and data sets for the rest of the unit that you hand out at the beginning of this lesson. Alternatively, link them directly in GitHub - remember that they haven't learned GitHub, so you'll need to help them download the files.
+- The presentation is also at the top of the Notebook, so students can later reference in one place. Jump down to `Importing Pandas`.
+
+## Differentiation and Extensions
+
+- If students are excelling in the first half, consider deeper discussions surrounding five number summaries, data integrity, off-the-cuff filters and sorts
+- If students are struggling, work on the code more heavily than the **Class Questions** portions. Make the Independent Exercises be Collective Exercises (as a class)
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Jupyter Notebooks
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Use Pandas to read in a dataset.</li>
+<li>Investigate a dataset's integrity.</li>
+<li>Filter, sort, and manipulate DataFrame series.</li>
+</ul>
+<hr />
+</section>
+<section id="what-is-pandas" class="level2">
+<h2>What is Pandas?</h2>
+<ul>
+<li>A group of adorable bears 🐼﻿🐼﻿🐼﻿</li>
+<li>A Python library for data manipulation.</li>
+</ul>
+<iframe src="https://giphy.com/embed/EatwJZRUIv41G" width="480" height="270" frameborder="0" class="giphy-embed" allowfullscreen>
+</iframe>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li><p>The iframe is just this gif: <img src="https://media.giphy.com/media/EatwJZRUIv41G/giphy.gif" /></p></li>
+<li>Get them excited to learn this.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="so-pandas-the-library" class="level2">
+<h2>So, Pandas the Library</h2>
+<p>The Swiss Army Knife of data manipulation! Pandas:</p>
+<ul>
+<li>Is <em>the</em> library for exploratory data analysis (EDA).</li>
+<li>Formats, wrangles, cleans, and prepares our data.</li>
+</ul>
+<p>Quick Backstory from 2009:</p>
+<ul>
+<li>A humble open source project for Panel Data (hence &quot;Pandas&quot;) from Wes McKinney.</li>
+<li>Now the most used Python-related tag on Stack Overflow.</li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>&quot;Pandas is the most prominent Python library for exploratory data analysis (EDA). The functions Pandas supports are integral to understanding, formatting, and preparing our data. Formally, we use Pandas to investigate, wrangle, munge, and clean our data. Pandas is the Swiss Army Knife of data manipulation!&quot;</li>
+<li>&quot;Pandas began as a humble open source project for Panel Data (hence &quot;Pandas&quot;) in 2009 by Wes McKinney. It has grown to be the most use Python-related tag on Stack Overflow.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="exploratory-data-analysis-eda" class="level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<p>The process of understanding our dataset and producing our first level of insights.</p>
+<p>This includes:</p>
+<ul>
+<li>Reading in data: &quot;Import dog population.&quot;</li>
+<li>Checking data types. &quot;Is the population count in integers?&quot;</li>
+<li>Renaming columns: &quot;<code>dog_breed</code> is more helpful than <code>Biological Family</code>&quot;</li>
+<li>Joining together data: &quot;Join the dog population data with the cat population data.&quot;</li>
+<li>Looking for missing data: &quot;It doesn't mention corgis.&quot;</li>
+<li>And more!</li>
+</ul>
+<p>Today, we will focus on the most 'mission critical' elements of EDA.</p>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>&quot;Exploratory Data Analysis (EDA) is the process of understanding our dataset, and producing our first level of insights. This includes reading in the data, understanding our data dictionary, checking data types, assessing descriptive statistics, renaming columns, joining together data, looking for missing data, and so much more. That sounds like a lot, but today, we will just focus on the most 'mission critical' elements of EDA.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-dataset-are-we-exploring" class="level2">
+<h2>What dataset are we exploring?</h2>
+<ul>
+<li><p>Iowa liquor sales!</p></li>
+<li><p>Stores report daily transactions of all alcohol they sell.</p></li>
+<li>Iowa makes this data available.</li>
+<li><p>It is an excellent, structured dataset for analysis!</p></li>
+</ul>
+<p>Take a look at the data source <a href="https://data.iowa.gov/Economy/Iowa-Liquor-Sales/m3tr-qhgy">page</a>.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Open this page in a new window.</li>
+</ul>
+<p>Talking points:</p>
+<ul>
+<li>For today's Pandas exercises, we will be using a real dataset from the state of Iowa government on liquor sales. Due to state licensing laws, stores must report daily transactions of all alcohol they sell to the Iowa Department of Commerce's Alcoholic Beverages Division. The state of Iowa makes this data available for analysis -- and it is an excellent, structured dataset for our use!</li>
+</ul>
+<p>[Go down the list for students.]</p>
+<p>Let's take a closer look at the data dictionary, or what is included:</p>
+<ul>
+<li><strong>Invoice/Item Number</strong> - Concatenated invoice and line number associated with the liquor order. This provides a unique identifier for the individual liquor products included in the store order</li>
+<li><strong>Date</strong> - Date of order</li>
+<li><strong>Store Number</strong> - Unique number assigned to the store who ordered the liquor.</li>
+<li><strong>Store Name</strong> - Name of store who ordered the liquor.</li>
+<li><strong>Address</strong> - Address of the store that ordered the liquor</li>
+<li><strong>City</strong> - City where the store who ordered the liquor is located</li>
+<li><strong>Zip Code</strong> - Zip Code of where the store that ordered is located</li>
+<li><strong>Store Location</strong> - Location of store who ordered the liquor. The Address, City, State and Zip Code are geocoded to provide geographic coordinates. Accuracy of geocoding is dependent on how well the address is interpreted and the completeness of the reference data used.</li>
+<li><strong>County Number</strong> - Iowa county number for the county where store who ordered the liquor is located</li>
+<li><strong>County</strong> - County where the store who ordered the liquor is located</li>
+<li><strong>Category</strong> - Category code associated with the liquor ordered</li>
+<li><strong>Category Names</strong> - Category of the liquor ordered.</li>
+<li><strong>Vendor Number</strong> - The vendor number of the company for the brand of liquor ordered</li>
+<li><strong>Vendor Name</strong> - The vendor name of the company for the brand of liquor ordered</li>
+<li><strong>Item Name</strong> - Item number for the individual liquor product ordered.</li>
+<li><strong>Item Description</strong> - Description of the individual liquor product ordered.</li>
+<li><strong>Pack</strong> - The number of bottles in a case for the liquor ordered</li>
+<li><strong>Bottle Volume (mL)</strong> - Volume of each liquor bottle ordered in milliliters.</li>
+<li><strong>State Bottle Cost</strong> - The amount that Alcoholic Beverages Division paid for each bottle of liquor ordered</li>
+<li><strong>State Bottle Retail</strong> - The amount the store paid for each bottle of liquor ordered</li>
+<li><strong>Bottles Solde</strong> - The number of bottles of liquor ordered by the store</li>
+<li><strong>Sale (Dollars)</strong> - Total cost of liquor order (number of bottles multiplied by the state bottle retail)</li>
+<li><strong>Volume Sold (Liters)</strong> - Total volume of liquor ordered in liters. (i.e. (Bottle Volume (ml) x Bottles Sold)/1,000)</li>
+<li><strong>Volume Sold (Gallons)</strong> - Total volume of liquor ordered in gallons. (i.e. (Bottle Volume (ml) x Bottles Sold)/3785.411784)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-could-we-examine" class="level2">
+<h2>Discussion: What Could We Examine?</h2>
+<ul>
+<li><p>What are some potential insights you'd like to uncover given Iowa liquor data?</p></li>
+<li><p>What if you are examining it from the standpoint of the Iowa government?</p></li>
+<li><p>What if you are a potential liquor store business owner?</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Walk through the data set that you have open. Encourage discussion - there's no wrong answer!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="our-modified-iowa-liquor-dataset" class="level2">
+<h2>Our Modified Iowa Liquor Dataset</h2>
+<p>The full dataset is all liquor sales from 2012 to present.</p>
+<p>There are more than 13 million rows (13,948,103+ at the time of writing)!</p>
+<p>We will work with a modified dataset.</p>
+<p>Key changes:</p>
+<ul>
+<li>Only sales from May 2017 and May 2018</li>
+<li>Intentionally deleted:
+<ul>
+<li>A number of values, to practice missing data.</li>
+<li>An arbitrary subset of entire observations, to shrink it.</li>
+<li>A few columns, to simplify.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Talking points:</p>
+<ul>
+<li>Key changes:</li>
+<li>Only sales from May 2017 and May 2018</li>
+<li>A number of values have been deliberately deleted.</li>
+<li>Practice working with missing data!)</li>
+<li>An arbitrary subset of entire observations have been deleted.</li>
+<li>Reduce the file size from 119MB to &lt;100MB.</li>
+<li>A few columns were removed (invoice, address, vendor number, category as a number, county number)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-first-few-rows" class="level2">
+<h2>The First Few Rows</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/dataset-screenshot-1.png" />
+</figure>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Walk through this to familiarize them with how a dataset looks.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-first-few-rows-ctd" class="level2">
+<h2>The First Few Rows (Ctd)</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/dataset-screenshot-2.png" />
+</figure>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Walk through this to familiarize them with how a dataset looks.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="data-integrity" class="level2">
+<h2>Data Integrity</h2>
+<p>The first thing we check! Assuring our data can be trusted to produce meaningful insights.</p>
+<p>Correctly formatted datatypes.</p>
+<ul>
+<li>&quot;Decimals are floats, not strings.&quot;</li>
+</ul>
+<p>Representative sample for the underlying population of interest.</p>
+<ul>
+<li>&quot;Did we sample sales in cities or across the whole state?&quot;</li>
+</ul>
+<p>Missing Data</p>
+<ul>
+<li>&quot;Why do we only have even days of the month?&quot;</li>
+</ul>
+<p>No sampling or human bias.</p>
+<ul>
+<li>&quot;Did we only consider liquor sales of specific varieties?&quot;</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Walk through why each step is important.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="clean-truth-about-dirty-data" class="level2">
+<h2>Clean Truth about Dirty Data</h2>
+<ul>
+<li><p>Assessing data integrity isn't a one-stop step.</p></li>
+<li><p>Much like EDA itself, it's an ongoing process!</p></li>
+<li><p>We uncover additional potential problems and anomalies to remedy along the way.</p></li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Give examples here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="launch-our-notebook" class="level2">
+<h2>Launch our notebook</h2>
+<p>We'll work in the Notebook - We're fledgling data scientists!</p>
+<p>The <code>.ipynb</code> file you will open is called &quot; <code>pandas-i.ipynb</code> &quot;.</p>
+<p>Open it up!</p>
+<p>Jump down to <code>Importing Pandas</code>.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Make sure everyone gets to the notebook successfully.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li>Pandas <a href="https://pandas.pydata.org/pandas-docs/stable/">documentation</a></li>
+<li>DataSchool <a href="http://www.dataschool.io/easier-data-analysis-with-pandas/">30-video series</a> (by a former GA instructor!)</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

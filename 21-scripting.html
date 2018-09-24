@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Scripting
+type: lesson
+duration: "00:35"
+creator: Brandi Butler
+-->
+<section id="python-programming-scripting" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Scripting</h2>
+<!--
+
+
+## Overview
+This lesson starts with an explanation of a scripting language vs a compiled language, then goes on to discuss the idea of a script. The majority of the lesson is spent teaching file I/O, with just a couple slides near the end for user input.
+
+
+## Learning Objectives
+In this lesson, students will:
+* Explain the uses of scripting.
+* Write scripts that perform file I/O.
+* Write scripts that take user input.
+
+## Duration
+35 minutes.
+
+### Notes on Timing
+
+It would be easy to get carried away and spend a lot of time covering all the tiny pieces of file I/O. There are many slides that introduce terms, such as `with` or `append`, so that students won't be lost if they later find them in a tutorial online. Spend very little time here - enough to ensure the student conceptually understands the concept. They don't need to actually practice it.
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:04 - 0:08 | Introducing Scripting |
+| 0:08 - 0:24 | File I/O |
+| 0:25 - 0:32 | User Input |
+| 0:32 - 0:35 | Summary |
+
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Explain the uses of scripting.</li>
+<li>Write scripts that perform file I/O.</li>
+<li>Write scripts that take user input.</li>
+</ul>
+<hr />
+</section>
+<section id="introduction" class="level2">
+<h2>Introduction</h2>
+<p>Discussion: What comes to mind when you hear the word &quot;scripting&quot;?</p>
+<figure>
+<img src="https://c1.staticflickr.com/2/1570/25942496133_27fb6f2261_b.jpg" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Chances are you've run into a problem and heard a coworker smugly say, 'don't worry!, I'll just write a script for it'. Maybe it sounded fancy or mysterious at the time, but today we'll demystify it, and well, now you're going to be that coworker!&quot;</li>
+</ul>
+<p>🚫 Scripting is NOT</p>
+<ul>
+<li><del>Mysterious</del></li>
+<li><del>Difficult</del></li>
+<li><del>Impossible</del></li>
+<li><del>Only for super smart, expert programmers</del></li>
+</ul>
+<p>✅ Scripting IS</p>
+<ul>
+<li>Helpful.</li>
+<li>Convenient.</li>
+<li>Fun.</li>
+<li>Makes you look cool to your coworkers!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="whats-a-scripting-language" class="level2">
+<h2>What's a Scripting Language?</h2>
+<p>There are only two types of programming languages in the world: <strong>scripting languages</strong> or <strong>compiled languages</strong>.</p>
+<p>All languages, like Python, are one of these two categories.</p>
+<p>Scripting languages:</p>
+<ul>
+<li>One is Python!</li>
+<li>Write code, then immediate run it: <code>python my_file.py</code></li>
+<li>Executes statements in order.</li>
+<li>Find a bug? Fix it, run it, repeat.</li>
+</ul>
+<p>Compiled languages:</p>
+<ul>
+<li>Compile means &quot;build&quot;.</li>
+<li><em>We can't immediate run code - the computer can't just read the code and needs to translate it to something it understands first.</em></li>
+<li>Write code, <em>then compile it (not quick!),</em> then run it.</li>
+<li>Find a bug? Fix it, <em>wait for the code to compile,</em> run it, repeat.</li>
+</ul>
+<p>You don't need to memorize this - just know that there's a difference, and Python is scripting.</p>
+<p>What do you think a <em>script</em> is?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>It's not important for them to memorize what compiled is - just get the idea that it's a different kind of language.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>A <code>scripting language</code> or interpreted language like Python executes statements in order</li>
+<li>A <code>script</code> is typically a file with some Python code in it</li>
+<li>A script might calculate something, take input, give output, or do file I/O</li>
+</ul>
+<p>All programming languages that exist in the world fall into one of two buckets. A <code>scripting language</code> or interpreted language like Python executes statements in order. A compiled language needs to build your program before running it.</p>
+<p>Imagine; you wrote an application with Java. Before you can run it, you need to compile it - turn it After compiling completed, you run your application. When running your application, you notice a bug. To fix it, you have to stop your application, go back to source code, fix the bug, wait for the code to recompile, and restart your application to confirm that it is fixed. And if you find another bug, you’ll need to repeat that process again.</p>
+<p>In a scripting language, you can fix the bug and just need to reload your application —no need to restart or recompile anymore. It’s as simple as that.</p>
+<p>Technically, you've been writing scripts already.</p>
+</aside>
+<hr />
+</section>
+<section id="what-is-a-script" class="level2">
+<h2>What is a Script?</h2>
+<p>Just some code that does something.</p>
+<ul>
+<li>Usually written in a scripting language.</li>
+<li>Can be as simple or as complex as needed!</li>
+</ul>
+<p>Let's write a script:</p>
+<ul>
+<li>Create a file called <code>my_script.py</code></li>
+<li>Open the file in <code>Atom</code>.</li>
+<li>Type the line</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;hello world!&quot;</span>)</code></pre></div>
+<p><strong>CONGRATS</strong>: You now have a script!</p>
+<p>Look familiar? You've been scripting since day 1!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+It turns out, you already know how to do this!
+</aside>
+<hr />
+</section>
+<section id="scripting-commonly" class="level2">
+<h2>Scripting, Commonly</h2>
+<p>When people say scripts, though, they usually mean code that:</p>
+<ul>
+<li>Takes input.</li>
+<li>Gives output.</li>
+<li>Reads or writes to a file.</li>
+<li>Performs a task.</li>
+</ul>
+<p>We have &quot;perform a task&quot; down!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+All Python files you write are scripts! But when people say scripts, that's not really what they mean.
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p><strong>Script</strong>:</p>
+<ul>
+<li>Just code that does something. You've written dozens of scripts in Python so far!</li>
+</ul>
+<p><strong>Scripting Language</strong>:</p>
+<ul>
+<li>A language where you can immediately run code. Python is one!</li>
+<li>Write -&gt; Run.</li>
+</ul>
+<p><strong>Compiled Language</strong>:</p>
+<ul>
+<li>Compile means build! We can't immediately run code.</li>
+<li>Write -&gt; Build -&gt; Run.</li>
+</ul>
+<p>We're only working with Python, so we can just write and run our code!</p>
+<p><strong>Next Up</strong>: Playing with files in Python.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding. Compile can be tough to wrap their head around, since they aren't doing it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="scripting-part-1-files" class="level2">
+<h2>Scripting, Part 1: Files</h2>
+<p>Let's further our programming toolkit.</p>
+<p>On your computer, you can:</p>
+<ul>
+<li>Create or open a file (text, jpg, Word doc...).</li>
+<li>Read it.</li>
+<li>Edit it.</li>
+<li>Close it.</li>
+</ul>
+<p>These are pretty basic actions. Can we do it in Python?</p>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>This is to get them to conceptually understand what we're about to do - don't mention code here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-lets-read-a-file" class="level2">
+<h2>We Do: Let's Read a File!</h2>
+<p>With files, there are three key points.</p>
+<ol type="1">
+<li>Tell Python to open the file: <code>my_file = open(&lt;file name&gt;)</code></li>
+<li>Do something with the file! (Read it, edit it, etc).</li>
+<li>Close the file when you're done: <code>my_file.close()</code></li>
+</ol>
+<p>First, let's check out <strong>read</strong>: View, but not change, the contents, with <code>read()</code>.</p>
+<p>Let's try. On your Desktop, create a file called &quot;hello.txt&quot; with the word &quot;hi&quot; in it.</p>
+<ol type="1">
+<li><p>Now, also on your Desktop, create a file, <code>first_reading.py</code>. Fill it with:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>)
+<span class="bu">print</span>(my_file.read())
+my_file.close()</code></pre></div></li>
+<li><p>Run it!</p></li>
+</ol>
+<p>Note: The file must exist already!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them.</li>
+<li>Make sure they successfully make the .txt file and have all successfully run the code.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-about-editing-files" class="level2">
+<h2>What About Editing Files?</h2>
+<p>In programming, &quot;edit&quot; is referred to as &quot;write&quot;, short for &quot;write to.&quot; How do we write a file?</p>
+<p><code>open(&lt;file name&gt;)</code> has optional parameters: <code>open(&lt;file name&gt;, &lt;mode&gt;)</code></p>
+<ul>
+<li>Mode: &quot;What do you want to do with the file?&quot; The default is &quot;read.&quot; Use <code>w</code> for &quot;write&quot;:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># To read a file:</span>
+my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>)
+<span class="bu">print</span>(my_file.read()) <span class="co">## We want this to be write, not read!</span>
+my_file.close()
+
+<span class="co"># To write a file:</span>
+my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+<span class="co">## Write some stuff</span>
+my_file.close()</code></pre></div>
+<p><strong>Important:</strong> Write <em>overwrites</em> the current file!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Reinforce that write is &quot;replace what's there&quot;, not &quot;add to the file&quot;.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-writing-files" class="level2">
+<h2>We Do: Writing Files</h2>
+<p>Let's try this. Change your script. We're going to make it a little more complex - since we're programming, we can use variables!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Open the file hello.txt</span>
+my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+<span class="co"># Write some content to my_file.txt</span>
+my_file.write(<span class="st">&quot;Hello world&quot;</span>)
+my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span> <span class="co"># Use the variable!</span>
+my_file.write(my_text) <span class="co"># Writes &quot;Apple juice is delicious.&quot;</span>
+my_file.write(<span class="st">&quot;Have a nice day!&quot;</span>)
+
+<span class="co"># Always close the file</span>
+my_file.close()</code></pre></div>
+<p>Run it!</p>
+<p>Open the file to check.</p>
+<p><strong>Thought:</strong> How could you make new lines?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them.</li>
+<li>Make sure they have all successfully run the code.</li>
+<li>Have them talk about making new lines - they've learned <code>\n</code> previously.</li>
+<li>If you think they can handle it, give them a few reasons to always close the file.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-writing-complex-strings" class="level2">
+<h2>Discussion: Writing Complex Strings</h2>
+<p>What happens if we try to <code>write</code> multiple strings?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># But it doesn&#39;t  work with write.</span>
+my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span>
+my_file.write(my_text, <span class="st">&quot;Don&#39;t you think?&quot;</span>) <span class="co"># Error! Write takes 1 argument (2 given).</span>
+
+my_file.close()</code></pre></div>
+<p>Error! <code>write</code> only takes one argument. We need to concat the strings. <em>Always just pass one argument to file.write()</em>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span>
+string_to_write <span class="op">=</span> my_text <span class="op">+</span> <span class="st">&quot;Don&#39;t you think?&quot;</span> <span class="co"># Make one string here!</span>
+my_file.write(string_to_write)
+my_file.close()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Demo this!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-creating-files" class="level2">
+<h2>We Do: Creating Files</h2>
+<p>What if the file doesn't exist yet?</p>
+<p><strong>Write</strong> to the rescue!</p>
+<ul>
+<li>Write opens a file for writing...</li>
+<li>But it also creates it if need be!</li>
+</ul>
+<p>At the bottom of your script, add:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Open OR create file totally_new_file.txt</span>
+my_new_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;totally_new_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+<span class="co"># Write some content to totally_new_file.txt</span>
+my_new_file.write(<span class="st">&quot;Content goes here&quot;</span>)
+
+<span class="co"># Always close the file</span>
+my_new_file.close()</code></pre></div>
+<p>Check your desktop after running it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them.</li>
+<li>Make sure they have all successfully run the code.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-create-a-file" class="level2">
+<h2>You Do: Create a file</h2>
+<p>Now, try it yourself. Write a new script:</p>
+<ul>
+<li><code>Open</code> for <code>read</code> mode your existing <code>a_file.txt</code>.</li>
+<li><code>Read()</code> the file and save the contents into a variable, <code>file_contents</code>.</li>
+<li>Under that, using <code>write</code>, create a file called <code>my_file_script.py</code>.</li>
+<li>In <code>my_file_script.py</code>, write what you read from <code>a_file.txt</code>.</li>
+</ul>
+<p>Don't forget to <code>close()</code> your files!</p>
+<aside class="notes">
+<p>3 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After they do this, show it to them. Show them opening multiple files at the top, too, so they know you don't have to go sequentially: e.g.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)
+file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+
+string_to_write <span class="op">=</span> file_to_read.read()
+file_to_write.write(string_to_write)
+
+file_to_read.close()
+file_to_write.close()</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>You can open, read, and write files with Python.</p>
+<p>Write will create the file if it doesn't already exist.</p>
+<p>Always close your files!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)
+file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+
+string_to_write <span class="op">=</span> file_to_read.read()
+file_to_write.write(string_to_write)
+
+file_to_read.close()
+file_to_write.close()</code></pre></div>
+<p><strong>Next up:</strong> More advanced file options.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="other-file-modes" class="level2">
+<h2>Other File Modes</h2>
+<p>What if we want to read AND write a file? Or write to the end of a file instead of overwriting what's there?</p>
+<p><code>open</code> has a few other modes.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Mode</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>r</code></td>
+<td>Reading</td>
+<td>Read only. The default!</td>
+</tr>
+<tr class="even">
+<td><code>w</code></td>
+<td>Write</td>
+<td>Use to change (and create) file contents</td>
+</tr>
+<tr class="odd">
+<td><code>a</code></td>
+<td>Append</td>
+<td>Use to write to the end of a file</td>
+</tr>
+<tr class="even">
+<td><code>r+</code></td>
+<td>Read Plus</td>
+<td>Can do both read and write</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Don't memorize this; just know it's there. A lot of programming is understanding your options and then Googling the syntax! The biggest thing for you to learn is the concepts that Python can do.</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>Stress that this is a lot to take in and they don't need to remember it all. We're practicing for their understanding, not their memorization. (Also, the more we practice, the more likely they'll just remember it).</p></li>
+<li><p>Show <code>r+</code> and <code>a</code>. You can work off this basic code:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Open the file hello.txt</span>
+my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+my_file.read() <span class="co"># Error! Not readable.</span>
+my_file.write(<span class="st">&quot;hey&quot;</span>)
+<span class="co"># Close the file</span>
+my_file.close()</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="i-do-the-with-keyword" class="level2">
+<h2>I Do: The With Keyword</h2>
+<p>Always remembering to close a file can be hard. There's another way to open files so Python closes it for us!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Instead of:</span>
+file_object <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+file_object.write(<span class="st">&quot;Hello World!&quot;</span>)
+file_object.close()
+
+<span class="co"># We can say:</span>
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> file_object: <span class="co"># This line replaces the open and close above</span>
+  file_object.write(<span class="st">&quot;Hello World!&quot;</span>) <span class="co"># This line is the same; note the indent!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>As you can see, file I/O is associated with a lot of potential errors.</li>
+<li>Sometimes if a file doesn't close properly, this can lead to:
+<ul>
+<li>Memory pollution on your computer</li>
+<li>Keeping a file in use when it isn't</li>
+</ul></li>
+<li>These are bad problems! Luckily, Python has our back once again with <code>with</code>!</li>
+<li><code>With</code> shortens our code, catches errors gracefully, and makes <code>close</code> unnecessary.</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+It's not necessary they become experts in this. Just show it to them so that they're aware if they find it in a tutorial. Here is a repl.it, if you'd like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-03">@brandiw/03-Python-Scripting-03</span>
+</aside>
+<hr />
+</section>
+<section id="what-else-is-in-file" class="level2">
+<h2>What Else is in File?</h2>
+<p>These are just for reference - we won't be using them!</p>
+<ul>
+<li><p>Do you have a list that you want to write on multiple lines? Use <code>my_file.writelines([&lt;your list&gt;])</code></p></li>
+<li><p>Does your file have things on multiple lines you want to read into a list variable? Use <code>list_contents = my_file.readlines()</code></p></li>
+<li><p>Separating some written lines? Add <code>\n</code> to the <code>write()</code></p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>If you have time (remember, user input is still coming), open a file and show these in action.</li>
+<li>It's not essential for students to know, but it's good for them to see.</li>
+<li>Skim this slide quickly if students are starting to look lost.</li>
+</ul>
+Here is a repl.it, if you'd like: &quot;https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-01">@brandiw/03-Python-Scripting-01</span>
+</aside>
+<hr />
+</section>
+<section id="quick-review-2" class="level2">
+<h2>Quick Review:</h2>
+<p>File has a lot of advanced options.</p>
+<ul>
+<li>You can write a list across multiple lines, or read a file with multiple lines into a list variable.</li>
+<li>Write only takes one argument, so concat your strings!</li>
+<li>You can open files using <code>with</code> to automatically close them.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Instead of:</span>
+file_object <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+file_object.write(<span class="st">&quot;Hello World!&quot;</span>)
+file_object.close()
+
+<span class="co"># We can say:</span>
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> file_object: <span class="co"># This line replaces the open and close above</span>
+  file_object.write(<span class="st">&quot;Hello World!&quot;</span>) <span class="co"># This line is the same; note the indent!</span></code></pre></div>
+<p><strong>Next up:</strong> User Input!</p>
+<hr />
+</section>
+<section id="what-about-user-input" class="level2">
+<h2>What about User Input?</h2>
+<p>We've just done a lot with file I/O (in/out).</p>
+<p>We can prompt users for information, too.</p>
+<p>You've seen this a few times (remember the error checking, with the try/catch?)! It's very common.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Prompts with &quot;input&quot;</span>
+<span class="co"># Saves result in user_name</span>
+user_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please type your name:&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this! Show this a few ways. Try type casting the input to an int.</li>
+</ul>
+Here's a repl.it, if you'd like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-04?lite">@brandiw/03-Python-Scripting-04?lite</span>=true
+</aside>
+<hr />
+</section>
+<section id="you-do-bring-it-all-together" class="level2">
+<h2>You Do: Bring it all together!</h2>
+<ol type="1">
+<li>Create a file called <code>about_script.py</code>.</li>
+<li>In it, prompt the user for their name. Then, prompt them for their favorite food.</li>
+<li>Using write, create a file called <code>about_me.txt</code>.</li>
+<li>In <code>about_me.txt</code>, write out the name and favorite food in a sentence.</li>
+</ol>
+<p><strong>Bonus</strong>: Use <code>format</code> for forming your sentence!</p>
+<aside class="notes">
+<p>5 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After students give this a shot, show the answer.</li>
+<li>If there's still time, show a few variations of this with other things we've covered, like append and <code>with</code> to open.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Scripting language vs compiled language.</p>
+<ul>
+<li>Scripting languages: Write -&gt; Run.</li>
+<li>Compiled languages: Write -&gt; Build -&gt; Run.</li>
+</ul>
+<p>Script:</p>
+<ul>
+<li>Just some code!</li>
+</ul>
+<p>File I/O:</p>
+<ul>
+<li><code>my_file = open(&quot;a_file.txt&quot;, &quot;w&quot;)</code></li>
+<li><code>my_file.write(&quot;Some content&quot;)</code></li>
+<li><code>my_file.write(my_text)</code></li>
+<li><code>my_file.close()</code></li>
+</ul>
+<p>User input</p>
+<ul>
+<li><code>user_name = input(&quot;Please type your name:&quot;)</code></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check for understanding; review key concepts.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<p><em>We accomplished quite a bit!</em></p>
+<ul>
+<li>Defined what a script means contextually.</li>
+<li>Showed how to open and close a file on your computer.</li>
+<li>Discussed different modes of opening files.</li>
+<li>Wrote a script that accepted a user's input</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=H_R5yRtFtuc">Socratica Video: Text Files</a></li>
+<li><a href="https://www.python-course.eu/python3_execute_script.php">Executing a Python Script</a></li>
+<li><a href="http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python">Reading and Writing Files</a></li>
+<li><a href="https://www.tutorialspoint.com/python3/python_files_io.htm">File Object Documentation</a></li>
+<li><a href="https://www.nayuki.io/page/what-are-binary-and-text-files">Binary vs Text Files</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

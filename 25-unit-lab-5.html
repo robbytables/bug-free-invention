@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Unit 4 Lab: Troubleshooting
+type: Lab
+duration: "01:35"
+creator: Susi Remondi
+-->
+<section id="unit-5-lab-finalizing-the-movie-app" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Unit 5 Lab: Finalizing the Movie App!</h2>
+<!--
+
+## Overview
+This lesson consists of a hands-on lab during which learners will independently create a working Python program. This lab builds on the previous lab, so starter code (which is the same solution code as the previous lab) is provided for them. You simply need to introduce the lab, make sure they have working starter code, make sure they can access the lab doc, and wait in case of questions; at the end, go over the solution (in the `solution-code` folder).
+
+
+## Learning Objectives
+In this lesson, students will:
+- Apply what they've learned in Unit 5 to create a working Python program.
+
+
+## Duration
+90 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:05 | Welcome / Set up |
+| 0:05 - 1:20 | Work Time |
+| 1:20 - 1:30 | Q&A + Close |
+
+## Before Class: Preparation
+- Before class, complete the lab yourself to ensure you’re familiar with the solution, as well as the various challenges learners might encounter.
+- Change the location of the starter code and lab directions.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python 3.0
+- Lab directions
+
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<ul>
+<li>Apply what you’ve learned in Unit 5 to create a working Python program.</li>
+<li>Wrap up Unit 5 (woohoo!).</li>
+<li>Q&amp;A and transition.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Congratulate them on finishing unit 5!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-unit-5-lab---intermediate-python" class="level2">
+<h2>You Do: Unit 5 Lab - Intermediate Python</h2>
+<p>Do you remember the last unit lab? You added error checking, string formatting, and a while loop (but not an infinite one!) - slightly restructuring the code as you went.</p>
+<p>In this lab, you will finish the movie app that we've been working towards! You'll add an API call to actually get the Rotten Tomatoes rating, prompt a user for whether they want to search for a movie or view a rating, and read in an API key from a file.</p>
+<p><strong>Open the file {<code>unit-lab-4-directions</code>} see the lab and its instructions. Follow the instructions there.</strong></p>
+<ul>
+<li><em>If your solution to the last lab didn't quite work, there's working code provided in the {<code>starter-code</code>} folder. Copy that to your local folder and work from there.</em></li>
+</ul>
+<p>Try your best! Raise your hand if you really need help.</p>
+<aside class="notes">
+<p>115 MINUTES</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure you change the link or point out what PDF to look at, and check the starter code location.</li>
+<li>Make sure all students start with working code - they can get it from the starter code file.</li>
+<li>The lab has instructions and an explanation in it for them to read. Make sure they're all opening the lab instructions okay.</li>
+<li>Stay on this slide until everyone's done or time's up!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>Remember, throughout the course, there is a lab at the end of each unit. Each lab builds upon the last.</p></li>
+<li><p>Does anyone need help with the starter code?</p></li>
+<li><p>Right now, let's set up the functions and control flow to print out the values of our variables.</p></li>
+</ul>
+</aside>
+<p>--</p>
+</section>
+<section id="debrief-unit-5-lab---carefully-adding-a-bit-more-logic" class="level2">
+<h2>Debrief: Unit 5 Lab - Carefully Adding a Bit More Logic</h2>
+<p>How did it go?</p>
+<p>Let's go over it.</p>
+<p>Make sure you understand and your code works - the Unit 5 lab builds off this one!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Bring up the solution (in the <code>solution-code</code> directory) and walk them through it. Be sure everyone understands - and be sure everyone's code is accurate or knows that it isn't.</li>
+<li>The next lab builds off of this one, but provides starter code if needed.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="unit-5-wrap-up" class="level2">
+<h2>Unit 5 Wrap Up</h2>
+<p>What'd we cover?</p>
+<p>Scripting:</p>
+<ul>
+<li>Write scripts that perform file I/O.</li>
+<li>Write scripts that take user input.</li>
+</ul>
+<p>Code Abstraction:</p>
+<ul>
+<li>Use itertools to implement efficient looping.</li>
+<li>Use list comprehensions to concisely create lists.</li>
+</ul>
+<p>Modules:</p>
+<ul>
+<li>Add packages and modules to a Python program.</li>
+<li>Navigate library documentation.</li>
+</ul>
+<p>APIs:</p>
+<ul>
+<li>Describe what an API is and why we might use one.</li>
+<li>Call an API.</li>
+</ul>
+<p>Questions?</p>
+<aside class="notes">
+<p>5 MINUTES</p>
+<p><strong>Teaching Tips</strong>: - Briefly review the high-level learning objectives for Unit 5. - As you read each bullet aloud, ask students to give you a &quot;fist to five&quot;. See <strong>Talking Points</strong> below. - Observe student votes for each item, and make a mental note to follow up with individuals who are not feeling confident, or find time to reteach topics that the majority of the class is uncomfortable with. - Take time to go over questions (but remember the parking lot).</p>
+<p><strong>Talking Points</strong>: - Wow, we've covered a lot, and we're just getting started! Let's take a minute to review what we've learned so far. - I'm going to read through the topics for Unit 4. As I do so, I want you to tell me how confident you feel that you've mastered each one, on a scale of 0 to 5. -- Hold up your fist to indicate 0 - you don't feel confident at all that you mastered this objective. -- Hold up all five fingers to indicate 5 - you feel super confident. You're an expert!</p>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

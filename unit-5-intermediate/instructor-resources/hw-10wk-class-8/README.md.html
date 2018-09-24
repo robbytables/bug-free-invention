@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="intermediate-python-scripting-and-code-abstraction" class="level1">
+<h1>Intermediate Python: Scripting and Code Abstraction</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>Let’s put your skills to the test!</p>
+<p>You will practice these programming concepts we’ve covered in class: * Scripting * File I/O * Code abstraction with <code>itertools</code> * List comprehension</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>For the challenges below, you will create a new <code>.py</code> file and write code to solve the problem. Run the file from the command line to check your work. Detailed directions are given below.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you should have: - Two <code>.py</code> files for the solutions. - A generated <code>csv</code> file called <code>tps_report.csv</code>.</p>
+<hr />
+</section>
+<section id="problem-1-tps-report" class="level2">
+<h2>Problem 1: TPS Report</h2>
+<section id="skill-youre-practicing-using-modules-reading-docs-scripting-file-io-and-using-dictionaries." class="level4">
+<h4>Skill you’re practicing: Using modules, reading docs, scripting, file I/O, and using dictionaries.</h4>
+<p>Your boss, Bill, asks you to come in on Saturday to finish your TPS report. You promise to finish the report, but as Bill walks away you smile knowing you have a trick up your sleeve: scripting! You plan on quickly mocking up a bit of code to finish the report and change your performance reviews in the system, all without spending a minute of your Saturday!</p>
+<p>You know of a Python module called <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a> that can be used to read and write <code>csv</code> files. CSV stands for “comma-separated values” and is a file type commonly associated with spreadsheets. You can check out the <a href="https://docs.python.org/3/library/csv.html"><code>csv</code> docs</a> for examples of how this module works. We’ll be using the <a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code> method</a>, which maps a dictionary to output rows.</p>
+</section>
+<section id="example-of-dictwriter" class="level4">
+<h4>Example of DictWriter</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> csv</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># This line opens or creates a `names.csv` file.</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;names.csv&#39;</span>, <span class="st">&#39;w&#39;</span>, newline<span class="op">=</span><span class="st">&#39;&#39;</span>) <span class="im">as</span> csvfile:</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="co"># These are the header row values at the top.</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    fieldnames <span class="op">=</span> [<span class="st">&#39;first_name&#39;</span>, <span class="st">&#39;last_name&#39;</span>]</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="co"># This opens the `DictWriter`.</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    writer <span class="op">=</span> csv.DictWriter(csvfile, fieldnames<span class="op">=</span>fieldnames)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    <span class="co"># Write out the header row (this only needs to be done once!).</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">    writer.writeheader()</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="co"># Write as many rows as you want!</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">    writer.writerow({<span class="st">&#39;first_name&#39;</span>: <span class="st">&#39;Baked&#39;</span>, <span class="st">&#39;last_name&#39;</span>: <span class="st">&#39;Beans&#39;</span>})</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">    writer.writerow({<span class="st">&#39;first_name&#39;</span>: <span class="st">&#39;Lovely&#39;</span>, <span class="st">&#39;last_name&#39;</span>: <span class="st">&#39;Spam&#39;</span>})</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    writer.writerow({<span class="st">&#39;first_name&#39;</span>: <span class="st">&#39;Wonderful&#39;</span>, <span class="st">&#39;last_name&#39;</span>: <span class="st">&#39;Spam&#39;</span>})</a></code></pre></div>
+</section>
+<section id="output-of-dictwriter-example" class="level4">
+<h4>Output of <code>DictWriter</code> Example</h4>
+<p>If you run the previous example locally, you’ll end up with a spreadsheet that looks like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th>first_name</th>
+<th>last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Baked</td>
+<td>Beans</td>
+</tr>
+<tr class="even">
+<td>Lovely</td>
+<td>Spam</td>
+</tr>
+<tr class="odd">
+<td>Wonderful</td>
+<td>Spam</td>
+</tr>
+</tbody>
+</table>
+<p>If you view it in a text editor like Atom, you’ll just see the values separated by commas:</p>
+<pre><code>first_name,last_name
+Baked,Beans
+Lovely,Spam
+Wonderful,Spam</code></pre>
+<blockquote>
+<p><strong>Note:</strong> If you double click on the file that is generated, it will open in whatever spreadsheet program you have on your computer. On a Mac, this is probably Numbers. On Windows, this is probably Excel. If you don’t have a spreadsheet program on your computer, upload the file to Google Sheets and view it there.</p>
+</blockquote>
+</section>
+<section id="your-job" class="level4">
+<h4>Your Job!</h4>
+<p>Now that you have a good idea how to wrangle a <code>csv</code> file, let’s think about what you’d like to do with this newfound power. You have a list of dictionaries called <code>employees</code>, which contains information about each employee including <code>first_name</code>, <code>last_name</code>, <code>hire_date</code>, <code>job_title</code>, and <code>performance_review</code>. You must open a new file called <code>tps_report.csv</code> and make a loop to write out every employee in the <code>employees</code> to <code>tps_report.csv</code>.</p>
+</section>
+<section id="your-starter-code" class="level4">
+<h4>Your Starter Code</h4>
+<p>You can start with the starter code <a href="https://repl.it/@brandiw/03-Python-TPS-Report">here</a>. Please copy it into your own file called <code>problem1.py</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Import &#39;csv&#39; module.</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="im">import</span> csv</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Report is a list of objects.</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># The keys in these objects will be the header fields of your spreadsheet.</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">report <span class="op">=</span> [{...}, {...}, {...}]</a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>first_name,last_name,job_title,hire_date,performance_review
+Bill,Lumbergh,Vice President,1985,excellent
+Michael,Bolton,Programmer,1995,poor
+Peter,Gibbons,Programmer,1989,poor
+Samir,Nagheenanajar,Programmer,1974,fair
+Milton,Waddams,Collator,1974,does he even work here?
+Bob,Porter,Consultant,1999,excellent
+Bob,Slydell,Consultant,1999,excellent</code></pre>
+<p>Or, if you’re viewing it in a spreadsheet program:</p>
+<table>
+<thead>
+<tr class="header">
+<th>first_name</th>
+<th>last_name</th>
+<th>job_title</th>
+<th>hire_date</th>
+<th>performance_review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bill</td>
+<td>Lumbergh</td>
+<td>Vice President</td>
+<td>1985</td>
+<td>excellent</td>
+</tr>
+<tr class="even">
+<td>Michael</td>
+<td>Bolton</td>
+<td>Programmer</td>
+<td>1995</td>
+<td>poor</td>
+</tr>
+<tr class="odd">
+<td>Peter</td>
+<td>Gibbons</td>
+<td>Programmer</td>
+<td>1989</td>
+<td>poor</td>
+</tr>
+<tr class="even">
+<td>Samir</td>
+<td>Nagheenanajar</td>
+<td>Programmer</td>
+<td>1974</td>
+<td>fair</td>
+</tr>
+<tr class="odd">
+<td>Milton</td>
+<td>Waddams</td>
+<td>Collator</td>
+<td>1974</td>
+<td>does he even work here?</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Porter</td>
+<td>Consultant</td>
+<td>1999</td>
+<td>excellent</td>
+</tr>
+<tr class="odd">
+<td>Bob</td>
+<td>Slydell</td>
+<td>Consultant</td>
+<td>1999</td>
+<td>excellent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hint:</strong> Instead of writing <code>writerow</code> many times in a row, try looping through the <code>employees</code> list.</p>
+<hr />
+</section>
+</section>
+<section id="problem-2-have-you-seen-my-stapler" class="level2">
+<h2>Problem 2: Have You Seen My Stapler?</h2>
+<section id="skills-youre-practicing-using-modules-reading-docs-scripting-file-io-and-using-dictionaries." class="level4">
+<h4>Skills you’re practicing: Using modules, reading docs, scripting, file I/O, and using dictionaries.</h4>
+<p>Now we have a TPS report, but it isn’t finished — there are still a couple of things left to do!</p>
+<pre><code>1. Add a field called `finished_review` to each employee. The value for every row should be `yes`. You figure you can just add this field to each dictionary inside the loop.
+
+2. Change everyone&#39;s `performance_review` to `excellent`, unless it&#39;s your boss `Bill` or someone with the `job_title` of `Consultant`. In that case, make their `performance_review` value `poor`.
+
+3. Enjoy your Saturday! 🌤 🕶 😎</code></pre>
+</section>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<p>Copy all of your code from <code>problem1.py</code> and use that as your base code for <code>problem2.py</code>!</p>
+</section>
+<section id="expected-output-1" class="level4">
+<h4>Expected Output</h4>
+<pre><code>first_name,last_name,job_title,hire_date,performance_review,finished_review
+Bill,Lumbergh,Vice President,1985,poor,yes
+Michael,Bolton,Programmer,1995,excellent,yes
+Peter,Gibbons,Programmer,1989,excellent,yes
+Samir,Nagheenanajar,Programmer,1974,excellent,yes
+Milton,Waddams,Collator,1974,excellent,yes
+Bob,Porter,Consultant,1999,poor,yes
+Bob,Slydell,Consultant,1999,poor,yes</code></pre>
+<p>Or, in table form:</p>
+<table>
+<thead>
+<tr class="header">
+<th>first_name</th>
+<th>last_name</th>
+<th>job_title</th>
+<th>hire_date</th>
+<th>performance_review</th>
+<th>finished_review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bill</td>
+<td>Lumbergh</td>
+<td>Vice President</td>
+<td>1985</td>
+<td>poor</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Michael</td>
+<td>Bolton</td>
+<td>Programmer</td>
+<td>1995</td>
+<td>excellent</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Peter</td>
+<td>Gibbons</td>
+<td>Programmer</td>
+<td>1989</td>
+<td>excellent</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Samir</td>
+<td>Nagheenanajar</td>
+<td>Programmer</td>
+<td>1974</td>
+<td>excellent</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Milton</td>
+<td>Waddams</td>
+<td>Collator</td>
+<td>1974</td>
+<td>excellent</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Porter</td>
+<td>Consultant</td>
+<td>1999</td>
+<td>poor</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Bob</td>
+<td>Slydell</td>
+<td>Consultant</td>
+<td>1999</td>
+<td>poor</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hint:</strong> If you get a <code>ValueError</code> saying that <code>finished_review</code> is not a field name, it means that you forgot to add it to the <code>fieldnames</code> array.</p>
+<hr />
+</section>
+</section>
+<section id="look-at-you-being-a-boss" class="level2">
+<h2>Look at You, Being a Boss!</h2>
+<p>What do you call a snake that’s 3.14 meters long?</p>
+<p><img src="https://media.giphy.com/media/3owyoUHuSSqDMEzVRu/giphy.gif" /></p>
+<p>A <code>Pi-Thon</code>! :D</p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

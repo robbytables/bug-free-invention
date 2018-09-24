@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Next Steps in Web Development
+type: lesson
+duration: "01:00"
+creator: Kevin Coyle
+-->
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Next Steps in Web Development
+</h1>
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Identify common web concepts to dive into next.</li>
+<li>Identify common Python libraries used for front-end web development.</li>
+<li>Identify common Python-based tech stacks for back-end web development.</li>
+</ul>
+<hr />
+</section>
+<section id="web-development-is-pretty-cool.-whats-next" class="level2">
+<h2>Web Development Is Pretty Cool. What’s Next?</h2>
+<p>Web development is a huge field. Where should you go next?</p>
+<p>There are a few options to explore:</p>
+<ul>
+<li>Front-end web development.
+<ul>
+<li>Code in Python to just host the site.</li>
+</ul></li>
+<li>Back-end with Python.
+<ul>
+<li>Code in Python</li>
+</ul></li>
+</ul>
+<p>With one of those, you can also explore…</p>
+<ul>
+<li>Extending Flask.</li>
+<li>Other popular Python web framework libraries.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>When you know Python, there are multiple areas of web development open to you.</li>
+<li>Because Python is both a front- and back-end language, you have a wide array of options.
+<ul>
+<li>Flask has built the whole website for you — the front and back ends. But you can do each side individually, without Flask. People can write the front end using HTML and JavaScript (maybe add “HTML and JavaScript are done for you” as a sub-bullet under back-end), and rely on your Python skills to host the site.</li>
+</ul></li>
+<li>What’s this front-end/back-end distinction? To be honest, there’s usually a bit of overlap and people are required to wear hats from one side or another, but generally:
+<ul>
+<li>Front-end people handle the part of the website that people see.</li>
+<li>Back-end people handle the server side — where the site works, updates, and changes.</li>
+</ul></li>
+<li>Front-end development is for you if you’re more interested in a website’s design than how it gets online.</li>
+<li>Back-end programming route is for you if you don’t want to worry about how the site’s appearance; you just want the programming challenges of getting the site online.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="path-1-front-end-development" class="level2">
+<h2>Path 1: Front-End Development?</h2>
+<p>Configuring the part of the website people see.</p>
+<p><strong>Why might you go this route?</strong></p>
+<ul>
+<li>You’re design-inclined.</li>
+<li>You want to make cool sites!</li>
+<li>You’re using Python to accomplish the goal of propping up your designs.</li>
+</ul>
+<hr />
+</section>
+<section id="path-1-front-end-development-what-next" class="level2">
+<h2>Path 1: Front-End Development — What Next?</h2>
+<p>GA has some classes! (A shameless self-plug, but part-time Front-End Web Development is a good place to start.)</p>
+<p>For your own study:</p>
+<ul>
+<li>Get better at HTML and CSS (<em>important</em>).
+<ul>
+<li>The core of front-end web development.</li>
+</ul></li>
+<li>Check out Bootstrap and Flexbox.
+<ul>
+<li>HTML/CSS frameworks.</li>
+</ul></li>
+<li>Check out JavaScript and JavaScript frameworks.
+<ul>
+<li>Add interactivity to your webpages.</li>
+<li>React, Angular, jQuery, and Ember are all popular in different locations.</li>
+</ul></li>
+</ul>
+<hr />
+</section>
+<section id="path-1-front-end-development-then-what" class="level2">
+<h2>Path 1: Front-End Development — Then What?</h2>
+<p>Start building up a portfolio of projects.</p>
+<ul>
+<li>Make yourself a portfolio website to showcase your work!</li>
+</ul>
+<p>Once you’re comfortable, try modifying premade Bootstrap themes.</p>
+<hr />
+</section>
+<section id="path-2-back-end-development" class="level2">
+<h2>Path 2: Back-End Development?</h2>
+<p>Handle the server side:</p>
+<ul>
+<li>Make websites work.</li>
+<li>Bring in data.</li>
+</ul>
+<p><strong>Why might you go this route?</strong></p>
+<ul>
+<li>You love programming!</li>
+<li>You don’t care how the website looks.</li>
+<li>You just want to write Python.</li>
+<li>The idea of using someone else’s designs sounds great.</li>
+</ul>
+<hr />
+</section>
+<section id="path-2-back-end-development-what-next" class="level2">
+<h2>Path 2: Back-End Development — What Next?</h2>
+<p>GA has some classes! (Another shameless self plug. The full-time Web Development Immersive will give you a strong foundation in back-end essentials.)</p>
+<p>For your own study:</p>
+<ul>
+<li>Learn Git version control (<em>important</em>).
+<ul>
+<li>Learn GitHub or another version control system.</li>
+</ul></li>
+<li>Check out connecting to databases.</li>
+<li>Learn SQL.</li>
+<li>Learn about SQLAlchemy and PyMongo.</li>
+<li>Learn about servers like WSGI and NGINX.</li>
+</ul>
+<hr />
+</section>
+<section id="path-2-back-end-development-then-what" class="level2">
+<h2>Path 2: Back-End Development — Then What?</h2>
+<p>Start a portfolio (preferably on GitHub or another version control system).</p>
+<p>Once you’re comfortable:</p>
+<ul>
+<li>Try starting a MongoDB yourself, then having Flask retrieve data from there.</li>
+</ul>
+<hr />
+</section>
+<section id="knowledge-check-i-want-to" class="level2">
+<h2>Knowledge Check: I want to…</h2>
+<p><strong>… make a beautiful website.</strong></p>
+<p>All this Python coding is a bit much for me, but I like websites.</p>
+<p>Which should I look into?</p>
+<ul>
+<li>Front-end web development</li>
+<li>HTML/CSS/JavaScript</li>
+<li>Flask extensions</li>
+<li>Back-end web development</li>
+</ul>
+<p>Which do you think?</p>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Answer: Front-end web development or HTML/CSS/JavaScript.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="solution-i-want-to" class="level2">
+<h2>Solution: I want to…</h2>
+<p><strong>… make a beautiful website.</strong></p>
+<p>All this Python coding is a bit much for me, but I like websites.</p>
+<p>Which should I look into?</p>
+<ul>
+<li>Front-end web development</li>
+<li>HTML/CSS/JavaScript</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Answer: Front-end web development or HTML/CSS/JavaScript</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="pathish-3-expanding-on-flask" class="level2">
+<h2>Path(ish) 3: Expanding on Flask</h2>
+<p>This is not really a path! But you can do it in conjunction with either of the above.</p>
+<p>Look into integrating these with Flask:</p>
+<ul>
+<li>Bootstrap</li>
+<li>SQLAlchemy/PyMongo</li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - Flask is fantastic web development framework. - Our first <code>Hello World</code> app was about seven lines of code. - However, building modern websites with any framework (even one as lightweight as Flask) takes work. - As we are primarily concerned here with Python and Flask, I’ll give you a couple shortcuts, listed here on the slides. - These integrate with Flask fairly easily. Yay!
+</aside>
+<hr />
+</section>
+<section id="bootstrap" class="level2">
+<h2>Bootstrap</h2>
+<p>Front-end or Flask? This slide’s for you.</p>
+<p>Like awesome-looking websites?</p>
+<p>Don’t like typing out HTML and CSS?</p>
+<p>Bootstrap is for you!</p>
+<ul>
+<li>It’s a free and open-source front-end framework.</li>
+<li>Handles all of the “pretty” stuff.</li>
+</ul>
+<p>Bootstrap is great for:</p>
+<ul>
+<li>Prospective front-end developers.
+<ul>
+<li>Extremely popular in many companies.</li>
+</ul></li>
+<li>Integrating with Flask!
+<ul>
+<li>Bootstrap makes a site pretty, and Flask makes it work.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - Bootstrap was started by Mark Otto and Jacob Thornton at Twitter. - One of the main use cases for Bootstrap is people who like the idea of great-looking websites, but don’t want to write the CSS and/or HTML. - Bootstrap can connect to Flask.
+</aside>
+<hr />
+</section>
+<section id="how-to-get-started-with-bootstrap-and-flask" class="level2">
+<h2>How to Get Started With Bootstrap and Flask</h2>
+<p>Here’s how to get it:</p>
+<ul>
+<li><code>pip install Flask-Bootstrap</code>.</li>
+<li><code>git clone https://github.com/mbr/flask-bootstrap.git</code>.</li>
+<li><code>cd</code> into the <code>flask-bootstrap</code> directory.</li>
+<li>Run <code>pip install -r sample_app/requirements.txt</code> to install the required packages.</li>
+</ul>
+<p>And here’s how to run it:</p>
+<ul>
+<li>Deploy Flask with Bootstrap by running <code>flask --app=sample_app dev</code>.</li>
+<li>Go through directories.
+<ul>
+<li>Comment out code to be certain you know exactly what every line is doing.</li>
+</ul></li>
+</ul>
+<p>Here’s where you can read the docs: https://getbootstrap.com/docs/3.3/getting-started/.</p>
+<hr />
+</section>
+<section id="sqlalchemy-and-pymongo" class="level2">
+<h2>SQLAlchemy and PyMongo</h2>
+<p>Back-end or Flask? This slide’s for you.</p>
+<p>We can’t always connect to a list!</p>
+<ul>
+<li>Most information is stored in databases (like a spreadsheet).</li>
+</ul>
+<p><strong>SQL</strong> is <em>the</em> language for working with databases.</p>
+<p>Knowing a database is also crucial! Popular databases include:</p>
+<ul>
+<li>MySQL</li>
+<li>MongoDB</li>
+<li>PostgresQL</li>
+</ul>
+<p>Some Python libraries to look into include:</p>
+<ul>
+<li>SQLAlchemy</li>
+<li>PyMongo</li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - When we added data to our Flask app, we appended to a list. - This is fantastic first start, but if you’d like to have a larger database, you’ll need to look into databases like PostgreQL, MySQL, or MongoDB. - Flask can integrate with a number of databases. - Although there is no out-of-the-box with Flask, there are many libraries in Python. - Two that we’ll highlight here are SQLAlchemy and MongoDB. - There’s an extension of Flask called Flask-SqlAlchemy — <code>pip install Flask-SqlAlchemy</code> — that allows you to connect to SQL databases using Python. - You might be asking yourself, “What about these ‘NoSQL’ databases I keep hearing about?” - Remember how we “JSON-ified” our <code>return</code>? MongoDB is an open-source database that stores JSON like “documents.” - Instead of rows like in PostgreSQL and such, there can be any number, name, or hierarchy of fields.
+</aside>
+<hr />
+</section>
+<section id="how-to-get-started-with-pymongo" class="level2">
+<h2>How to Get Started With PyMongo</h2>
+<p>This slide’s long! It’s for your later reference.</p>
+<p>How do I use Flask and databases?</p>
+<ul>
+<li>Install Flask SQLAlchemy with <code>pip install Flask-SqlAlchemy</code>.</li>
+<li>Install Flask PyMongo with <code>pip install Flask-PyMongo</code>.</li>
+</ul>
+<p>What about back-end database with no Flask?</p>
+<ul>
+<li>Install just PyMongo with <code>python -m pip install pymongo</code>.</li>
+</ul>
+<p>Either way, you need a database. Install MongoDB:</p>
+<ul>
+<li><code>brew update</code></li>
+<li><code>brew install mongodb</code></li>
+<li><code>brew install mongodb --devel</code></li>
+</ul>
+<hr />
+</section>
+<section id="how-to-get-started-with-pymongo-1" class="level2">
+<h2>How to Get Started With PyMongo</h2>
+<p>Start your MongoDB instance:</p>
+<ul>
+<li><code>mkdir -p /data/db</code>
+<ul>
+<li>Note: If that results in an error, you need different privileges.</li>
+<li>Run: <code>sudo mkdir -p /data/db</code>.</li>
+</ul></li>
+<li>Start your database with the Mongo daemon with the command <code>mongod</code>.</li>
+</ul>
+<hr />
+</section>
+<section id="how-to-get-started-with-pymongo-2" class="level2">
+<h2>How to Get Started With PyMongo</h2>
+<p>Then, add some data to your database. Save the below to a Python file and then try making <code>GET</code> and <code>POST</code> requests!</p>
+<pre><code>from flask import Flask, jsonify, request
+from flask_pymongo import PyMongo
+
+app = Flask(__name__)
+
+app.config[&#39;MONGO_DBNAME&#39;] = &#39;burritodb&#39;
+app.config[&#39;MONGO_URI&#39;] = &#39;mongodb://localhost:27017/burritodb&#39;
+
+mongo = PyMongo(app)
+
+@app.route(&#39;/burrito&#39;, methods=[&#39;GET&#39;])
+def get_all_burritos():
+  burrito = mongo.db.burritos
+  output = []
+  for s in burrito.find():
+    output.append({&#39;ingredient&#39; : s[&#39;ingredient&#39;], &#39;burrito_necessity&#39; : s[&#39;burrito_necessity&#39;]})
+  return jsonify({&#39;result&#39; : output})
+
+@app.route(&#39;/burrito/&#39;, methods=[&#39;GET&#39;])
+def get_one_burrito(ingredient):
+  burrito = mongo.db.burritos
+  s = burrito.find_one({&#39;ingredient&#39; : ingredient})
+  if s:
+    output = {&#39;ingredient&#39; : s[&#39;ingredient&#39;], &#39;burrito_necessity&#39; : s[&#39;burrito_necessity&#39;]}
+  else:
+    output = &quot;No such ingredient&quot;
+  return jsonify({&#39;result&#39; : output})
+
+@app.route(&#39;/burrito&#39;, methods=[&#39;POST&#39;])
+def add_burrito():
+  burrito = mongo.db.burritos
+  ingredient = request.json[&#39;ingredient&#39;]
+  burrito_necessity = request.json[&#39;burrito_necessity&#39;]
+  burrito_id = burrito.insert({&#39;ingredient&#39;: ingredient, &#39;burrito_necessity&#39;: burrito_necessity})
+  new_burrito = burrito.find_one({&#39;_id&#39;: burrito_id })
+  output = {&#39;ingredient&#39; : new_burrito[&#39;ingredient&#39;], &#39;burrito_necessity&#39; : new_burrito[&#39;burrito_necessity&#39;]}
+  return jsonify({&#39;result&#39; : output})
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug=True)
+</code></pre>
+<hr />
+</section>
+<section id="knowledge-check-i-want-to-1" class="level2">
+<h2>Knowledge Check: I want to…</h2>
+<p><strong>…make a beautiful database.</strong></p>
+<p>All this Python coding is exciting!</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>Bootstrap</li>
+<li>Back-end web development</li>
+<li>SQLAlchemy</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>MongoDB</li>
+<li>HTML and CSS</li>
+</ul>
+<p>Which do you think?</p>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+Answer: Back-end web development, SQLAlchemy, MySQL, PostgreSQL, and MongoDB.
+</aside>
+<hr />
+</section>
+<section id="solution-i-want-to-1" class="level2">
+<h2>Solution: I want to…</h2>
+<p><strong>…make a beautiful database.</strong></p>
+<p>All this Python coding is exciting!</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>Back-end web development</li>
+<li>SQLAlchemy</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>MongoDB</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips:</strong></p>
+Answer: Back-end web development, SQLAlchemy, MySQL, PostgreSQL, and MongoDB.
+</aside>
+<hr />
+</section>
+<section id="pathish-4-web-frameworks-that-arent-flask" class="level2">
+<h2>Path(ish) 4: Web Frameworks That Aren’t Flask</h2>
+<p>Flask isn’t the only Python web framework.</p>
+<p>There are also:</p>
+<ul>
+<li>Pyramid</li>
+<li>Zope</li>
+<li>Bottle</li>
+<li>CherryPy</li>
+<li><strong>Django</strong></li>
+<li><strong>Pelican</strong></li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - You may have heard of some other Python-based web frameworks like these listed. - We’re going to focus on the last two: Django and Pelican.
+</aside>
+<hr />
+</section>
+<section id="whats-django" class="level2">
+<h2>What’s Django?</h2>
+<ul>
+<li>A complete, “batteries-included” approach philosophy.
+<ul>
+<li>Conversely, Flask is lightweight; you add pieces on as you need them.</li>
+</ul></li>
+<li><p>A more secure framework.</p></li>
+<li><p>Highly scalable — think Disqus and Instagram.</p></li>
+<li><p>Get started at djangoproject.com.</p></li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - Django is similar to Flask in that it’s a web framework. - However, whereas Flask takes a “Lego-like” building-blocks approach, Django comes with more of the bells and whistles built in. - What’s great about Django is that other developers have taken a lot of the hassle out of web development. - This includes some things that help developers out like everything listed here.
+</aside>
+<hr />
+</section>
+<section id="whats-pelican" class="level2">
+<h2>What’s Pelican?</h2>
+<ul>
+<li>A Python library for static sites.
+<ul>
+<li>Blogs don’t need to change beyond the text!</li>
+</ul></li>
+<li><p>Generates the HTML for you.</p></li>
+<li><p>You just need Python code and text!</p></li>
+</ul>
+<p>This is a really quick way to get a site up and running.</p>
+<p><code>pip install pelican</code></p>
+<aside class="notes">
+<strong>Talking Points:</strong> - Recently, there’s been a resurgence in the popularity of static webpages. - Blogs and other sites that don’t require as many code updates are prime examples of sites that would use static webpages. - Python has a library called Pelican, which can generate these static sites for you (they generate all the HTML from a markdown file that you create). - This means: You just write some Python code, and all the HTML gets made for you!
+</aside>
+<hr />
+</section>
+<section id="web-development-in-general" class="level2">
+<h2>Web Development in General</h2>
+<p>There’s so much more!</p>
+<p>Mozilla (the company that makes Firefox) is an amazing resource.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/">developer.mozilla.org/</a></li>
+</ul>
+<aside class="notes">
+<strong>Talking Points:</strong> - We’ve covered some libraries as well as some places to go for front-end and back-end tech stacks. - However, we haven’t even scratched the surface of web development as a whole. - The fine folks at Mozilla have put together a web development resource that you can check out at developer.mozilla.org.
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-i-want-to-2" class="level2">
+<h2>Knowledge Check: I want to…</h2>
+<p><strong>… make a blog.</strong></p>
+<p>I want to build simple, static websites in less than 10 minutes and then work on content.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>Pelican</li>
+<li>Databases</li>
+<li>Bootstrap</li>
+<li>Django</li>
+</ul>
+<p>Which do you think?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+Answer: Pelican!
+</aside>
+<hr />
+</section>
+<section id="solution-i-want-to-2" class="level2">
+<h2>Solution: I want to…</h2>
+<p><strong>…make a blog.</strong></p>
+<p>I want to build simple, static websites in less than 10 minutes and then work on content.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>Pelican!</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+Answer: Pelican!
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-i-want-to-3" class="level2">
+<h2>Knowledge Check: I want to…</h2>
+<p><strong>…make an awesome Flask-based website.</strong></p>
+<p>I really liked all the above and am right at home between front-end and back-end with Flask.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>More <a href="http://flask.pocoo.org/extensions/">Flask extensions</a></li>
+<li>Bootstrap</li>
+<li>PostgresSQL</li>
+<li>HTML and CSS</li>
+<li>Pelican</li>
+<li>Django</li>
+</ul>
+<p>Which do you think?</p>
+<aside class="notes">
+<strong>Teaching Tips:</strong> - More <a href="http://flask.pocoo.org/extensions/">Flask extensions</a> - Bootstrap - PostgreSQL
+</aside>
+<hr />
+</section>
+<section id="solution-i-want-to-3" class="level2">
+<h2>Solution: I want to…</h2>
+<p><strong>…make an awesome Flask-based website.</strong></p>
+<p>I really liked all of the above and am right at home between front- and back-end with Flask.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>More <a href="http://flask.pocoo.org/extensions/">Flask extensions</a></li>
+<li>Bootstrap</li>
+<li>PostgreSQL</li>
+</ul>
+<aside class="notes">
+<strong>Teaching Tips:</strong> Answer: - More <a href="http://flask.pocoo.org/extensions/">Flask extensions</a> - Bootstrap - PostgreSQL
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-i-want-to-4" class="level2">
+<h2>Knowledge Check: I want to…</h2>
+<p><strong>Make a website, but without all these libraries and extensions</strong></p>
+<p>I really the idea of this whole framework thing, but I wish there were only one, obvious way to do things.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>More <a href="http://flask.pocoo.org/extensions/">Flask extensions</a></li>
+<li>Bootstrap</li>
+<li>PostgreSQL</li>
+<li>HTML / CSS</li>
+<li>Pelican</li>
+<li>Django</li>
+</ul>
+<aside class="notes">
+<strong>Teaching Tips:</strong> Answer: Django
+</aside>
+<hr />
+</section>
+<section id="solution-i-want-to-4" class="level2">
+<h2>Solution: I want to…</h2>
+<p><strong>… make a website, but without all these libraries and extension.s</strong></p>
+<p>I really the idea of this whole framework thing, but I wish there were only one obvious way to do things.</p>
+<p>Which of these should I look into?</p>
+<ul>
+<li>Django</li>
+</ul>
+<aside class="notes">
+<strong>Teaching Tips:</strong> Answer: Django
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>There are a lot of ways to go!</p>
+<ul>
+<li>Extending Flask.</li>
+<li>Python front-end libraries.</li>
+<li>Python back-end libraries for databases.</li>
+<li>A few other Python-based web frameworks.</li>
+<li>General front-end or back-end web development.</li>
+</ul>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="http://exploreflask.com/en/latest/pym">Explore Flask</a></li>
+<li><a href="https://api.mongodb.com/python/current/">PyMongo Documentation</a></li>
+<li><a href="https://docs.sqlalchemy.org/en/latest/orm/tutorial.html">SQLAlchemy’s Fantastic Object Relational Mapper Tutorial</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.0/">Django Documentation</a></li>
+<li><a href="http://docs.getpelican.com/en/stable/">Pelican Documentation</a></li>
+<li><a href="http://flask.pocoo.org/docs/1.0/">The Flask Docs</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Beginner Git Tutorial</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

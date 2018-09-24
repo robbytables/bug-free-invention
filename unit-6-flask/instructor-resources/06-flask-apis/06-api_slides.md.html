@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+APIs and Requests in Flask
+</h1>
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Create an API that makes a <code>GET</code> request with Flask.</li>
+<li>Create an API that makes a <code>POST</code> request with Flask.</li>
+</ul>
+<hr />
+</section>
+<section id="discussion-remember-apis" class="level2">
+<h2>Discussion: Remember APIs?</h2>
+<ul>
+<li><p>We can call them.</p></li>
+<li><p>But who publishes them?</p></li>
+<li><p>Do you think we could make one?</p></li>
+</ul>
+<hr />
+</section>
+<section id="apis" class="level2">
+<h2>APIs</h2>
+<p>In your browser, head to <a href="https://swapi.co/api/people/13/?format=json" class="uri">https://swapi.co/api/people/13/?format=json</a>.</p>
+<ul>
+<li>That’s a collection of data about Chewbacca.</li>
+</ul>
+<p>What would it look like in Chewbacca’s language?</p>
+<p>Head to <a href="https://swapi.co/api/people/13/?format=wookiee" class="uri">https://swapi.co/api/people/13/?format=wookiee</a>.</p>
+<ul>
+<li>This is the same data written in Wookiee!</li>
+</ul>
+<hr />
+</section>
+<section id="web-api-recap" class="level2">
+<h2>Web API Recap</h2>
+<ul>
+<li>A list of function calls that are made to remote servers.
+<ul>
+<li>Sent by encoding a URL (an HTTP request).</li>
+<li>We could <strong>call</strong> the OMDb API to get a movie’s information.</li>
+</ul></li>
+<li>Now, we’re going to <strong>create</strong> an API using Flask.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>At a theoretical level, you can think of interfaces kind of analogous to real-world counterparts:
+<ul>
+<li>Door handles. These interfaces get pushed or pulled, and the door opens to a new space. We could even have crazy DeLorean style doors that open upward.</li>
+<li>A standard telephone. When you call someone, you are connected from your space to another space using this interface.</li>
+</ul></li>
+<li>Today, we’ll write a function based on displaying a list of heroes of the Python/programming world.</li>
+<li>Using the abstracted examples from a second ago, you can think of the function call as the phone number that you’re dialing, or the handle that you make a request on.</li>
+<li>Many web programmers today use web APIs. The rise of JavaScript and the current state of programming techniques are the principal movers of this rise. We’re going to create an API today using Flask.</li>
+<li>Because of how interactive many websites have become (again, fingers pointed at JavaScript), many other languages like Python started co-opting standards to communicate data to and from servers.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-the-sides-of-an-api" class="level2">
+<h2>Discussion: The Sides of an API</h2>
+<p>What’s the difference between calling and creating an API?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="http" class="level2">
+<h2>HTTP</h2>
+<ul>
+<li>Stands for Hypertext Transfer Protocol.</li>
+<li>A system of rules (protocol) that determines how webpages (hypertext) get sent from one place to another (transfer).</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<p>There are <strong>clients</strong> that:</p>
+<ul>
+<li>HTTP clients respond to HTTP responses from a web server/HTTP server.</li>
+<li>Web servers receive HTTP requests and generate HTTP responses.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="recap-clients-and-servers" class="level2">
+<h2>Recap: Clients and Servers</h2>
+<p>With HTTP, there are two sides:</p>
+<ul>
+<li>Clients
+<ul>
+<li>Make the requests.</li>
+</ul></li>
+<li>Servers
+<ul>
+<li>Receive those requests.</li>
+</ul></li>
+</ul>
+<hr />
+</section>
+<section id="crud" class="level2">
+<h2>CRUD</h2>
+<p>These four functions are everywhere in programming:</p>
+<ul>
+<li><strong>C</strong>reate</li>
+<li><strong>R</strong>ead</li>
+<li><strong>U</strong>pdate</li>
+<li><strong>D</strong>elete</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>CRUD operations are the four basic functions in persistent storage.</li>
+<li>CRUD operations are everywhere in programming.</li>
+<li>Here, we’re most concerned with how our API is going to create, read, and update data via an HTTP URL.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="crud-mapped-to-http-requests" class="level2">
+<h2>CRUD Mapped to HTTP Requests</h2>
+<p>What do we do when calling the OMDb API?</p>
+<ul>
+<li><code>GET</code>:
+<ul>
+<li><em>Read</em>.</li>
+<li>“Tell me all values in <code>instrument_list</code>.”</li>
+</ul></li>
+<li><code>POST</code>:
+<ul>
+<li>Usually <em>Create</em>, sometimes <em>Update</em>.</li>
+<li>“Add <code>cello</code> to <code>instrument_list</code>.”</li>
+</ul></li>
+<li><code>PUT</code>:
+<ul>
+<li>Similar to <code>POST</code>.</li>
+<li><em>Create</em> or <em>Update</em> an entity.</li>
+</ul></li>
+<li><code>PATCH</code>:
+<ul>
+<li><em>Update</em> only a specified field.</li>
+<li>“In <code>instrument_list</code>, change <code>guitar_type</code> to <code>bass</code>.”</li>
+</ul></li>
+<li><code>DELETE</code>:
+<ul>
+<li><em>Delete!</em></li>
+<li>“Delete <code>instrument_list</code>.”</li>
+<li>Doesn’t necessarily happen immediately.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>Here are HTTP methods used to map to CRUD (create, read, update, delete) operations to HTTP requests:
+<ul>
+<li><code>GET</code>, <code>PUT</code>, and <code>PATCH</code>.</li>
+</ul></li>
+<li>They must be safe and idempotent (i.e., regardless of how many times it repeats with the same parameters, the results are the same).</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check" class="level2">
+<h2>Knowledge Check:</h2>
+<p>What does CRUD stand for?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: “Create, Read/Retrieve, Update, and Delete/Destroy.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-post-and-get" class="level2">
+<h2>Knowledge Check: <code>POST</code> and <code>GET</code></h2>
+<p>What’s the difference between a <code>POST</code> and <code>GET</code> request?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: A <code>POST</code> request will create or update something, while a <code>GET</code> request will read something.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="creating-an-api-with-flask" class="level2">
+<h2>Creating an API With Flask</h2>
+<p>We’re going to create an example of an API that:</p>
+<ul>
+<li>Takes in a list of dictionaries.</li>
+<li>Parses that list based on what we pass into the API.</li>
+<li>Returns a JSON with the appropriate data.</li>
+</ul>
+<hr />
+</section>
+<section id="remember-json" class="level2">
+<h2>Remember JSON?</h2>
+<ul>
+<li>Both dictionaries and JSONs have key-value pairs.</li>
+<li>Both dictionaries and JSONs are wrapped in curly brackets (<code>{}</code>).</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">heroes_dictionary <span class="op">=</span> {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Peter_Norvig&#39;</span>, <span class="st">&#39;person&#39;</span>: <span class="st">&#39;Gilbert_Strang&#39;</span>, <span class="st">&#39;person&#39;</span>: <span class="st">&#39;Ada_Lovelace&#39;</span>, <span class="st">&#39;person&#39;</span>: <span class="st">&#39;Guido_van_Rossum&#39;</span>}</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">heroes_json <span class="op">=</span> [{<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Peter_Norvig&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Gilbert_Strang&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Ada_Lovelace&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Guido_van_Rossum&#39;</span>}]</a></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>The most that we need to know right now about JSON is that it has a similar data structure in Python: the dictionary.</li>
+<li>We’re going to modify <code>hello_api.py</code> again in your code editor.</li>
+</ul>
+</aside>
+</section>
+<section id="we-do-new-functions" class="level2">
+<h2>We Do: New Functions</h2>
+<ul>
+<li>Import two new functions: <code>jsonify</code> and <code>request</code>.</li>
+</ul>
+<pre><code>from flask import Flask, jsonify, request</code></pre>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Explain why we’re taking these in.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-first-api-route" class="level2">
+<h2>We Do: First API Route</h2>
+<ul>
+<li>Add a new route under our <code>hello</code> home page.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/api&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">def</span> returnJsonTest():</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="cf">return</span> jsonify({<span class="st">&#39;What happened?&#39;</span>: <span class="st">&#39;It worked!&#39;</span>})</a></code></pre></div>
+<ul>
+<li><p>Test both routes:</p>
+<ul>
+<li><p><code>localhost:5000</code></p></li>
+<li><p><code>localhost:5000/api</code></p></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>Let’s add a new route under our <code>Hello World</code> home page.</li>
+<li>Save your Python file. If we have our code right, our new page should return our JSON!</li>
+<li>Open your browser and first head to <code>localhost:5000</code>.</li>
+<li>Then head to <code>localhost:5000/api</code>.</li>
+<li>It worked! Congratulations!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-discussion" class="level2">
+<h2>Knowledge Check: Discussion</h2>
+<p>What two new functions did we add into our import?</p>
+<p>What do they do?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: <code>jsonify</code> and <code>request</code>.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-altering-data-with-apis" class="level2">
+<h2>We Do: Altering Data With APIs</h2>
+<ul>
+<li><p>Cool!</p></li>
+<li><p>What if we want the data to change?</p></li>
+<li><p>Add a list under the <code>app</code> instantiation, above the routes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">heroes <span class="op">=</span> [{<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Peter_Norvig&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Gilbert_Strang&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Ada_Lovelace&#39;</span>}, {<span class="st">&#39;person&#39;</span>: <span class="st">&#39;Guido_van_Rossum&#39;</span>}]</a></code></pre></div></li>
+</ul>
+<p>What can we do with that?</p>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>This is cool, but what if we want that data to change?</li>
+<li>Let’s create a list like the one on the screen.</li>
+<li>Let’s add that into our script in <code>hello_api.py</code>.</li>
+</ul>
+<p><strong>Teaching Tips:</strong></p>
+<p>The code currently is:</p>
+<pre><code>from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+heroes = [{&#39;person&#39;: &#39;Peter_Norvig&#39;}, {&#39;person&#39;: &#39;Gilbert_Strang&#39;}, {&#39;person&#39;: &#39;Ada_Lovelace&#39;}, {&#39;person&#39;: &#39;Guido_van_Rossum&#39;}]
+
+@app.route(&#39;/&#39;)
+def hello():
+    return &quot;Hello, World&quot;
+
+@app.route(&#39;/api&#39;, methods=[&#39;GET&#39;])
+def returnJsonTest():
+    return jsonify({&#39;What happened?&#39;: &#39;It worked!&#39;})
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug=True)</code></pre>
+</aside>
+<hr />
+</section>
+<section id="we-do-apis-to-return-all-data" class="level2">
+<h2>We Do: APIs to Return All Data</h2>
+<ul>
+<li>We have a list.</li>
+<li>We need to get data from it.</li>
+<li>Make a new route:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/heroes&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">def</span> gimmeAllHeroes():</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="cf">return</span> jsonify({<span class="st">&#39;heroes&#39;</span>: heroes})</a></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>We also need to add in some code to give us the data from our list.
+<ul>
+<li>We’ll add a function to return all the data.</li>
+<li>Type out the code on the slide in your <code>hello_api.py</code> script, below the <code>def</code>.</li>
+</ul></li>
+<li>There are a few things going on here:
+<ul>
+<li>We loop over our list of heroes.</li>
+<li>We return one of the heroes if our name in the HTTP address matches the name in our function.</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-apis-to-return-only-some-data" class="level2">
+<h2>We Do: APIs to Return Only SOME Data</h2>
+<ul>
+<li>At this route, loop over the heroes.</li>
+<li>Try to find the one we want!</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/heroes/&lt;string:name&gt;&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">def</span> gimmeOneHero(name):</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">        names <span class="op">=</span> [hero <span class="cf">for</span> hero <span class="kw">in</span> heroes <span class="cf">if</span> hero[<span class="st">&#39;person&#39;</span>] <span class="op">==</span> name]</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="cf">return</span> jsonify({<span class="st">&#39;hero&#39;</span>: names[<span class="dv">0</span>]})</a></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>There are a few things going on here:
+<ul>
+<li>We loop over our list of heroes.</li>
+<li>We return one of the heroes if our name in the HTTP address matches the name in our function.</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-aside-always-error-check" class="level2">
+<h2>We Do Aside — Always Error-Check</h2>
+<p>What happens when you input something that’s inaccurate?</p>
+<p>This is a good time for error-checking!</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> gimmeOneHero(name):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    names <span class="op">=</span> [hero <span class="cf">for</span> hero <span class="kw">in</span> heroes <span class="cf">if</span> hero[<span class="st">&#39;person&#39;</span>] <span class="op">==</span> name]</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="cf">if</span> names:</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">        <span class="cf">return</span> jsonify({<span class="st">&#39;hero&#39;</span>: names[<span class="dv">0</span>]})</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">        <span class="cf">return</span> <span class="st">&quot;Hero not found&quot;</span></a></code></pre></div>
+<hr />
+</section>
+<section id="create-a-post-request-with-flask" class="level2">
+<h2>Create a POST Request With Flask</h2>
+<ul>
+<li>What if we want more heroes?</li>
+<li>Let’s add data to our list of heroes with a <code>POST</code> request.
+<ul>
+<li><code>POST</code> was “Create” (and, very rarely, “Update”).</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Let’s try adding data to our list of heroes with a <code>POST</code> request. Right now, our app looks like the following on the screen.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="adding-our-new-post-function" class="level2">
+<h2>Adding Our New <code>POST</code> Function</h2>
+<ul>
+<li>We can use the same route — with a different method.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/heroes&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">def</span> addMyHero():</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    newhero <span class="op">=</span> {<span class="st">&quot;person&quot;</span>: request.get_json()[<span class="st">&quot;person&quot;</span>]}</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    heroes.append(newhero)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="cf">return</span> jsonify({<span class="st">&quot;heroes&quot;</span>: heroes})</a></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>We’ll use the same route, and if a <code>POST</code> request gets made, we’ll append that into our heroes list.</li>
+<li>Add in the following function that I’ve named <code>addMyHero()</code>.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-1" class="level2">
+<h2>Knowledge Check</h2>
+<p>Assuming our code doesn’t have any errors, what should happen when our <code>POST</code> request takes place?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>We should append a hero (our data) into our heroes list (our database).</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="profit" class="level2">
+<h2>Profit</h2>
+<p>Now we’ll check to see if our <code>POST</code> request works.</p>
+<ul>
+<li>Open a new terminal window, and <code>python hello_api.py</code>.
+<ul>
+<li>Launch the app!</li>
+</ul></li>
+<li>Going to <code>/heroes</code> gives us the heroes list.</li>
+<li><p>How do we <code>POST</code>?</p></li>
+<li>We’ll use <code>curl</code>:
+<ul>
+<li>A command line tool for getting or sending files with URL syntax.</li>
+<li>Not necessary to memorize!</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>Now we’ll check to see if our <code>POST</code> request works.
+<ol type="1">
+<li>Open a new terminal window, and <code>python hello_api.py</code>.</li>
+</ol></li>
+<li>This will launch our server.
+<ol start="2" type="1">
+<li>Once your Flask app has started, open a new tab using <code>Command + T</code>. We need the server to remain running locally.</li>
+<li>In the new tab, we’re going to make a <code>POST</code> request with a particular content type of JSON.</li>
+</ol></li>
+<li>The content type here is JSON, but we could extend this to be other data types by changing our function and then changing the <code>cURL</code> command we run below.
+<ol start="4" type="1">
+<li>Type <code>curl -X POST -H &quot;Content-Type: application/json&quot; -d '{&quot;person&quot;:&quot;&lt;&lt;insert a name here&gt;&gt;&quot;}' http://localhost:5000/heroes</code>.</li>
+</ol></li>
+<li><code>cURL</code> is a command line tool. It stands for Client URL. Colloquially, we can describe it as being like a browser, but in your command line. More formally, it’s a command line tool for getting or sending files with URL syntax.
+<ol start="5" type="1">
+<li>We should see our new hero list with our personal hero appended!</li>
+</ol></li>
+</ul>
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Walk around while doing this. cURL can be tough. Check for typos!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="trying-out-post-and-curl" class="level2">
+<h2>Trying Out <code>POST</code> and <code>cURL</code></h2>
+<ul>
+<li><p>With the app running, open a new tab in the command prompt.</p></li>
+<li><p>Replace the name, then copy this right over:</p></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">curl</span> -X POST -H <span class="st">&quot;Content-Type: application/json&quot;</span> -d <span class="st">&#39;{&quot;person&quot;:&quot;&lt;&lt;INSERT A NAME HERE&gt;&gt;&quot;}&#39;</span> http://localhost:5000/heroes</a></code></pre></div>
+<ul>
+<li><p>Check the command line output!</p></li>
+<li><p>Try going to <code>http://localhost:5000/heroes</code> — your hero is listed!</p></li>
+</ul>
+<hr />
+</section>
+<section id="quiz" class="level2">
+<h2>Quiz</h2>
+<p>Which of these is the right code for a POST request?</p>
+<ul>
+<li>Option A</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="at">@app.route</span>(<span class="st">&#39;/myapiroute&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">def</span> butAmIMakingARequest():</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    type_of_request <span class="op">=</span> {<span class="st">&quot;requestType:&quot;</span> :<span class="st">&quot; This is definitely a GET Request&quot;</span>}</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">    requestage.append(type_of_request)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="cf">return</span> jsonify({<span class="st">&quot;theAnswer&quot;</span> :  requestage})</a></code></pre></div>
+<ul>
+<li>Option B</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">type_of_request <span class="op">=</span> [{<span class="st">&quot;requestType:&quot;</span> :<span class="st">&quot; This is definitely a POST Request&quot;</span>}]</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="at">@app.route</span>(<span class="st">&#39;/myapiroute&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">def</span> butAmIMakingARequest():</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="cf">return</span> jsonify({<span class="st">&quot;theAnswer&quot;</span> :  type_of_request})</a></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: Despite what the variables and key-value pairs are named, the correct answer is Option A.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>We covered APIs and requests in Flask:</p>
+<ul>
+<li>We made an API using JSON!</li>
+<li>We used <code>GET</code> to display it.</li>
+<li>We used <code>POST</code> to add to it.</li>
+</ul>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="http://flask.pocoo.org/docs/1.0/api/#flask.json.jsonify">Flask JSONify Documentation</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

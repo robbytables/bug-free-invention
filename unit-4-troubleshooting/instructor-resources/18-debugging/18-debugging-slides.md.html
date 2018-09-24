@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Debugging Principles and Techniques
+type: lesson
+duration: "00:40"
+creator: Brandi Butler
+-->
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Debugging Principles and Techniques
+</h1>
+<!--
+
+
+## Overview
+This lesson is meant to give students the skills needed to debug their own code. There is a mix of demo, You Do, and We Do to keep it fresh while running through many common errors. We throw a lot of errors at them very quickly - the idea is to get them comfortable recognizing errors and solving them, not to memorize them.
+
+Then, it guides students in how to use `Try`-`Except` blocks when errors are expected/unavoidable. Last, some time is spent teaching students how to handle situations that are problematic, but don't usually throw errors specifically, including endless loops, off-by-one errors, and logical errors.
+
+
+#### Helpful Table of Errors
+
+| Error Type  | Most Common Cause |
+| -------------- | ------------------------------------------------------|
+| AttributeError  | Attempting to access a non-existent attribute |
+| KeyError | Attempting to access a non-existent key in a dict |
+| ImportError  | A module you tried to import doesn't exist |
+| IndexError  | You attempted to access a list element that doesn't exist |
+| IndentationError  | Indenting code in an invalid way |
+| IOError  | Accessing a file that doesn't exist |
+| NameError  | Attempting to use a module you haven't imported/installed |
+| OverflowError  | You made a number larger than the maximum size |
+| RuntimeError  | The error doesn't fit into any other category |
+| SyntaxError  | A typo, such as forgetting a colon |
+| TypeError  | Using two different types in an incompatible way |
+| ValueError  | When you are trying to convert bad keyboard input to a number |
+| ZeroDivisionError  | Dividing By Zero |
+
+## Learning Objectives
+In this lesson, students will:
+
+* Troubleshoot common types of errors.
+* Implement basic exception mitigation.
+* Troubleshoot logic errors.
+
+## Duration
+40 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:04 - 0:16 | Recognizing Errors |
+| 0:17 - 0:23 | Exception Handling |
+| 0:24 - 0:37 | Untyped Errors |
+| 0:38 - 0:40 | Summary |
+
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to…</em></p>
+<ul>
+<li>Troubleshoot common types of errors.</li>
+<li>Implement basic exception mitigation.</li>
+<li>Troubleshoot logic errors.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Reassure them that this won’t be awful: it is not really about their problem solving skills so much at this point as it is about getting them to notice the error message and decode what it is saying.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-error-messages" class="level2">
+<h2>Discussion: Error Messages</h2>
+<p>Have you found a shiny red error message before? What do you think has happened here?</p>
+<p><img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/ZeroDivisionError.png" /></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Start a discussion here. What’s going on here? What other errors have the students encountered?</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“How many of you have run your code in a repl.it only to have a bunch of red text pop-up instead of your expected output?”</li>
+<li>“What do you think is going on here in this image? How could it be fixed?”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="making-errors-into-friends" class="level2">
+<h2>Making Errors Into Friends</h2>
+<p>On the surface, errors are frustrating! However, we’ll walk through some common ones. You’ll see:</p>
+<ul>
+<li>Errors sometimes say exactly what’s wrong.</li>
+<li>Some errors have very common causes.</li>
+<li>Errors may say exactly how to fix the issue.</li>
+<li>Python errors are very helpful and have clear messages.</li>
+</ul>
+<p>With that in mind - what’s the problem with this code?</p>
+<p><img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/ZeroDivisionError.png" /></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>We introduce ZeroDivisionError first to start discussion, as just about everyone knows that you can’t divide by 0. Ask if the students think Python’s error message did a good job of informing us of what the issue was.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Python errors sometimes tell you exactly what to change about your code. For example, we see <code>ZeroDivisionError: divide by zero</code>, which is a really clear way to describe the issue.”</li>
+<li>“Compared to other programming languages, Python errors are really nice! Think of them as helpful hints to help you make the best code possible!”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-indexerror" class="level2">
+<h2>We Do: IndexError</h2>
+<p>Let’s debug this code together.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-index-error?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<p><strong>Protip</strong>: Index errors typically happen when you attempt to access a list index that doesn’t exist.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a demo, not an exercise!</li>
+<li>Teach the students how to read the line number where the error occurred. Remind them that the error often happens on the line <em>above</em> the line that threw the error.</li>
+<li>Make sure that students come up with the solution themselves, but ask leading questions. For example, “Obviously this code isn’t working, but by looking at it, can you tell what my intention was? Which element do you think I was trying to access?”</li>
+</ul>
+<p><strong>Talking Points</strong>: - “Remember that lists are indexed starting at zero!” (maybe show a reminder)</p>
+<p><strong>Repl.it Note</strong>: This replit has</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">race_runners <span class="op">=</span> [<span class="st">&quot;Yuna&quot;</span>, <span class="st">&quot;Bill&quot;</span>, <span class="st">&quot;Hyun&quot;</span>]</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">first_place <span class="op">=</span> race_runners[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">second_place <span class="op">=</span> race_runners[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">third_place <span class="op">=</span> race_runners[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(<span class="st">&quot;The winners are:&quot;</span>, first_place, second_place, third_place)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="you-do-fix-a-nameerror" class="level2">
+<h2>You Do: Fix a NameError</h2>
+<p>Directions: Fix it!</p>
+<p><em>Hints</em>: - Run the code to get the error. - What kind of error is it? What is the error message?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-var-name?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them just a minute or two; then go over it. This is a new error, but it’s an easy one.</li>
+</ul>
+<p><strong>Talking Points</strong>: - “Let’s go back to an error we encountered earlier today!” - We most commonly get a <code>NameError</code> if we use a variable: * Without defining it. * <em>Before</em> defining it</p>
+<p><strong>Repl.it Note</strong>: This replit has</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Get a number between 2 and 8.</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">my_nums <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># Print the number</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">print</span>(my_num)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="keyerror" class="level2">
+<h2>KeyError</h2>
+<p>Accessing a key in a dictionary that doesn’t exist.</p>
+<p>Commonly caused by: - A misspelling. - Mixing uppercase and lowercase.</p>
+<p>The error message tells you exactly what key is missing!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-key?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>The repl.it is for you to demo this, not for an exercise.</li>
+<li>Ask students what they think most commonly causes KeyErrors. Good answers might include case sensitivity in the key names, a typo in the key name, or simply not remembering what keys are available.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“KeyError happens when you try to use a key in a dictionary that doesn’t exist”</li>
+<li>“The error message tells you exactly what key threw the error”</li>
+</ul>
+<p><strong>Repl.it Note:</strong> It’s long; you might want to open it in a new tab. The replit has:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">my_favorites <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="st">&quot;Food&quot;</span>: <span class="st">&quot;Lobster Rolls&quot;</span>,</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">&quot;Song&quot;</span>: <span class="st">&quot;Bohemian Rhapsody&quot;</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">&quot;Flower&quot;</span>: <span class="st">&quot;Iris&quot;</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">&quot;Band&quot;</span>: <span class="st">&quot;Tom Petty &amp; the Heartbreakers&quot;</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot;Color&quot;</span>: <span class="st">&quot;Green&quot;</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="st">&quot;Movie&quot;</span>: <span class="st">&quot;The Princess Bride&quot;</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot;Programming Language&quot;</span>: <span class="st">&quot;Python&quot;</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">}</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># This is okay!</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="bu">print</span>(<span class="st">&quot;My favorite color is&quot;</span>, my_favorites[<span class="st">&quot;Color&quot;</span>])</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># This is NOT okay! (Case sensitivity!)</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="bu">print</span>(<span class="st">&quot;My favorite color is&quot;</span>, my_favorites[<span class="st">&quot;color&quot;</span>])</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co"># This is NOT okay! (Key doesn&#39;t exist)</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="bu">print</span>(<span class="st">&quot;My favorite restaurant is&quot;</span>, my_favorites[<span class="st">&quot;Restaurant&quot;</span>])</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="attributeerror" class="level2">
+<h2>AttributeError</h2>
+<ul>
+<li>More general than <code>KeyError</code>, but the same idea.</li>
+<li>Accessing an attribute (e.g., function or property) that doesn’t exist</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-attribute?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tip:</p>
+<ul>
+<li>The repl.it is for you to demo this, not for an exercise.</li>
+</ul>
+<p><strong>Talking Points</strong>: - “AttributeError is more general than KeyError (which only applies to dict keys), but the same general idea.”</p>
+<p><strong>Repl.it Note</strong>: The replit has:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">    <span class="kw">class</span> Dog():</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="va">self</span>.name <span class="op">=</span> name</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="kw">def</span> bark(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&quot;Bark!&quot;</span>)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># Declare a new dog instance</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">my_dog <span class="op">=</span> Dog(<span class="st">&quot;Fido&quot;</span>)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co"># Call the bark method</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">my_dog.bark() <span class="co"># OK!</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># Call the run method</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">my_dog.run() <span class="co"># AttributeError!</span></a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-syntaxerror" class="level2">
+<h2>Discussion: SyntaxError</h2>
+<p>Let’s run the code together. What happens? How can we fix it?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-syntax?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>See if they can pick up the answer.</li>
+<li>Python is different (and better) than other languages in this regard, but it’s important to emphasize that = and == are for different purposes!</li>
+</ul>
+<p><strong>Talking Points</strong>: - “In any other language, (take JavaScript for example), if you accidentally use a single equals when you mean to use a double equals, the variable would be reassigned while inside that if statement and your 13 year old would be having a beer! Luckily the designers of Python knew this and made the choice to throw an error!”</p>
+<p><strong>Repl.it Note</strong>: The replit is</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">my_age <span class="op">=</span> <span class="dv">13</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="cf">if</span> my_age <span class="op">=</span> <span class="dv">18</span>:</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="bu">print</span>(<span class="st">&quot;I may vote.&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&quot;I may not vote.&quot;</span>)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-typeerror" class="level2">
+<h2>Discussion: TypeError</h2>
+<p><code>TypeError</code> and its message tell us:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">5</span> <span class="op">+</span> <span class="st">&quot;10&quot;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="bu">print</span>(my_num)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</span></a></code></pre></div>
+<p>What do we learn from this error message? Have you learned a way to fix this?</p>
+<p><strong>Fun Fact</strong>: Some languages, like JavaScript, let this code run (breaking something!).</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We’re trying to combine different types in a way that doesn’t make sense</li>
+<li>The error was caused when using the <code>+</code> operator</li>
+<li>The error was caused by two incompatible types: <code>string</code> and <code>integer</code>.</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>They learned how to do type conversion in the last lesson, so you could point out that they can cast 10 as an int and then this will work.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="indentationerror" class="level2">
+<h2>IndentationError</h2>
+<p>May be caused by:</p>
+<ul>
+<li>Notenoughindentation</li>
+<li>Mismatched indentation</li>
+<li>Mixing tabs and spaces!</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-identation?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This isn’t an exercise - just code to help you demo.</li>
+<li>This is so common for Python beginners, so it is important to get practice recognizing this!</li>
+<li>Have students come up with some examples of what might cause an error like this. Answers might include mixing tabs and spaces or indenting too much/too little.</li>
+</ul>
+<p><strong>Talking Points</strong>: - “IndentationError comes up for any indentation errors, whether it’s too little or just mismatching in some way”</p>
+<p><strong>Repl.it Note:</strong> this replit has</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">my_age <span class="op">=</span> <span class="dv">13</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="cf">if</span> my_age <span class="op">==</span> <span class="dv">16</span>:</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="bu">print</span>(<span class="st">&quot;I may drive.&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;I may not drive.&quot;</span>)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="valueerror" class="level2">
+<h2>ValueError</h2>
+<p>Most commonly caused by trying to convert a bad string into a number.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># This is okay!</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">my_num <span class="op">=</span> <span class="bu">int</span>(<span class="st">&quot;10&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co"># This throws a ValueError</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">my_num <span class="op">=</span> <span class="bu">int</span>(<span class="st">&quot;Moose&quot;</span>)</a></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is pretty straightforward, but pull up a repl.it if you think you need to.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="runtimeerror" class="level2">
+<h2>RuntimeError</h2>
+<p>The worst error to see!</p>
+<ul>
+<li>When no other error type fits.</li>
+<li>You need to rely on the error message content.</li>
+<li>May be used for custom errors.</li>
+</ul>
+<p><strong>Example</strong>: <code>RuntimeError</code> is like if I said to you:</p>
+<pre><code>Please eat the piano</code></pre>
+<p>You can understand what’s being asked, but can’t actually do that!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Unfortunately this is an error that comes up when no other error type fits the situation. You will need to rely heavily on the content of the error message rather than getting much of a hint from the type alone”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>There are many types of errors in Python!</p>
+<p>Usually, the error has a name or description that says exactly what’s wrong.</p>
+<p>Think about <code>IndentationError</code> or <code>IndexError</code> - what went wrong?</p>
+<p>Sometimes, you’ll see <code>RuntimeError</code>. Python throws us this if something is broken but it can’t say specifically what - like <code>Please eat the piano</code>. Revisit your code and see what might have happened.</p>
+<p><strong>Next Up:</strong> A list of common errors, then ways to prevent errors.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a quick check for understanding.</li>
+<li>See if they can tell you what those two errors mean.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="list-of-common-errors" class="level2">
+<h2>List of Common Errors</h2>
+<p>This chart’s for you to refer to later - don’t memorize it now!</p>
+<table>
+<thead>
+<tr class="header">
+<th>Error Type</th>
+<th>Most Common Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>AttributeError</code></td>
+<td>Attempting to access a non-existent attribute</td>
+</tr>
+<tr class="even">
+<td><code>KeyError</code></td>
+<td>Attempting to access a non-existent key in a dict</td>
+</tr>
+<tr class="odd">
+<td><code>ImportError</code></td>
+<td>A module you tried to import doesn’t exist</td>
+</tr>
+<tr class="even">
+<td><code>IndexError</code></td>
+<td>You attempted to access a list element that doesn’t exist</td>
+</tr>
+<tr class="odd">
+<td><code>IndentationError</code></td>
+<td>Indenting code in an invalid way</td>
+</tr>
+<tr class="even">
+<td><code>IOError</code></td>
+<td>Accessing a file that doesn’t exist</td>
+</tr>
+<tr class="odd">
+<td><code>NameError</code></td>
+<td>Attempting to use a module you haven’t imported/installed</td>
+</tr>
+<tr class="even">
+<td><code>OverflowError</code></td>
+<td>You made a number larger than the maximum size</td>
+</tr>
+<tr class="odd">
+<td><code>RuntimeError</code></td>
+<td>The error doesn’t fit into any other category</td>
+</tr>
+<tr class="even">
+<td><code>SyntaxError</code></td>
+<td>A typo, such as forgetting a colon</td>
+</tr>
+<tr class="odd">
+<td><code>TypeError</code></td>
+<td>Using two different types in an incompatible way</td>
+</tr>
+<tr class="even">
+<td><code>ValueError</code></td>
+<td>When you are trying to convert bad keyboard input to a number</td>
+</tr>
+<tr class="odd">
+<td><code>ZeroDivisionError</code></td>
+<td>Dividing By Zero</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Teaching Tip:</p>
+<ul>
+<li>Note that students haven’t learned all these yet - like modules or accessing files. Don’t go down this list in detail - just stress they can refer back to it.</li>
+<li>Pause and take questions before switching gears.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Here is an alphabetically ordered list of the most common errors you may encounter when writing Python that you can refer back to.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-throwing-errors" class="level2">
+<h2>Discussion: Throwing Errors</h2>
+<p>Sometimes, we might have code that we expect to throw an error.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># The user might not give us a number!</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">my_num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Please give me a number:&quot;</span>))</a></code></pre></div>
+<p>What if the user types a string like “Moose”?</p>
+<ul>
+<li>This causes a <code>ValueError</code> - we’ll be trying to make an int out of a string “Moose”.</li>
+<li>We can anticipate and prepare for it!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Start by making sure they understand what the code does. They’ve seen <code>input</code> a few times, but won’t officially learn it for three more lessons; they just learned type casting.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Sometimes you may expect certain code to throw an error, and you may want to handle that situation with a smooth error message as opposed to having your whole program blow up with red text.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="try-except" class="level2">
+<h2>Try-Except</h2>
+<p>A <code>Try</code>-<code>Except</code> block is the way we can catch errors in Python. We can catch:</p>
+<ul>
+<li>One error (<code>except ValueError:</code>)</li>
+<li>Multiple errors (<code>except (ValueError, KeyError):</code>)</li>
+<li>Any/every error (<code>except:</code>)</li>
+</ul>
+<p>Always try to specify the error, if possible!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-try-except?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Try / except is new; do this with them. Make this a teaching slide, not an exercise.</li>
+<li>Demonstrate some example output - strings, ints, floats, etc.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Call out that we specifically say “ValueError”, and <code>err</code> is just a random keyword. Change it to demo. Add other error catches; take out the ValueError specifically.</li>
+<li>“A Try-Except block is the way we can catch errors in Python.”</li>
+<li>“We can catch one error (as we see in the code), we can catch multiple errors, or we can just catch any/every error by leaving it blank.”</li>
+<li>“You can catch every possible error by leaving the specified error blank, however, this is generally not a great practice because it says very little about how you were thinking.”</li>
+</ul>
+<p><strong>Replit Note:</strong> The repl.it has</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">my_num <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="cf">while</span> my_num <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">      my_num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Please give me a number:&quot;</span>))</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> err:</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">      <span class="bu">print</span>(<span class="st">&quot;That was not good input, please try again!&quot;</span>)</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">      <span class="bu">print</span>(<span class="st">&quot;Error was&quot;</span>, err)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Thanks for typing the number&quot;</span>, my_num)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="discussion-switching-gears" class="level2">
+<h2>Discussion: Switching Gears</h2>
+<p>Not every programming error is caught by an error message!</p>
+<ul>
+<li>Can anyone say what is wrong with this code?</li>
+<li>What might happen if you run it?</li>
+</ul>
+<p><strong>Do not try to run the below code</strong>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="cf">while</span> my_num <span class="op">&lt;</span> <span class="dv">10</span>:</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="bu">print</span>(my_num)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">    my_num <span class="op">+</span> <span class="dv">1</span></a></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>See if anyone can tell you the problem (it’s an infinite loop).</li>
+<li>Emphasize that an itty-bitty typo - just one character in this case - caused an enormous problem!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Errors and error messages are really helpful when we’ve got bad syntax or are trying to access something that doesn’t exist. However, not every possible programming error is able to be caught by error messages like this.”</li>
+<li>“For example, consider the code here”</li>
+<li>“Can you tell what the original intention of the code was? What went wrong? Why did the code go into an infinite loop? How can we fix this code?”</li>
+<li>“There are many errors like this where there is nothing syntactically wrong with the code, but an error in the logic, or a typo that changes the meaning of the code as we saw with the infinite loop.”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-another-infinite-loop" class="level2">
+<h2>Discussion: Another Infinite Loop</h2>
+<p>It’s easy to accidentally make an infinite loop. What’s the problem here?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">am_hungry <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">fridge_has_food <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="cf">while</span> am_hungry <span class="kw">or</span> fridge_has_food:</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="bu">print</span>(<span class="st">&quot;Opening the fridge!&quot;</span>)</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">  am_hungry <span class="op">=</span> <span class="va">False</span></a></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>See if they can figure this out and tell you.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Let’s go through another common cause of infinite looping.”</li>
+<li>“Putting ‘or’ when you mean ‘and’ is a common cause of pain!”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="infinite-infinite-loops" class="level2">
+<h2>Infinite Infinite Loops!</h2>
+<p>Most common infinite loops are a result of:</p>
+<ul>
+<li>A <code>while</code> loop’s condition never becomes <code>False</code>.</li>
+<li>Forgetting to increment a counter variable.</li>
+<li>Logic inside the loop that restarts the loop.</li>
+<li>Bad logic in a <code>while</code> loop’s condition (e.g., putting <code>or</code> instead of <code>and</code>)</li>
+</ul>
+<p>Be careful to check your end conditions!</p>
+<p>If you find your program running endlessly, hit <code>control-c</code> in the terminal window to stop it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Stress that these are common, and they really have to watch out for it. Show control-c so that they’re all clear on what it does. You can use this code:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">am_hungry <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">fridge_has_food <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="cf">while</span> am_hungry <span class="kw">or</span> fridge_has_food:</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="bu">print</span>(<span class="st">&quot;Opening the fridge!&quot;</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">  am_hungry <span class="op">=</span> <span class="va">False</span></a></code></pre></div>
+<strong>Talking Points</strong>: - “There are many, many ways to accidentally create an infinite loop!”
+</aside>
+<hr />
+</section>
+<section id="discussion-logic-error" class="level2">
+<h2>Discussion: Logic Error</h2>
+<p>Here, we want to find the average of <code>8</code> and <code>10</code>. The answer should be <code>9</code>, because <code>8 + 10 == 18</code>, then <code>18 / 2 == 9</code></p>
+<p>What happened and why?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-pemdas?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Again, this is a teaching slide, not an exercise. Can they find the error?</li>
+<li>When they do, write PEMDAS on the board and discuss the order of operations:</li>
+</ul>
+<pre><code>Parentheses
+Exponents
+Multiplication
+Division
+Addition
+Subtraction</code></pre>
+<p><strong>Replit Note:</strong> The code is:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1">x <span class="op">=</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">y <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">average <span class="op">=</span> x <span class="op">+</span> y <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="bu">print</span>(average)</a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-common-errors" class="level2">
+<h2>Quick Review: Common Errors</h2>
+<ul>
+<li>If you expect an error, use a try/except block:</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">my_num <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="cf">while</span> my_num <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">      my_num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Please give me a number:&quot;</span>))</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> err:</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">      <span class="bu">print</span>(<span class="st">&quot;That was not good input, please try again!&quot;</span>)</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">      <span class="bu">print</span>(<span class="st">&quot;Error was&quot;</span>, err)</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Thanks for typing the number&quot;</span>, my_num)</a></code></pre></div>
+<ul>
+<li>Logic problems are common but won’t throw a helpful error. Always check end conditions on your <code>while</code> loops!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="print-statements-for-sanity-checks" class="level2">
+<h2>Print Statements for Sanity Checks</h2>
+<p><strong>Pro Tip</strong>: If something is wonky and you don’t know why, starting <code>print</code>ing.</p>
+<ul>
+<li>Use <code>print</code> statements on each line to peek at the values.</li>
+<li>Remember to remove debugging statements once the problem is solved!</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">x <span class="op">=</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">y <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">get_average <span class="op">=</span> x <span class="op">+</span> y <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;get_average is&quot;</span>, get_average) <span class="co"># Print out what this equals (it&#39;s wrong!)</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">testing_sum <span class="op">=</span> x <span class="op">+</span> y <span class="co"># To figure out why, break it down.</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;testing_sum is&quot;</span>, testing_sum) <span class="co"># Print out each step.</span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">testing_average <span class="op">=</span> testing_average <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;testing_average is&quot;</span>, testing_average) <span class="co"># The individual math test works</span></a>
+<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co"># We know there must be a problem with the logic in &quot;average&quot;</span></a></code></pre></div>
+<p>When your programs become very complex, adding <code>print</code> statements will be a great help.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through the code and the print statements with the class.</li>
+<li>Ask them to diagnose what happened</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>“Something went wrong in that last bit of code! You may have already figured out what it is in this example, but in a more complex example, you might not know!”</li>
+<li>After: “Why do you think splitting up the statement solved the problem?”</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-wrapping-it-up" class="level2">
+<h2>You Do: Wrapping it Up</h2>
+<p>Can you fix the code below?</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-error-quiz?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>5 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>It’s quite long; they probably want to open the repl.it in a new window. Remind them how to do that.</li>
+<li>After 5 minutes or so (pending time), go over it with them.</li>
+</ul>
+<p><strong>Repl.it Note::</strong> The code is:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1">new_phone <span class="op">=</span> Phone(<span class="dv">5214</span>)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">class</span> Phone:</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, phone_number):</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    <span class="va">self</span>.number <span class="op">=</span> phone_number</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">  <span class="kw">def</span> call(<span class="va">self</span>, other_number):</a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">    <span class="bu">print</span>(<span class="st">&quot;Calling from&quot;</span> <span class="va">self</span>.number, <span class="st">&quot;to&quot;</span>, other_number)</a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10">  <span class="kw">def</span> text(<span class="va">self</span>,  other_number, msg):</a>
+<a class="sourceLine" id="cb19-11" data-line-number="11">    <span class="bu">print</span>(<span class="st">&quot;Sending text from&quot;</span>, <span class="va">self</span>.number, <span class="st">&quot;to&quot;</span>, other_number</a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">  <span class="bu">print</span>(msg)</a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb19-14" data-line-number="14">test_phone <span class="op">=</span> Phone()</a>
+<a class="sourceLine" id="cb19-15" data-line-number="15">test_phone.call(<span class="dv">515</span>)</a>
+<a class="sourceLine" id="cb19-16" data-line-number="16">test_phone.text(<span class="bu">int</span>(<span class="st">&quot;text 141&quot;</span>), <span class="st">&quot;Hi!&quot;</span>)<span class="st">&quot;</span></a></code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<ul>
+<li>Python has many common built-in errors.</li>
+<li>Use <code>try</code>-<code>except</code> syntax to catch an expected error.</li>
+<li>Logic issues don’t throw errors, so be careful!</li>
+<li>Use <code>print</code> statements to walk through your code line-by-line.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check for understanding and wrap up.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.tutorialspoint.com/python/standard_exceptions.htm">List of Built-In Errors</a></li>
+<li><a href="https://www.dropbox.com/s/cqsxfws52gulkyx/drawing.pdf">Error Flowchart PDF</a></li>
+<li><a href="http://www.pythonforbeginners.com/error-handling/python-try-and-except">Try-Except Documentation</a></li>
+<li><a href="https://jeffknupp.com/blog/2013/02/06/write-cleaner-python-use-exceptions/">A deep dive into try/except clauses</a></li>
+<li>To get advanced, add <a href="https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/">logging</a> to your code.</li>
+<li>To get very advanced, include <a href="http://www.diveintopython.net/unit_testing/index.html">unit tests</a>; the <a href="http://pythontesting.net/framework/pytest/pytest-introduction/">pytest module</a> is great.</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

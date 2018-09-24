@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming-inheritance-exercise" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Inheritance Exercise</h3>
+<!---
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @susiremondi
+--->
+</section>
+<section id="inheritance-in-bank-accounts" class="level1">
+<h1>Inheritance in Bank Accounts</h1>
+<section id="overview" class="level2">
+<h2>Overview:</h2>
+<p>You will practice writing classes and using inheritance by modeling different types of Bank accounts.</p>
+<p>You will practice these programming concepts we’ve covered in class: - Classes - Inheritance</p>
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>One <code>.py</code> file with code that solves the problem.</p>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
+<p>You task is to write a series of classes that meet the criteria outlined below.</p>
+<hr />
+<p><strong>Directions</strong></p>
+<ul>
+<li>Create a base <strong>BankAccount</strong> class
+<ul>
+<li>Bank accounts keep track of their current <code>balance</code></li>
+<li>Bank accounts have a <code>deposit</code> method</li>
+<li>Bank accounts have a <code>withdraw</code> method</li>
+<li>the <code>deposit</code> method returns the balance of the account after adding the deposited amount.</li>
+<li>the <code>withdraw</code> method returns the amount of money that was successfully withdrawn.</li>
+<li>Bank accounts return <code>False</code> if someone tries to deposit or withdraw a negative amount.</li>
+<li>Bank accounts are created with a default interest rate of 2%</li>
+<li>Bank accounts have a <code>accumulate_interest</code> method that sets the balance equal to the balance plus the balance times the interest rate</li>
+<li><code>accumulate_interest</code> returns the balance of the account after calculating the accumulated interest</li>
+</ul></li>
+<li>Create a <strong>ChildrensAccount</strong> class
+<ul>
+<li>Children’s bank accounts have an interest rate of Zero.</li>
+<li>Every time <code>accumulate_interest</code> is executed on a Child’s account the account always gets $10 added to the balance.</li>
+</ul></li>
+<li>Create an <strong>OverdraftAccount</strong> class
+<ul>
+<li>An overdraft account penalizes customers for trying to draw too much money out of their account.</li>
+<li>Overdraft accounts are created with an <code>overdraft_penalty</code> property that defaults to $40.</li>
+<li>Customer’s aren’t allowed to withdraw more money than they have in their account. If a customer tries to withdraw more than they have then the withdraw method returns <code>False</code> and their balance is deducted only by the amount of the <code>overdraft_penalty</code>.</li>
+<li>Overdraft accounts don’t accumulate interest if their balance is below zero.</li>
+</ul></li>
+</ul>
+<p><strong>Sample Input:</strong>: You can copy the below to test your code. The <strong>sample output</strong> below that is what you should get.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">basic_account <span class="op">=</span> BankAccount()</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">basic_account.deposit(<span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;Basic account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(basic_account.balance))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">basic_account.withdraw(<span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="bu">print</span>(<span class="st">&quot;Basic account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(basic_account.balance))</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">basic_account.accumulate_interest()</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(<span class="st">&quot;Basic account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(basic_account.balance))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">childs_account <span class="op">=</span> ChildrensAccount()</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">childs_account.deposit(<span class="dv">34</span>)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="bu">print</span>(<span class="st">&quot;Child&#39;s account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(childs_account.balance))</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">childs_account.withdraw(<span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="bu">print</span>(<span class="st">&quot;Child&#39;s account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(childs_account.balance))</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">childs_account.accumulate_interest()</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="bu">print</span>(<span class="st">&quot;Child&#39;s account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(childs_account.balance))</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">overdraft_account <span class="op">=</span> OverdraftAccount()</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">overdraft_account.deposit(<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="bu">print</span>(<span class="st">&quot;Overdraft account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(overdraft_account.balance))</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">overdraft_account.withdraw(<span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="bu">print</span>(<span class="st">&quot;Overdraft account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(overdraft_account.balance))</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">overdraft_account.accumulate_interest()</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="bu">print</span>(<span class="st">&quot;Overdraft account has $</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(overdraft_account.balance))</a></code></pre></div>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Basic account has $600
+Basic account has $583
+Basic account has $594.66
+
+Child&#39;s account has $34
+Child&#39;s account has $17
+Child&#39;s account has $27
+
+Overdraft account has $12
+Overdraft account has $-28
+Overdraft account has $-28</code></pre>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

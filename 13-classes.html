@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming-objects-and-classes" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Objects and Classes</h2>
+<!--
+
+## Overview
+This lesson walks through creating classes in Python. The lesson starts with We Dos for creating a class and instantiating objects from that class. Then, the lesson has a We Do for class and instance variables. It ends with a few partner exercises, then a series of knowledge check questions.
+
+## Learning Objectives
+In this lesson, students will:
+
+- Define a class.
+- Instantiate an object from a class.
+- Create classes with class variables.
+
+
+## Duration
+50 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:10 | Class Overview |
+| 0:10 - 0:25 | Creating Classes |
+| 0:25 - 0:30 | Class Variables |
+| 0:30 - 0:47 | Exercises |
+| 0:47 - 0:50  | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Define a class.</li>
+<li>Instantiate an object from a class.</li>
+<li>Create classes with default instance variables.</li>
+</ul>
+<hr />
+</section>
+<section id="blueprints" class="level2">
+<h2>Blueprints</h2>
+<p>All cars have things that make them a <code>Car</code>. Though the details might be different, every type of car has the same basics - it's off the same blueprint, with the same properties and actions.</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/programming-fundamentals/class-objects-car.png" />
+</figure>
+<ul>
+<li>Property: A shape (could be hatchback or sedan).</li>
+<li>Property: A color (could be red, black, blue, or silver).</li>
+<li>Property: Seats (could be between 2 and 5).</li>
+<li>Action: Can drive.</li>
+<li>Action: Can park.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;When we make a car, we can vary the values of these properties. Some cars have economy engines, some have performance engines. Some have 4 doors, others have 2. However, they are all types of <code>Car</code>.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Point out the small &quot;c&quot; versus the big &quot;C&quot;!</li>
+<li>Encourage them to think of other commonalities of cars - get them thinking about a archetypal car.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introduction-objects-and-classes" class="level2">
+<h2>Introduction: Objects and Classes</h2>
+<p>These properties and behaviors can be thought of variables and functions.</p>
+<p>Car Blueprint:</p>
+<ul>
+<li>Properties (variables): Shape, Color, Seats.</li>
+<li>Actions (functions): Drive and Park.</li>
+</ul>
+<p>An actual car might have:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># **Properties - Variables**:</span>
+<span class="op">-</span> shape <span class="op">=</span> <span class="st">&quot;hatchback&quot;</span>
+<span class="op">-</span> color <span class="op">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="kw">or</span> <span class="st">&quot;silver&quot;</span>
+<span class="op">-</span> seats <span class="op">=</span> <span class="dv">2</span>
+
+<span class="co"># **Actions - Functions:**</span>
+<span class="op">-</span> drive()
+<span class="op">-</span> park()
+<span class="op">-</span> reverse()</code></pre></div>
+<p><strong>Discussion:</strong> What might a blueprint for a chair look like?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give more examples on the board, both real world and what they've seen.</li>
+<li>Get students able to define the concept of a class - can they come up with examples, like the chair (Feel free to change Chair to something else!).</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Every day, we interact with objects like chairs, beverages, cars, other people, etc. These objects have properties that define them and behaviors we can execute to interact with them.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-python-classes" class="level2">
+<h2>Discussion: Python Classes</h2>
+<p>In Python, the concept of blueprints and objects is common. A <strong>class</strong> is the blueprint for an <strong>object</strong>. Everything you declare in Python is an object, and it has a class.</p>
+<p>Consider the <code>List</code> class - every list you make has the same basic concept.</p>
+<p>Variables:</p>
+<ul>
+<li>Elements: what's in the list! <code>my_list = [element1, element2, element3]</code></li>
+</ul>
+<p>Functions that all lists have:</p>
+<ul>
+<li><code>my_list.pop()</code>, <code>my_list.append()</code>, <code>my.list.insert(index)</code></li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/programming-fundamentals/pythonlistclass.png" />
+</figure>
+<p>What behaviors and properties do you think are in the <code>Dictionary</code> class? Or the <code>Set</code> class?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a tough slide - spend a few minutes to be sure they get it.</li>
+<li>Have a discussion! Write on the board and have them brainstorm what's common about dictionaries. This doubles as a dictionary and set review.</li>
+<li>If you think it will help, pull up the List class specification - though this might be better to do after they learn the class syntax.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;The same way, you will hear people say that &quot;everything is an object&quot; in Python. Python is an object oriented programming language.&quot;</p></li>
+<li><p>&quot;What this means is that nearly every variable you declare actually has a set of properties and functions that it can use - it is an object.&quot;</p></li>
+<li><p>&quot;Every string, number, list, dictionary, etc. has a set of behaviors and properties that are &quot;baked-in&quot; because they are instances of a class.&quot;</p></li>
+<li><p>&quot;Every list you declare has properties (the values in it) and behaviors - functions like <code>append()</code> and <code>pop()</code>&quot;</p></li>
+<li>&quot;In Python, there is a built-in Python <code>List</code> class which has the ability to hold values and built-in list functions like <code>append()</code> and <code>pop()</code>. When you declare a list in Python, you're making your own list object that's a variation of the <code>List</code> class.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-a-dog-class" class="level2">
+<h2>Discussion: A Dog Class</h2>
+<p>We can make a class for anything! Let's create a <code>Dog</code> class.</p>
+<p>The objects might be <code>greyhound</code>, <code>goldenRetriever</code>, <code>corgi</code>, etc.</p>
+<p>Think about the <code>Dog</code> blueprint. What variables might our class have? What functions?</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/programming-fundamentals/class-dog-blueprint.png" />
+</figure>
+<p><strong>Protip:</strong> When functions are in a class, they are called &quot;methods&quot;. Same thing!</p>
+<p><strong>Protip:</strong> While objects are snake_case, classes are conventionally named in TitleCase.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Try to lead them towards name, age, color, and barking - that's what will be in the class we create.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-defining-classes" class="level2">
+<h2>We Do: Defining Classes</h2>
+<p>Follow along! Let's create a new file, <code>Dog.py</code></p>
+<p>Class definitions are similar to function definitions, but instead of <code>def</code>, <code>class</code> is used.</p>
+<p>Let's declare a class for <code>Dog</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+ <span class="co"># We&#39;ll define the class here</span>
+ <span class="co"># Our dog will have two variables: name and age.</span></code></pre></div>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/programming-fundamentals/class-dog-name-age.png" />
+</figure>
+<p><strong>Protip:</strong> Files are usually named for their class - the <code>Dog</code> class is in <code>Dog.py</code>.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they do this with you! Practicing syntax is key.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Making our own classes to organize data in the ways we want is a very common thing in programming. Python gives us, for example, a string and an integer.&quot;</p></li>
+<li><p>&quot;What if we want to store a bunch of data where each item contains a string <strong>and</strong> an integer <strong>and</strong> a function that prints them out nicely?&quot;</p></li>
+<li>&quot;We can make a class for that, and then each object we make from that class will have that all baked-in.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-the-init-method" class="level2">
+<h2>We Do: The <code>init</code> Method</h2>
+<p>What first? Every class starts with an <code>__init__</code> method:</p>
+<ul>
+<li>Where we define the class' variables.</li>
+<li>Short for &quot;initialize&quot;.</li>
+<li>&quot;Every time you make an object from this class, do what's in here.&quot;</li>
+</ul>
+<p>Let's add this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+    <span class="co"># Note the optional parameters and defaults.</span>
+    <span class="va">self</span>.name <span class="op">=</span> name <span class="co"># All dogs have a name</span>
+    <span class="va">self</span>.age <span class="op">=</span> age <span class="co"># All dogs have an age</span></code></pre></div>
+<p><em>Note: <code>self</code> means &quot;each individual object made from this class&quot;. Not every &quot;dog&quot; has the same name!</em></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p><code>Self</code> is tough! It will make more sense after you start creating objects. Don't spend more than a few minutes on it - go back to it when comparing instance vs class variables.</p></li>
+<li><p>Call out the default values, or optional parameters, as we very recently learned them.</p></li>
+<li><p>Method means function!</p></li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;When we make an object, first we'll set its variables.&quot;</p></li>
+<li><p>&quot;The first argument passed to the <code>__init__</code> function, <code>self</code>, is required when defining methods for classes. The <code>self</code> argument is a reference to a future instantiation of the class. In other words, <code>self</code> refers to each individual dog.&quot;</p></li>
+<li><p>&quot;This lets each object made from a class keep reference to its own data and function members. Not every &quot;dog&quot; has the same attributes, so we want individual cars to maintain their own attributes.&quot;</p></li>
+<li><p>&quot;Python allows us to provide default values for parameters in any function we provide. Here, if no <code>name</code> or <code>age</code> values are provided when a <code>Dog</code> is initialized, they will default. To create default values, we assign values to the parameter <code>capacity</code> <em>inside</em> the parenthesis. You've seen this!&quot;</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-a-bark_hello-method" class="level2">
+<h2>We Do: Adding a <code>bark_hello</code> Method</h2>
+<p>All dogs have the behavior <code>bark</code>, so let's add that. This is a regular function (method!), just inside the class!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+  <span class="co"># Note the defaults</span>
+
+    <span class="va">self</span>.name <span class="op">=</span> name <span class="co"># All dogs have a name</span>
+    <span class="va">self</span>.age <span class="op">=</span> age <span class="co"># All dogs have an age</span>
+
+  <span class="co"># All dogs have a bark function.</span>
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old.&quot;</span>)</code></pre></div>
+<p>We're done defining the class!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note that it takes self! This will be tough to remember. Point out that it matches how the variable was declared.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="aside-instantiating-objects-from-classes" class="level2">
+<h2>Aside: Instantiating Objects From Classes</h2>
+<p>Now we have a Dog template!</p>
+<p>Each dog object we make from this template:</p>
+<ul>
+<li>Has a name.</li>
+<li>Has an age.</li>
+<li>Can bark.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Point out the lowercase d!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-how-do-we-make-a-dog-object" class="level2">
+<h2>We Do: How Do We Make a Dog Object?</h2>
+<p>We call our class name like we call a function - passing in arguments, which go to the <code>init</code></p>
+<p>Add this under your class (non-indented!):</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Declare the objects.</span>
+gracie <span class="op">=</span> Dog(<span class="st">&quot;Gracie&quot;</span>, <span class="dv">8</span>)
+spitz <span class="op">=</span> Dog(<span class="st">&quot;Spitz&quot;</span>, <span class="dv">5</span>)
+buck <span class="op">=</span> Dog(<span class="st">&quot;Buck&quot;</span>, <span class="dv">3</span>)
+
+<span class="co"># Test them out!</span>
+gracie.bark_hello()
+<span class="bu">print</span>(<span class="st">&quot;This dog&#39;s name is&quot;</span>, gracie.name)
+<span class="bu">print</span>(<span class="st">&quot;This dog&#39;s age is&quot;</span>, gracie.age)
+spitz.bark_hello()
+buck.bark_hello()</code></pre></div>
+<p>Try it! Run <code>Dog.py</code> like a normal Python file: <code>python Dog.py</code>.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Map out that these variables go to <code>init</code> to get created. All arguments go to init!</li>
+<li>They have a working class! Go back through the whole code and be sure they understand.</li>
+<li>After running this, stop and check for understanding.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;This will create a new object according to our <code>Dog</code> class specification.&quot;</p></li>
+<li><p>&quot;Python runs our <code>__init__</code> method to initialize the object.&quot;</p></li>
+<li><p>&quot;Here, we are telling our <code>__init__</code> method to set the name of this <code>dog</code> to 'Gracie' and set her age to 8 years old.&quot;</p></li>
+<li>&quot;Even though <code>self</code> is listed as a parameter for the <code>bark_hello</code> function, we don't pass it into the function. It happens automatically.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-print" class="level2">
+<h2>We Do: Adding Print</h2>
+<p><code>__init__</code> is just a method. It creates variables, but we can also add a print statement! This will run when we create the object.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+    <span class="va">self</span>.name <span class="op">=</span> name
+    <span class="va">self</span>.age <span class="op">=</span> age
+    <span class="bu">print</span>(name, <span class="st">&quot;created.&quot;</span>) <span class="co"># Run when init is finished.</span>
+
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old.&quot;</span>)
+
+fox <span class="op">=</span> Dog(<span class="st">&quot;Fox&quot;</span>) <span class="co">#  Note that &quot;Fox created.&quot; prints - and we&#39;re using the default age.</span>
+fox.bark_hello()</code></pre></div>
+<p>Try it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this a few times to show the default variables. Take out the default for name to show that variables don't need a default value.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Reminder: &quot;Method&quot; is a function in a class.</li>
+<li>Note that print statements can be anywhere - it's not a variable! <code>_init_</code> is a method.</li>
+<li>&quot;The <code>__init__</code> method will execute once and only once when you create a new object from a class.&quot; - note the print statement never happens again.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-classes" class="level2">
+<h2>Quick Review: Classes</h2>
+<p>A class is a blueprint for an object. Some classes are built into Python, like List. We can always make a list object.</p>
+<p>We can make a class for anything!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Created like a function; TitleCase</span>
+<span class="kw">class</span> Dog():
+
+  <span class="co"># __init__: A method (function) that happens just once, when the object is created.</span>
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>): <span class="co"># What&#39;s passed in to the class is used here</span>
+    <span class="co"># Set variables for each</span>
+    <span class="va">self</span>.name <span class="op">=</span> name
+    <span class="va">self</span>.age <span class="op">=</span> age
+    <span class="bu">print</span>(name, <span class="st">&quot;created.&quot;</span>) <span class="co"># This will run when the init method is called.</span>
+
+  <span class="co"># Classes can have as many methods (functions) as you&#39;d like.</span>
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old.&quot;</span>)
+
+fox <span class="op">=</span> Dog(<span class="st">&quot;Fox&quot;</span>) <span class="co"># Creating the object calls init. Objects are snake_case.</span>
+<span class="bu">print</span>(<span class="st">&quot;This dog&#39;s name is&quot;</span>, fox.name) <span class="co"># The object now has those variables!</span>
+fox.bark_hello() <span class="co"># The object now has those methods and variables!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Add your own reasons for why classes are useful.</li>
+<li>Do a quick check for understanding.</li>
+<li>Run down the comments in the code like they're bullet points!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-about-tea" class="level2">
+<h2>Discussion: What About Tea?</h2>
+<p>Let's make a <code>TeaCup</code> class.</p>
+<ul>
+<li>What variables would a tea cup have?</li>
+<li>What methods?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have the students discuss suggestions for properties for a <code>Tea</code> class.</li>
+<li>The exercise has capacity, amount, fill, empty, and drink.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="a-potential-teacup-class" class="level2">
+<h2>A Potential TeaCup Class</h2>
+<p>We could say:</p>
+<p>Variables:</p>
+<ul>
+<li>A total <code>capacity</code>.</li>
+<li>A current <code>amount</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li><code>fill</code> our cup.</li>
+<li><code>empty</code> our cup.</li>
+<li><code>drink</code> some tea from our cup.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Given a well-defined cup of tea, we can use the class definition to create <strong>instances</strong> of the class.&quot;</li>
+<li>&quot;Each <strong>instance</strong> of the teacup class can have a different <code>capacity</code> and keep track of different <code>amounts</code>.&quot;</li>
+<li>&quot;Although different, properties are affected by actions like <code>fill</code>, <code>empty</code>, and <code>drink</code> similarly.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="example-a-teacup-class" class="level2">
+<h2>Example: A TeaCup Class</h2>
+<p>Here's what a <code>TeaCup</code> class definition might look like in Python:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> TeaCup():
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, capacity):
+    <span class="co"># Python executes when a new cup of tea is created.</span>
+    <span class="va">self</span>.capacity <span class="op">=</span> capacity <span class="co"># Total ounces the cup holds</span>
+    <span class="va">self</span>.amount <span class="op">=</span> <span class="dv">0</span> <span class="co"># Current ounces in the cup. All cups start empty!</span>
+
+  <span class="kw">def</span> fill(<span class="va">self</span>):
+    <span class="va">self</span>.amount <span class="op">=</span> <span class="va">self</span>.capacity
+
+  <span class="kw">def</span> empty(<span class="va">self</span>):
+    <span class="va">self</span>.amount <span class="op">=</span> <span class="dv">0</span>
+
+  <span class="kw">def</span> drink(<span class="va">self</span>, amount_drank):
+    <span class="va">self</span>.amount <span class="op">-=</span> amount_drank
+    <span class="co"># If it&#39;s empty, it stays empty!</span>
+    <span class="cf">if</span> (<span class="va">self</span>.amount <span class="op">==</span> <span class="dv">0</span>):
+      <span class="va">self</span>.amount <span class="op">=</span> <span class="dv">0</span>
+
+steves_cup <span class="op">=</span> TeaCup(<span class="dv">12</span>)  <span class="co"># Maybe a fancy tea latte.</span>
+yis_cup <span class="op">=</span> TeaCup(<span class="dv">16</span>)    <span class="co"># It&#39;s a rough morning!</span>
+brandis_cup <span class="op">=</span> TeaCup(<span class="dv">2</span>)  <span class="co"># Just a quick sip.</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li><p>This is the only slide, so just a demo. Talk through each line again to remind them what it does. Copy this to a file and run it!</p></li>
+<li><p>This class doesn't take in amount! It's set as a variable, but not passed in. Call it out and explain.</p></li>
+<li><p>Remind them that the object declarations have to go below the class. Show the error that occurs if you try calling <code>steves_cup</code> first.</p></li>
+<li><p>Call each function - fill, drink(x) with a different number for each, and printing the amount left with cup.amount.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-knowledge-check" class="level2">
+<h2>Quick Knowledge check:</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> TeaCup():
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, capacity <span class="op">=</span> <span class="dv">8</span>):
+    <span class="va">self</span>.capacity <span class="op">=</span> capacity
+    <span class="va">self</span>.amount <span class="op">=</span> <span class="dv">0</span></code></pre></div>
+<p>When will the capacity be <code>8</code>?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>See if they can answer this.</li>
+<li>Answer: When no capacity is passed in when it's declared.</li>
+<li>After giving the answer, demo it!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="variables-for-all-class-objects" class="level2">
+<h2>Variables For All Class Objects</h2>
+<p><strong>Now Up</strong>: New types of class variables!</p>
+<p>Let's revisit our Dog class:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+    <span class="va">self</span>.name <span class="op">=</span> name
+    <span class="va">self</span>.age <span class="op">=</span> age
+    <span class="bu">print</span>(name, <span class="st">&quot;created.&quot;</span>)
+
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old&quot;</span>)</code></pre></div>
+<p>What if there are variables that we want across all dogs?</p>
+<p>For example, can we count how many dog objects we make - and track it in the class?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Our <code>Dog</code> class had variables attached to <code>self</code> that exist independently for each object that's created.
+<ul>
+<li>Each object instance has its own copies of these variables and they can vary across objects.</li>
+</ul></li>
+<li>We can attach variables to the class itself so that there's one single thing that exists for an entire class.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="i-do-class-vs-instance-members" class="level2">
+<h2>I Do: Class vs Instance Members</h2>
+<p>We already have <strong>instance variables</strong> - specific to each dog object (each has its own name!).</p>
+<p>A <strong>class variable</strong> is specific to the class, regardless of which object! It's created <strong>above</strong> <code>__init__</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+
+  <span class="co">### Here, we define *class* variables. </span><span class="al">###</span>
+  <span class="co"># These are the same for ALL dogs.</span>
+  total_dogs <span class="op">=</span> <span class="dv">0</span>
+
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+
+    <span class="co">### These are *instance* variables </span><span class="al">###</span>
+    <span class="va">self</span>.name <span class="op">=</span> name
+    <span class="va">self</span>.age <span class="op">=</span> age
+    <span class="bu">print</span>(name, <span class="st">&quot;created.&quot;</span>)
+
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old&quot;</span>)
+    <span class="bu">print</span>(<span class="st">&quot;There are&quot;</span>, Dog.total_dogs, <span class="st">&quot;dogs in this room!&quot;</span>) <span class="co"># There&#39;s no &quot;self&quot; - we call the Dog class name!</span>
+
+molly <span class="op">=</span> Dog(<span class="st">&quot;Molly&quot;</span>, <span class="dv">8</span>)
+molly.bark_hello()
+
+sheera <span class="op">=</span> Dog(<span class="st">&quot;Sheera&quot;</span>, <span class="dv">5</span>)
+sheera.bark_hello()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Demo this, but don't worry about having them follow along. Their understanding is more important than their typing.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Our <code>Dog</code> class had variables attached to <code>self</code> that exist independently for each object that's created.
+<ul>
+<li>These are called <strong>instance variables</strong>.</li>
+<li>Each object instance has its own copies of these variables and they can vary across objects.</li>
+</ul></li>
+<li>We can attach variables to the class itself so that there's one single thing that exists for an entire class.
+<ul>
+<li>These are called <strong>class variables</strong>.</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="i-do-tallying-dogs" class="level2">
+<h2>I Do: Tallying Dogs</h2>
+<p>We can increment the class variable any time.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+  total_dogs <span class="op">=</span> <span class="dv">0</span>
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
+    <span class="va">self</span>.name <span class="op">=</span> name
+    <span class="va">self</span>.age <span class="op">=</span> age
+    Dog.total_dogs <span class="op">+=</span> <span class="dv">1</span> <span class="co">#  We can increment this here!</span>
+    <span class="bu">print</span>(name, <span class="st">&quot;created:&quot;</span>)
+
+  <span class="kw">def</span> bark_hello(<span class="va">self</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Woof! I am called&quot;</span>, <span class="va">self</span>.name, <span class="st">&quot;; I am&quot;</span>, <span class="va">self</span>.age, <span class="st">&quot;human-years old.&quot;</span>)
+    <span class="bu">print</span>(<span class="st">&quot;There are&quot;</span>, Dog.total_dogs, <span class="st">&quot;dogs in this room!&quot;</span>)
+
+molly <span class="op">=</span> Dog(<span class="st">&quot;Molly&quot;</span>, <span class="dv">8</span>)
+molly.bark_hello()
+
+sheera <span class="op">=</span> Dog(<span class="st">&quot;Sheera&quot;</span>, <span class="dv">5</span>)
+sheera.bark_hello()</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Again, note that &quot;self&quot; doesn't exist for the class variables! Really stress when self is there and when it isn't.</li>
+<li>Show it increasing!</li>
+<li>Once they get the hang of this, create a method that increments <code>total_dogs</code> as well.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We can keep a tally of how many <code>dog</code>s we have running around in our app.&quot;</li>
+<li>&quot;We could put a copy of the tally in each <code>dog</code> object, but that's not efficient since we would be duplicating a value in memory multiple times, and we would have to update the value in every <code>dog</code> object in order to keep it accurate.&quot;</li>
+<li>&quot;It's much better if we can store it in the class. That way, each <code>dog</code> object can access it, but we only need to store it and set it in one place.&quot;</li>
+<li>&quot;Finally we create a new <code>dog</code>, the <code>__init__</code> method increments the <code>total_dogs</code> counter which is stored in the <code>Dog</code> class itself. We can access the value stored in <code>Dog.total_dogs</code> inside our script and each <code>dog</code> object can access it from their own functions.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-create-a-music-genre-class" class="level2">
+<h2>Partner Exercise: Create a Music Genre Class</h2>
+<p>Pair up! Create a new file, <code>Band.py</code>.</p>
+<ul>
+<li>Define a class, <code>Band</code>, with these instance variables: <code>&quot;genre&quot;</code>, <code>&quot;band_name&quot;</code>, and <code>&quot;albums_released&quot;</code> (defaulting to <code>0</code>).</li>
+<li>Give <code>Band</code> a method called <code>print_stats()</code>, which prints a string like <code>&quot;The rock band Queen has 15 albums.&quot;</code></li>
+<li>Create a class variable, <code>number_of_bands</code>, that tracks the number of bands created.</li>
+</ul>
+<p>Test your code with calls like:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_band <span class="op">=</span> (<span class="st">&quot;Queen&quot;</span>, <span class="dv">15</span>, <span class="st">&quot;rock&quot;</span>)</code></pre></div>
+<p><strong>Bonus:</strong> If the genre provided isn't <code>&quot;pop&quot;</code>, <code>&quot;classical&quot;</code>, or <code>&quot;rock&quot;</code>, print out <code>&quot;This isn't a genre I know.&quot;</code></p>
+<aside class="notes">
+<p>5-10 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>After they do this, create it and talk through it.</li>
+<li>If you're running short on time, skip an exercise and give it as homework (the next slide's exercise is more difficult).</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Imagine that you are working with music data of all different types of genres and want to ultimately define three different classes of music (pop, classical, and rock).</p></li>
+<li><p>&quot;Things to think about:</p>
+<ul>
+<li>Starting values for variables should be set in the <code>__init__</code> method</li>
+<li>Class variables are declared inside the class but outside any methods</li>
+<li>Instance variables are declared inside the <code>__init__</code> method</li>
+<li>Does your <code>__init__</code> method need to accept any parameters?&quot;</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-create-a-bankaccount-class." class="level2">
+<h2>Partner Exercise: Create a BankAccount Class.</h2>
+<p>Switch drivers! Create a new class (and file), <code>Bank.py</code>.</p>
+<p>Bank accounts should:</p>
+<ul>
+<li>Be created with the <code>accountType</code> property (either <code>&quot;savings&quot;</code> or <code>&quot;checking&quot;</code>).</li>
+<li>Keep track of its current <code>balance</code>, which is always started at <code>0</code>.</li>
+<li>Have access to a <code>deposit</code> and a <code>withdraw</code> method, which take in an integer and updates <code>balance</code> accordingly.</li>
+<li>Have a class-level variable tracking the total amount of money in all accounts - adding or subtracting whenever <code>balance</code> changes.</li>
+</ul>
+<p><strong>Bonus:</strong> Start each account with an additional <code>overdraftFees</code> property that starts at zero. If a call to <code>withdraw</code> ends with the <code>balance</code> below zero then <code>overdraftFees</code> should be incremented by <code>20</code>.</p>
+<aside class="notes">
+<p>10 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is tough! Walk around the room and check for questions and understanding.</li>
+<li>After they do this, create it and talk through it.</li>
+<li>If you're running short on time, skip an exercise and give it as homework.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>(The same as above).</li>
+<li><p>&quot;Things to think about:</p>
+<ul>
+<li>Starting values for variables should be set in the <code>__init__</code> method</li>
+<li>Class variables are declared inside the class but outside any methods</li>
+<li>Instance variables are declared inside the <code>__init__</code> method</li>
+<li>Does your <code>__init__</code> method need to accept any parameters?&quot;</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-select-best-answer" class="level2">
+<h2>Knowledge Check: Select Best Answer</h2>
+<p>Consider the following class definition for <code>Cat()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Cat(Animal):
+ <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&#39;Lucky&#39;</span>):
+  <span class="va">self</span>.name <span class="op">=</span> name
+  <span class="va">self</span>.fur <span class="op">=</span> short</code></pre></div>
+<p>How would you instantiate a <code>Cat</code> object with the <code>name</code> attribute <code>'Furball'</code>?</p>
+<ol type="1">
+<li><code>mycat = Cat(name='Furball')</code></li>
+<li><code>furball = Cat()</code></li>
+<li><code>mycat = Cat(self, name='Furball')</code></li>
+<li><code>mycat = Cat.init(name='Furball')</code></li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students guess before telling them.</li>
+</ul>
+<p><strong>Answer</strong>:</p>
+&quot;1. The <strong>init</strong> function is automatically called when creating an object with the Cat(name='Furball') syntax.&quot;
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-select-all-that-apply." class="level2">
+<h2>Knowledge Check: Select All That Apply.</h2>
+<p>Which statements are true about the <code>self</code> argument in class definitions?</p>
+<ul>
+<li>The user does not need to supply <code>self</code> when using instance methods.</li>
+<li>The <code>self</code> argument is a reference to the instance object.</li>
+<li>Any variable assigned with <code>self</code> (e.g., <code>self.var</code>) will be shared across instances of the class.</li>
+<li>With an instance object <code>obj</code>, entering <code>obj.self.var</code> will provide the value for <code>var</code> for that instance.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students guess before telling them.</li>
+</ul>
+<p><strong>Answers:</strong></p>
+<p>&quot;1. The user does not need to supply <code>self</code> when using instance methods.&quot; &quot;2. The <code>self</code> argument is a reference to the instance object.&quot;</p>
+<p>Correct response Explanation:</p>
+<ul>
+<li><code>self</code> is automatically passed into an instance method when you call it. <code>self</code> refers to the class and NOT the instance. <code>self.var</code> will not be shared between instances, as <code>self</code> refers to the class. Instances have no explicit <code>self</code> attribute.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="knowledge-check-select-best-answer-1" class="level2">
+<h2>Knowledge Check: Select Best Answer</h2>
+<p>Consider the following code:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Shape(<span class="bu">object</span>):
+ possible <span class="op">=</span> [<span class="st">&#39;triangle&#39;</span>,<span class="st">&#39;square&#39;</span>,<span class="st">&#39;circle&#39;</span>,<span class="st">&#39;pentagon&#39;</span>,<span class="st">&#39;polygon&#39;</span>,<span class="st">&#39;rectangle&#39;</span>]
+
+ <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, label<span class="op">=</span><span class="st">&#39;triangle&#39;</span>):
+  <span class="va">self</span>.label <span class="op">=</span> label
+
+ <span class="kw">def</span> is_possible(<span class="va">self</span>):
+  <span class="cf">if</span> <span class="va">self</span>.label <span class="kw">in</span> <span class="va">self</span>.possible:
+   <span class="bu">print</span>(<span class="st">&#39;This is possible&#39;</span>)
+  <span class="cf">else</span>:
+   <span class="bu">print</span>(<span class="st">&#39;This is impossible&#39;</span>)
+
+square <span class="op">=</span> Shape(label<span class="op">=</span><span class="st">&#39;square&#39;</span>)
+wormhole <span class="op">=</span> Shape(label<span class="op">=</span><span class="st">&#39;wormhole&#39;</span>)
+square.possible.append(<span class="st">&#39;wormhole&#39;</span>)</code></pre></div>
+<p>If you were to enter <code>wormhole.is_possible()</code>, would the outcome be <code>&quot;This is possible&quot;</code> or <code>&quot;This is impossible&quot;</code>?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students guess before telling them.</li>
+</ul>
+<p><strong>Answer</strong>: <code>This is possible</code></p>
+Explanation: &quot;The possible list is defined at the class level as opposed to as an instance variable. When we append the string 'wormhole' to the possible list of the square object, this list is shared with the wormhole instance. Therefore the output will be is possible.&quot;
+</aside>
+<hr />
+</section>
+<section id="summary-discussion" class="level2">
+<h2>Summary: Discussion</h2>
+<p>Let's chat! Can anyone explain:</p>
+<ul>
+<li>What a class is?</li>
+<li>What <code>__init__</code> does?</li>
+<li>What an object is?</li>
+<li>The point of <code>self</code>?</li>
+<li>The two types of variables?</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go down each question and make sure students can explain the answers. Check for understanding!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Class:</p>
+<ul>
+<li>A pre-defined structure that contains attributes and behaviors that are grouped together.</li>
+<li>The blueprint</li>
+<li>Defined via a method call</li>
+<li>Contain an <code>__init__</code> method that takes in parameters to be assigned to an object.</li>
+<li>The Dog class; the List class.</li>
+</ul>
+<p>Object:</p>
+<ul>
+<li>An instance of a Class structure.<br />
+</li>
+<li>The items built from the blueprint.</li>
+<li>The <code>gracie</code> object; the <code>my_list</code> object.</li>
+</ul>
+<hr />
+</section>
+<section id="summary-types-of-variables-in-a-class" class="level2">
+<h2>Summary: Types of Variables in a Class</h2>
+<p>Instance variables:</p>
+<ul>
+<li>Contain data types declared in the class but defined in each object.</li>
+<li>Each <code>dog</code> has its own name and age.</li>
+<li>Each <code>my_list</code> has its own elements.</li>
+</ul>
+<p>Class variables:</p>
+<ul>
+<li>Contain data and actions that span across all Objects.</li>
+<li>How many <code>dog</code> objects are there in total.</li>
+<li>The <code>self</code> keyword lets us distinguish between variables that exist at the class level versus in each object.</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

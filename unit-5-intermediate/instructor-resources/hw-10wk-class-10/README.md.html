@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="python-modules-packages-and-apis-practice-problems-part-2" class="level1">
+<h1>Python Modules, Packages, and APIs: Practice Problems, Part 2</h1>
+<p>In this homework, you’re going to write code for the second of the two challenge problems. This code will continue off your code from the previous homework.</p>
+<p>You will practice these programming concepts we’ve covered in class:</p>
+<ul>
+<li>Including and using modules and packages.</li>
+<li>Using data from APIs.</li>
+<li>Reading documentation for modules and APIs.</li>
+</ul>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>This homework is the second of a two-part code challenge, plus a bonus challenge. It is a little different than the other homeworks because this assignment will build on the code from Part 1, the previous homework. For your solution here, you can directly edit the <code>solution.py</code> file from the previous assignment.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python solution.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you should have: * A file called <code>solution.py</code> with your combined code from Parts 1 and 2 (and, if you attempted it, the bonus portion).</p>
+<hr />
+</section>
+</section>
+<section id="code-challenges" class="level1">
+<h1>Code Challenges</h1>
+<section id="problem-1-geo-cody" class="level2">
+<h2>Problem 1: Geo Cody</h2>
+<p>You already have the solution to this section from the previous homework. As a reminder, you put several destinations into a list of strings called <code>destinations</code>. Then, you imported the the <a href="https://geocoder.readthedocs.io/providers/ArcGIS.html#geocoding">geocoder module</a> and used it to translate each landmark into latitude-longitude coordinates. You looped through the list and printed each location’s latitude and longitude, then used <code>arcgis</code> to translate the places to coordinates.</p>
+<p>Your code should currently have this functionality:</p>
+<section id="sample-test" class="level4">
+<h4>Sample Test</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> geocoder</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">g <span class="op">=</span> geocoder.arcgis(<span class="st">&#39;Redlands, California&#39;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">print</span>(g.latlng) <span class="co"># `latlng` is a tuple with a length of 2.</span></a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>Space Needle is located at (47.6205, -122.3493)
+Crater Lake is located at (42.8684, -122.1685)
+Golden Gate Bridge is located at (37.8199, -122.4783)
+Yosemite National Park is located at (37.8651, -119.5383)
+Las Vegas, Nevada is located at (36.1699, -115.1398)
+Grand Canyon National Park is located at (36.1070, -112.1130)
+Aspen, Colorado is located at (39.1911, -106.8175)
+Mount Rushmore is located at (43.8791, -103.4591)
+Yellowstone National Park is located at (44.4280, -110.5885)
+Sandpoint, Idaho is located at (48.2766, -116.5535)
+Banff National Park is located at (51.4968, -115.9281)
+Capilano Suspension Bridge is located at (49.3429, -123.1149)</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> We’re following the pattern in the <code>geonames</code> example in the <a href="https://geocoder.readthedocs.io/results.html">docs</a>, but replacing <code>geonames</code> with <code>arcgis</code>.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+<section id="problem-2-heather-weather" class="level2">
+<h2>Problem 2: Heather Weather</h2>
+<section id="skill-youre-practicing-calling-an-api." class="level3">
+<h3>Skill you’re practicing: Calling an API.</h3>
+<p>Cody is satisfied by geolocating his landmarks, but Heather wants to take it one step further and get the current weather at each location. Help Heather with some code that calls an API to get current weather based on latitude-longitude coordinates. Take Cody’s code from Problem 1 and add an API call to <a href="https://darksky.net/dev/register">Dark Sky API</a>. &gt; Note: You will need to register an email address to get an API key, but it is free to use.</p>
+<section id="directions-for-dark-sky-api" class="level4">
+<h4>Directions for Dark Sky API</h4>
+<p>When you first log in to the Dark Sky API site, you will see your personal API key, as well as an example of how to use that key to make a call to the API with latitude and longitude coordinates. You can click on this sample call to see what it returns.</p>
+<p>The data is in a form called <code>JSON</code>, which is basically a big object. You can see in your web browser what that object looks like. Unless you have a <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON prettify plug-in</a>, it will probably look like a huge mess of data and curly braces. That’s OK! Most importantly, the data we are getting includes a field called <code>currently</code>, which includes subfields <code>summary</code> and <code>temperature</code>, which together give us a pretty good idea of how we should dress for the weather.</p>
+</section>
+<section id="calling-an-api" class="level4">
+<h4>Calling an API</h4>
+<p>We’ll be using the <a href="http://docs.python-requests.org/en/master/api/#module-requests">requests module</a> to call the Dark Sky API. Make sure to <code>import requests</code> at the top of your program.</p>
+</section>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<p><strong>Note:</strong> This new code gets put into to your previous code from Problem 1!</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Import the module (top of the file).</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># Make sure to replace [YOUR_API_KEY_HERE] with your actual key, which</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># will look like a bunch of letters and numbers! Alternatively, copy the sample</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># API call from Dark Sky dashboard and just remove the coordinates.</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">API_BASE_URL <span class="op">=</span> <span class="st">&quot;https://api.darksky.net/forecast/[YOUR_API_KEY_HERE]/&quot;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co"># Previous code still here.</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="cf">for</span> point <span class="kw">in</span> destinations:</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="co"># Previous `geopy` code still here.</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="co"># full_api_url = API_BASE_URL + latitude + &quot;,&quot; + longitude</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    result <span class="op">=</span> requests.request(<span class="st">&#39;GET&#39;</span>, full_api_url).json()</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    <span class="co"># From the result, print out the summary and current temperature.</span></a></code></pre></div>
+</section>
+<section id="expected-output-1" class="level4">
+<h4>Expected Output</h4>
+<pre><code>The Space Needle is located at (47.6199, -122.3487)
+At The Space Needle right now, it&#39;s Partly Cloudy with a temperature of 65.63
+Crater Lake is located at (42.9116, -122.1483)
+At Crater Lake right now, it&#39;s Clear with a temperature of 63.52
+The Golden Gate Bridge is located at (37.8183, -122.4784)
+At The Golden Gate Bridge right now, it&#39;s Partly Cloudy with a temperature of 59.98
+Yosemite National Park is located at (37.7490, -119.5885)
+At Yosemite National Park right now, it&#39;s Clear with a temperature of 83.1
+Las Vegas, Nevada is located at (36.1719, -115.1400)
+At Las Vegas, Nevada right now, it&#39;s Clear with a temperature of 104.72
+Grand Canyon National Park is located at (36.0573, -112.1096)
+At Grand Canyon National Park right now, it&#39;s Clear with a temperature of 88.37
+Aspen, Colorado is located at (39.1900, -106.8182)
+At Aspen, Colorado right now, it&#39;s Clear with a temperature of 86.87
+Mount Rushmore is located at (43.8803, -103.4588)
+At Mount Rushmore right now, it&#39;s Partly Cloudy with a temperature of 77.62
+Yellowstone National Park is located at (44.9775, -110.6983)
+At Yellowstone National Park right now, it&#39;s Clear with a temperature of 72.09
+Sandpoint, Idaho is located at (48.2730, -116.5478)
+At Sandpoint, Idaho right now, it&#39;s Clear with a temperature of 68.81
+Banff National Park is located at (51.1356, -115.4073)
+At Banff National Park right now, it&#39;s Partly Cloudy with a temperature of 63.91
+Capilano Suspension Bridge is located at (49.3432, -123.1133)
+At Capilano Suspension Bridge right now, it&#39;s Mostly Cloudy with a temperature of 65.11</code></pre>
+<p><strong>Hint:</strong> In the API results, you are accessing an object called <code>currently</code>, which has properties called <code>temperature</code> and <code>summary</code>. Therefore, you can access those fields like so: <code>result[&quot;currently&quot;][&quot;summary&quot;]</code>.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="bonus-format-for-matt" class="level2">
+<h2>Bonus: Format for Matt</h2>
+<section id="skill-youre-practicing-string-formatting." class="level4">
+<h4>Skill you’re practicing: String formatting.</h4>
+<p>Matt likes Heather’s idea of getting the weather for each location they plan on visiting, but he thinks the data is unreadable. Modify your code to:</p>
+<ol type="1">
+<li>Add a newline after each location (<code>\n</code>).</li>
+<li>Add an F.</li>
+<li>Add a unicode degree character.</li>
+<li>Display only one decimal place on the temperature (think about string formatting).</li>
+</ol>
+</section>
+<section id="sample-code-decimal-places-display" class="level4">
+<h4>Sample Code: Decimal Places Display</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># prints 1.23456789</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">1.23456789</span>))</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># prints 1.23 (2 decimal places)</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0:.2f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">1.23456789</span>))</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># prints 1.2345 (4 decimal places)</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0:.4f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">1.23456789</span>))</a></code></pre></div>
+</section>
+<section id="expected-output-2" class="level4">
+<h4>Expected Output</h4>
+<pre><code>The Space Needle is located at (47.6199, -122.3487)
+At The Space Needle right now, it&#39;s Partly Cloudy with a temperature of 65.6° F
+
+Crater Lake is located at (42.9116, -122.1483)
+At Crater Lake right now, it&#39;s Clear with a temperature of 63.5° F
+
+The Golden Gate Bridge is located at (37.8183, -122.4784)
+At The Golden Gate Bridge right now, it&#39;s Partly Cloudy with a temperature of 60.0° F
+
+Yosemite National Park is located at (37.7490, -119.5885)
+At Yosemite National Park right now, it&#39;s Clear with a temperature of 83.1° F
+
+Las Vegas, Nevada is located at (36.1719, -115.1400)
+At Las Vegas, Nevada right now, it&#39;s Clear with a temperature of 104.7° F
+
+Grand Canyon National Park is located at (36.0573, -112.1096)
+At Grand Canyon National Park right now, it&#39;s Clear with a temperature of 88.3° F
+
+Aspen, Colorado is located at (39.1900, -106.8182)
+At Aspen, Colorado right now, it&#39;s Clear with a temperature of 86.9° F
+
+Mount Rushmore is located at (43.8803, -103.4588)
+At Mount Rushmore right now, it&#39;s Partly Cloudy with a temperature of 77.6° F
+
+Yellowstone National Park is located at (44.9775, -110.6983)
+At Yellowstone National Park right now, it&#39;s Clear with a temperature of 72.0° F
+
+Sandpoint, Idaho is located at (48.2730, -116.5478)
+At Sandpoint, Idaho right now, it&#39;s Clear with a temperature of 68.8° F
+
+Banff National Park is located at (51.1356, -115.4073)
+At Banff National Park right now, it&#39;s Partly Cloudy with a temperature of 63.9° F
+
+Capilano Suspension Bridge is located at (49.3432, -123.1133)
+At Capilano Suspension Bridge right now, it&#39;s Mostly Cloudy with a temperature of 65.1° F</code></pre>
+</section>
+</section>
+<section id="hint-heres-a-list-of-unicode-characters.-refer-to-your-class-notes-for-how-to-use-an-escape-character." class="level2">
+<h2><strong>Hint:</strong> Here’s a list of <a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">unicode characters</a>. Refer to your class notes for how to use an escape character.</h2>
+</section>
+<section id="done-and-done" class="level2">
+<h2>Done and done!</h2>
+<p><img src="https://media.giphy.com/media/PqwqtOLfG19Ti/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

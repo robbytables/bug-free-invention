@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Intro to Programming with Variables
+type: lesson
+duration: "01:00"
+creator: Brandi Butler [partially originating from Steve Peter's Cybersecurity lesson]
+Private gist location: https://gist.github.com/brandiw/a55863eea158b759fe8ada94c730a2a6
+Presentation URL: https://presentations.generalassemb.ly/a55863eea158b759fe8ada94c730a2a6#/
+-->
+<section id="unit-1-lab-variables" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Unit 1 Lab: Variables!</h2>
+<!--
+
+## Overview
+This lesson consists of a hands-on lab during which learners will independently create a working Python program. You simply need to introduce the lab, make sure they can access the lab doc, and wait in case  of questions; at the end, go over the solution (in the solution-code folder).
+
+As the next lab builds on this one, make sure students all end with the correct code. Send out the solution python file if needed.
+
+## Learning Objectives
+In this lesson, students will:
+- Apply what they've learned in Unit 1 to create a working Python program.
+
+
+## Duration
+30 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 02:00 | Welcome |
+| 02:00 - 20:00 | Work Time |
+| 20:00 - 30:00 | Q&A + Close |
+
+## Before Class: Preparation
+- Before class, complete the lab yourself to ensure you’re familiar with the solution, as well as the various challenges learners might encounter.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python 3.0
+- Lab directions
+
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<ul>
+<li>Apply what you’ve learned in Unit 1 to create a working Python program.</li>
+<li>Wrap up Unit 1.</li>
+<li>Q&amp;A and transition.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Congratulate them on finishing unit 1!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-is-a-lab" class="level2">
+<h2>What is a Lab?</h2>
+<p>At GA, we believe hands-on activities are the best way to learn.</p>
+<p>Labs are opportunities for you to learn by doing, in the classroom, with the support of your peers and your instructional team.</p>
+<p>Tips for a great lab experience:</p>
+<ul>
+<li>Failure IS an option.</li>
+<li>Ask 3 before you ask me.</li>
+<li>Reflect and be ready to debrief.</li>
+</ul>
+<aside class="notes">
+<p>1 MINUTE</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Explain what labs are and how best to participate in one, including the <strong>Talking Points</strong> below.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>Failure is an option: encourage learners to try to solve the lab on their own, even if their code doesn’t work at first. It’s okay to make mistakes, we learn by doing.</p></li>
+<li><p>Ask 3 before you ask me: we are a community of learners here. If you’re stuck, as a peer for help. Then another, then another. After you’ve asked 3 peers, if you’re still stuck, raise your hand and I’ll come help.</p></li>
+<li><p>Reflect and be ready to debrief: Remember the goal is not just to get the lab done, write “correct” code and solve the puzzle correctly. This is a learning experience. You should be thinking not about whether you get the “right” answer -- in fact there are often more than one way to complete these labs -- but instead thinking about what you’re learning on the way to finding an answer.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-unit-1-lab---variables" class="level2">
+<h2>You Do: Unit 1 Lab - Variables</h2>
+<p>A &quot;You Do&quot; is an exercise for you to try on your own!</p>
+<p>In today’s lab, you will:</p>
+<ul>
+<li><p>Create the bones of a movie rating app that we’ll be adding on to at the end of each unit.</p></li>
+<li><p>Print complex variables.</p></li>
+</ul>
+<p>Open the file {<code>unit-lab-1-directions</code>} see the lab and its instructions. Follow the instructions there.</p>
+<p>Try your best! Raise your hand if you really need help.</p>
+<aside class="notes">
+<p>25 MINUTES</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure you change the link or point out what PDF to look at!</li>
+<li>The lab has instructions and an explanation in it for them to read. Make sure they're all opening the lab instructions okay, and make sure they're all working locally and not in repl.it. The below <strong>Talking Points</strong> are from the lab overview.</li>
+<li>Stay on this slide until everyone's done or time's up!</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>Throughout the course, there is a lab at the end of each unit. Each lab builds upon the last.</p></li>
+<li><p>At the end Unit 5's lab, you're going to have an app that asks the user to enter a movie title. Your app will then search for that movie on <a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a> and print the search results and the Rotten Tomatoes rating.</p></li>
+<li><p>For example, if a user searches in your app for &quot;Blade&quot;, your app can get a list of results: &quot;Blade&quot;, &quot;Blade II', &quot;Blade Runner&quot;, &quot;Blade Runner 2049&quot;, and &quot;Blade of the Immortal (Mugen no jûnin)&quot;. Your app can also tell the user that Blade has a 54% rating on Rotten Tomatoes.</p></li>
+<li><p>It's going to be awesome!</p></li>
+<li><p>Right now, let's set up some variables and print out their values.</p></li>
+</ul>
+</aside>
+<p>--</p>
+</section>
+<section id="debrief-unit-1-lab---variables" class="level2">
+<h2>Debrief: Unit 1 Lab - Variables</h2>
+<p>How did it go?</p>
+<p>Let's go over it.</p>
+<p>Make sure your code works - the Unit 2 lab builds off this one!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Bring up the solution (in the <code>solution-code</code> directory) and walk them through it. Be sure everyone understands - and be sure everyone's code is accurate, because the next lab will build off this one!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="unit-1-wrap-up" class="level2">
+<h2>Unit 1 Wrap Up</h2>
+<p>What'd we do?</p>
+<ul>
+<li>Explored the concept of variables and differentiated between variable types.</li>
+<li>Created and re-assigned numerical variables using common naming guidelines and numerical operators.</li>
+<li>Re-assigned variables using variables and shorthand assignment operators.</li>
+<li>Created string variables, concatenate strings, and print complex structures.</li>
+</ul>
+<p>Questions?</p>
+<aside class="notes">
+<p>5 MINUTES</p>
+<p><strong>Teaching Tips</strong>: - Briefly review the high-level learning objectives for Unit 1. - As you read each bullet aloud, ask students to give you a &quot;fist to five&quot;. See <strong>Talking Points</strong> below. - Observe student votes for each item, and make a mental note to follow up with individuals who are not feeling confident, or find time to reteach topics that the majority of the class is uncomfortable with. - Take time to go over questions (but remember the parking lot).</p>
+<p><strong>Talking Points</strong>: - Wow, we've covered a lot, and we're just getting started! Let's take a minute to review what we've learned so far. - I'm going to read through the learning objectives for Unit 1. As I do so, I want you to tell me how confident you feel that you've mastered each one, on a scale of 0 to 5. -- Hold up your fist to indicate 0 - you don't feel confident at all that you mastered this objective. -- Hold up all five fingers to indicate 5 - you feel super confident. You're an expert!</p>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

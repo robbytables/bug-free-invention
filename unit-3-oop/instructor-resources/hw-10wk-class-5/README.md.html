@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="python-classes-and-data-structures-practice-problems-reading" class="level1">
+<h1>Python Classes and Data Structures: Practice Problems + Reading</h1>
+<p>In this homework, you’re going to write code for two challenge problems.</p>
+<p>You’ll practice these programming concepts we’ve covered in class:</p>
+<ul>
+<li>Using dictionaries to solve problems.</li>
+<li>Storing data in tuples and sets.</li>
+</ul>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>Part of this homework will be code challenges and part of it will be some reading with comprehension questions.</p>
+<p>For each of the code challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you should have: * Two different <code>.py</code> files (one for each code challenge).</p>
+<hr />
+</section>
+</section>
+<section id="code-challenges" class="level1">
+<h1>Code Challenges</h1>
+<section id="problem-1-i-love-you-tuple" class="level2">
+<h2>Problem 1: I Love You, Tuple</h2>
+<section id="skill-youre-practicing-using-tuples." class="level3">
+<h3>Skill you’re practicing: Using tuples.</h3>
+<p>You may recall tuples from your in-class lesson. Tuples are <em>immutable</em> data structures, which means they can’t be changed after they’re created. They are typically used to store related information that doesn’t need to be changed, such as a student record or, in this case, some stats about a movie. It’s your job to create some <code>print</code> statements that access the appropriate values inside each tuple to produce the expected output.</p>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># My favorite romance movies</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co"># title, release year, runtime, tagline, main characters</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">romantic_movie1 <span class="op">=</span> (<span class="st">&quot;The Princess Bride&quot;</span>, <span class="dv">1987</span>, <span class="dv">98</span>, <span class="st">&quot;The story of a man and a woman who lived happily ever after.&quot;</span>, [<span class="st">&quot;Buttercup&quot;</span>, <span class="st">&quot;Westley&quot;</span>, <span class="st">&quot;Fezzik&quot;</span>, <span class="st">&quot;Inigo Montoya&quot;</span>, <span class="st">&quot;Vizzini&quot;</span>])</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">romantic_movie2 <span class="op">=</span> (<span class="st">&quot;Groundhog Day&quot;</span>, <span class="dv">1993</span>, <span class="dv">101</span>, <span class="st">&quot;He&#39;s having the day of his life… over and over again.&quot;</span>, [<span class="st">&quot;Phil Connors&quot;</span>])</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">romantic_movie3 <span class="op">=</span> (<span class="st">&quot;Amélie&quot;</span>, <span class="dv">2001</span>, <span class="dv">122</span>, <span class="st">&quot;One person can change your life forever.&quot;</span>, [<span class="st">&quot;Amélie Poulain&quot;</span>, <span class="st">&quot;Nino Quincampoix&quot;</span>, <span class="st">&quot;The Garden Gnome&quot;</span>])</a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>Here are my favorite romance movies:
+
+The Princess Bride (1987): The story of a man and a woman who lived happily ever after.
+
+Groundhog Day (1993): He&#39;s having the day of his life...over and over again.
+
+Amélie (2001): One person can change your life forever.</code></pre>
+<p><strong>Hint:</strong> Remember, you can access a tuple sort of like a list, with the square brackets <code>[]</code> counting from zero (e.g., the value of <code>romantic_movie1[0]</code> is <code>&quot;The Princess Bride&quot;</code>).</p>
+</section>
+</section>
+<section id="bonus" class="level3">
+<h3>Bonus:</h3>
+<p>Change the <code>print</code> statement’s separator character to an empty string <code>&quot;&quot;</code> instead of a space so that you can print the year as <code>(1987)</code> instead of <code>( 1987 )</code>.</p>
+<hr />
+</section>
+</section>
+<section id="problem-2-friends-colleagues-and-details" class="level2">
+<h2>Problem 2: Friends, Colleagues, and Details</h2>
+<section id="skill-youre-practicing-using-dictionaries-lists-and-key-value-pairs." class="level3">
+<h3>Skill you’re practicing: Using dictionaries, lists, and key-value pairs.</h3>
+<p>Your boss tasks you with creating a company directory. Make a list called <code>employees</code>, which will contain one dictionary per person and include the keys <code>name</code>, <code>age</code>, <code>department</code>, <code>phone</code>, and <code>salary</code>. Once you have the list of dictionaries set up, loop through the list and print out the <code>name</code>, <code>department</code>, and <code>phone</code> number of each employee. Their <code>age</code> and <code>salary</code> should remain secret!</p>
+<section id="starter-code-1" class="level4">
+<h4>Starter Code</h4>
+<p>A dictionary should be set up in the following way:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">{</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Ron Swanson&quot;</span>,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="st">&quot;age&quot;</span>: <span class="dv">55</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="st">&quot;department&quot;</span>: <span class="st">&quot;Management&quot;</span>,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="st">&quot;phone&quot;</span>: <span class="st">&quot;555-1234&quot;</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="st">&quot;salary&quot;</span>: <span class="st">&quot;$87,000&quot;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">}</a></code></pre></div>
+</section>
+<section id="expected-output-1" class="level4">
+<h4>Expected Output</h4>
+<pre><code>Ron Swanson in Management can be reached at 555-1234.
+Leslie Knope in Middle Management can be reached at 555-4321.
+Andy Dwyer in Shoe Shining can be reached at 555-1122.
+April Ludgate in Administration can be reached at 555-3345.</code></pre>
+<p><strong>Hint:</strong> Dictionaries have values that can be accessed with keys, for example, <code>employees[&quot;name&quot;]</code>. Keys are typically strings.</p>
+<hr />
+</section>
+</section>
+</section>
+<section id="celebrate" class="level2">
+<h2>Celebrate!</h2>
+<p>You’re all finished!</p>
+<p><img src="https://media.giphy.com/media/UkhHIZ37IDRGo/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="advanced-python-practice-problems" class="level1">
+<h1>Advanced Python: Practice Problems</h1>
+<p>In this homework, you’re going to write code for a few problems. Like before, we’ll be practicing new material, but you may need to break out your skills from previous units.</p>
+<p>You will practice these programming concepts we’ve covered in class: * Using <code>itertools</code> and <code>random</code> functions. * Type conversion and more advanced variable usage. * Calling an API to get data using <code>requests</code>. * Debugging code that doesn’t work using <code>print</code> statements. * Scripting and file I/O. * Using list comprehensions to simplify list creation.</p>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>For each of the challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<ul>
+<li>By the end of this, you should have five different <code>.py</code> files (one for each problem).</li>
+</ul>
+<hr />
+</section>
+<section id="problem-1" class="level2">
+<h2>Problem 1:</h2>
+<section id="skills-youre-practicing-generating-random-numbers-and-type-conversion." class="level3">
+<h3>Skills you’re practicing: Generating random numbers and type conversion.</h3>
+<p>Make your own version of the <code>Guess a Number</code> game. Generate a random integer and store it in a variable called <code>answer</code>. Print a statement asking the user to guess a number.</p>
+<p>If the user’s guess is: * Higher than the <code>answer</code>: print <code>That is too high!</code>. * Lower than the <code>answer</code>: print <code>That is too low!</code>. * Exactly the <code>answer</code>: print <code>That's it! You win!</code>.</p>
+<p>Your program should keep prompting the user until they enter the correct answer.</p>
+<section id="example-output" class="level4">
+<h4>Example Output</h4>
+<pre><code>I&#39;m thinking of a number between 1 and 10.
+Please guess what it is:
+&gt; 4
+That is too low!
+&gt; 8
+That is too high!
+&gt; 6
+That&#39;s it! You win!</code></pre>
+<blockquote>
+<p><strong>Hint 1:</strong> User input comes to you as a string. How can you make it into an integer so you can properly compare the user’s guess with the <code>answer</code> (which is an integer)? <strong>Hint 2:</strong> You can set a variable to <code>False</code> or <code>True</code>.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-2-doh" class="level2">
+<h2>Problem 2: D’oh!</h2>
+<section id="skills-youre-practicing-using-tryexcept-statements-and-error-handling." class="level3">
+<h3>Skills you’re practicing: Using <code>try</code>/<code>except</code> statements and error handling.</h3>
+<p>Bart Simpson has gotten ahold of your program from Problem 1 and started entering a bunch of values that are NOT numbers! How do you handle it?</p>
+<p>Create a new file with your code from Problem 1 and modify it to print <code>D'oh! That is NOT a number, Bart!</code> if the user doesn’t enter an integer.</p>
+<section id="example-output-1" class="level4">
+<h4>Example Output</h4>
+<pre><code>I&#39;m thinking of a number between 1 and 10.
+Please guess what it is:
+&gt; Eat my shorts!
+D&#39;oh! That is NOT a number, Bart!
+Please guess what it is:
+&gt; Ay, caramba!
+D&#39;oh! That is NOT a number, Bart!
+Please guess what it is:
+&gt; 5
+That is too low!
+Please guess what it is:
+&gt; 8
+That&#39;s it! You win!</code></pre>
+</section>
+</section>
+</section>
+<section id="hint-the-continue-keyword-can-be-called-in-a-loop-and-means-skip-the-rest-of-this-loop-iteration.-it-may-be-useful-to-call-this-in-an-except-clause." class="level2">
+<h2>&gt; <strong>Hint:</strong> The <code>continue</code> keyword can be called in a loop and means “skip the rest of this loop iteration.” It may be useful to call this in an <code>except</code> clause.</h2>
+</section>
+<section id="problem-3" class="level2">
+<h2>Problem 3:</h2>
+<section id="skill-youre-practicing-debugging-built-in-errors." class="level3">
+<h3>Skill you’re practicing: Debugging built-in errors.</h3>
+<p>Copy the code out of the repl.it below into your file and fix the errors in the code. Don’t change the <code>rainbow</code>’s contents.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-eod-hw-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>The rainbow&#39;s name is Roy G. Biv
+I&#39;ll be taking that gold!
+red
+orange
+yellow
+green
+blue
+What color is indigo?
+violet
+102
+100.0</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> You may encounter: <code>NameError</code>, <code>SyntaxError</code>, <code>IndentationError</code>, <code>KeyError</code>, <code>TypeError</code>, etc. Refer to the class notes for common causes of these errors.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-4-three-commas" class="level2">
+<h2>Problem 4: Three Commas</h2>
+<section id="skill-youre-practicing-formatting-numbers." class="level3">
+<h3>Skill you’re practicing: Formatting numbers.</h3>
+<p>Russ is a billionaire and he’d like to count his wealth in the number of commas it contains. For example, someone who is a millionaire would have only two commas (1,000,000). Russ, however, has three commas and would like to see those commas displayed. Help Russ format his integer so that commas appear when it is printed out. Make sure your program will work for any value of <code>wealth</code>.</p>
+<section id="example-code" class="level4">
+<h4>Example Code</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">wealth <span class="op">=</span> <span class="dv">1000000000</span></a></code></pre></div>
+</section>
+<section id="example-output-2" class="level4">
+<h4>Example Output</h4>
+<pre><code>1,000,000,000</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> Look up <code>format</code> if you’ve forgotten how to use it!</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-5-my-favorite-tv-characters" class="level2">
+<h2>Problem 5: My Favorite TV Characters</h2>
+<section id="skills-youre-practicing-scripting-and-debugging." class="level3">
+<h3>Skills you’re practicing: Scripting and debugging.</h3>
+<p>I’m trying to write a list of favorite TV show characters to a file called <code>my_characters</code>. I’m nearly there, but instead of printing the whole list, I’m just getting the last line. Help me out: Can you get the whole list to print to a file?</p>
+<section id="my-code" class="level4">
+<h4>My Code</h4>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-hw-eod-3-prob-5?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+</section>
+<section id="desired-output" class="level4">
+<h4>Desired Output</h4>
+<pre><code>1: Will Byers
+2: Tyrion Lannister
+3: Oliver Queen
+4: Jean-Luc Picard
+5: Malcolm Reynolds
+6: The Doctor
+7: Sam Winchester
+8: Sherlock Holmes</code></pre>
+</section>
+<section id="actual-output" class="level4">
+<h4>Actual Output</h4>
+<pre><code>8: Sherlock Holmes</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> Remember the <a href="https://www.dropbox.com/s/cqsxfws52gulkyx/drawing.pdf">spreadsheet</a> we looked at earlier? See if it can help!</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="last-but-not-least" class="level2">
+<h2>Last, But Not Least</h2>
+<p>You’re all done! Wow! Time for a well-earned break!</p>
+<p><img src="https://media.giphy.com/media/SJsuD0XD2zNug/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

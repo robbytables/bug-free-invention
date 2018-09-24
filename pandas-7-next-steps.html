@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Next Steps in Data Science
+type: lesson
+duration: "0:45"
+creator: Joseph Nelson
+---
+-->
+<section id="next-steps-in-data-science" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Next Steps in Data Science</h2>
+<!--
+
+## Overview
+This lesson recaps what students have achieved, contextualizes that into the broader data science ecosystem, and recommends libraries and resources to further their journey.
+
+## Learning Objectives
+*After this lesson, you will be able to:*
+
+- Identify core libraries in the data science ecosystem, and their purpose
+- Determine how to learn more about which area is most interesting to you!
+- Discuss hiring in the data science job market, and strategies to support a search
+
+## Duration
+45 minutes.
+
+
+## Suggested Agenda
+
+|    Time     | Activity | Purpose |
+|-------------|----------|---------|
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:18 | Introspection and Review |
+| 0:18 - 0:43 | Establishing Yourself |
+| 0:43 - 0:45 | Summary |
+
+## Materials and Preparation:
+- Give out the link to the slides.
+- This lesson, more than any other in this unit, gives the instructor the ability to inject their own perspective throughout the lesson. Do not hesitate to do so!
+
+## Differentiation and Extensions
+
+- Add your own experience throughout the lesson.
+- If you're teaching this on campus to students, feel free to add several interview prep questions towards the end.
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Identify core libraries in the data science ecosystem.</li>
+<li>Determine how to learn more about which area is most interesting to you!</li>
+<li>Discuss hiring in the data science job market and strategies to support a search.</li>
+</ul>
+<hr />
+</section>
+<section id="celebrate" class="level2">
+<h2>Celebrate</h2>
+<p>Reflect for a moment - you've:</p>
+<ul>
+<li>Learned the fundamentals of Python, from data types to object oriented programming.</li>
+<li>Used your first API to build a simple application.</li>
+<li>Applied Pandas to synthesize insights from datasets.</li>
+</ul>
+<p>That's a lot! It deserves a huge congratulations.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Pause here and check that everyone understands what they've done so far.</li>
+<li>Make sure they feel accomplished!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-introspection" class="level2">
+<h2>Discussion: Introspection</h2>
+<ul>
+<li><p>What did you enjoy most?</p></li>
+<li><p>What did you find most intriguing?</p></li>
+<li><p>What do you want to know more about?</p></li>
+<li><p>What caused the most struggle?</p></li>
+</ul>
+<p>This isn't an all-frills exercise. It helps inform your future data science growth!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Stress that the point of this slide is to help students figure out what avenues they should explore next, so they should really think about these questions.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="revisiting-the-data-science-process" class="level2">
+<h2>Revisiting the data science process</h2>
+<p>It's important to place our Pandas work into the broader picture of data science.</p>
+<p>To do so, recall our data science workflow:</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/Data-Framework-White-BG.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Recap what each of these steps consists of and where they've seen it applied.</li>
+<li>Describe why we focus on the problem-framing portion of data science, consider personal experience.</li>
+<li>Data science is incredibly nascent, and its impact will be fully felt when problems are well-framed in advance of applying techniques</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-condensed-workflow" class="level2">
+<h2>Discussion: Condensed Workflow</h2>
+<ol type="1">
+<li><strong>Identify</strong> the problem</li>
+<li><strong>Acquire</strong> the right data</li>
+<li><strong>Parse</strong> the data</li>
+<li><strong>Mine</strong> our data</li>
+<li><strong>Refine</strong> our data</li>
+<li><strong>Build</strong> a model</li>
+<li><strong>Present</strong> our work</li>
+</ol>
+<p><strong>Class Question</strong>: Where have we focused our work?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note that this is the same workflow in a more brief wording, and also something they'll see referred to.</li>
+<li>Encourage discussion (answers on next slides, so when discussion seems to be wrapping up, turn the slide).</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="where-we-focused" class="level2">
+<h2>Where we focused</h2>
+<ol type="1">
+<li>Identify the problem</li>
+<li>Acquire the right data</li>
+<li><strong>Parse the data. We did this!</strong> Remember reading the Iowa Liquor data dictionary? Did you revisit IMDB's source to understand any columns?</li>
+<li><strong>Mine our data. We did this!</strong> Checked subpopulation analyses and, perhaps, feature creation. We filtered to a specific county; potentially creating our own IMDB v Rotten Tomato metrics.</li>
+<li><strong>Refine our data. We did this!</strong> We handled missing Iowa sales data and formatting information into integers rather than &quot;$15.00&quot;</li>
+<li>Build a model</li>
+<li>Present our work</li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go through these three and check for understanding / agreement.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="where-we-did-a-bit" class="level2">
+<h2>Where we did a bit</h2>
+<ol type="1">
+<li><strong>Identify the problem. We did a bit!</strong> Identify your own question about IMDB data, and answer it.</li>
+<li><strong>Acquire the right data. We did a bit!</strong> Using the OMDBApi to obtain Rotten Tomato data for our IMDB dataset.</li>
+<li>Parse the data</li>
+<li>Mine our data</li>
+<li>Refine our data</li>
+<li>Build a model</li>
+<li><strong>Present our work. We did a bit!</strong> Maintaining clean Jupyter Notebooks (right?) and creating takeaway visualizations.</li>
+</ol>
+<p><strong><em>Whew</em></strong>! We did cover a lot of ground!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go down these three and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="where-we-didnt-focus" class="level2">
+<h2>Where we didn't Focus</h2>
+<ol type="1">
+<li>Identify the problem</li>
+<li>Acquire the right data</li>
+<li>Parse the data</li>
+<li>Mine our data</li>
+<li>Refine our data</li>
+<li><strong>Build a model. We never did this!</strong></li>
+<li>Present our work</li>
+</ol>
+<blockquote>
+<p>&quot;Hey! I thought that's all data science is! Machine learning artificial intelligence neural networks [on the blockchain]!&quot;</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a quick slide - it's elaborated on in the next slide.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-truth-about-data-science-sh" class="level2">
+<h2>The truth about data science (sh)</h2>
+<ul>
+<li>Exploratory data analysis is typically <strong>80%</strong> of a data science problem.</li>
+<li>Modeling is <strong>20%</strong>.</li>
+</ul>
+<p>What's more:</p>
+<ul>
+<li>The steps you take to set up your models in EDA, ultimately have a outsized impact on the result you will achieve.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Many, many businesses are sitting on latent and rich (<span class="math inline">$$$</span>) relationships in their data that a Pandas expert can unlock.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="apologies-in-advance-for-this-one" class="level2">
+<h2>Apologies in advance for this one</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/what-i-really-ds.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is just a quick slide to lighten up the room! Give students a chance to read it and laugh before moving on.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="exceptions" class="level2">
+<h2>Exceptions</h2>
+<ul>
+<li><p>Many companies will structure teams such that some individuals focus 100% of their time on the 20% of the problem which is solved by modeling.</p></li>
+<li>We've focused on Pandas EDA.
+<ul>
+<li>The area you can make the greatest impact with.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Of course, rules are meant for exceptions. Many companies will structure teams such that some individuals focus 100% of their time on the 20% of the problem which is solved by modeling.</li>
+<li>In giving you an &quot;Intro,&quot; we focused on the area you can make the greatest impact with Python: Pandas EDA.</li>
+<li>In addition, there are more pre-requisites to discuss when it comes to learning modeling.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="python-data-science-package-ecosystem" class="level2">
+<h2>Python Data Science Package Ecosystem</h2>
+<p>We know Pandas!</p>
+<ul>
+<li>Awesome!</li>
+<li>Reads in data.</li>
+<li>Exploratory data analysis.</li>
+<li>Munging.</li>
+<li>Wrangling.</li>
+<li>Visualization via matplotlib</li>
+</ul>
+<p>What else is there?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We know the steps to solving a problem, and we know what <strong>Pandas</strong> can do. What about those other steps in the process?</li>
+<li>Many packages support our endeavors throughout the problem solving workflow.</li>
+<li>It would be a fool's errand to outline <em>every</em> Python library, so let's highlight the big ones. And all of these are <strong>open source:</strong> free to use and constantly improving.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="recommend-libraries-for-ds" class="level2">
+<h2>Recommend Libraries for DS</h2>
+<p>Once you're comfortable with Pandas...</p>
+<ul>
+<li><strong>Seaborn:</strong>
+<ul>
+<li>Creates visualizations (of greater complexity than Pandas)</li>
+<li>With a few lines of code via <code>matplotlib</code></li>
+</ul></li>
+<li><strong>NumPy:</strong>
+<ul>
+<li>Numerical computation, particularly linear algebra.</li>
+</ul></li>
+<li><strong>SciPy:</strong>
+<ul>
+<li>Scientific computation, especially statistics.</li>
+</ul></li>
+<li><strong>Requests:</strong>
+<ul>
+<li>Making web requests - calling APIs!</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go quickly down these bullets - add your own thoughts on what you recommend students to look in to.</li>
+<li>If any students earlier expressed interest in something here, call them out to it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="other-ds-libraries" class="level2">
+<h2>Other DS Libraries</h2>
+<p>Not as ubiquitous or popular, but still good:</p>
+<ul>
+<li><strong>BeautifulSoup:</strong>
+<ul>
+<li>Easily parse HTML.</li>
+</ul></li>
+<li><strong>Statsmodels:</strong>
+<ul>
+<li>Traditional statistic inference techniques, like linear regression.</li>
+</ul></li>
+<li><strong>Scikit-learn:</strong>
+<ul>
+<li>All-purpose machine learning model construction.</li>
+</ul></li>
+<li><strong>NLTK</strong> | <strong>SpaCy</strong>
+<ul>
+<li>Natural language processing.</li>
+</ul></li>
+<li><strong>TensorFlow</strong> | <strong>PyTorch</strong> | <strong>MxNet</strong>
+<ul>
+<li>Neural network research and model construction.</li>
+</ul></li>
+<li><strong>PySpark</strong>
+<ul>
+<li>Interacting with big data.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Go quickly down these bullets - add your own thoughts on what you recommend students to look in to.</li>
+<li>If any students earlier expressed interest in something here, call them out to it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-for-what" class="level2">
+<h2>Discussion: What-for-what?</h2>
+<p>At what step would each library be most helpful?</p>
+<p>The data science steps:</p>
+<ul>
+<li><strong>Identify</strong> the problem</li>
+<li><strong>Acquire</strong> the right data</li>
+<li><strong>Parse</strong> the data</li>
+<li><strong>Mine</strong> our data</li>
+<li><strong>Refine</strong> our data</li>
+<li><strong>Build</strong> a model</li>
+<li><strong>Present</strong> our work</li>
+</ul>
+<p>Match up these libraries:</p>
+<ul>
+<li><strong>Pandas:</strong> for reading in data, exploratory data analysis, munging, wrangling, and visualization via matplotlib</li>
+<li><strong>Seaborn:</strong> creates visualizations (of greater complexity) with a few lines of code via matplotlib</li>
+<li><strong>Requests:</strong> for making web requests</li>
+<li><strong>NumPy:</strong> for numerical computation, particularly linear algebra</li>
+<li><strong>SciPy:</strong> for scientific computation, especially statistics</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students discuss and try this as a group. Then, match them up and talk students through why (e.g. <strong>requests</strong> would be used to <strong>acquire</strong> the data; <strong>seaborn</strong> would be used to <strong>model</strong> the data)</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="learning-more---how" class="level2">
+<h2>Learning More - How?</h2>
+<ul>
+<li>Learn by doing.
+<ul>
+<li>Learning requires consuming and producing. (Perhaps even in 50/50 balance)</li>
+</ul></li>
+<li><p>Consume relevant content about what you want to learn (videos, books, etc).</p></li>
+<li><p>Have frequent <strong>projects</strong> and <strong>exercises</strong> to practice.</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to learn on their own!</li>
+<li>Give specific suggestions if you can.</li>
+<li>Encourage students to identify a singular learning goal.</li>
+<li>Encourage students to make mistakes (seriously), and discuss why talking through problem solving is key.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="learning-more---where" class="level2">
+<h2>Learning More - Where?</h2>
+<p>There's an abundance of resources, which can seem overwhelming, but it's actually a huge benefit.</p>
+<p>For self-paced and online programs about a specific area, consider:</p>
+<ul>
+<li>DataCamp</li>
+<li>DataQuest</li>
+<li>Coursera</li>
+</ul>
+<p>For instructor-led and guided education, come on back to General Assembly!</p>
+<ul>
+<li>We have expert-led workshops and courses in data science:
+<ul>
+<li>A 10-week part-time data science (60hrs).</li>
+<li>The Data Science Immersive, a full-time, three month program (480hrs).</li>
+</ul></li>
+</ul>
+<p>These classes walk through the full data science lifecycle.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to learn more!</li>
+<li>Give specific suggestions if you can.</li>
+<li>There are an abundance of resources, but a lack of discipline and support when it comes to learning. To remedy this, encourage students to work together in study groups, attend Meetups, and pair their learning with immediate application</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="stretchhhh" class="level2">
+<h2>Stretchhhh</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/panda-lying-down.jpeg" />
+</figure>
+<ul>
+<li><p>Stand up, stretch a bit.</p></li>
+<li><p>Or lie down!</p></li>
+<li><p>I'm not a cop.</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>It's been a long course. Give them a second for a break and a smile.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="what-do-you-really-need" class="level2">
+<h2>What Do You Really Need?</h2>
+<p>Data scientists need three core skills:</p>
+<ul>
+<li><strong>Analytical thinking</strong></li>
+<li><strong>Mathematics and statistics proficiency</strong></li>
+<li><strong>Coding ability</strong></li>
+</ul>
+<p>Let's break these down.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is just a quick overview - details on following slides.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We now have the coding ability, so in the next slides, let's talk about what else you might need.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="analytical-thinking" class="level2">
+<h2>Analytical thinking</h2>
+<ul>
+<li><p>How well can you structure a data science problem / target an analysis for high impact output?</p></li>
+<li><p>Do you select metrics that align with those goals?</p></li>
+<li><p>Do you break a big problem into manageable, component parts?</p></li>
+</ul>
+<p><strong>Class Question:</strong></p>
+<ul>
+<li>Imagine you are a data scientist at Facebook.</li>
+<li>Users list high schools they attended - some real, some fake.</li>
+</ul>
+<p>How could you verify that a given high school a user listed is the one they attended? How would you measure success?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a discussion! Encourage students to suggest answers.</li>
+<li>When they've finished, give the best answer.</li>
+</ul>
+<strong>Answer</strong>: - Referencing a full list of true high schools, and text matching against it. - Plotting the occurrence of various high school names, and assume that names that are more common (Jefferson, Lincoln, Roosevelt) are more likely -- consider scoring against a Z-score or Normal Distribution to determine legitimacy of various names
+</aside>
+<hr />
+</section>
+<section id="mathematics-and-statistics-proficiency" class="level2">
+<h2>Mathematics and statistics proficiency</h2>
+<p>Can you apply fundamental maths and stats to problem solving? Do you have a firm understanding of probability? Linear algebra?</p>
+<p><strong>Class Question:</strong></p>
+<ul>
+<li>There are 52 cards in a deck.</li>
+<li>26 are red, and 26 are black. The 52 cards make up four suits (hearts, diamonds, spades, clubs).</li>
+<li>There are 13 of each suit (ace-10, jack, queen, king).</li>
+<li>It is a fair deck of cards.</li>
+</ul>
+<p>What is the probability of drawing the 4 of spades OR a club? What is the probability of drawing any 3 OR a spade?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>This is a discussion! Encourage students to suggest answers.</li>
+<li>When they've finished, give the best answer.</li>
+</ul>
+<p><strong>Answer</strong>: - What is the probability of drawing the 4 of spades or a club? <em>These two separate probabilities are 1/52 and 13/52, and they're mutually exclusive so you just add them: 5/52</em> - - What is the probability of drawing a 3 or a spade? <em>There are 4 threes and 13 spades, but one of the spades is a 3. To satisfy the 'event' described in this problem, there are 16 possible draws, out of the 52 cards; P(event 'e') = 16/52 which reduces to 4/13.</em></p>
+</aside>
+<hr />
+</section>
+<section id="coding-ability" class="level2">
+<h2>Coding ability</h2>
+<ul>
+<li>Can you write readable, maintainable, efficient code?<br />
+</li>
+<li>Can you translate your thinking skills into programmatic thinking?</li>
+<li>Do you know Python, R, SQL, and/or Scala? <em>(Yes, you do!)</em></li>
+</ul>
+<p><strong>Question:</strong></p>
+<p>Do you recall Fizzbuzz? Try writing it again here from scratch.</p>
+<p>Open a new Python file, <code>fizz.py</code>.</p>
+<ul>
+<li>Write a program that prints the numbers from 1 to <code>n</code> (passed in).</li>
+<li>But, for multiples of three, print “Fizz” instead of the number.</li>
+<li>For multiples of five, print “Buzz”.</li>
+<li>For numbers which are multiples of both three and five, print “FizzBuzz”.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have each student try to do this in their own time. Allow 5-10 minutes.</li>
+<li>When they've finished, give the best answer with explanation.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fizzbuzz(n):
+
+        <span class="cf">if</span> n <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+                <span class="cf">return</span> <span class="st">&#39;FizzBuzz&#39;</span>
+        <span class="cf">elif</span> n <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:
+                <span class="cf">return</span> <span class="st">&#39;Fizz&#39;</span>
+        <span class="cf">elif</span> n <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+                <span class="cf">return</span> <span class="st">&#39;Buzz&#39;</span>
+        <span class="cf">else</span>:
+                <span class="cf">return</span> <span class="bu">str</span>(n)
+
+<span class="bu">print</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(fizzbuzz(n) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">xrange</span>(<span class="dv">1</span>, <span class="dv">21</span>))</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="establishing-yourself-as-a-data-scientist" class="level2">
+<h2>Establishing Yourself as a Data Scientist</h2>
+<ol type="1">
+<li><p>Start a blog. - Blogs are incredibly common in technology. - They demonstrate your learning process.</p></li>
+<li><p>Share with your network. - Keep your friends and coworkers engaged on what you're doing and learning. - Opportunities are sometimes spurious.</p></li>
+<li><p>Attend Meetups and other networking opportunities to learn, meet, and share.</p></li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage students to learn more!</li>
+<li>Give specific suggestions if you can.</li>
+<li>Emphasize the importance of blogging to prove retention of information.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary:</h2>
+<ul>
+<li>There are many paths you can go!</li>
+<li>Check the Additional Reading for links to libraries. - You probably want Seaborn, NumPy, or SciPy.</li>
+<li>Work on your core skills!
+<ul>
+<li>Analytical thinking.</li>
+<li>Mathematics and statistics proficiency.</li>
+<li>Coding ability.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick recap for understanding.</li>
+<li>See if any students have questions about their potential next steps.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/#">Pandas docs</a></li>
+<li><a href="https://seaborn.pydata.org/">Seaborn docs</a></li>
+<li><a href="http://docs.python-requests.org/en/master/">Requests docs</a></li>
+<li><a href="https://docs.scipy.org/doc/numpy-1.13.0/user/index.html">NumPy tutorial</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html">SciPy tutorial</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

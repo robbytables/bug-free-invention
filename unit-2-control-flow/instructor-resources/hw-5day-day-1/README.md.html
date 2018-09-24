@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @brandib.
+--->
+</section>
+<section id="python-basics-practice-problems" class="level1">
+<h1>Python Basics: Practice Problems</h1>
+<p>In this homework, you’re going to write code for a few problems.</p>
+<p>You will practice these programming concepts we’ve covered in class: * Declaring and using variables. * Using mathematical operators. * Using string concatenation. * Storing data in lists. * Using built-in list functions (e.g., <code>max</code>, <code>min</code>, <code>sum</code>). * Using loops to go through data inside lists.</p>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>For each of the challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<ul>
+<li>By the end of this, you should have six different <code>.py</code> files (one for each problem).</li>
+<li>If you attempt the bonus, you will have a seventh <code>.py</code> file.</li>
+</ul>
+<hr />
+</section>
+</section>
+<section id="homework-problems" class="level1">
+<h1>Homework Problems</h1>
+<section id="problem-1-can-you-repeat-yourself-repeat-yourself" class="level2">
+<h2>Problem 1: Can You Repeat Yourself Repeat Yourself?</h2>
+<section id="skill-youre-practicing-writing-loops." class="level3">
+<h3>Skill you’re practicing: Writing loops.</h3>
+<p>For this problem, put your solution code into a file named <code>problem1.py</code>.</p>
+<p>Create a string variable named <code>statement</code> and numerical variable named <code>num</code>. Underneath that, write a loop that prints the <code>statement</code> some <code>num</code> of times to the console.</p>
+<section id="example-1" class="level4">
+<h4>Example 1:</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">statement <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">num <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># Your loop here</span></a></code></pre></div>
+</section>
+<section id="example-1-expected-output" class="level4">
+<h4>Example 1, expected output:</h4>
+<pre><code>Hello World
+Hello World
+Hello World</code></pre>
+<p>This should work, no matter the values of <code>statement</code> and <code>num</code>. For example, if you change the value of <code>num</code> to <code>4</code> instead of <code>3</code>, when you run your code in the terminal again, it should then print your statement four times instead of three. Likewise, if you change the value of <code>statement</code>, the text in the output should change.</p>
+</section>
+<section id="example-2" class="level4">
+<h4>Example 2:</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">statement <span class="op">=</span> <span class="st">&quot;Hi there&quot;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">num <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Your loop here</span></a></code></pre></div>
+</section>
+<section id="example-2-expected-output" class="level4">
+<h4>Example 2, expected output:</h4>
+<pre><code>Hi there
+Hi there
+Hi there
+Hi there</code></pre>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-2-i-got-chills-theyre-multiplyin" class="level2">
+<h2>Problem 2: I Got Chills, They’re Multiplyin’</h2>
+<section id="skill-youre-practicing-using-mathematical-operators-and-writing-loops." class="level3">
+<h3>Skill you’re practicing: Using mathematical operators and writing loops.</h3>
+<p>For this problem, put your solution code into a file named <code>problem2.py</code>.</p>
+<p>Declare a number named <code>num</code> and a list of numbers named <code>num_list</code>. Put two or more numbers in <code>num_list</code> (our example below has a list length of <code>4</code>). Go through each element in <code>num_list</code> and multiply the number in the list by <code>num</code>, printing the resulting new list.</p>
+<section id="example-code" class="level4">
+<h4>Example code:</h4>
+<pre><code>num = 5
+my_list = [1, 2, 3, 4]
+
+# Your solution here</code></pre>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected output:</h4>
+<pre><code>[5, 10, 15, 20]</code></pre>
+<p>This should work, no matter the values of <code>num</code> and <code>my_list</code>.</p>
+<blockquote>
+<p><strong>Hint:</strong> You’ll want to apply your knowledge of lists here. How do you access each item in a list? How do you assign a value at a specific location in the list? Refer to the class notes if you’ve forgotten exactly how to do these things.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-3-reverse-esrever" class="level2">
+<h2>Problem 3: REVERSE! — !ESREVER</h2>
+<section id="skill-youre-practicing-using-io-manipulating-strings-and-writing-loops." class="level3">
+<h3>Skill you’re practicing: Using I/O, manipulating strings, and writing loops.</h3>
+<p>For this problem, put your solution code into a file named <code>problem3.py</code>.</p>
+<p>Reverse a string manually, printing the result. Create a new variable storing an empty string and add the letters from the first string one by one. The <code>for</code> loop should iterate over the length of the string and access letters individually.</p>
+<section id="example" class="level4">
+<h4>Example:</h4>
+<pre><code># &lt;Input Prompt:&gt; Enter a word or sentence, please.
+# &lt;User Input:&gt; reverse_me
+
+# Your expected program output:
+em_esrever</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> You can receive direct user input by using the <code>input</code> function. For example:</p>
+</blockquote>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">user_entry <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Please enter your favorite number&#39;</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co"># user_entry now holds whatever the user typed in!</span></a></code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> While there is an awesome shortcut to reverse strings, <code>s[::-1]</code>, don’t use it — practice writing out the code instead.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-4-calc-u-later" class="level2">
+<h2>Problem 4: Calc U Later</h2>
+<section id="skill-youre-practicing-using-io-and-control-flow." class="level3">
+<h3>Skill you’re Practicing: Using I/O and control flow.</h3>
+<p>For this problem, put your solution code into a file named <code>problem4.py</code>.</p>
+<p>Create a simple calculator that first asks the user what method they would like to use (<code>add</code> for addition, <code>sub</code> for subtraction, <code>mult</code> for multiplication, or <code>div</code> for division), then asks the user for two numbers. Your program will print the result of the method with the two numbers. Here is a sample prompt:</p>
+<pre><code># &lt;Input Prompt:&gt; What calculation would you like to do? (add, sub, mult, div)
+# &lt;User Input:&gt; add
+# &lt;Input Prompt:&gt; What is number 1?
+# &lt;User Input:&gt; 3
+# &lt;Input Prompt:&gt; What is number 2?
+# &lt;User Input:&gt; 6
+
+# Your expected program output:
+Your result is 9. Calc U later!</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> By default, Python sets user input to a string. If the user types <code>2</code> into the prompt, the value your variable holds will be the string <code>&quot;2&quot;</code>! To avoid that, you can use <code>int()</code>, as shown in the second example below.</p>
+</blockquote>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Wrong for numbers — Python saves a STRING!</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co"># This will work for the user entering `&quot;add&quot;`, `&quot;sub&quot;`, `&quot;mult&quot;`, or `&quot;div&quot;`, but not for numbers.</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">my_num <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please enter a number.&quot;</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co"># Correct for numbers — Python saves a NUMBER!</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co"># This is how you should request the number from the user:</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">my_num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Please enter a number.&quot;</span>))</a></code></pre></div>
+<hr />
+</section>
+</section>
+<section id="problem-5-say-hello-to-my-little-friend" class="level2">
+<h2>Problem 5: Say Hello to My Little Friend</h2>
+<section id="skill-youre-practicing-writing-functions." class="level3">
+<h3>Skill you’re practicing: Writing functions.</h3>
+<p>For this problem, put your solution code into a file named <code>problem5.py</code>.</p>
+<p>Write a function called <code>say_hi</code> that prints out your favorite greeting!</p>
+<blockquote>
+<p><strong>Hint:</strong> Remember that a function does not run its code until it is <em>called</em>. You can call a function by putting parentheses at the end of the function name, as in the example below:</p>
+</blockquote>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># greeting_function gets written here.</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># The following line CALLS or runs the function.</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">greeting_function()</a></code></pre></div>
+<hr />
+</section>
+</section>
+<section id="problem-6-loops-and-froot-loops" class="level2">
+<h2>Problem 6: Loops and Froot Loops</h2>
+<section id="skill-youre-practicing-using-lists-functions-and-loops." class="level3">
+<h3>Skill you’re practicing: Using lists, functions, and loops.</h3>
+<p>For this problem, put your solution code into a file named <code>problem6.py</code>.</p>
+<p>Declare a list called <code>breakfast</code> and fill it with at least three examples of breakfast cereals (e.g., <code>&quot;Wheaties&quot;</code>, <code>&quot;Froot Loops&quot;</code>, etc.). Then, write a function called <code>cereal_time</code>. This function should loop through your <code>breakfast</code> list and print that each of the cereals you chose with <code>&quot;are yummy!&quot;</code>.</p>
+<section id="example-starter-code" class="level4">
+<h4>Example starter code:</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">breakfast <span class="op">=</span> [<span class="st">&quot;Froot Loops&quot;</span>, <span class="st">&quot;Wheaties&quot;</span>, <span class="st">&quot;Cap&#39;n Crunch&quot;</span>]</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co"># Your function</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co"># Call your function.</span></a></code></pre></div>
+</section>
+<section id="example-output" class="level4">
+<h4>Example Output:</h4>
+<pre><code>Froot Loops are yummy!
+Wheaties are yummy!
+Cap&#39;n Crunch are yummy!</code></pre>
+<hr />
+</section>
+</section>
+</section>
+<section id="bonus-problem-7-pluralizer-optional-but-fun" class="level2">
+<h2>BONUS: Problem 7: Pluralizer (Optional, But Fun!)</h2>
+<section id="skill-youre-practicing-string-manipulation." class="level3">
+<h3>Skill you’re practicing: String manipulation.</h3>
+<p>For this problem, put your solution code into a file named <code>problem7.py</code>.</p>
+<p>If you take a look at the last problem’s sample output, you’ll notice that the last sentence, <code>Capt'n Crunch are yummy!</code>, doesn’t quite make sense. What would make more sense is the phrase <code>Cap'n Crunch **is** yummy!</code>.</p>
+<p>It would be better to look at whether or not the cereal name ends in an <code>s</code> and determine from there whether the rest of the sentence should be pluralized (“are”) or singular (“is”).</p>
+<p>Your task is to alter the answer to the previous problem such that, if the last letter of the cereal string is <code>s</code>, it prints <code>are yummy!</code>, and if it ends in any other character, it prints <code>is yummy!</code>.</p>
+<blockquote>
+<p><strong>Hint:</strong> You can access the last character in a string with the following code:</p>
+</blockquote>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">my_str <span class="op">=</span> <span class="st">&quot;Wheaties&quot;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">last_letter <span class="op">=</span> my_str[<span class="op">-</span><span class="dv">1</span>]</a></code></pre></div>
+<section id="altered-example-output" class="level4">
+<h4>Altered example output:</h4>
+<pre><code>Froot Loops are yummy!
+Wheaties are yummy!
+Cap&#39;n Crunch is yummy!</code></pre>
+<hr />
+</section>
+</section>
+</section>
+<section id="last-but-not-least" class="level2">
+<h2>Last, But Not Least!</h2>
+<p>Take a deep breath. You’ve finished! You’ve earned some relaxation.</p>
+<figure>
+<img src="https://media.giphy.com/media/hR7yR2AMVxv8c/giphy.gif" alt="Relax" /><figcaption>Relax</figcaption>
+</figure>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

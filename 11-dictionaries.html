@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Python Programming: Dictionaries
+type: lesson
+duration: 00:30
+creator: Susi Remondi
+Private gist location: xxxxxx
+Presentation URL: xxxxx
+-->
+<section id="python-programming-dictionaries" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Dictionaries</h2>
+<!--
+
+## Overview
+This lesson introduces students to the concept of dictionaries. It begins with simple creation, printing, and changing values. It ends with a series of "You Do" exercises to get students confident.
+
+## Important Notes or Prerequisites
+This is the beginning of the object oriented programming unit. Take a few minutes before starting this lesson to recap the idea of lists and storing elements in objects.
+
+## Learning Objectives
+In this lesson, students will:
+- Perform common dictionary actions.
+- Build more complex dictionaries.
+
+## Duration
+30 minutes
+
+### Timing note:
+- If there's time remaining at the end, giving exercises involving multiple types of values in dictionaries would be great.
+- There is, in the `xx-additional-exercises` folder in the parent folder, a reverse lookup challenge that you should give in class if there's time, and if not, give as homework.
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:12 | Introducing Dictionaries |
+| 0:12 - 0:27 | Complex Thoughts |
+| 0:27 - 0:30  | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Perform common dictionary actions.</li>
+<li>Build more complex dictionaries.</li>
+</ul>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Quickly go over these learning objectives.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="kicking-off-unit-3" class="level2">
+<h2>Kicking Off Unit 3!</h2>
+<p>In Unit 2, we ended by changing what our movie app printed depending on the value of a variable.</p>
+<p>Unit 3 is about <strong>objects</strong> in programming.</p>
+<ul>
+<li>Objects are different kinds of things variables can hold.</li>
+<li>Objects help give our programs more structure and functionality.</li>
+<li>You already have one object down! Lists are an object with built in functionality like <code>append()</code> and <code>pop()</code>.</li>
+</ul>
+<p>In Unit 3, we're going to add many more objects! By the end, your movie app will have the same functionality, but it will be structured in a totally different way.</p>
+<p>Ready? Let's go!</p>
+<aside class="notes">
+<p>Teaching Tips:</p>
+<ul>
+<li>Recap what they learned in Unit 2. Give a quick overview of what they'll learn in unit 3.</li>
+<li>Feel free to speak about your own definition of &quot;object-oriented programming&quot; here.</li>
+</ul>
+<p>****Talking Points****:</p>
+<ul>
+<li>Now that you have a feel for control flow, let's talk about objects.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-dictionaries" class="level2">
+<h2>Introducing Dictionaries</h2>
+<p>Think about dictionaries - they're filled with words and definitions, paired together.</p>
+<p>Programming has a dictionary object just like this!</p>
+<ul>
+<li>Dictionaries hold keys (words) and values (the definitions).</li>
+<li>In a real dictionary, you can look up a word and find the definition. In a Python dictionary, you can look up a key and find the value.</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/dictionary.png" />
+</figure>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is a pretty quick slide. Make sure everyone has the idea of looking up a word in a dictionary in their head.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We can have an object that holds keys - &quot;puppy&quot;, &quot;pineapple&quot;, &quot;tea&quot;, and their values &quot;furry energetic animal&quot;, etc.</li>
+<li>Just like you can look up a word and find the definition in a real dictionary, in a Python dictionary, you can look up a key and find the value.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="declaring-a-dictionary" class="level2">
+<h2>Declaring a Dictionary</h2>
+<p>Dictionaries in programming are made of <strong>key/value pairs</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Here&#39;s the syntax...</span>
+name_of_dictionary <span class="op">=</span> {<span class="st">&quot;Key1&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key2&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key3&quot;</span>: <span class="st">&quot;Value&quot;</span>}
+<span class="bu">print</span>(name_of_dictionary[key_to_look_up])
+<span class="co"># Prints the value</span>
+
+<span class="co"># And in action...</span>
+my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>}
+
+<span class="bu">print</span>(my_dictionary)
+<span class="co"># Prints the whole dictionary</span>
+<span class="bu">print</span>(my_dictionary[<span class="st">&quot;Puppy&quot;</span>])
+<span class="co"># =&gt; Print&#39;s Puppy&#39;s value: &quot;Furry energetic animal&quot;</span></code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Walk through the syntax:
+<ul>
+<li>Curly braces</li>
+<li>Colons between key / value</li>
+<li>Commas between entries. The commas can be hard to see.</li>
+</ul></li>
+<li>Stress that this is basically just like a real dictionary.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Just like you can look up any word in the dictionary to get the definition, you can just use a key in a dictionary to find the value. This is known as a key-value pair, hence the definition of a dictionary: a set of key-value pairs.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-dictionaries-and-quick-tips" class="level2">
+<h2>We Do: Dictionaries and Quick Tips</h2>
+<p>The order of keys you see printed may differ from how you entered them. That's fine!</p>
+<p>You can't have the same key twice. Imagine having two &quot;puppies&quot; in a real dictionary! If you try, the last value is kept.</p>
+<p>Printing a key that doesn't exist gives an error.</p>
+<p>Let's create a dictionary together.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Create a dictionary; print it out; print out a few keys.</li>
+<li>Make your dictionary anything you'd like! Get input from the students on what it should be on.</li>
+<li>Dictionaries can be tough, especially with all the syntax. The more practice, the better! Make sure they follow along.</li>
+<li>Try other cases: Use an integer for a key. Try printing a value and show that it fails - just like a real dictionary.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Keys can be a string or integer (show this).</li>
+<li>&quot;You can look up any key - but not the value (just like a real dictionary!).&quot;</li>
+<li>Use meaningful keys: <code>my_zip_code</code> is better than <code>some_numbers</code></li>
+<li>&quot;The items that are returned when you access a dictionary come in any order they please.&quot;</li>
+<li>This doesn't really matter that much, however, because the typical use case for a dictionary is when you know the exact key for the value you're looking for.</li>
+<li>But, you should never count on the contents of a dictionary being in any order at all.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-dictionary-syntax" class="level2">
+<h2>We Do: Dictionary Syntax</h2>
+<p>What if a value changes? We can reassign a key's value: <code>my_dictionary[&quot;Puppy&quot;] = &quot;Cheerful&quot;</code>.</p>
+<p>What if we have new things to add? It's the same syntax as changing the value - just with a new key. <code>my_dictionary[&quot;Yoga&quot;] = &quot;Peaceful&quot;</code></p>
+<ul>
+<li>Changing values is case sensitive - be careful not to add a new key!</li>
+</ul>
+<iframe height="300px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-change-key?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Be sure they're doing this with you. The more practice, the better.</li>
+<li>Show changing keys and adding new keys. Print out the dictionary after each one.</li>
+<li>Show that capitals matter!</li>
+</ul>
+<p><strong>Repl.it Note</strong>: This replit has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>}
+
+<span class="bu">print</span>(my_dictionary)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="quick-review-dictionaries" class="level2">
+<h2>Quick Review: Dictionaries</h2>
+<p>We can:</p>
+<ul>
+<li>Make a dictionary</li>
+<li>Print a dictionary</li>
+<li>Print one key's value</li>
+<li>Change a key's value</li>
+</ul>
+<p>Here's a best practice: Declare your dictionary across multiple lines for readability. Which is better?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Works, but not proper style.</span>
+my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>}
+
+<span class="co"># Do this instead!</span>
+my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>
+}</code></pre></div>
+<aside class="notes">
+<p>2 minutes!</p>
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick check for understanding, then mention the line breaks. Make sure it's clear that the breaks are the only change.</li>
+<li>Make sure that students can do this thus far. Perhaps open an interpreter.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;We still have our <strong>key-value</strong> pair format separated by commas, however, making it easily readable to a human, which is a good thing.&quot;</li>
+<li>&quot;Each item is on one line ending with a comma.&quot;</li>
+<li>&quot;We can do this with any dictionary, regardless of its contents.&quot;</li>
+<li>&quot;The syntax will remain the same.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-collection-identification-practice" class="level2">
+<h2>Discussion: Collection Identification Practice</h2>
+<p>What is <code>a</code> and <code>b</code> below?:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># What object is this?</span>
+
+collection_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="st">&quot;nine&quot;</span>]
+
+<span class="co"># What object is this?</span>
+collection_2 <span class="op">=</span> {<span class="st">&quot;three&quot;</span>: <span class="dv">3</span>, <span class="st">&quot;five&quot;</span>: <span class="dv">5</span>, <span class="dv">9</span>: <span class="st">&quot;nine&quot;</span>}</code></pre></div>
+<aside class="notes">
+<p>1 minute!</p>
+<p>Teaching tips:</p>
+<ul>
+<li><p>This is to quickly see if they can identify lists versus dictionaries.</p></li>
+<li><p>Talk about the difference between an &quot;object&quot; and a &quot;collection&quot; at a high level.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="looping-through-dictionaries" class="level2">
+<h2>Looping Through Dictionaries</h2>
+<p>We can print a dictionary with <code>print(my_dictionary)</code>, but, like a list, we can also loop through the items with a <code>for</code> loop:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-for-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is just a quick demo, not an exercise. Walk through this to show it working; describe what each line does.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Now, how do we loop through a dictionary? We can use the same <code>for</code> loop structure, but, instead of it iterating over each element in the collection, it will iterate over each key. We can then use the key to access the value&quot;</p></li>
+<li>The lines in our <code>for</code> loop work like this:
+<ul>
+<li>The first line says, &quot;For every key in the <code>friendzips</code> dictionary...&quot;</li>
+<li>The second line says, &quot;... print the value in <code>friendzips</code> associated with the provided key.&quot;</li>
+</ul></li>
+</ul>
+<p><strong>Repl.it Note:</strong> This replit has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>
+}
+
+<span class="cf">for</span> key <span class="kw">in</span> my_dictionary:
+  <span class="bu">print</span>(my_dictionary[key])
+
+<span class="cf">for</span> key <span class="kw">in</span> my_dictionary:
+  <span class="bu">print</span>(key, <span class="st">&quot;:&quot;</span>, my_dictionary[key])</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-dictionary-practice" class="level2">
+<h2>Partner Exercise: Dictionary Practice</h2>
+<p>You know the drill - grab a partner and pick a driver!</p>
+<p>Create a new local file, <code>dictionary_practice.py</code>. Write a script that declares a dictionary called <code>my_name</code>.</p>
+<ul>
+<li>Add a key for each letter in your name, with a value of how many times that letter appears.</li>
+</ul>
+<p>As an example, here is the dictionary you'd make for &quot;Callee:&quot;</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_name <span class="op">=</span> {<span class="st">&quot;c&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;l&quot;</span>: <span class="dv">2</span>, <span class="st">&quot;e&quot;</span>: <span class="dv">2</span>}</code></pre></div>
+<p>Write a loop that prints the dictionary, but formatted.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># The letter l appears in my name 2 times.</span></code></pre></div>
+<p><strong>Bonus, if you have time!</strong> If it's only 1 time, instead print <code>The letter l appears in my name once</code>. If it's only 2 times, instead print <code>The letter l appears in my name twice.</code></p>
+<aside class="notes">
+<p>5 minutes.</p>
+<p>Teaching tips:</p>
+<ul>
+<li>This is a partner exercise, so pair students up.</li>
+<li>Some students might be tempted to write a complex script to count the letters in their name; make sure they can do it the simple way, first! (Just setting &quot;l&quot; to 2, for example).</li>
+<li>When students are done or time is up, go over the answer. Also, go over adding the if statements for the bonus.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="partner-exercise-most-popular-word" class="level2">
+<h2>Partner Exercise: Most Popular Word</h2>
+<p>With the same partner, switch who's driving.</p>
+<p>Write a function, <code>mostPopularWord()</code>, that takes a list of strings and returns the string that appears the most.</p>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">words <span class="op">=</span> [
+    <span class="st">&quot;hello&quot;</span>,
+    <span class="st">&quot;water&quot;</span>,
+    <span class="st">&quot;hello&quot;</span>
+  ]
+
+<span class="bu">print</span>(mostPopularWord(words))
+<span class="co"># Prints &quot;hello&quot;</span></code></pre></div>
+<p><strong>Hints</strong>:</p>
+<ul>
+<li>Create a dictionary with words as keys and the count as the values.</li>
+<li>Check if a key already exists with <code>if &quot;key_to_check&quot; in my_dictionary:</code></li>
+</ul>
+<aside class="notes">
+<p>5 minutes.</p>
+<p>Teaching tips:</p>
+<ul>
+<li>This is a partner exercise, so pair students up.</li>
+<li>When students are done or time is up, go over the answer.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="other-values" class="level2">
+<h2>Other Values</h2>
+<p>We're almost there! Let's make this more complex.</p>
+<p>In a list or a dictionary, anything can be a value. - A good reason why it's good to split dictionary declarations over multiple lines!</p>
+<p>Open this repl.it in a new window so you can see it all (button on the top right corner).</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-other-values?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This slide can be skipped in classes with struggling students; it's good information but not crucial to know at a beginner level.</li>
+<li>This is a demo, not an exercise.</li>
+<li>This can be tough. Spend some time here.</li>
+<li>This repl.it is huge! Open it in a new window so students can see it all.</li>
+<li>All the code is there - you just need to walk through it.</li>
+</ul>
+<p><strong>Repl.it Note:</strong> This code is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">other_values_in_a_dictionary <span class="op">=</span> {
+  <span class="st">&quot;CA&quot;</span>: {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>,
+        <span class="st">&quot;another_key&quot;</span> : <span class="st">&quot;a value&quot;</span>,
+        <span class="st">&quot;Joe&quot;</span> : <span class="st">&quot;Even more dictionary!&quot;</span>
+        },
+  <span class="st">&quot;WA&quot;</span>: [<span class="st">&quot;Trevor&quot;</span>, <span class="st">&quot;Courtney&quot;</span>, <span class="st">&quot;Brianna&quot;</span>, <span class="st">&quot;Kai&quot;</span>],
+  <span class="st">&quot;NY&quot;</span>: <span class="st">&quot;Just Tatyana&quot;</span>
+}
+
+<span class="bu">print</span>(<span class="st">&quot;Here&#39;s a dictionary and list in a dictionary:&quot;</span>, other_values_in_a_dictionary)
+
+<span class="bu">print</span>(<span class="st">&quot;----------&quot;</span>)
+
+other_values_in_a_list <span class="op">=</span> [
+  <span class="st">&quot;a value&quot;</span>,
+  {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>, <span class="st">&quot;key2&quot;</span> : <span class="st">&quot;value 2&quot;</span>},
+  [<span class="st">&quot;now&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;list&quot;</span>]
+  ]
+<span class="bu">print</span>(<span class="st">&quot;Here&#39;s a list and dictionary in a list:&quot;</span>, other_values_in_a_list)</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Dictionaries:</p>
+<ul>
+<li>Another kind of collection, instead of a list.</li>
+<li>Use <strong>keys</strong> to access <strong>values</strong>. Not indices!</li>
+<li>Should be used instead of lists when:</li>
+<li>You don't care about the order of the items</li>
+<li>You'd prefer more meaningful keys than just index numbers.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb infused drink&quot;</span>
+}</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>This is a quick recap. Check for understanding.</li>
+<li>If there is time (~15 minutes), there is an exercise on the next slide to give as a You Do. Otherwise, the same exercise is in the <code>xx-additional-exercises</code> folder as <code>dictionary_reverse_lookup</code>; give it as additional homework.</li>
+<li>After running the exercise (or not), talk about next steps.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-reverse-lookup" class="level2">
+<h2>You Do: Reverse Lookup</h2>
+<p>Finding the value from a key is easy: <code>my_dictionary[key]</code>. But what if you only have the value and want to find the key?</p>
+<p>You task is to write a function, <code>reverse_lookup</code> that takes a dictionary and a value, returning the corresponding key.</p>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">state_capitals <span class="op">=</span> {
+  <span class="st">&quot;Alaska&quot;</span> : <span class="st">&quot;Juneau&quot;</span>,
+  <span class="st">&quot;Colorado&quot;</span> : <span class="st">&quot;Denver&quot;</span>,
+  <span class="st">&quot;Oregon&quot;</span> : <span class="st">&quot;Salem&quot;</span>,
+  <span class="st">&quot;Texas&quot;</span> : <span class="st">&quot;Austin&quot;</span>
+  }
+
+<span class="bu">print</span>(reverse_lookup(<span class="st">&quot;Denver&quot;</span>))
+<span class="co"># Prints Colorado</span></code></pre></div>
+<aside class="notes">
+<p>Estimated 15 minutes.</p>
+<p>Teaching tips:</p>
+<ul>
+<li>This is a You Do to do only if there's time. Otherwise, the same exercise is in the <code>xx-additional-exercises</code> folder as <code>dictionary_reverse_lookup</code>; give it as additional homework.</li>
+<li>After students have given this</li>
+</ul>
+</aside>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

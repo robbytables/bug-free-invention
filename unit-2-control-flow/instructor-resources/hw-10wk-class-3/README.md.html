@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @brandib.
+--->
+</section>
+<section id="python-conditionals-practice-problems" class="level1">
+<h1>Python Conditionals: Practice Problems</h1>
+<p>In this homework, you’re going to write code for two challenge problems.</p>
+<p>You will practice these programming concepts we’ve covered in class:</p>
+<ul>
+<li>Declaring and using lists.</li>
+<li>Using the Python conditionals <code>if</code>, <code>elif</code>, and <code>else</code>.</li>
+<li>Using <code>for</code> and <code>while</code> loops.</li>
+</ul>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>Part of this homework will be code challenges and part will be reading with comprehension questions.</p>
+<p>For the reading questions, make a text file called <code>answers.txt</code> and use it to compile your answers to all of the numbered questions.</p>
+<p>For each of the code challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> with your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python problem1.py</a></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement! Otherwise, you won’t see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
+<p>By the end of this, you should have: * Two different <code>.py</code> files (one for each code challenge). * One text file with answers to the five reading comprehension questions.</p>
+<hr />
+</section>
+</section>
+<section id="code-challenges" class="level1">
+<h1>Code Challenges</h1>
+<section id="problem-1-iou" class="level2">
+<h2>Problem 1: IOU!</h2>
+<section id="skill-youre-practicing-writing-for-loops-to-iterate-over-a-list." class="level3">
+<h3>Skill you’re practicing: Writing <code>for</code> loops to iterate over a list.</h3>
+<p>You have a list of Disney characters and you want to find out if each of them contain <code>i</code>, <code>o</code>, or <code>u</code> in their names. Loop through each character in the list and print out the following:</p>
+<pre><code>If the name contains a &quot;u,&quot; print out the name plus &quot;U are so Uniquely U!&quot;
+Otherwise if the name contains an &quot;i,&quot; print out the name plus &quot;I bet you&#39;re Impressively Intelligent!&quot;
+Otherwise if the name contains an &quot;o,&quot; print out the name plus &quot;O My! How Original!&quot;
+Otherwise, print the name plus &quot;Ehh, a&#39;s and e&#39;s are so ordinary.&quot;</code></pre>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">disney_characters <span class="op">=</span> [<span class="st">&quot;simba&quot;</span>, <span class="st">&quot;ariel&quot;</span>, <span class="st">&quot;pumba&quot;</span>, <span class="st">&quot;flounder&quot;</span>, <span class="st">&quot;nala&quot;</span>, <span class="st">&quot;ursula&quot;</span>, <span class="st">&quot;scar&quot;</span>, <span class="st">&quot;flotsam&quot;</span>, <span class="st">&quot;timon&quot;</span>]</a></code></pre></div>
+</section>
+<section id="expected-output" class="level4">
+<h4>Expected Output</h4>
+<pre><code>simba I bet you&#39;re Impressively Intelligent!
+ariel I bet you&#39;re Impressively Intelligent!
+pumba U are so Uniquely U!
+flounder U are so Uniquely U!
+nala Ehh, a&#39;s and e&#39;s are so ordinary.
+ursula U are so Uniquely U!
+scar Ehh, a&#39;s and e&#39;s are so ordinary.
+flotsam O My! How Original!
+timon I bet you&#39;re Impressively Intelligent!</code></pre>
+<blockquote>
+<p><strong>Hint</strong>: You can determine whether or not a string contains a particular character with an <code>if</code> statement. For example, <code>if &quot;b&quot; in my_string:</code> will be true if <code>my_string</code> contains any b’s.</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-2-if-youre-cold-sit-in-a-corner.-its-90-degrees" class="level2">
+<h2>Problem 2: If You’re Cold, Sit in a Corner. It’s 90 Degrees!</h2>
+<section id="skill-youre-practicing-writing-while-loops." class="level3">
+<h3>Skill you’re practicing: Writing <code>while</code> loops.</h3>
+<p>Wow! It’s 90 degrees Fahrenheit and you are sweating buckets! Luckily you have air conditioning, but it’s really old and kind of finicky. It cools the room by three degrees and shuts off, so you have to keep turning it back on until the temperature gets to where you want it to be. Seventy five sounds much more pleasant than 90, so that’s what you’re shooting for.</p>
+<pre><code>While the temperature is greater than 75 degrees Fahrenheit, print &quot;The temperature is XX — crank the AC!&quot; and subtract 3 degrees from the temperature.
+
+Once the temperature is cool enough and the loop is done, print &quot;75. Ahh, that&#39;s better.&quot;</code></pre>
+<section id="starter-code-1" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">temperature <span class="op">=</span> <span class="dv">90</span></a></code></pre></div>
+</section>
+<section id="expected-output-1" class="level4">
+<h4>Expected Output</h4>
+<pre><code>Temperature is 90 — crank the AC!
+Temperature is 87 — crank the AC!
+Temperature is 84 — crank the AC!
+Temperature is 81 — crank the AC!
+Temperature is 78 — crank the AC!
+75. Ahh, that&#39;s better.</code></pre>
+<blockquote>
+<p><strong>Hint:</strong> Make sure that your loop conditional is being updated each iteration. Otherwise you’ll end up with an infinite loop!</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="reading-material" class="level2">
+<h2>Reading Material</h2>
+<p>Read through the examples in these two articles about <a href="https://www.digitalocean.com/community/tutorials/how-to-construct-for-loops-in-python-3"><code>for</code> loops</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-construct-while-loops-in-python-3"><code>while</code> loops</a> from Digital Ocean. Then, answer the following questions.</p>
+<ol type="1">
+<li><p>What is a nested loop?</p></li>
+<li><p>Which kind of loop is based on a conditional statement: <code>while</code> loops or <code>for</code> loops?</p></li>
+<li><p>When you want to iterate a specific number of times, would you typically use a <code>while</code> loop or a <code>for</code> loop?</p></li>
+<li><p>Is it possible to loop through a string one letter at a time? What is the example given in the article?</p></li>
+<li><p>Extrapolate from what you learned in the articles: Do you think a <code>for</code> loop be nested inside a <code>while</code> loop? Why or why not?</p></li>
+</ol>
+<hr />
+</section>
+<section id="all-done" class="level2">
+<h2>All Done!</h2>
+<p>Time to get some rest!</p>
+<p><img src="https://media.giphy.com/media/13h8Y1oVRO30KQ/giphy.gif" /></p>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

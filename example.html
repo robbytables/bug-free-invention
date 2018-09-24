@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="http://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Intro to Programming with Variables
+type: lesson
+duration: "01:00"
+creator: Brandi Butler [partially originating from Steve Peter's Cybersecurity lesson]
+Private gist location: https://gist.github.com/brandiw/a55863eea158b759fe8ada94c730a2a6
+Presentation URL: https://presentations.generalassemb.ly/a55863eea158b759fe8ada94c730a2a6#/
+-->
+<p><img src="https://nagale.com/ga-test/GA_Cog_Medium_White_RGB.png" /></p>
+<section id="intro-to-programming-with-variables" class="level2">
+<h2>Intro to Programming with Variables</h2>
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to…</em></p>
+<ul>
+<li>Create and re-assign numerical and string variables.</li>
+<li>Use numerical operators.</li>
+<li>Print complex variable structures.</li>
+</ul>
+<hr />
+</section>
+<section id="discussion-how-many-chocolates" class="level2">
+<h2>Discussion: How Many Chocolates?</h2>
+<p>Think about a box of chocolates.</p>
+<p>How do you know how many chocolates are in it?</p>
+<p>What if I ask you again tomorrow?</p>
+<hr />
+</section>
+<section id="chocolates-vs.python" class="level2">
+<h2>Chocolates vs. Python</h2>
+<!--
+
+Talking Points:
+"You can individually count, and then count again every time you were asked, but it'd be better if the box were labeled."
+}
+-->
+<p>Should you count each time? Or should you get a label? “Contains 15 chocolates.”</p>
+<p>What if you come across that same scenario in programming?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This box has 15 chocolates</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;This chocolate box 15 chocolates&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Later....</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;This chocolate box has&quot;</span>, <span class="st">&quot;...How many chocolates, again?&quot;</span>)</a></code></pre></div>
+<p>(It’s a delicious program!)</p>
+<hr />
+</section>
+<section id="variables-label-everything" class="level2">
+<h2>Variables Label Everything</h2>
+<p>The same way, in Python, we can use labels to save information.</p>
+<p>Instead, we could tell Python:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">&quot;The number of chocolates is 15&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;The number of chocolates&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Prints 15</span></a></code></pre></div>
+<p>Labels in Python are called <strong>variables</strong>.</p>
+<hr />
+</section>
+<section id="variable" class="level2">
+<h2>Variable</h2>
+<p>Variables…</p>
+<ul>
+<li>Are boxes that can hold all kinds of information for you.</li>
+<li>Make it easier to store and re-use values.</li>
+<li>Are the most basic piece of code.</li>
+</ul>
+<p>This is very helpful for things that change.</p>
+<p>How many cupcakes have you eaten today?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># I&#39;ve eaten 3 cupcakes</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Prints 3</span></a></code></pre></div>
+<p>In a program, where do you think variables could be helpful?</p>
+<hr />
+</section>
+<section id="variable-syntax" class="level2">
+<h2>Variable Syntax</h2>
+<!--
+
+Talking points:
+"Here, we create a variable called `cupcakes_ive_eaten` and have it hold the number `3`. This is also called assignment. If we print out the contents of `cupcakes_ive_eaten`, Python will tell us that `cupcakes_ive_eaten` currently holds 3. When you create a variable, it's called declaring a variable. The syntax for declaring a variable is what you want the variable to be named, followed by an equal sign, and finally what you want the variable to hold. Notice the space before and after the equal sign! Also, note that in Python, the equal sign doesn't evaluate things the way it does in math. Instead, it assigns them values. Here, we're using the `=` to tell Python that the `cupcakes_ive_eaten` label is going to hold the value `3`."
+
+-->
+<p>To use a variable, we simply announce that we want to use it. How?</p>
+<p>Simply write it (a.k.a <strong>declare</strong> it).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a></code></pre></div>
+<p>Now, you can print it.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="bu">print</span>(cupcakes_ive_eaten)</a></code></pre></div>
+<p><em>Side note:</em> See that underscore? We’ll look at variable naming in a second!</p>
+<hr />
+</section>
+<section id="try-it-declaring-a-variable" class="level2">
+<h2>Try It: Declaring a Variable</h2>
+<!--
+Teaching tips:
+The code is:
+```python
+cupcakes_ive_eaten = 3
+print(cupcakes_ive_eaten)
+```
+-->
+<p>Try it yourself - run the code below!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="python-naming-conventions" class="level2">
+<h2>Python: Naming Conventions</h2>
+<!--
+
+Talking points:
+"You can name a variable anything you'd like, but you probably shouldn't. If I called my variable "delicious", would you have any idea that the number it held was the number of cupcakes I've eaten? Probably not. In Python, we try to name variables as closely as we can to what it actually is. Technically, variable names can be almost anything, so it's up to us to be organized and thoughtful when we pick them!"
+-->
+<p>You <em>can</em> name a variable anything you’d like. …But is it a good idea?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">## What is in this?</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">delicious <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">## Instead, this makes sense</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a></code></pre></div>
+<hr />
+</section>
+<section id="discussion-common-naming-mistakes" class="level2">
+<h2>Discussion: Common Naming Mistakes</h2>
+<!--
+Talking points:
+"Any name is allowed - Python doesn't enforce helpfulness. Try to always have meaningful variable names so that later, you know what that variable holds! What do you think Python might actually enforce?"
+-->
+<p>You don’t need to be meaningful, but you should try.</p>
+<p>Do you think there are any variable names that could actually break your code?</p>
+<hr />
+</section>
+<section id="naming-conventions-mistakes-and-syntax" class="level2">
+<h2>Naming Conventions: Mistakes and Syntax</h2>
+<!--
+Talking points:
+
+"There are things Python enforces! Variables are case sensitive. In the repl.it, try adding `print CUPCAKES_IVE_EATEN` to the end of your code and clicking "run." It will return an error. To a computer, `CUPCAKES_IVE_EATEN` and `cupcakes_ive_eaten` aren't the same.
+
+"When you want to use a variable name consisting of several words, you will get an error if you have spaces between the words. Try creating a variable called `my number` and you'll get an error; specifically, one that says "Invalid Syntax.""
+
+"Syntax is the set of rules surrounding how a language looks. In the English language, we call syntax "grammar." For example, sentences always start with a capital letter and end with something such as a period, exclamation point, or question mark. Other languages have syntax, too, including programming languages like Python."
+
+"Here, Python is telling us that putting a space between two words in a variable name is invalid syntax. It's not proper grammar and it will not run."
+-->
+<p>Some common naming mistakes:</p>
+<ul>
+<li>Case sensitivity (<code>CUPCAKES_IVE_EATEN</code> and <code>cupcakes_ive_eaten</code> are not the same!)</li>
+<li>No spaces or punctuation (“cupcakes i’ve eaten” isn’t allowed)
+<ul>
+<li>This is invalid <strong>syntax</strong></li>
+<li>Use snake_case: <code>lowercase_letters_with_underscores</code> (it’s in the official <a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">Python style guide</a>)</li>
+</ul></li>
+</ul>
+<hr />
+</section>
+<section id="lets-break-things" class="level2">
+<h2>Let’s Break Things!</h2>
+<!--
+
+Teaching tips:
+This is the same repl.it as before; the code is:
+cupcakes_ive_eaten = 3
+print(cupcakes_ive_eaten)
+-->
+<p>Try using different cases (“CUPCAKES”) and spaces (“cupcakes ive eaten”) to declare variables, and see what happens:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="discussion-changing-values" class="level2">
+<h2>Discussion: Changing Values</h2>
+<p>What if, later, you eat more cupcakes? Now, this is wrong.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a></code></pre></div>
+<p>What do you think we need to do?</p>
+<hr />
+</section>
+<section id="discussion-reassigning-variables" class="level2">
+<h2>Discussion: Reassigning Variables</h2>
+<!--
+Talking points:
+"We can always change what a variable is holding; it's just a container. Initially setting a variable to a value is known as assigning the variable. In our example above, we declared the `cupcakes_ive_eaten` variable and assigned it the value of `3`."
+"If we eat more cupcakes, we can *reassign* the variable to a different value - here, 4."
+-->
+<p>In the example below, what do you think the output of the code is?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="bu">print</span>(cupcakes_ive_eaten)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="bu">print</span>(cupcakes_ive_eaten)</a></code></pre></div>
+<hr />
+</section>
+<section id="try-it-reassigning-variables" class="level2">
+<h2>Try it: Reassigning Variables</h2>
+<!--
+
+Talking points:
+"We can reassign our variable as many times as we want. However, only the most recent value of a variable will be retained. Once a variable is reassigned, its original value is lost forever. If you think of a box, reassigning a variable is like throwing away what's in the box and replacing it with something new."
+
+Teaching tips:
+This is the same repl.it as before; the code is:
+```python
+cupcakes_ive_eaten = 3
+print(cupcakes_ive_eaten)
+```
+-->
+<ul>
+<li>Declare a variable and assign it to the number <code>6</code></li>
+<li>Print the value</li>
+<li>Reassign the variable</li>
+<li>Print it again!</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="mathematical-operators" class="level2">
+<h2>Mathematical Operators</h2>
+<!--
+
+Talking points:
+"When we're dealing with variables that have numbers for values, the operators work just like they do with regular math. What would you expect `cupcakes_ive_eaten` to equal after this code?"
+
+Teaching tips:
+This is the same repl.it as before; the code is:
+```python
+cupcakes_ive_eaten = 3
+print(cupcakes_ive_eaten)
+```
+-->
+<p>Math works on numerical variables, too!</p>
+<ul>
+<li>The <code>+</code>, <code>-</code>, <code>*</code> (multiply), and <code>/</code> (divide) operators work just like they do with regular math.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">3</span> <span class="co"># This is 8</span></a></code></pre></div>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="math-between-variables" class="level2">
+<h2>Math Between Variables</h2>
+<!--
+
+Talking points:
+"A great thing about variables is that, because they store a value, you can use them later - even to create new variables. For example, if we have a variable declared `cupcakes_in_a_box = 3`, and we know that there are 5 cupcakes in a box, we can multiply them to determine the number of cupcakes I will eat. Here's an example:"
+
+Teaching tips:
+This is the same repl.it as before; the code is:
+```python
+cupcakes_ive_eaten = 3
+print(cupcakes_ive_eaten)
+```
+-->
+<p>We can also perform math between variables!</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">cupcakes_in_a_box <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">boxes_of_cupcakes <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">cupcakes_i_will_eat <span class="op">=</span> boxes_of_cupcakes <span class="op">*</span> cupcakes_in_a_box <span class="co"># This is 15</span></a></code></pre></div>
+<p>Try declaring more variables and doing math with them:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-cupcakes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="math-on-the-same-variable" class="level2">
+<h2>Math On The Same Variable</h2>
+<!--
+Talking points:
+"You may have a scenario where you want to reassign a variable to itself. We do this so we don't have to create extra variables. In our cupcakes example, we don't want to have to use a whole new variable just to add a cupcake."
+-->
+<p>You can reassign a variable <em>using that very same variable</em>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">cupcakes_ive_eaten <span class="op">=</span> cupcakes_ive_eaten <span class="op">+</span> <span class="dv">1</span> <span class="co"># cupcakes_ive_eaten is now 4.</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">cupcakes_left_in_box <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> <span class="dv">1</span> <span class="co"># cupcakes_left_in_box is now 5.</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">cupcakes_left_in_box <span class="op">=</span> cupcakes_left_in_box <span class="op">-</span> cupcakes_ive_eaten <span class="co"># cupcakes_left_in_box is now 1.</span></a></code></pre></div>
+<hr />
+</section>
+<section id="you-do-mathematical-operators" class="level2">
+<h2>You Do: Mathematical Operators</h2>
+<!--
+Teaching tips:
+The repl.it has these prompts
+
+- Make a variable to hold the number of guitars you own (`3`).
+- Make a variable to hold the number of guitars Nikhil owns (`1`).
+- You give 2 of your guitars to Nikhil. In your program, subtract 2 from you and add 2 to Nikhil.
+-->
+<p>Try to code the below:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-guitar-prompt?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="what-math-can-we-do" class="level2">
+<h2>What Math Can We Do?</h2>
+<!--
+Talking points:
+"All of the standard arithmetic operators learned in grade school (addition, subtraction, division, and multiplication) are supported in Python. You're probably familiar with most of them, if you don't have a background in programming, the last two might be new. Let's dig in!"
+-->
+<p>So, what are some operators are available to us in Python?</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>5 + 14</td>
+<td>Addition</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>7 - 4</td>
+<td>Subtraction</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>3 * 2</td>
+<td>Multiplication</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>10 / 5</td>
+<td>Division</td>
+</tr>
+<tr class="odd">
+<td>**</td>
+<td>10**3</td>
+<td>Exponents</td>
+</tr>
+<tr class="even">
+<td>%</td>
+<td>10 % 4</td>
+<td>Modulus: Like division, but gives remainder instead of quotient</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+<section id="math-crash-course-exponents" class="level2">
+<h2>Math Crash Course: Exponents</h2>
+<!--
+Talking points:
+"Exponents are shorthand for a number multiplied by itself. For example, `10 * 10 * 10` can also be expressed as 10<sup>3</sup>, which python symbolizes with the double asterisk operator."
+
+Teaching tips:
+This repl.it is empty.
+-->
+<p>An exponent multiplies a number by itself. In regular math, it’s written 10<sup>3</sup>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="dv">10</span><span class="op">**</span><span class="dv">3</span> <span class="co"># 10 * 10 * 10 = 1,000</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="dv">5</span><span class="op">**</span><span class="dv">2</span> <span class="co"># 5 * 5 = 25</span></a></code></pre></div>
+<p>Try making an exponent!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="discussion-even-or-odd" class="level2">
+<h2>Discussion: Even or Odd</h2>
+<!--
+
+Talking points:
+"How do we determine if a number is even or odd?"
+
+Note: Give them time to discuss.
+
+"If we divide by two and have a remainder of one, we know the number is odd. If we have a remainder of zero, we know the number is even."
+-->
+<p>Is 6 even or odd?</p>
+<p>Is 7 even or odd?</p>
+<p>How do you think a computer knows?</p>
+<hr />
+</section>
+<section id="mathematical-operators-modulus" class="level2">
+<h2>Mathematical Operators: Modulus</h2>
+<!--
+Talking points:
+"This is where modulus is helpful. The modulus operator shows the remainder of a division problem.
+
+"For example, five divided by two equals two with a remainder of one. The modulus operator takes two numbers as inputs and returns what is left over from the division."
+
+-->
+<p>Modulus operator shows the remainder of a division problem.</p>
+<ul>
+<li><strong>4 % 2</strong>: 4 / 2 is 2, with no remainder. <em>4 % 2 = 0.</em></li>
+<li><strong>5 % 2</strong>: 5 / 2 is 2, with a remainder of 1. <em>5 % 2 = 1.</em></li>
+</ul>
+<p>What do you think the following prints out?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">mod_result <span class="op">=</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="bu">print</span>(mod_result)</a></code></pre></div>
+<hr />
+</section>
+<section id="try-modulus" class="level2">
+<h2>Try Modulus!</h2>
+<!--
+Teaching tips:
+Note: This repl.it is empty.
+-->
+<p>Try finding the modulus of 15 and various numbers, like <code>15 % 2</code>.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="modulus-evens-and-odds" class="level2">
+<h2>Modulus: Evens and Odds</h2>
+<p>Let’s look at some even and odd examples.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@brandiw/Python-01-Variables-5?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="reassigning-variables-with-operators" class="level2">
+<h2>Reassigning Variables with Operators</h2>
+<!--
+Talking points:
+"Note that this works because the *right* side of the equals sign is evaluated first. Thus, the `9 + 7` is happening before the reassignment. The right side becomes 16, then that value is set to my_num."
+-->
+<p>If I asked you to take a number and add 7 to it, you could do:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">my_num <span class="op">=</span> my_num <span class="op">+</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="bu">print</span>(my_num) <span class="co"># my_num is now 16</span></a></code></pre></div>
+<p>How?</p>
+<ul>
+<li>The <em>right</em> side of the equals sign is evaluated first.</li>
+<li><code>9 + 7</code> happens <em>before</em> the reassignment.</li>
+</ul>
+<hr />
+</section>
+<section id="reassignment-shorthand" class="level2">
+<h2>Reassignment Shorthand</h2>
+<!--
+Talking points:
+"The code on top is good, but it is actually such a common scenario that we want to reassign a variable that we've made a shortcut. For example, saying `my_num += 9` is exactly the same as saying `my_num = my_num + 9`. It's just a shorter way to write it."
+
+"Keep in mind that we'll always need an `=` somewhere in the line of code when we want to either assign or update the value of a variable"
+-->
+<p>This is okay:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">my_num <span class="op">=</span> my_num <span class="op">+</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co"># my_num is now 16</span></a></code></pre></div>
+<p>But this is better:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">my_num <span class="op">+=</span> <span class="dv">7</span> <span class="co"># += is short for theSameVariable = theSameVariable + 7</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co"># my_num is now 16</span></a></code></pre></div>
+<hr />
+</section>
+<section id="we-do-reassignment-shorthand" class="level2">
+<h2>We Do: Reassignment Shorthand</h2>
+<!--
+Teaching tips:
+The repl.it contains:
+
+# We can do reassignment shortcuts with many of the operators
+my_num = 5
+my_num += 1
+
+# What is my_num now?
+print(my_num)
+
+# Activity:
+# 1. Make an example below with +=
+# 2. Make an example below with -=
+# 3. Make an example below with *=
+-->
+<p>Let’s try this.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@brandiw/Python-01-Variables-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="you-do-numerical-reassignment" class="level2">
+<h2>You Do: Numerical Reassignment</h2>
+<!--
+
+Talking points:
+End this slide with something to reassure students, such as: "While we've covered what seems like a lot of math in this section, don't worry: You're not going to be doing calculus in this course. However, it's important that we review these concepts, because there will be many times when you'll solve a problem using basic principles. When it comes down to it, computers operate with a simple, straightforward logic."
+
+Teaching tips:
+Note: This repl.it has these comments
+```
+- Declare two variables `num1` and `num2` and assign them to any numbers you'd like.
+- Set `num1` to the result of subtracting `num1` from the `num2`.
+- Create a new variable `num3` that will help us tell if `num2` is even or odd.
+- Using shorthand, add 5 to `num1`.
+- Print out `num1`, `num2`, and `num3`
+```
+-->
+<p>In the empty environment below, follow the prompts:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-practice-math?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="introducing-strings" class="level2">
+<h2>Introducing Strings</h2>
+<!--
+
+Talking points:
+> "Because a variable is just a box, it can also hold strings. You tell Python that your variable will hold a string using quotation marks."
+
+> "Strings can be words, like apple. Strings are made of characters. A character is anything on your keyboard , such as a letter or a number. The string apple is 5 characters."
+
+> "A space counts as a character, too (it's on the keyboard). For example, "Marty McFly" is a string. So is this entire sentence:"
+-->
+<p>A <em>character</em> is:</p>
+<ul>
+<li>Anything on your keyboard , such as a letter or a number.</li>
+<li>“Apple” is five characters: a, p, p, l, e.</li>
+<li>Spaces count! (they’re on the keyboard!)</li>
+</ul>
+<p>A <em>string</em> is:</p>
+<ul>
+<li>A complete list of characters.</li>
+<li>“Apple”</li>
+<li>“Chocolate Cupcake”</li>
+<li>This entire sentence: “Hello, you are 1 of a kind!”</li>
+</ul>
+<hr />
+</section>
+<section id="strings-in-python" class="level2">
+<h2>Strings in Python</h2>
+<!--
+
+Talking points:
+
+"To declare a string in Python, put it in quotes when you assign it to your variable."
+
+Teaching tips:
+
+Go over the phrase "numerical variable" versus "string variable"
+-->
+<p>You tell Python that your variable will hold a string using quotation marks.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">box_contents <span class="op">=</span> <span class="st">&quot;cupcakes&quot;</span> <span class="co"># This is a string</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="bu">print</span>(box_contents) <span class="co"># It&#39;s a normal variable - we can print it.</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">best_snack <span class="op">=</span> <span class="st">&quot;Frosted Cupcakes&quot;</span> <span class="co"># This is a string.</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">cupcakes_ive_eaten <span class="op">=</span> <span class="dv">5</span> <span class="co"># No quotes - this is a number.</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">cupcakes_ive_eaten_as_string <span class="op">=</span> <span class="st">&quot;5&quot;</span> <span class="co"># Because this is in quotes, this is a string.</span></a></code></pre></div>
+<hr />
+</section>
+<section id="we-do-declaring-strings" class="level2">
+<h2>We Do: Declaring Strings</h2>
+<!--
+
+Talking points:
+
+"Let's declare some variables in and print them. You'll be doing a lot of programming, and if you practice typing variable declarations out, you'll get faster every time."
+
+Teaching tips:
+
+Note: This repl.it is empty
+
+-->
+<p>Let’s practice.</p>
+<ol type="1">
+<li>Declare a variable called <code>name</code> and assign it the value <code>Marty</code></li>
+<li>Declare a variable called <code>car</code> and assign it the value <code>Delorean</code></li>
+<li>Declare a variable called <code>speed</code> and assign it the value <code>88mph</code></li>
+<li>Print out these variables</li>
+</ol>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="strings-in-python-1" class="level2">
+<h2>Strings in Python</h2>
+<!--
+
+Talking points:
+"It's important to note that you cannot do math on strings! Even if what's inside the quotations is a number, Python will interpret it as a word."
+
+"Can you predict what the code below will print?" <wait for them to discuss, then run it.>
+
+"In our last example, instead of printing `50` like you might expect, Python will throw an error. It sees `age` as a string, not a number, so it doesn't know how to do subtraction on it."
+
+"Make sure that when you want a numerical value you do not use quotes!"
+
+Teaching tips:
+Note: This repl.it has
+```python
+age = "65" # Because of the quotes, this is a string.
+new_age = age - 15 # Let's try to do math on it.
+print(new_age)
+```
+-->
+<p>What do you think happens below?</p>
+<p>Guess before running it!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@brandiw/Python-01-Variables-6?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<p>Make sure that, when you want a numerical value, you <strong>do not</strong> use quotes!</p>
+<hr />
+</section>
+<section id="string-concatenation" class="level2">
+<h2>String Concatenation</h2>
+<!--
+
+Talking points:
+"The `+` operator means addition for numbers, but not for strings. When given string values, the `+` operator actually behaves differently — it concatenates, or combines, two strings together to make one big string. Using the `+` operator to combine the two strings together literally puts them next to each other instead of evaluating their total."
+
+"Concatenation is a formal term for when strings are glued together. Here's an example of concatenation."
+-->
+<p><code>+</code> on:</p>
+<ul>
+<li>Numerical variables adds (<code>5 + 5 = 10</code>)</li>
+<li>String variables <em>concatenate</em> (<code>&quot;Doc&quot; + &quot;Brown&quot; = &quot;DocBrown&quot;</code>)
+<ul>
+<li><em>Pssst: Pronunciation tip: con-CAT-en-ATE</em></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">first_name <span class="op">=</span> <span class="st">&quot;Doc&quot;</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">last_name <span class="op">=</span> <span class="st">&quot;Brown&quot;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">full_name <span class="op">=</span> first_name <span class="op">+</span> last_name</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co"># This will be &quot;DocBrown&quot;</span></a></code></pre></div>
+<hr />
+</section>
+<section id="we-do-spaces-in-concatenation" class="level2">
+<h2>We Do: Spaces in Concatenation</h2>
+<!--
+
+Talking points:
+"Let's try this out."
+
+"In our activity, Python put the strings together, but do you notice anything wrong? There is no space between the words! This is because we didn't add the spaces in. It's just one of many reasons why we have to carefully watch our spacing and grammar!"
+
+-->
+<p>Try adding this below:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot;is driving his&quot;</span> <span class="op">+</span> car <span class="op">+</span> speed</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="bu">print</span>(sentence)</a></code></pre></div>
+<p>We expect the sentence to be <code>Marty is driving his Delorean 88mph</code>. Is that what we got?</p>
+<!-- note: This repl.it has
+name = "Marty"
+car = "Delorean"
+speed = "88mph"
+-->
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-variables-marty?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="adding-spaces" class="level2">
+<h2>Adding Spaces</h2>
+<!--
+
+Talking points:
+
+"Since a space is a character - it's on the keyboard - we can make it a string. Therefore, we can add it into our concatenation. By default, concatenation doesn't have spaces - you'll always have to add them yourself."
+
+Teaching tips:
+Note: This repl.it has
+```python
+name = "Marty"
+car = "Delorean"
+speed = "88mph"
+```
+-->
+<p>Let’s fix this, by adding in the spaces ourselves:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1">sentence <span class="op">=</span> name <span class="op">+</span> <span class="st">&quot; is driving his &quot;</span> <span class="op">+</span> car <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> speed</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="bu">print</span>(sentence)</a></code></pre></div>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-variables-marty?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="printing-strings" class="level2">
+<h2>Printing Strings</h2>
+<!--
+
+Talking points:
+> "You can also `print` directly; you don't necessarily need an extra variable. To print strings next to each other, you separate them with a comma. Then, Python will add the space for you. This isn't concatenating variables, but it's useful to know!"
+
+Teaching tips:
+Note: This repl.it has
+```python
+name = "Marty"
+car = "Delorean"
+speed = "88mph"
+sentence = name + " is driving his " + car + " " + speed
+print(sentence)
+```
+-->
+<p>When <code>print</code>ing, commas also create spaces.</p>
+<p>Change your code below to:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="bu">print</span>(name, <span class="st">&quot;is driving his&quot;</span>, car, speed)</a></code></pre></div>
+<!-- note: This repl.it has
+name = "Marty"
+car = "Delorean"
+speed = "88mph"
+-->
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-pt-martyplusprint?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<p>This <em>only</em> works for <code>print</code>ing, not for concatenation.</p>
+<hr />
+</section>
+<section id="lets-practice-print-statements" class="level2">
+<h2>Let’s Practice: Print Statements</h2>
+<!--
+Talking points:
+ Suggested starting sentence: "Up until now, we've probably somewhat under appreciated just how versatile our print statement is. Checkout some stuff it can do"
+ -->
+<iframe height="400px" width="100%" src="https://repl.it/@brandiw/Python-01-Variables-4?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="some-common-mistakes-1" class="level2">
+<h2>Some Common Mistakes: 1</h2>
+<!--
+
+Talking points:
+"Let's look at some code with some common beginner mistakes. What do you think is wrong with the following code? Will it run at all? If yes, what does it print?"
+-->
+<p>Do you think this will run? If yes, what does it print?</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1">my_num</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="bu">print</span>(my_num)</a></code></pre></div>
+<hr />
+</section>
+<section id="some-common-mistakes-2" class="level2">
+<h2>Some Common Mistakes: 2</h2>
+<p>How about this? Does it run? If so, what does it print?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="bu">print</span>()</a></code></pre></div>
+<hr />
+</section>
+<section id="some-common-mistakes-3" class="level2">
+<h2>Some Common Mistakes: 3</h2>
+<p>How about this? Does it run? If so, what does it print?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">my_num <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">my_string <span class="op">=</span> <span class="st">&quot;Hello&quot;</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="bu">print</span>(my_num <span class="op">+</span> my_string)</a></code></pre></div>
+<hr />
+</section>
+<section id="some-common-mistakes-4" class="level2">
+<h2>Some Common Mistakes: 4</h2>
+<p>One last question. What does this do?</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1">my_num1 <span class="op">=</span> <span class="st">&quot;10&quot;</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">my_num2 <span class="op">=</span> <span class="st">&quot;20&quot;</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="bu">print</span>(my_num1 <span class="op">+</span> my_num2)</a></code></pre></div>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>We learned a lot today!</p>
+<ul>
+<li>We created, used, and re-assigned number and string variables.</li>
+<li>We used the numerical operators <code>+ - / * // %</code></li>
+<li>We did some complex stuff with the <code>print</code> function!</li>
+</ul>
+<p>Congrats! You’ve finished your first programming lesson!</p>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="http://www.pythonforbeginners.com/basics/python-variables">Python For Beginners</a></li>
+<li><a href="https://www.youtube.com/watch?v=vKqVnr0BEJQ">Python Programming Tutorial: Variables</a></li>
+<li><a href="https://www.guru99.com/variables-in-python.html">Variables in Python</a></li>
+<li><a href="http://python-reference.readthedocs.io/en/latest/docs/operators/">Operators Cheatsheet</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">Python Style Guide: Naming</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_strings.htm">Python-Strings</a></li>
+<li><a href="http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python">String Concatenation and Formatting</a></li>
+<li><a href="https://www.youtube.com/watch?v=jA5LW3bR0Us">String Concatenation and Formatting - Video</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

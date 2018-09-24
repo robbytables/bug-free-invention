@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+---
+title: Pandas II
+type: lesson
+duration: "1:00"
+creator: [Joseph Nelson](https://twitter.com/josephofiowa)
+Private gist location: xxxxxx
+Presentation URL: xxxxx
+---
+-->
+<section id="pandas-ii" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Pandas II</h2>
+<!--
+
+## Overview
+This presentation is review - go through the lesson in the notebook first!
+The goal of this lesson is to continue demonstrating valuable functions within the Pandas library for exploratory data analysis.  This lesson covers handling missing data and null values, then continues to implementing `groupby` and apply functions.
+
+
+
+## Important Notes or Prerequisites
+
+- Review the Iowa liquor dataset [here](https://data.iowa.gov/Economy/Iowa-Liquor-Sales/m3tr-qhgy)
+- Be aware that the dataset you are examining is a **subset** of that dataset: it is only May 2017 and May 2018. **New columns** have been created to delineate: `is_may_2017` and `is_may_2018`. These are demonstrated for the purposes of showing filters.
+- There are **Class Questions** littered throughout the notebook. Use as much/little time on these as you see fit relative to how your class is pacing
+- This lesson includes high level slides and a Notebook. To present this content, it is recommended you begin directly with the Jupyter Notebook. The student slides contain the wrap-up of the big ideas covered in the notebook.
+
+
+---
+
+## Learning Objectives
+*After this lesson, you will be able to:*
+
+- Identify and handle missing values with Pandas.
+- Implement groupby statements for specific segmented analysis.
+- Use apply functions to clean data with Pandas.
+
+
+
+## Duration
+45 minutes.
+
+---
+
+## Suggested Agenda
+
+|    Time     | Activity | Purpose |
+|-------------|----------|---------|
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:08 | Dataset Recap |
+| 0:08 - 0:11 | Read in the Data |
+| 0:11 - 0:25 | Handling Missing Data |
+| 0:25 - 0:32 | Groupby Statements |
+| 0:32 - 0:40 | Apply Functions |
+| 0:40 - 0:45 | Summary |
+
+## Materials and Preparation
+- Send out the link to the presentation slides, and help students download the Notebook.
+
+## Differentiation and Extensions
+
+- If students are excelling in the first half, consider deeper discussions surrounding types of missingness (missing at random, missing conditionally at random, not missing at random). Also, write a few more `groupby` statements.
+- If students are struggling, hone the conceptual elements of each portion heavily - the **why** for identifying and handling missing data, groupby, and apply functions. Note that the order of these lessons is in order of importance, so even if the latter half is rushed, students will be covering the major keys!
+
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Identify and handle missing values with Pandas.</li>
+<li>Implement groupby statements for specific segmented analysis.</li>
+<li>Use apply functions to clean data with Pandas.</li>
+</ul>
+<hr />
+</section>
+<section id="to-the-notebook" class="level2">
+<h2>To the notebook!</h2>
+<p>We actually will commence this lesson directly in the Jupyter Notebook, <code>pandas-ii.ipynb</code>, to walkthrough the what, why, and how all at once.</p>
+<p>Nonetheless, below, we have included slides reviewing the key concepts.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Go through the lesson in the notebook first; come back to this presentation for a recap of concepts afterwards.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-do-we-handle-missing-data" class="level2">
+<h2>How do we handle missing data?</h2>
+<p>To handle missing data, we must:</p>
+<ul>
+<li>Identify we have missing data from our DataFrame</li>
+<li>Determine, to the best of our ability, the cause of this missingness</li>
+<li>Justify how we will handle the missing data (drop or fill in with a specific value?)</li>
+</ul>
+<p><strong>Pro tip:</strong> The faster you understand <em>why</em> some observations are missing, the faster and more accurately you can handle them.</p>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="key-pandas-functions-for-missing-data" class="level2">
+<h2>Key Pandas functions for missing data:</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># identify</span>
+df.isnull().<span class="bu">sum</span>()
+
+<span class="co"># drop (if necessary)</span>
+df.dropna(inplace <span class="op">=</span> <span class="va">True</span>) <span class="co">#careful!</span>
+
+<span class="co"># fill in (if necessary) - replace value with desired means of filling</span>
+df.fillna(value<span class="op">=</span>column.mean(), inplace<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-do-we-use-groupby-statements" class="level2">
+<h2>How do we use groupby statements?</h2>
+<p><strong>Groupby</strong> allows us to conduct analysis on a specific subset.</p>
+<p>Groupby follows a &quot;split, apply, combine&quot; methodology:</p>
+</section>
+<section id="section" class="level2">
+<h2><img src="http://i.imgur.com/yjNkiwL.png" /></h2>
+<p>Determine what attribute to groubpy in a cohort, and how to aggregate those values within that cohort.</p>
+<blockquote>
+<p>e.g. If we have 300 lemonade stands, do we want to know the average amount of lemonade sold across all stands, or identify which lemonade stand sold the most?</p>
+</blockquote>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="key-pandas-functions-for-groupby" class="level2">
+<h2>Key Pandas functions for groupby:</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># replace column with the column of interest!</span>
+df.groupby(<span class="st">&#39;column&#39;</span>).agg[<span class="st">&#39;count&#39;</span>, <span class="st">&#39;mean&#39;</span>, <span class="st">&#39;max&#39;</span>, <span class="st">&#39;min&#39;</span>]</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-do-we-use-apply-functions" class="level2">
+<h2>How do we use apply functions?</h2>
+<ul>
+<li><strong>Apply functions</strong> help us clean values across an entire DataFrame column. They are <em>like</em> a for loop for cleaning, but many times more efficient. They follow a common pattern:</li>
+</ul>
+<ol type="1">
+<li>Write a function that works on a single value</li>
+<li>Test that function on a single value</li>
+<li>Apply that function to a whole column</li>
+</ol>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="key-pandas-example-for-apply-functions" class="level2">
+<h2>Key Pandas example for apply functions:</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> dollars_to_float(value):
+
+    <span class="co"># try to convert the inputted value to a float</span>
+    <span class="cf">try</span>:
+        <span class="cf">return</span> <span class="bu">float</span>(value.strip(<span class="st">&#39;$&#39;</span>))
+
+    <span class="co"># in the case of the value being a null value, we simply return a null</span>
+    <span class="cf">except</span>:
+        <span class="cf">return</span> np.nan
+
+
+liq[<span class="st">&#39;sale_clean&#39;</span>] <span class="op">=</span> liq.sale.<span class="bu">apply</span>(dollars_to_float)</code></pre></div>
+<aside class="notes">
+<p>Teaching tips:</p>
+<ul>
+<li>Do a quick recap and check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li>Pandas <a href="https://pandas.pydata.org/pandas-docs/stable/">documentation</a></li>
+<li>DataSchool <a href="http://www.dataschool.io/easier-data-analysis-with-pandas/">30-video series</a> (by a former GA instructor!)</li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

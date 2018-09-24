@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Variable Scope
+type: lesson
+duration: "00:30"
+creator: Brandi Butler
+-->
+<section id="python-programming-variable-scope" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming: Variable Scope</h2>
+<!--
+
+## Overview
+This lesson introduces local and global scope with a few examples. If there is time, give students examples of broken programs that mix up global and local scopes and ask them to fix it.
+
+## Learning Objectives
+In this lesson, students will:
+
+* Define variable scope.
+* Use the global keyword to access global variables.
+* Explain the order of scope precedence that Python follows when resolving variable names.
+
+
+## Duration
+20 minutes
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:03 | Welcome |
+| 0:03 - 0:08 | Local Scope |
+| 0:08 - 0:18 | Global scope  |
+| 0:18 - 0:20 | Summary |
+
+## Differentiation and Extensions
+- There are no exercises involving classes, built-in scope, or enclosed scope. If there is time and your students seem confident, create some - or challenge your students to come up with examples themselves.
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="lesson-objectives" class="level2">
+<h2>Lesson Objectives</h2>
+<p><em>After this lesson, you will be able to...</em></p>
+<ul>
+<li>Define variable scope.</li>
+<li>Use the global keyword to access global variables.</li>
+<li>Explain the order of scope precedence that Python follows when resolving variable names.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Jot these on the board to refer to.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-delivering-a-letter" class="level2">
+<h2>Discussion: Delivering a Letter</h2>
+<p>What if someone wanted to send Brandi a letter?</p>
+<p>If you just had &quot;For Brandi&quot;, the mail carrier would give the letter to the first Brandi they see!</p>
+<p>They'd look:</p>
+<ul>
+<li>First in the class. Is there a &quot;Brandi&quot; here? They get the letter!</li>
+<li>No? Okay, look in the town. Is there a &quot;Brandi&quot; here? They get the letter!</li>
+<li>No? Okay, look in the state. Is there a &quot;Brandi&quot; here? They get the letter!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Don't mention programming here. Just get them clear on the idea of scope, and how if we aren't specific, we'll look first in town, then state - continue getting wider.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-your-address" class="level2">
+<h2>Discussion: Your Address</h2>
+<p>That's why <strong>scope</strong> matters. We might have to get more specific. To correctly deliver the letter, if the mail carrier only looked in the scope of:</p>
+<p>Your class:</p>
+<ul>
+<li>You're probably the only Brandi.</li>
+<li>&quot;For Brandi&quot; is fine.</li>
+</ul>
+<p>Your town:</p>
+<ul>
+<li>There might be multiple Brandis in the town!</li>
+<li>&quot;For Brandi, on Main Street&quot; is a bit more specific.</li>
+</ul>
+<p>In your state:</p>
+<ul>
+<li>There are multiple Main Streets in New York!</li>
+<li>&quot;For Brandi, on Main Street in Brooklyn&quot; is very specific.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Don't mention programming here. Just get them clear on the idea of scope, and how depending on where we look, we have to be more specific - and if we aren't specific, we'll look first in town, then state - continue getting wider.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-what-is-x" class="level2">
+<h2>Discussion: What is X?</h2>
+<p>Python has <strong>scope</strong>, too. We can have many variables with the same name as long, and Python will look for the most specific one.</p>
+<p>In different scopes, you can reuse the same name. Each one is a <em>completely different</em> variable.</p>
+<p>Functions and classes create individual <strong>local scopes</strong>. A <strong>local variable</strong> doesn't exist outside its local function or class scope.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> my_func1():
+  x <span class="op">=</span> <span class="dv">1</span>    <span class="co"># This is a LOCAL variable</span>
+  <span class="bu">print</span>(x) <span class="co"># 1</span>
+
+<span class="kw">def</span> my_func2():
+  x <span class="op">=</span> <span class="dv">5</span>    <span class="co"># This is a DIFFERENT local variable</span>
+  <span class="bu">print</span>(x) <span class="co">#5</span>
+
+<span class="bu">print</span>(x) <span class="co"># x is OUT OF SCOPE - No x exists here!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through this carefully!</li>
+<li>Run it in an interpreter, repl.it, or file to show them it working (remove the last print to stop the error).</li>
+<li>Terminology is next - just get them to understand the idea.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Any variable declared or assigned inside of a function is local to that function.</li>
+<li>This is the most specific level of scope and is, ideally, where most of your variables should be declared.&quot;</li>
+<li>&quot;Only the function in which the variable was declared has access to this scope — i.e., the variable is out of scope for everything but that function.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="global-scope" class="level2">
+<h2>Global Scope</h2>
+<p>Variables that are <strong>global scope</strong> are accessed anywhere. - Python will check for a local variable before using a global one.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">2</span>
+
+<span class="kw">def</span> my_func1():
+  x <span class="op">=</span> <span class="dv">1</span>
+  <span class="bu">print</span>(x) <span class="co"># 1 - Python checks local scopes first.</span>
+
+<span class="kw">def</span> my_func2():
+  x <span class="op">=</span> <span class="dv">5</span>
+  <span class="bu">print</span>(x) <span class="co"># 5 - Python checks local scopes first.</span>
+
+my_func1()
+my_func2()
+
+<span class="bu">print</span>(x) <span class="co"># 2 - Python found no local scope; prints global variable.</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>: - &quot;If some variables are specifically local, what are the variables outside of a function or class called?&quot;</p>
+<ul>
+<li>&quot;Any variable declared or assigned outside of any function or class is considered &quot;global.&quot;</li>
+<li><p>&quot;Global variables are accessible from anywhere in the script. This is not necessarily a good thing, however, because those variables can be accessed, changed, or reassigned by anything, and this can lead to troublesome bugs.&quot;</p></li>
+<li>&quot;This is another case where Python has our backs. It's preventing us from making an accidental error that could easily occur in many other languages.&quot;</li>
+<li>Python assumes local unless otherwise specified.
+<ul>
+<li>Meaning, these <code>x</code>'s are three different variables</li>
+</ul></li>
+<li>Python does this to prevent unexpected behavior and accidental bad practice.
+<ul>
+<li>It's considered sloppy to have too many global variables</li>
+<li>If you have a large code base, you may have forgotten that you used a variable name elsewhere.</li>
+<li>If you're working on a team, another person may have used a variable name without your knowledge.</li>
+</ul></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="multiple-variables-one-name" class="level2">
+<h2>Multiple Variables, One Name</h2>
+<p>Use case: <code>x</code> and <code>y</code> are frequently used to represent numbers.</p>
+<p>Scope is important so they don't interact!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(x, y):
+    <span class="cf">return</span> x <span class="op">+</span> y
+
+<span class="kw">def</span> subtract(x, y):
+    <span class="cf">return</span> x <span class="op">-</span> y
+
+<span class="kw">def</span> multiply(x, y):
+    <span class="cf">return</span> x <span class="op">*</span> y
+
+<span class="kw">def</span> divide(x, y):
+    <span class="cf">return</span> x <span class="op">/</span> y
+
+divide (<span class="dv">8</span>,<span class="dv">2</span>) <span class="co"># Returns 4</span>
+multiply(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># Returns 3</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Why would you want to have different variables with the same name? Do you expect each <code>x</code> and <code>y</code> in this code to preform independently?&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-accessing-scopes" class="level2">
+<h2>We Do: Accessing Scopes</h2>
+<p>Let's start with global scope:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="bu">print</span>(foo)
+foo <span class="op">=</span> <span class="dv">7</span>
+<span class="bu">print</span>(foo)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Python makes it a little trickier than other languages to fiddle around with global variables if we're not already in that scope. First, start up a blank script. The following line will assign a global variable named foo the value of 5. We can easily reassign and access that variable with the following lines. That's the global scope: There's no restriction on accessing or mutating a variable. &quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run all the code in these slides in an interpreter for them to see. Encourage them to do this with you.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-accessing-local-scope" class="level2">
+<h2>We Do: Accessing Local Scope</h2>
+<p>What if we add a variable in a local function scope and trying to access it from the global scope?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+
+<span class="co"># Delete your other code</span>
+<span class="co"># Add this function and print calls instead</span>
+<span class="kw">def</span> coolFunc():
+  bar <span class="op">=</span> <span class="dv">8</span>
+
+coolFunc()
+<span class="bu">print</span>(foo)
+<span class="bu">print</span>(bar)</code></pre></div>
+<p>It fails!</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;If you run this code, you will get an error: NameError: name 'bar' is not defined.&quot;</li>
+<li>&quot;The variable bar is only accessible from inside the coolFunc function.</li>
+<li>We called the coolFunc function, but as soon as it finished running, the variable bar ceased to exist. Even while the function was running, it was only accessible to itself. But, foo in the global scope was still accessible.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="scope-can-be-tricky" class="level2">
+<h2>Scope Can Be Tricky</h2>
+<p>What do you think happened here?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="kw">def</span> incrementFoo():
+  foo <span class="op">=</span> <span class="dv">6</span>
+  <span class="bu">print</span>(foo) <span class="co"># prints 6</span>
+
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span>
+incrementFoo()
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Spend some time here. Ensure understanding.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Hey! The variable foo went back to its old value after the function finished! Actually, not quite. Here's what happened:&quot;</li>
+<li>&quot;The line in the function where foo is assigned the value of 6 causes the creation of a new local variable.&quot;</li>
+<li>&quot;We then set this variable's value to 6, the function prints the value, and the function finishes. However, the global variable foo was never touched by the function.&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run this!</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="i-do-the-global-keyword" class="level2">
+<h2>I Do: The Global Keyword</h2>
+<p>You can call a global variable intentionally with <code>global</code>. * What do you think happens if you forget the <code>global</code> keyword?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="kw">def</span> incrementFoo():
+  <span class="kw">global</span> foo
+  foo <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span>
+incrementFoo()
+<span class="bu">print</span>(foo) <span class="co"># prints 6!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;It is very clearly marked as <code>global</code> so anyone using it is fully aware it's global.&quot;</li>
+<li>&quot;If you forget the <code>global</code> keyword, it simply becomes an unrelated local variable.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-global-vs-local" class="level2">
+<h2>We Do: Global vs Local</h2>
+<p>In the following code, there are 3 print statements. Before you run the code, guess what those print statements will print.</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-scope-quiz?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Repl.it Note</strong>:</p>
+<pre><code># Global variable x
+x = 1
+
+# Only local x in this function
+def my_func1():
+  x = 2 # This is a different, local x
+  print(x) # Print the local x
+
+# Using global x
+def my_func2():
+  global x # We declare we&#39;d like to use the global x
+  print(x) # Print that global x
+  x = 3 # Change that global x
+
+my_func1()
+my_func2()
+
+# Print global variable x
+print(x) # Did x get permanently changed by my_func2()?</code></pre>
+</aside>
+<hr />
+</section>
+<section id="you-do-just-a-day-in-the-jungle" class="level2">
+<h2>You Do: Just a Day in the Jungle</h2>
+<p>Open a new local file, <code>piranhas.py</code></p>
+<ul>
+<li>Declare a global variable <code>piranhas_hungry</code> and set it to <code>True</code>.</li>
+<li>Write two functions, <code>swing_vine_over_river</code> and <code>jump_in_river</code>.</li>
+<li>In <code>swing_vine_over_river</code>, print <code>Ahhh! piranhas got me!</code>.</li>
+<li>Change <code>piranhas_hungry</code> to <code>False</code></li>
+<li>In <code>jump_in_river</code>, if <code>piranhas_hungry</code> is True, print <code>I'm not going in there! There's hungry piranhas!</code>.</li>
+<li>Otherwise, print <code>piranhas are full! Swimming happily through the Amazon!</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Call functions in this order</span>
+jump_in_river()
+swing_vine_over_river()
+jump_in_river()</code></pre></div>
+<p><strong>Protip</strong>: Throw up your hand if you need some help!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give students a few minutes. The answer's in a repl.it on the next slide.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-check-your-answers" class="level2">
+<h2>We Do: Check Your Answers</h2>
+<ul>
+<li>Did you remember the <code>global</code> keyword?</li>
+<li>What happens if that keyword is removed?</li>
+<li>Comment out line 4. What happens? Why?</li>
+</ul>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-scope-piranha?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>Python checks <strong>scope</strong> to find the right variable.</p>
+<ul>
+<li>Functions and classes create individual <strong>local scopes</strong>.
+<ul>
+<li>A <code>local</code> variable doesn't exist outside its local function or class scope.</li>
+</ul></li>
+<li>Any variable declared or assigned outside of any function or class is considered &quot;global.&quot;
+<ul>
+<li>Variables that are <strong>global scope</strong> are accessed anywhere.</li>
+</ul></li>
+</ul>
+<p>Python will check for a local variable before using a global one.</p>
+<p>There can be more levels. Python always works from the inside out - as your programs get more advanced, keep that in mind!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.python-course.eu/python3_global_vs_local_variables.php">Global vs Local Variables</a></li>
+<li><a href="http://python-textbok.readthedocs.io/en/1.0/Variables_and_Scope.html">Variables and Scope</a></li>
+<li><a href="https://realpython.com/inner-functions-what-are-they-good-for/">Nested Functions - What are they good for?</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

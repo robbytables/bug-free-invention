@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Further Data Structures
+type: lesson
+duration: 00:40
+creator: Steve Peters
+-->
+<section id="sets-and-tuples" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Sets and Tuples</h2>
+<!--
+
+## Overview
+This lesson focuses on sets and tuples. It starts with sets, encompassing  We Dos as new functions are introduced, then goes into tuples. It ends with the `type` function and a You Do. If there's time, after the "Additional Reading" slides, there is a sets exercise. This exercises are also in the `xx-additional-exercises` folder, if you don't get to it.
+
+## Important Notes or Prerequisites
+- The students will be asked to build upon their knowledge of the `list`, so a solid understanding of this concept will be vital.
+- The "why" of each datatype is essential to impart to students and your checks for understanding may keep circling back around to the "why".
+- Much of this lesson contrasts the three data types (tuples, sets, lists) to each other, so that students can see them side by side and start to internalize the differences.
+
+## Learning Objectives
+In this lesson, students will:
+
+- Perform common actions with sets.
+- Perform common actions with tuples.
+- Know when to use each of the different collection structures.
+
+
+## Duration
+40 minutes
+
+### Timing note:
+- If there's time remaining at the end, giving exercises involving multiple contrasting sets, tuples, and lists would be great.
+- There is, in the `xx-additional-exercises` folder in the parent folder, a set equals challenge that you should give in class if there's time, and if not, give as homework.
+
+## Suggested Agenda
+
+| Time | Activity |
+| --- | --- |
+| 0:00 - 0:02 | Welcome |
+| 0:02 - 0:20 | Sets |
+| 0:20 - 0:37 | Tuples |
+| 0:37 - 0:40  | Summary |
+
+## In Class: Materials
+- Projector
+- Internet connection
+- Python3
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Perform common actions with sets.</li>
+<li>Perform common actions with tuples.</li>
+<li>Know when to use different data structures.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Quickly overview these; perhaps write them on the board.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-lists" class="level2">
+<h2>Discussion: Lists</h2>
+<p>Here are some lists:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">unique_colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>]
+subscribed_emails <span class="op">=</span> [<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>]</code></pre></div>
+<p>What could be a problem here?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>&quot;Why, in the <code>subscribed_emails</code> list, would duplicate entries be a problem? Or unique colors having duplicates?&quot;</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>You can guide students to think about deduplication and the need to ensure unique values, thus dovetailing into sets</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-sets" class="level2">
+<h2>Introducing Sets</h2>
+<p>Lists:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">unique_colors_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>]
+subscribed_emails_list <span class="op">=</span> [<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>]</code></pre></div>
+<p>Sets: Lists without duplicates!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">unique_colors_set <span class="op">=</span> {<span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>}
+subscribed_emails_set <span class="op">=</span> {<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>}</code></pre></div>
+<ul>
+<li>Notice the <code>[]</code> versus the <code>{}</code>.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>Refresh memories that a <em>list</em> is a collection of <em>elements</em>, contained within square brackets <code>[]</code>:</p></li>
+<li><p>&quot;However, there is a specific version of a <em>list</em> called a <em>set</em>. What makes a set different is that all of the <em>elements</em> in a <em>set</em> must be unique. That is to say, nothing can appear more than once in a <em>set</em>.&quot; Sets have curly braces.</p></li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="how-can-we-make-a-set" class="level2">
+<h2>How Can We Make a Set?</h2>
+<p>Making a set via a list - Python removes duplicates automatically.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_set <span class="op">=</span> <span class="bu">set</span>(a_list_to_convert)
+
+<span class="co"># In action:</span>
+unique_colors_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>]
+unique_colors_set <span class="op">=</span> <span class="bu">set</span>(unique_colors_list)
+<span class="co"># =&gt; {&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</span>
+
+<span class="co"># Instead of passing a list in (a_list_to_convert), we could just type it:</span>
+my_set_2 <span class="op">=</span> ([<span class="st">&quot;enter&quot;</span>, <span class="st">&quot;list&quot;</span>, <span class="st">&quot;here&quot;</span>])
+
+<span class="co"># In action:</span>
+unique_colors_set_2 <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>])
+<span class="co"># =&gt; {&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</span></code></pre></div>
+<p>Making a set directly, in curly braces:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">colors <span class="op">=</span> {<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>}</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li><p>&quot;Creating a <em>set</em> is easy; we just need to use the <code>set()</code> method like this.&quot;</p></li>
+<li><p>&quot;Because we had two <code>red</code>s, Python removed the extra one for us.&quot;</p></li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Point out the difference between parentheses, brackets, and curly braces.</li>
+</ul>
+</aside>
+</aside>
+<hr />
+</section>
+<section id="important-note-sets" class="level2">
+<h2>Important Note: Sets</h2>
+<p>Lists are always in the same order:</p>
+<ul>
+<li><code>my_list = [&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code> is always going to be<code>[&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code></li>
+<li><code>my_list[0]</code> is always <code>&quot;green&quot;</code>; <code>my_list[1]</code> is always <code>&quot;yellow&quot;</code>; <code>my_list[2]</code> is always <code>&quot;red&quot;</code>.</li>
+</ul>
+<p>Sets are not! Like dictionaries, they're in any order.</p>
+<ul>
+<li><code>my_set = {&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</code> could later be <code>{&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;}</code>!</li>
+<li><code>my_set[0]</code> could be <code>&quot;green&quot;</code>, <code>&quot;red&quot;</code>, or <code>&quot;yellow&quot;</code> - we don't know!</li>
+</ul>
+<p>We <strong>cannot</strong> do: <code>print(my_set[0])</code> - it could be anything! Python won't let us.</p>
+<hr />
+</section>
+<section id="we-do-creating-a-set-from-a-list" class="level2">
+<h2>We Do: Creating a Set from a List</h2>
+<p>Let's pull up a new <code>set_practice.py</code> file and make some sets!</p>
+<ul>
+<li>Make a list <code>clothing_list</code> containing the main color of your classmates' clothing.</li>
+<li>Using <code>clothing_list</code>, make a set named <code>clothing_set</code>.</li>
+<li>Use a <code>for</code> loop to print out both <code>clothing_list</code> and <code>clothing_set</code>.</li>
+<li>Try to print an index!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run through this with them - make sure they are following along to practice typing the syntax.</li>
+<li>Be prepared to refresh memories on <code>for</code> loops.</li>
+<li>Try to print an index - reinforce that sets are in any order.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-to-a-set" class="level2">
+<h2>We Do: Adding to a Set</h2>
+<p>How do we add more to a set?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># In a list:</span>
+clothing_list.append(<span class="st">&quot;red&quot;</span>)
+
+<span class="co"># In a set</span>
+clothing_set.add(<span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><code>add</code> vs <code>append</code> - this is because we can't guarantee it's going at the end!</p>
+<p>Let's a few colors to <code>clothing_list</code> and <code>clothing_set</code>, then print them.</p>
+<ul>
+<li>What happens if you add a duplicate?</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Continue locally with the list and set they created previously - do this with them!</li>
+<li>Try to add a duplicate, then print. Call out that it just doesn't appear, since sets can't have duplicates.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-removing-from-a-list-and-a-set" class="level2">
+<h2>We Do: Removing from a List and a Set</h2>
+<p>Remember, lists are always the same order: <code>[&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code>.</p>
+<ul>
+<li><code>my_list[0]</code> is always &quot;green&quot;.</li>
+</ul>
+<p>Remember, sets are not!</p>
+<ul>
+<li>With the set <code>{&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</code>, <code>my_set[0]</code> could be <code>green</code>, <code>red</code>, or <code>yellow</code>.</li>
+</ul>
+<p>The same way, we need to be careful about removal:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># In a list:</span>
+clothing_list.pop() <span class="co"># Removes and returns the last item in the list.</span>
+clothing_list.pop(<span class="dv">0</span>) <span class="co"># Removes and returns a specific (here, the first) item in the list.</span>
+
+<span class="co"># In a set</span>
+clothing_set.pop() <span class="co"># No! This is unreliable! The order is arbitrary.</span>
+clothing_set.pop(<span class="dv">0</span>) <span class="co"># No! Python throws an error! You can&#39;t index sets.</span>
+clothing_set.remove(<span class="st">&#39;red&#39;</span>) <span class="co"># Do this! Call the element directly!</span></code></pre></div>
+<aside class="notes">
+<p>Teaching points:</p>
+<ul>
+<li>Walk through these. <code>pop</code> from the set to show that it's unreliable.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Address that for lists, the order matters. For sets, it's irrelevant, so <code>pop</code> returns an arbitrary element.</li>
+<li>Discuss the difference between <code>remove</code> and <code>pop</code>.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-sets-vs.-lists" class="level2">
+<h2>Quick Review: Sets vs. Lists</h2>
+<p><strong>Lists</strong>:</p>
+<ul>
+<li>The original, normal object.</li>
+<li>Created with <code>[]</code>.</li>
+<li><code>append()</code>, <code>insert(index)</code>, <code>pop()</code>, <code>pop(index)</code>.</li>
+<li>Duplicates and mutable.</li>
+</ul>
+<p><strong>Sets</strong>:</p>
+<ul>
+<li>Lists without duplicates.</li>
+<li>Created with <code>{}</code> or with <code>set(my_list)</code>.</li>
+<li><code>add()</code> and <code>remove(element)</code>.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>A code review for all of these are on the next slide.</li>
+<li>Review these - on this slide, do a check for conceptual understanding.</li>
+</ul>
+</aside>
+</section>
+<section id="quick-review-sets-vs.-lists-1" class="level2">
+<h2>Quick Review: Sets vs. Lists</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Creation </span><span class="al">###</span>
+<span class="co"># List</span>
+my_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>]
+<span class="co"># Sets</span>
+my_set <span class="op">=</span> {<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>}
+my_set2 <span class="op">=</span> <span class="bu">set</span>(my_list)
+my_set <span class="op">=</span> <span class="bu">set</span>(a_list_to_convert)
+
+<span class="co">### Appending a New Value </span><span class="al">###</span>
+my_list.append(<span class="st">&quot;blue&quot;</span>)
+my_set.add(<span class="st">&quot;blue&quot;</span>)
+
+<span class="co">### Appending a Duplicate </span><span class="al">###</span>
+my_list.append(<span class="st">&quot;blue&quot;</span>)
+<span class="co"># =&gt; my_list = [&quot;red&quot;,  &quot;yellow&quot;, &quot;green&quot;, &quot;red&quot;, &quot;blue&quot;,  &quot;blue&quot;]</span>
+my_set.add(<span class="st">&quot;blue&quot;</span>)
+<span class="co"># =&gt; my_set = {&quot;red&quot;,  &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;}</span>
+
+<span class="co">### Removing items: </span><span class="al">###</span>
+my_list.pop(<span class="dv">1</span>)
+my_set.remove(<span class="st">&quot;red&quot;</span>)</code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+<li>Go through each example.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Point out again the difference in syntax, especially with curly braces.</li>
+<li>Reinforce <code>pop</code> being unreliable.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="discussion-immutability-thoughts" class="level2">
+<h2>Discussion: Immutability Thoughts</h2>
+<p>A set is a type of list which doesn't allow duplicates.</p>
+<p>What if, instead, we have a list we don't want to change?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)</code></pre></div>
+<p>We <strong>don't</strong> want:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors[<span class="dv">0</span>] <span class="op">=</span> (<span class="st">&quot;gray&quot;</span>)
+<span class="co">## Gray&#39;s not in the rainbow!</span>
+rainbow_colors.pop()
+<span class="co">## We can&#39;t lose violet!</span>
+rainbow_colors.append(<span class="st">&quot;pink&quot;</span>)
+<span class="co"># Pink&#39;s not in the rainbow!</span></code></pre></div>
+<p>We want <code>rainbow_colors</code> to be <strong>immutable</strong> - the list <em>cannot</em> be changed.</p>
+<p>How we do that in Python?</p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>We're done with sets.</li>
+<li>Immutable means &quot;unchangeable&quot;.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-tuples" class="level2">
+<h2>Introducing: Tuples</h2>
+<p>Sets are one specific type of list.</p>
+<ul>
+<li>No duplicates, but mutable.</li>
+</ul>
+<p><strong>Tuples</strong> are another specific type of list.</p>
+<ul>
+<li>Duplicates, but immutable.</li>
+<li>A list that <em>cannot</em> be changed.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)</code></pre></div>
+<p>When should you use a tuple?</p>
+<ul>
+<li>When you need data protection through immutability.</li>
+<li>When you never want to change the list.</li>
+</ul>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Point out that with tuples, duplicates are fine! Be clear that tuples are another kind of list, NOT a kind of set.</li>
+<li>Python offers a data structure that provides more secure usage than the wide power of a fully mutable list.</li>
+<li>The <strong>tuple</strong> is a kind of data structure that provides immutable values in a list.</li>
+<li>Once a tuple is created and assigned its elements, no changes can be made to the tuple.</li>
+<li>&quot;Why? Isn't it more useful to work with a list that allows us to change elements when necessary? Doesn't this inflexibility make our code easier to break?</li>
+<li>&quot;We will frequently need the power to create and edit lists, adding and removing items from them. In these instances, use a list.&quot;</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="tuple-syntax" class="level2">
+<h2>Tuple Syntax</h2>
+<ul>
+<li>Created with parentheses <code>()</code>.</li>
+<li>Access values via indices (like regular lists, but <em>not</em> like sets).</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)
+<span class="bu">print</span>(rainbow_colors[<span class="dv">1</span>])
+<span class="co"># Prints &quot;orange&quot;</span></code></pre></div>
+<ul>
+<li>Tuples can be printed with a <code>for</code> loop (just like a set or list!).</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_colors_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)
+
+<span class="cf">for</span> color <span class="kw">in</span> rainbow_colors_tuple:
+  <span class="bu">print</span>(color)</code></pre></div>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Tuples work exactly like lists, except that, when you create a tuple, you use parentheses instead of square brackets.</li>
+<li>You can include anything you want, but, for now, we'll add strings.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-tuples" class="level2">
+<h2>We Do: Tuples</h2>
+<p>Let's declare a tuple named <code>seasons</code> and set it to have the values <code>fall</code>, <code>winter</code>, <code>spring</code>, and <code>summer</code>. We'll print the tuple and each value. Then we'll try to reassign them (we can't)!</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure they're doing this with you.</li>
+<li>Print out each value directly with indexes. Then, use a <code>for</code> loop.</li>
+<li>Try to change values - pop, append, and direct reassignment.</li>
+</ul>
+<p>Talking point:</p>
+<ul>
+<li>Remind them of the syntax - perhaps make sets and lists as well, so students can see them compared again.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-sets-tuples-lists" class="level2">
+<h2>Quick Review: Sets, Tuples, Lists</h2>
+<p><strong>List</strong>:</p>
+<ul>
+<li>The original, normal object: <code>[&quot;red&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;]</code>.</li>
+<li>Has duplicates; mutable: <code>append()</code>, <code>insert(index)</code>, <code>pop()</code>, <code>pop(index)</code></li>
+</ul>
+<p><strong>Set</strong>:</p>
+<ul>
+<li>List without duplicates: <code>{&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;}</code>.</li>
+<li>Mutable: <code>add()</code> and <code>remove(element)</code></li>
+</ul>
+<p><strong>Tuple</strong>:</p>
+<ul>
+<li>Has duplicates, but immutable: You can't change it!</li>
+<li><code>(&quot;red&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;)</code> will <em>always</em> be <code>(&quot;red&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;)</code>.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>A code review for all of these are on the next slide.</li>
+<li>Remind them about <code>add</code> vs <code>append</code> - this is because we can't guarantee it's going at the end!</li>
+<li>Review these - on this slide, do a check for conceptual understanding.</li>
+<li>Always reinforce the <code>[]</code> vs <code>{}</code> vs <code>()</code></li>
+<li>Recap immutability.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-review-sets-tuples-lists-1" class="level2">
+<h2>Quick Review: Sets, Tuples, Lists</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Creation </span><span class="al">###</span>
+<span class="co"># List</span>
+my_list <span class="op">=</span> [<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>]
+<span class="co"># Sets</span>
+my_set <span class="op">=</span> {<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>}
+my_set2 <span class="op">=</span> <span class="bu">set</span>(my_list))
+my_set <span class="op">=</span> <span class="bu">set</span>(a_list_to_convert)
+<span class="co"># Tuples</span>
+my_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>,  <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>)
+
+<span class="co">### Appending a New Value </span><span class="al">###</span>
+my_list.append(<span class="st">&quot;blue&quot;</span>)
+my_set.add(<span class="st">&quot;blue&quot;</span>)
+<span class="co"># Tuples -&gt; You can&#39;t!</span>
+
+<span class="co">### Removing items: </span><span class="al">###</span>
+my_list.pop(<span class="dv">1</span>)
+my_set.remove(<span class="st">&quot;red&quot;</span>)
+<span class="co"># Tuples -&gt; You can&#39;t!</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a check for understanding of the code syntax.</li>
+<li>Go through each example.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Recap the types of braces to create each; remove vs pop; append vs add.</li>
+<li>Remind students that they aren't expected to be syntax experts - they can always look this up. Working programmers look things up every day on the job, but students have to know what things are and what to expect.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="introducing-types" class="level2">
+<h2>Introducing Types</h2>
+<p>Variables certainly can hold a lot!</p>
+<ul>
+<li>Sets, tuples, and lists are easily confused.</li>
+<li><code>type()</code> tells us what a variable is: set, tuple, list, dictionary, integer, string - anything!</li>
+</ul>
+<p>Try it:</p>
+<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-types?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>It's useful to know what datatype a variable is and how to use it. This will work on anything.</li>
+</ul>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through each of these. It will recap the syntax as well as re-inforce using <code>type</code>. You might want to open the repl.it in a new window, as it's a bit long.</li>
+</ul>
+<p><strong>Repl.it Note</strong>: This replit has:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">unique_colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>])
+<span class="bu">print</span>(<span class="st">&quot;unique_colors is&quot;</span>, <span class="bu">type</span>(unique_colors))
+<span class="co"># --</span>
+unique_colors_2 <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>]
+<span class="bu">print</span>(<span class="st">&quot;unique_colors_2 is&quot;</span>, <span class="bu">type</span>(unique_colors_2))
+<span class="co"># --</span>
+unique_colors_3 <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)
+<span class="bu">print</span>(<span class="st">&quot;unique_colors_3 is&quot;</span>, <span class="bu">type</span>(unique_colors_3))
+<span class="co"># --</span>
+my_number <span class="op">=</span> <span class="dv">2</span>
+<span class="bu">print</span>(<span class="st">&quot;my_number is&quot;</span>, <span class="bu">type</span>(my_number))
+<span class="co"># --</span>
+my_string <span class="op">=</span> <span class="st">&quot;Hello!&quot;</span>
+<span class="bu">print</span>(<span class="st">&quot;my_string is&quot;</span>, <span class="bu">type</span>(my_string))</code></pre></div>
+</aside>
+<hr />
+</section>
+<section id="you-do-list-types-practice" class="level2">
+<h2>You Do: List Types Practice</h2>
+<p>Create a local file, <code>sets_tuples.py</code>. In it:</p>
+<ul>
+<li>Create a list (<code>[]</code>), set (<code>{}</code>), and tuple (<code>()</code>) of some of your favorite foods.</li>
+<li>Create a second set from the list.</li>
+</ul>
+<p>Next, in every list type that you can:</p>
+<ul>
+<li>Add <code>&quot;pizza&quot;</code> anywhere; append <code>&quot;eggs&quot;</code> to the end.</li>
+<li>Remove <code>&quot;pizza&quot;</code>.</li>
+<li>Re-assign the element at index <code>1</code> to be <code>&quot;popcorn&quot;</code>.</li>
+<li>Remove the element at index <code>2</code> and re-insert it at index <code>0</code>.</li>
+<li>Print the element at index <code>0</code>.</li>
+</ul>
+<p>Print your final lists using a loop, then print their types. Don't throw an error!</p>
+<aside class="notes">
+<p>10 minutes</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give students time to do this - it's a lot of syntax to go back through and find.</li>
+<li>Walk around the room to check for questions and offer help when needed.</li>
+<li>Once most of them have it, go over the answer. Make sure you remove pizza in the list, too.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary-and-qa" class="level2">
+<h2>Summary and Q&amp;A</h2>
+<p>We've learned two new types of lists:</p>
+<p>Sets:</p>
+<ul>
+<li>A mutable list without duplicates.</li>
+<li>Handy for storing emails, usernames, and other unique elements.</li>
+</ul>
+<p><code>python email_set = {'my_email@gmail.com', 'second_email@yahoo.com', &quot;third_email@hotmail.com&quot;}</code></p>
+<p>Tuples:</p>
+<ul>
+<li>An immutable list that allows duplicates.</li>
+<li>Handy for storing anything that won't change.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">rainbow_tuple <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>)</code></pre></div>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="https://repl.it/@SuperTernary/python-programming-tuple-practice?lite=true">Repl.it that recaps Tuples</a></li>
+<li><a href="https://www.youtube.com/watch?v=szIFFw_Xl_M">Python Count Occurrences of Letters, Words and Numbers in Strings and Lists-Video</a></li>
+<li><a href="https://swcarpentry.github.io/python-novice-inflammation/03-lists/">Storing Multiple Values in Lists</a></li>
+<li><a href="https://www.python-course.eu/sets_frozensets.php">Sets and Frozen Sets</a></li>
+<li><a href="https://www.learnpython.org/en/Sets">Sets</a></li>
+<li><a href="https://www.programiz.com/python-programming/tuple">Python Tuple</a></li>
+<li><a href="http://openbookproject.net/thinkcs/python/english3e/tuples.html">Tuples</a></li>
+<li><a href="https://www.youtube.com/watch?v=19EfbO5D_8s">Strings, Lists, Tuples, and Dictionaries Video</a></li>
+<li><a href="https://www.youtube.com/watch?v=R-HLU9Fl5ug">Python Data Structures: Lists, Tuples, Sets, and Dictionaries Video</a></li>
+</ul>
+<hr />
+</section>
+<section id="partner-exercise-equal-sets" class="level2">
+<h2>Partner Exercise: Equal Sets</h2>
+<p>Pair up! Pick a driver.</p>
+<p>For two sets to be equal, they simply have to contain the same elements - it doesn't matter what order they're in.</p>
+<p>Unfortunately in Python, comparing two sets using <code>==</code> will only produce <code>True</code> if the elements are in the same order - not what we want!</p>
+<p>Write a function that takes two sets and returns <code>True</code> if they have the same elements, even if they aren't in the same order.</p>
+<p>For example, the second test fails. Your function would instead return <code>True</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fruits <span class="op">=</span> [<span class="st">&#39;orange&#39;</span>, <span class="st">&#39;pear&#39;</span>, <span class="st">&#39;kiwi&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>]
+
+fruits_copy <span class="op">=</span> [<span class="st">&#39;orange&#39;</span>, <span class="st">&#39;pear&#39;</span>, <span class="st">&#39;kiwi&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>]
+
+fruits_reordered <span class="op">=</span> [<span class="st">&#39;pear&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;kiwi&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;banana&#39;</span>]
+
+<span class="bu">print</span>(<span class="st">&quot;Copy comparison&quot;</span>, fruits <span class="op">==</span> fruits_copy)
+<span class="bu">print</span>(<span class="st">&quot;Reordered comparison&quot;</span>, fruits <span class="op">==</span> fruits_reordered)</code></pre></div>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

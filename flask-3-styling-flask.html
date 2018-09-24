@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="lib/css/prism.css">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Styling Flask
+type: lesson
+duration: "01:00"
+creator: Kevin Coyle and Susi Remondi
+-->
+<section id="styling-flask" class="level2">
+<h2><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Styling Flask</h2>
+<!--
+
+## Overview
+This lesson teaches the basics of HTML and CSS so that students can begin to create a more robust flavor of a Flask app. It goes through basic HTML and CSS tags with embedded and local practice, then ends with applying a CSS and HTML file to the Flask app.
+
+## Important Notes or Prerequisites
+- Students will work off the Flask app they began in the last lesson.
+- This lesson is not designed to make them HTML and CSS experts - just enough that they can recognize basic tags.
+
+## Learning Objectives
+In this lesson, students will:
+- Write basic HTML.
+- Write basic CSS.
+- Style a Flask app.
+
+## Duration
+1:15 (75 min)
+
+---
+
+## Suggested Agenda
+
+
+| Time | Activity | Purpose |
+| --- | --- | --- |
+| 0:00 - 0:02 | Welcome |
+| 0:02 - 0:45 | HTML and CSS |
+| 0:45 - 1:00 | Styling and Flask |
+| 0:45 - 1:00 | Customize Your Page |
+| 1:13 - 1:15 | Summary |
+
+
+## Materials and Preparation
+- Send out the link to the presentation slides to students
+
+## Differentiation and Extensions
+- For more advanced students, encourage research into other HTML and CSS tags. See if they can truly customize their app beyond what's been taught.
+
+
+Materials needed:
+- Projector
+- Slides
+- Python3
+- Flask
+
+-->
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Write basic HTML.</li>
+<li>Write basic CSS.</li>
+<li>Style a Flask app.</li>
+</ul>
+<hr />
+</section>
+<section id="spiffing-up-our-flask-app" class="level2">
+<h2>Spiffing up Our Flask App</h2>
+<p>Run your <code>my_website.py</code> - how's it look?</p>
+<p><em>Reminder: http://localhost:5000/</em></p>
+<p>How do we add colors? Styles? Formatting?</p>
+<p>We need HTML and CSS.</p>
+<blockquote>
+<p>Protip: This is front-end web dev!</p>
+</blockquote>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Our <code>hello world</code> Flask app is beautiful. But not everyone else knows how to look at it and fully appreciate its beauty<br />
+</li>
+<li>In this lesson we are going to focus on HTML</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-and-css" class="level2">
+<h2>HTML and CSS:</h2>
+<p><strong>HTML:</strong> Content / Structure / Presentation</p>
+<ul>
+<li>Paragraphs</li>
+<li>Headings</li>
+</ul>
+<p><strong>CSS:</strong> Style / Design</p>
+<ul>
+<li>Colors</li>
+<li>Fonts</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-css-compare.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>We're going to learn both of these, but point out the difference.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="first-html" class="level2">
+<h2>First, HTML</h2>
+<p>HTML means...</p>
+<ul>
+<li>Adding structure to a webpage. What's a heading? What's a paragraph? What's a list?</li>
+<li>Hypertext Markup Language</li>
+<li>HTML is <strong>not</strong> a programming language!</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-compare.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>We're going to learn both of these, but point out the difference.</li>
+</ul>
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>HTML is a markup language - we mark up text with it. But we can't write programs with it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-elements" class="level2">
+<h2>HTML Elements</h2>
+<p>The fundamental building block of HTML is the element.</p>
+<p><code>&lt;p&gt;Here is a paragraph, with p tags. The tags won't appear to the user.&lt;/p&gt;</code></p>
+<ul>
+<li><p>(Most) Elements consist of:</p></li>
+<li>An opening tag: <code>&lt;p&gt;</code>
+<ul>
+<li>&quot;Format this content!&quot;</li>
+<li>Defines what TYPE of content it is</li>
+</ul></li>
+<li>Content: text, image, video, other elements, etc.
+<ul>
+<li>What the user sees</li>
+</ul></li>
+<li>Closing tag: <code>&lt;/p&gt;</code>
+<ul>
+<li>&quot;The content's ended!&quot;</li>
+<li>Has a <code>/</code></li>
+</ul></li>
+</ul>
+<p>Tags are <em>always</em> in brackets.</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Make sure this is clear.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="types-of-tags" class="level2">
+<h2>Types of Tags</h2>
+<p>Different tags apply different formatting</p>
+<ul>
+<li>Paragraphs:
+<ul>
+<li>These will be regular sized text.</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraphs.png" />
+</figure>
+<ul>
+<li>Headings:
+<ul>
+<li>These will be larger and bold text.</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>There is a tag for literally every piece of content on the website.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="paragraph-tags" class="level2">
+<h2>Paragraph Tags</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraphs.png" />
+</figure>
+<p>Possibly the most common tags - all websites have paragraphs!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Example on the next page.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="paragraph-tags-1" class="level2">
+<h2>Paragraph Tags</h2>
+<ul>
+<li>Used to group related chunks of text.</li>
+<li>Browsers will apply default styling.</li>
+<li>The most universal content tag in HTML.</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraph-guitar.png" />
+</figure>
+<p><em>Note: Since &quot;Amazing Guitar Website&quot; doesn't have a <code>p</code> tag, it looks different. The browser doesn't yet know how to display it.</em></p>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>Note that since &quot;Amazing Guitar Website&quot; doesn't have a tag, it looks different. The browser doesn't think it's a paragraph.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-paragraph-tags" class="level2">
+<h2>We Do: Paragraph Tags</h2>
+<p>Add <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> around the paragraphs.</p>
+<ul>
+<li>You might need to &quot;Change View&quot; to see both input and output.</li>
+</ul>
+<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with students. It's the first codepen they've seen, so walk around and make sure they can all do it.</li>
+</ul>
+<p><strong>CODEPEN HAS</strong>:</p>
+<pre><code>Anna Smith
+
+About Me
+
+I&#39;m Anna Smith, a developer based in San Francisco.  I have ten years of experience in the graphic design world, specializing in the creation of responsive websites.
+
+Experience
+
+I recently graduated from a Front-End Web Development course at General Assembly where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome Front-End Web Developer! During my spare time, I enjoy painting, cooking, and hiking.</code></pre>
+</aside>
+<hr />
+</section>
+<section id="heading-tags" class="level2">
+<h2>Heading Tags</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Example on the next page.</li>
+<li>Ask what they think headings are.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="heading-tags-1" class="level2">
+<h2>Heading Tags</h2>
+<ul>
+<li><p>Used to display text as a title/headline of a webpage/section</p></li>
+<li><p>Tags <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code></p></li>
+<li><p><code>&lt;h1&gt;</code> defines the most important title on the page</p></li>
+<li><p>Note that we didn't do anything - browsers just know headings are bigger!</p></li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading-guitar.png" />
+</figure>
+<aside class="notes">
+<p><strong>Talking Points</strong>:</p>
+<ul>
+<li>These play a role in SEO; search engines pay special attention to what is in these tags.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="heading-tag-sizing" class="level2">
+<h2>Heading Tag Sizing</h2>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/headings.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Consider opening a codepen (the previous one works) and demonstrating each of these.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-heading-tags" class="level2">
+<h2>You Do: Heading Tags</h2>
+<ul>
+<li>Put <code>&lt;p&gt;</code> around the paragraphs</li>
+<li>Put <code>&lt;h1&gt;</code> around <code>Anna Smith</code></li>
+<li>Put <code>&lt;h2&gt;</code> around <code>About Me</code></li>
+<li>Put <code>&lt;h3&gt;</code> around <code>Experience</code></li>
+</ul>
+<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students do this. See if they can all do it before doing it for them.</li>
+</ul>
+<p><strong>CODEPEN HAS</strong> Anna Smith</p>
+<p>About Me</p>
+<p>I'm Anna Smith, a developer based in San Francisco. I have ten years of experience in the graphic design world, specializing in the creation of responsive websites.</p>
+<p>Experience</p>
+I recently graduated from a Front-End Web Development course at General Assembly where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome Front-End Web Developer! During my spare time, I enjoy painting, cooking, and hiking.
+</aside>
+<hr />
+</section>
+<section id="what-about-lists" class="level2">
+<h2>What About Lists?</h2>
+<ul>
+<li>Numbered lists (a.k.a. &quot;unordered&quot; lists)</li>
+<li>Ordered lists.</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/bullets.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Ask if they think these are made the same way.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="the-list-tag" class="level2">
+<h2>The List Tag</h2>
+<ul>
+<li><p><code>&lt;ul&gt;&lt;/ul&gt;</code> defines an unordered list</p></li>
+<li><p>Use together with list item: <code>&lt;li&gt;&lt;/li&gt;</code></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Chocolate<span class="kw">&lt;/li&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Strawberry<span class="kw">&lt;/li&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Vanilla<span class="kw">&lt;/li&gt;</span>
+<span class="kw">&lt;/ul&gt;</span></code></pre></div>
+<ul>
+<li>Notice the indent - just like Python!</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Ask why they think it's indented.</li>
+<li>Why do they think there are two tags here?</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="ordered-lists" class="level2">
+<h2>Ordered Lists</h2>
+<ul>
+<li><p><code>&lt;ol&gt;&lt;/ol&gt;</code> defines an ordered list</p></li>
+<li><p>List item is the same! <code>&lt;li&gt;&lt;/li&gt;</code></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ol&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Wake up<span class="kw">&lt;/li&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Brew coffee<span class="kw">&lt;/li&gt;</span>
+  <span class="kw">&lt;li&gt;</span>Go to work<span class="kw">&lt;/li&gt;</span>
+<span class="kw">&lt;/ol&gt;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note that &quot;o&quot; for ordered list and &quot;u&quot; is unordered list.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-lists" class="level2">
+<h2>You Do: Lists</h2>
+<ul>
+<li>Set &quot;Skills&quot; to be an <code>h3</code>.</li>
+<li>Create an unordered list.</li>
+<li>Then create an ordered list!</li>
+</ul>
+<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/PjvLye?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Have students do this. See if they can all do it before doing it for them.</li>
+</ul>
+<p><strong>CODEPEN HAS</strong> - the same as earlier.</p>
+</aside>
+<hr />
+</section>
+<section id="quick-review" class="level2">
+<h2>Quick Review</h2>
+<p>We've talked about HTML tags.</p>
+<ul>
+<li>They add structure to a page.</li>
+<li>Browsers automatically size paragraphs and headings appropriately.</li>
+<li>Lists are automatically given bullets or numbers.</li>
+</ul>
+<p>All HTML is formed with tags:</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-defining-html" class="level2">
+<h2>We Do: Defining HTML</h2>
+<ol type="1">
+<li>Open any webpage</li>
+<li>Right-click!</li>
+<li>&quot;View Page Source&quot;</li>
+</ol>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them!</li>
+<li>Keep the webpage source open on the screen for students to follow down as you dive into html, header, and body.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-structure-doctype" class="level2">
+<h2>HTML Structure: <code>doctype</code></h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></code></pre></div>
+<ul>
+<li><p>Short for &quot;document type declaration&quot;</p></li>
+<li><p>ALWAYS the first line of your HTML</p></li>
+<li>Tells the browser we're using HTML5</li>
+<li><p>(The latest version)</p></li>
+</ul>
+<p><em>(Note: The CodePen did this automatically for us. It did a lot!)</em></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Stress that this has to be there.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-structure-html" class="level2">
+<h2>HTML Structure: <code>&lt;html&gt;</code></h2>
+<p><code>&lt;html&gt;</code> is the tag for HTML content!</p>
+<ul>
+<li><p>All HTML should be contained inside <code>&lt;html&gt;&lt;/html&gt;</code></p></li>
+<li><p>Represents the root of your HTML document</p></li>
+</ul>
+<p>Within our <code>&lt;html&gt;</code> tags, we have:</p>
+<ul>
+<li><p><code>&lt;head&gt;&lt;/head&gt;</code></p></li>
+<li><p><code>&lt;body&gt;&lt;/body&gt;</code></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Stress that this has to be there and that this is the structure of literally every course.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-structure-head" class="level2">
+<h2>HTML Structure: <code>&lt;head&gt;</code></h2>
+<ul>
+<li><p><code>&lt;head&gt;</code> : first tag inside <code>&lt;html&gt;&lt;/html&gt;</code></p></li>
+<li><p>Adds additional, behind-the-scenes content</p></li>
+<li><p>Not displayed, but is machine parsable</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="er">&lt;</span> BEHIND THE SCENES HERE! &gt;
+    <span class="kw">&lt;title&gt;</span><span class="er">&lt;</span> PAGE TITLE &gt; <span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>You'll need to explain charset. Don't spend a lot of time on this - it really isn't important to them.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="html-structure-body" class="level2">
+<h2>HTML Structure: <code>&lt;body&gt;</code></h2>
+<ul>
+<li><p><code>&lt;body&gt;</code> : second tag inside <code>&lt;html&gt;&lt;/html&gt;</code></p></li>
+<li><p>Follows <code>&lt;head&gt;&lt;/head&gt;</code></p></li>
+<li><p>Contains HTML/content that <strong>will</strong> be displayed to user</p></li>
+<li><p>All other HTML will be placed here</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Website Title<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>ALL HTML CONTENT GOES HERE!<span class="kw">&lt;/h1&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Here&#39;s a paragraph with the p tag - this will actually get displayed.<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;h4&gt;</span>Put whatever you want the user to  see here!<span class="kw">&lt;/h4&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note that this is what they really care about.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-create-an-html-doc" class="level2">
+<h2>We Do: Create an HTML Doc</h2>
+<ul>
+<li>Create a directory, <code>html_practice</code>.</li>
+<li>Create a file, <code>index.html</code></li>
+</ul>
+<p>Put this content:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Website Title<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>ALL HTML CONTENT GOES HERE!<span class="kw">&lt;/h1&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>Double click your file to open in a browser!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check that they've done this and understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-create-a-profile" class="level2">
+<h2>You Do: Create a Profile</h2>
+<p>Using the tags below, create a profile for yourself in your <code>index.html</code>.</p>
+<p>Include: Name, About Me, and Hobbies.</p>
+<p><strong>Put all your HTML and content in between the <code>&lt;body&gt;</code> and <code>&lt;/body&gt;</code> tags.</strong></p>
+<p>Common tags you might want to use:</p>
+<ul>
+<li>Paragraph: <code>&lt;p&gt;paragraph&lt;/p&gt;</code></li>
+<li>Heading: <code>&lt;h1&gt;Welcome!&lt;/h1&gt;</code></li>
+<li>Lists:
+<ul>
+<li>Underordered: <code>&lt;ul&gt;Things I like&lt;/ul&gt;</code></li>
+<li>Ordered: <code>&lt;ol&gt;1, 2, 3!&lt;/ol&gt;</code></li>
+<li>List Items: <code>&lt;li&gt; &lt;/li&gt;</code></li>
+</ul></li>
+<li><strong>Bonus:</strong> Use bold: <code>&lt;b&gt;bold&lt;/b&gt;</code></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Note to them that they can load this in a browser to see it update.</li>
+<li>Check that they've done this and understand.</li>
+<li>They don't need to be HTML and CSS experts! They just need to read and write basic tags.</li>
+<li>Encourage students to experiment with the tags.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap" class="level2">
+<h2>Quick Recap</h2>
+<p>An HTML file looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Website Title<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="er">&lt;</span> Everything the user sees goes here &gt;
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>This is the file your browser gets for any webpage, like Google.com, that you go to!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+<li>Encourage that they can always look up tags they need to - this isn't an HTML and CSS course. We're giving them enough to style their Flask app, and they can look further into the topics later.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="some-tags-need-attributes-links" class="level2">
+<h2>Some Tags Need Attributes: Links</h2>
+<ul>
+<li>What about... <a href="#">a hyperlink that we want to click and go to another URL?</a></li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/hyperlink.png" />
+</figure>
+<ul>
+<li>We need to tell the browser where the hyperlink should go.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;Where does this link go?&quot;</span><span class="kw">&gt;</span>Clickable text<span class="kw">&lt;/a&gt;</span>
+<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://google.com&quot;</span><span class="kw">&gt;</span>Click here for Google<span class="kw">&lt;/a&gt;</span></code></pre></div>
+<p><strong>We Do:</strong> Add a link to Google in your HTML. Reload!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Be sure they understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="some-tags-need-attributes-images" class="level2">
+<h2>Some Tags Need Attributes: Images</h2>
+<ul>
+<li><code>&lt;img&gt;</code> : A picture!</li>
+<li>But what picture? We need to tell the browser. The image needs a source: <code>src</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&#39;https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif&#39;</span><span class="kw">&gt;</span></code></pre></div>
+<ul>
+<li>Images are special - they have no closing tag!</li>
+</ul>
+<p><strong>We Do:</strong> Add this image in your HTML. Reload!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Be sure they understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-1" class="level2">
+<h2>Quick Recap</h2>
+<p>Some tags need more information - where is the link going? What is the image? Give the browser whatever it needs to know.</p>
+<p>Don't Memorize These!</p>
+<ul>
+<li>There are hundreds of tags!</li>
+<li>You can always:</li>
+<li>Ask a friend.</li>
+<li>Ask me!</li>
+<li>Google &quot;HTML&quot; + what you want to do
+<ul>
+<li>&quot;HTML image&quot;</li>
+</ul></li>
+</ul>
+<p>Up next: CSS!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="styling-css" class="level2">
+<h2>Styling: CSS</h2>
+<p>Let's switch gears. We have a structured website.</p>
+<p>How do we style it?</p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-css-compare.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for readiness to move on.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="css" class="level2">
+<h2>CSS</h2>
+<p>&quot;Cascading Style Sheets&quot;</p>
+<ul>
+<li>Styles your HTML!</li>
+<li>Colors, fonts, text sizes.</li>
+</ul>
+<p>CSS tags match HTML tags.</p>
+<ul>
+<li>This rule turns everything with a paragraph tag, <code>&lt;p&gt;</code>, blue.</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/css.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through the syntax here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="css-color-property" class="level2">
+<h2>CSS Color Property</h2>
+<p>Text color can be set with <code>color</code>:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>Color values can be specified using:</p>
+<ul>
+<li>Color keyword: <code>red</code></li>
+<li>Hex code: <code>#FF0000</code></li>
+<li>The common way to set colors!</li>
+<li>Color pickers online give you the code.</li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Again, walk through the syntax.</li>
+<li>Note that we are not going in detail about colors or CSS options. This is just so they know this exists.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-css-color" class="level2">
+<h2>We Do: CSS Color</h2>
+<p>In the CSS window, add</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Make sure they do it.</li>
+</ul>
+<p><strong>codepen note</strong>:</p>
+<pre><code>&lt;h1&gt;Anna Smith&lt;/h1&gt;
+
+&lt;h2&gt;About Me&lt;/h2&gt;
+
+&lt;p&gt;I&#39;m Anna Smith, a developer based in San Francisco.  I have ten years of experience in the graphic design world, specializing in the creation of responsive websites.&lt;/p&gt;
+
+&lt;h2&gt;Experience&lt;/h2&gt;
+
+&lt;p&gt;I recently graduated from a Front-End Web Development course at General Assembly where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome Front-End Web Developer! During my spare time, I enjoy painting, cooking, and hiking.&lt;/p&gt;
+
+&lt;h3&gt;Skills&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;jQuery&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;li&gt;Responsive Design&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</aside>
+<hr />
+</section>
+<section id="css-syntax-ctn" class="level2">
+<h2>CSS: Syntax (CTN)</h2>
+<p>CSS Font-Size</p>
+<ul>
+<li>Sets the size of the font</li>
+<li>We'll use pixel values (<code>12px</code>, <code>16px</code>)</li>
+</ul>
+<p>Fun fact:</p>
+<ul>
+<li>One selector can have multiple declarations</li>
+<li>Common for each declaration to have its own line</li>
+</ul>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/css-lines.png" />
+</figure>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Walk through the syntax here.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-css" class="level2">
+<h2>You Do: CSS</h2>
+<p>In the CSS window, add</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">12px</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Show them after they've all done it.</li>
+</ul>
+<p><strong>codepen note</strong>:</p>
+<pre><code>&lt;h1&gt;Anna Smith&lt;/h1&gt;
+
+&lt;h2&gt;About Me&lt;/h2&gt;
+
+&lt;p&gt;I&#39;m Anna Smith, a developer based in San Francisco.  I have ten years of experience in the graphic design world, specializing in the creation of responsive websites.&lt;/p&gt;
+
+&lt;h2&gt;Experience&lt;/h2&gt;
+
+&lt;p&gt;I recently graduated from a Front-End Web Development course at General Assembly where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome Front-End Web Developer! During my spare time, I enjoy painting, cooking, and hiking.&lt;/p&gt;
+
+&lt;h3&gt;Skills&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;jQuery&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;li&gt;Responsive Design&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</aside>
+<hr />
+</section>
+<section id="quick-review-1" class="level2">
+<h2>Quick Review</h2>
+<p>We can now style elements. We can style any element with a tag!</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">12px</span><span class="kw">;</span>
+<span class="kw">}</span>
+body <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">yellow</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="adding-css-to-html" class="level2">
+<h2>Adding CSS to HTML</h2>
+<p>We have CSS. We need to tell the HTML about it! CodePen's been doing this for us.</p>
+<ul>
+<li>Like <code>&lt;title&gt;</code>, placed within <code>&lt;head&gt;</code> - it's something for the HTML, but not for the user to see.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+    <span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+      <span class="kw">&lt;title&gt;</span>Super Awesome Website<span class="kw">&lt;/title&gt;</span>
+      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href=</span><span class="st">&quot;style.css&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+      ...</code></pre></div>
+<ul>
+<li><code>rel</code>
+<ul>
+<li>Specifies the relationship between the current document and the linked document</li>
+</ul></li>
+<li><code>type</code>
+<ul>
+<li>Specifies the media type of the linked document</li>
+</ul></li>
+<li><code>href</code>
+<ul>
+<li>Specifies the location of the linked document</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-html-with-css" class="level2">
+<h2>We Do: HTML with CSS</h2>
+<p>Let's do this.</p>
+<ul>
+<li>In the directory with your <code>index.html</code>, create <code>styles.css</code>.</li>
+<li><p>In it, put: <code>css   p { color: blue; font-size: 12px;   }   body { background: yellow;   }</code></p></li>
+<li><p>Save and reload!</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Be sure they understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-html-and-css" class="level2">
+<h2>Quick Recap: HTML and CSS!</h2>
+<p>HTML structures the page; CSS styles it. The CSS tags match the HTML tags.</p>
+<p>We put CSS in a separate file and link it to the HTML.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+    <span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+      <span class="kw">&lt;title&gt;</span>Super Awesome Website<span class="kw">&lt;/title&gt;</span>
+      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href=</span><span class="st">&quot;style.css&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Here&#39;s a paragraph the user will see - it will be blue!<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>This is a crash course. It's a huge topic! We just need the basics.</p>
+<p><strong>Up Next: How do we do this with Flask?</strong></p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-html-and-css-to-flask" class="level2">
+<h2>We Do: Adding HTML and CSS to Flask</h2>
+<p>Run your <code>my_website.py</code> - how's it look right now? Probably not the best...</p>
+<p><em>Reminder: http://localhost:5000/</em></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
+<span class="kw">def</span> hello_world():
+    <span class="cf">return</span> <span class="st">&#39;Hello, World!&#39;</span>
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<p>Flask automatically makes the page structure for us - the <code>html</code>, <code>head</code>, <code>body</code>, <code>doctype</code>, etc.</p>
+<p><strong>Discussion</strong>: Where does that &quot;return&quot; go? Where could we put our HTML?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Run through this code again to remind them what it does.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-add-some-html" class="level2">
+<h2>We Do: Add Some HTML</h2>
+<p>Flask can have in-line styling and HTML right in the return!</p>
+<ul>
+<li><strong>Inside</strong> the quotes. The <code>return</code> is what goes inside the <code>body</code> tag of the HTML.</li>
+</ul>
+<p>Try this:</p>
+<ul>
+<li>Add italic tags around &quot;Hello&quot;.</li>
+<li>Make the whole string an <code>h1</code>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello_world():
+    <span class="co"># Here,</span>
+    <span class="co"># Add</span>
+    <span class="cf">return</span> <span class="st">&#39;&lt;h1&gt;&lt;i&gt;Hello&lt;/i&gt;, World!&lt;h1&gt;&#39;</span></code></pre></div>
+<p>What if we have a LOT of HTML?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Show them the results! Make sure they understand how the webpage is generated.</li>
+<li>Note to them that as they save the Python file, the app will automatically reload (though it's a bit slow). They don't have to continuously start and stop from the command line.</li>
+<li>Encourage discussion on each slide to try and get them to guess the next one.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-add-a-lot-of-html" class="level2">
+<h2>We Do: Add a LOT of HTML</h2>
+<p>Copy this code over:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello_world():
+    line1 <span class="op">=</span> <span class="st">&quot;&lt;h1&gt;&lt;b&gt;Hello&lt;/b&gt; World!&lt;/h1&gt;&quot;</span>
+    line2 <span class="op">=</span> <span class="st">&quot;&lt;p&gt;If music be the food of love, play on!&lt;/p&gt;&quot;</span>
+    line3 <span class="op">=</span> <span class="st">&quot;&lt;img src=&#39;https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif&#39;&gt;&quot;</span>
+    total <span class="op">=</span> line1 <span class="op">+</span> line2 <span class="op">+</span> line3
+    <span class="cf">return</span> total</code></pre></div>
+<p>Do you think chaining lists is sustainable for a bigger webpage?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Show them the results! Make sure they understand how the webpage is generated.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-2" class="level2">
+<h2>Quick Recap:</h2>
+<p>Flask automatically makes a basic webpage for us. The HTML looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+    <span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+      <span class="kw">&lt;title&gt;</span>Super Flask Website<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+    <span class="er">&lt;</span> What we return in Flask goes here! &gt;
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>Flask does that automatically - we just need to write the Python code for the <code>body</code>.</p>
+<p>Up next: But what if we have a <em>ton</em> of code?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-external-html-file" class="level2">
+<h2>We Do: External HTML File</h2>
+<p>Create a folder called <code>templates</code>.</p>
+<ul>
+<li>Flask always looks in a <code>templates</code> directory for HTML files.</li>
+</ul>
+<p>Create a file called <code>index.html</code> with some HTML:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Movie search<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Howdy!<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them.</li>
+<li>It's just normal HTML!</li>
+<li>Try not to mention templates - those aren't for a few presentations.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-tell-flask-the-html-exists" class="level2">
+<h2>We Do: Tell Flask the HTML Exists!</h2>
+<p>How do we import an HTML file?</p>
+<ul>
+<li><code>render.template</code>.</li>
+</ul>
+<p>At the top of your file, add:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask, render.template</code></pre></div>
+<p>In the <code>.py</code>, change your return to <code>return render_template(&quot;index.html&quot;)</code></p>
+<ul>
+<li>Save the lines you have! Just change the return.</li>
+</ul>
+<p>Try it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Show them! Check that they understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-expanding-the-html" class="level2">
+<h2>We Do: Expanding the HTML</h2>
+<p>Now all our lines can go in the HTML:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;h1&gt;&lt;b&gt;</span>Hello<span class="kw">&lt;/b&gt;</span> World!<span class="kw">&lt;/h1&gt;</span>
+
+    <span class="kw">&lt;p&gt;</span>If music be the food of love, play on!<span class="kw">&lt;/p&gt;</span>
+
+    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&#39;https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif&#39;</span><span class="kw">&gt;</span>    
+<span class="kw">&lt;/body&gt;</span></code></pre></div>
+<p>Try it!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them. Show them! Check that they understand.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-3" class="level2">
+<h2>Quick Recap:</h2>
+<p>Flask automatically generates the webpage HTML and puts your HTML in the <code>body</code> tag - whatever you put in your <code>return</code> statement.</p>
+<p>If your HTML gets to be too long to put in just a function without being confusing, you can make the HTML file yourself and tell Flask to load that!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-adding-css" class="level2">
+<h2>We Do: Adding CSS</h2>
+<p><code>templates</code> folder:</p>
+<ul>
+<li>Where Flask looks for HTML files.</li>
+</ul>
+<p><code>static</code> folder:</p>
+<ul>
+<li>Where Flask looks for CSS files.</li>
+</ul>
+<p>Create a <code>static</code> folder with a file, <code>style.css</code>.</p>
+<p>Your directory should look like:</p>
+<pre><code>project_folder
+│   
+│   │   my_website.py
+│   │   
+│   │
+│   └───templates
+│   │    └─── index.html
+│   │
+│   │
+│   └───static
+│       └───style.css</code></pre>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them; make sure they've done it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-background-color" class="level2">
+<h2>We Do: Background Color</h2>
+<p>Add this:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">body<span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">#FEDCBA</span><span class="kw">;</span>
+  <span class="kw">font-family:</span> <span class="st">&quot;Times New Roman&quot;</span>, <span class="dt">serif.</span>
+<span class="kw">}</span>
+
+h1 <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#012345</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>What does it do? Reload your page!</p>
+<p>What do you think happened?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do this with them.</li>
+<li>See if they can guess why it didn't appear.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-importing-the-css" class="level2">
+<h2>We Do: Importing the CSS</h2>
+<p>We have:</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+</ul>
+<p>Flask knows about:</p>
+<ul>
+<li>The HTML.</li>
+</ul>
+<p>What knows about the CSS?</p>
+<p>What <em>should</em> know about the CSS? How can we do that?</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Encourage a discussion.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="we-do-putting-css-in-the-html" class="level2">
+<h2>We Do: Putting CSS in the HTML</h2>
+<p>CSS styles HTML docs. We know that!</p>
+<ul>
+<li><p>As we saw earlier, the HTML doc needs to have the CSS link!</p></li>
+<li><p>In the HTML head, we need to have:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">  <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;{{ url_for(&#39;static&#39;, filename=&#39;style.css&#39;)}}&quot;</span><span class="kw">&gt;</span></code></pre></div>
+<p>The curly braces <code>{{ }}</code> call Flask!</p>
+<ul>
+<li>&quot;Flask, find <code>style.css</code> in <code>static</code>.&quot;</li>
+</ul>
+<p><strong>We Do</strong>: Modify your <code>index.html</code>'s <code>&lt;head&gt;</code>. Reload your page!</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Explain the curly braces!</li>
+<li>Do this with them. Make sure they can do it.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="quick-recap-4" class="level2">
+<h2>Quick Recap</h2>
+<p>HTML structures pages. We can make a separate HTML file that Flask calls to load, in a <code>templates</code> folder.</p>
+<p>CSS styles pages. We can make a separate CSS file in a <code>static</code> folder.</p>
+<p>We have to tell the HTML file about the CSS file.</p>
+<p>Flask calls the HTML file, which calls the CSS file.</p>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Do a quick check for understanding.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="you-do-customize-your-page" class="level2">
+<h2>You Do: Customize Your Page</h2>
+<p>Modify your HTML and CSS files. Here are some ideas:</p>
+<ul>
+<li>Try changing the colors in your CSS file.</li>
+<li>Use <code>text-align</code> to <code>center</code> the content.</li>
+<li>Use <code>text-decoration</code> to <code>underline</code> the <code>h1</code></li>
+<li>Use other HTML tags! Can you make a hyperlink using <code>&lt;a href=&quot;&lt;url&gt;&quot;&gt;Click here &lt;/a&gt;</code>?</li>
+<li>Can you add a list? <code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code></li>
+</ul>
+<aside class="notes">
+<p>5-10 minutes.</p>
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Give them time to do it; walk around the room.</li>
+<li>See if anyone wants to share.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<ul>
+<li>HTML:
+<ul>
+<li>Structures pages with headings, paragraphs, lists, etc.</li>
+</ul></li>
+<li>CSS:
+<ul>
+<li>Styles pages! Colors, bold, underline, font size.</li>
+</ul></li>
+<li>Adding HTML and CSS to Flask:
+<ul>
+<li>Use the <code>template</code> and the <code>static</code> folders.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p><strong>Teaching Tips</strong>:</p>
+<ul>
+<li>Check for understanding; explain next steps.</li>
+</ul>
+</aside>
+<hr />
+</section>
+<section id="additional-reading" class="level2">
+<h2>Additional Reading</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/">MDN docs on CSS</a><br />
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN docs on HTML</a></li>
+<li><a href="http://www.htmldog.com/">HTMLDog</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822">A tutorial that gets into CSS styling</a></li>
+<li><a href="http://www.wdtonline.com/wdtMagazine/MemberWorks/WiserWays/csshtml.htm">A Bullet List of HTML5 and CSS3 history</a></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    console.log('changed');
+    if (Reveal.getIndices().h !== 0) {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga.css');
+    } else {
+      document.getElementById('theme').setAttribute('href', 'css/theme/ga-title.css');
+    }
+  });
+
+</script>
+
+</body>
+</html>

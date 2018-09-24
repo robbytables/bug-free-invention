@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Sonyl
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @sonylnagale.
+--->
+</section>
+<section id="unit-1-lab-variables" class="level1">
+<h1>Unit 1 Lab: Variables</h1>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>Welcome to the first unit lab!</p>
+<p>Throughout the course, there is a lab at the end of each unit. Each lab builds upon the last.</p>
+<p>At the end Unit 5’s lab, you’re going to have an app that asks the user to enter a movie title. Your app will then search for that movie on <a href="https://www.rottentomatoes.com/" target="\_blank">Rotten Tomatoes</a> and print the search results and the Rotten Tomatoes rating.</p>
+<p>For example, if a user searches in your app for “Blade”, your app can get a list of results: “Blade,” “Blade II,” “Blade Runner,” “Blade Runner 2049,” and “Blade of the Immortal (Mugen no jûnin).” Your app can also tell the user that <em>Blade</em> has a 54% rating on Rotten Tomatoes.</p>
+<p>It’s going to be awesome!</p>
+<p>Right now, let’s set up some variables and print out their values.</p>
+<hr />
+</section>
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>You’re going to build this locally on your computer.</p>
+<ol type="1">
+<li><p>Create a new folder on your Desktop called <code>movie_rating_lab</code>. That folder is where we’ll keep all the files we create for our unit labs.</p></li>
+<li><p>Create a <code>.py</code> file called <code>movie_app.py</code>. You’ll write all of your code in this file.</p></li>
+</ol>
+<p>Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python movie_app.py</a></code></pre></div>
+<p><strong>Hint:</strong></p>
+<p>Make sure you’re printing something out with the <code>print</code> statement! Otherwise, you won’t see any output from running your program.</p>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you will have a <code>movie_app.py</code> file that prints out:</p>
+<p><code>The rating for Back to the Future is 8</code>.</p>
+<hr />
+</section>
+<section id="directions" class="level2">
+<h2>Directions</h2>
+<p>Our first goal is just to get the app printing out movie titles and ratings. We’ll hard-code in some values for now.</p>
+<ol type="1">
+<li>Create a variable <code>movie_title</code> and set it to <code>Back to the Future</code>.</li>
+<li>Create a variable <code>movie_ratings</code> to hold the rating and set it to <code>8</code>.</li>
+<li>Make a <code>print</code> statement that says, <code>The rating for &lt;movie_title&gt; is &lt;movie_rating&gt;</code>. It should call your new variables, so for example, <code>The rating for Back to the Future is 8</code>.</li>
+</ol>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>
