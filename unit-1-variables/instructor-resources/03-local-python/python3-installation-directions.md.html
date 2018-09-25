@@ -53,23 +53,28 @@ Questions? Comments?
 2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
 3. Hit me up on Slack @brandi
 --->
-<section id="local-python-installation-directions" class="level1">
-<h1><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Local Python: Installation Directions</h1>
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Local Python: Installation Directions
+</h1>
 <hr />
+</section>
 <section id="python-3" class="level2">
 <h2>Python 3</h2>
-<p>You probably recall from the pre-work that both Python 2 and Python 3 are currently in use. Python 3 was released in 2008 and included breaking changes. This means that an upgrade changes the way some code works, and old code won’t always be compatible with the way new code wants it to be written.</p>
+<p>You probably recall from the pre-work that both Python 2 and Python 3 are currently in use. Python 3 was released in 2008 and included breaking changes. This means that an upgrade changes the way some code works, and old code won't always be compatible with the way new code wants it to be written.</p>
 <p>Why did Python 3 introduce <a href="https://docs.python.org/3/whatsnew/3.0.html">breaking changes</a>? It turns out there were some things in Python 2 that could have been designed better. <a href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido</a> and the Python community decided that it would be worth it in the long haul to fix those mistakes and get the language back on track for where they want it to be in the future. Upgrading to Python 3 is a good thing!</p>
-<section id="why-are-some-people-still-using-python-2" class="level4">
-<h4>Why are some people still using Python 2?</h4>
-<p>It’s easy to convert small projects from Python 2 to Python 3, but large, complex projects are a challenge. In an ideal world, everyone could convert their projects and Python 2 would be laid to rest. In reality, lots of large, popular projects began in Python 2 and the creators don’t have the resources (or incentives) to upgrade.</p>
+<hr />
+</section>
+<section id="why-are-some-people-still-using-python-2" class="level2">
+<h2>Why are some people still using Python 2?</h2>
+<p>It's easy to convert small projects from Python 2 to Python 3, but large, complex projects are a challenge. In an ideal world, everyone could convert their projects and Python 2 would be laid to rest. In reality, lots of large, popular projects began in Python 2 and the creators don't have the resources (or incentives) to upgrade.</p>
 <p>As a reminder, <strong>all new projects</strong> should be started in Python 3! Everything we do in this course will always be in Python 3.</p>
 <hr />
 </section>
-</section>
 <section id="installing-python-3" class="level2">
 <h2>Installing Python 3</h2>
-<p>Instructions vary slightly depending on what kind of machine you’re using. Click the link below that applies to you:</p>
+<p>Instructions vary slightly depending on what kind of machine you're using. Click the link below that applies to you:</p>
 <p><a href="#installation-instructions-mac">Installation Instructions: Mac</a></p>
 <p><a href="#installation-instructions-linux">Installation Instructions: Linux</a></p>
 <p><a href="#installation-instructions-windows">Installation Instructions: Windows</a></p>
@@ -77,110 +82,143 @@ Questions? Comments?
 </section>
 <section id="installation-instructions-mac" class="level2">
 <h2>Installation Instructions: Mac</h2>
-<p>Macs usually come with Python 2 already installed. We’re going to run through some installation steps to make sure you’ve got the latest and greatest that Python has to offer.</p>
-<section id="open-up-your-terminal." class="level4">
-<h4>1. Open up your terminal.</h4>
-<p>You can do this by pressing command+space bar and typing “terminal,” or by locating the application and clicking on the icon.</p>
-</section>
-<section id="install-xcode-with-the-following-command." class="level4">
-<h4>2. Install XCode with the following command.</h4>
+<p>Macs usually come with Python 2 already installed. We're going to run through some installation steps to make sure you've got the latest and greatest that Python has to offer.</p>
+<ol type="1">
+<li>Open up your terminal.</li>
+</ol>
+<p>You can do this by pressing command+space bar and typing &quot;terminal,&quot; or by locating the application and clicking on the icon.</p>
+<ol start="2" type="1">
+<li>Install XCode with the following command.</li>
+</ol>
 <pre><code>xcode-select --install</code></pre>
-<p>This may take a few minutes. Once it’s done, you can run the following command to make sure it’s installed properly.</p>
+<p>This may take a few minutes. Once it's done, you can run the following command to make sure it's installed properly.</p>
 <pre><code>xcode-select -p</code></pre>
+<hr />
+</section>
+<section id="installation-instructions-mac-1" class="level2">
+<h2>Installation Instructions: Mac</h2>
 <p>Your output should look something like this:</p>
 <blockquote>
 <p>/Applications/Xcode.app/Contents/Developer</p>
 </blockquote>
-</section>
-<section id="install-homebrew-by-running-the-following-command." class="level4">
-<h4>3. Install <code>Homebrew</code> by running the following command.</h4>
+<ol start="3" type="1">
+<li>Install <code>Homebrew</code> by running the following command.</li>
+</ol>
 <blockquote>
 <p><strong>Pro tip:</strong> Do not try to type this in. Copy and paste to make sure everything is correct. Do this by selecting the text with your cursor and pressing command+C. Then, go to your terminal and press command+V.</p>
 </blockquote>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
 <p>Once this command runs, type <code>brew doctor</code> on your terminal prompt. If you get the output <code>Your system is ready to brew</code>, you are ready to move on to the next step.</p>
+<hr />
 </section>
-<section id="add-path-environment-variable." class="level4">
-<h4>4. Add PATH environment variable.</h4>
-<p>This is a bit confusing, but basically we’re setting the path up so Homebrew knows where to install something.</p>
+<section id="installation-instructions-mac-2" class="level2">
+<h2>Installation Instructions: Mac</h2>
+<ol start="4" type="1">
+<li>Add PATH environment variable.</li>
+</ol>
+<p>This is a bit confusing, but basically we're setting the path up so Homebrew knows where to install something.</p>
 <pre><code>open ~/.profile</code></pre>
-<p>The file should open up. Ask your instructor for help if it didn’t. Copy and paste the following line at the bottom of this file:</p>
+<p>The file should open up. Ask your instructor for help if it didn't. Copy and paste the following line at the bottom of this file:</p>
 <blockquote>
 <p>export PATH=/usr/local/bin:/usr/local/sbin:$PATH</p>
 </blockquote>
 <p>Save the changes and close the file.</p>
+<hr />
 </section>
-<section id="install-python-3-finally." class="level4">
-<h4>5. Install Python 3 (finally!).</h4>
-<p>Homebrew, by default, gets the latest stable version of whatever you’re trying to install.</p>
+<section id="installation-instructions-mac-3" class="level2">
+<h2>Installation Instructions: Mac</h2>
+<ol start="5" type="1">
+<li>Install Python 3 (finally!).</li>
+</ol>
+<p>Homebrew, by default, gets the latest stable version of whatever you're trying to install.</p>
 <pre><code>brew install python</code></pre>
-</section>
-<section id="create-an-alias-for-python3." class="level4">
-<h4>6. Create an alias for <code>python3</code>.</h4>
+<ol start="6" type="1">
+<li>Create an alias for <code>python3</code>.</li>
+</ol>
 <pre><code>open ~/.bashrc</code></pre>
 <p>At the bottom of that file, copy and paste the following lines:</p>
 <pre><code>alias python=python3
 alias pip=pip3</code></pre>
 <p>Learn more about aliases <a href="https://askubuntu.com/questions/320996/how-to-make-python-program-command-execute-python-3">here</a>.</p>
+<hr />
 </section>
-<section id="restart-your-terminal." class="level4">
-<h4>7. Restart your Terminal.</h4>
+<section id="installation-instructions-mac-4" class="level2">
+<h2>Installation Instructions: Mac</h2>
+<ol start="7" type="1">
+<li>Restart your Terminal.</li>
+</ol>
 <p>Right click (control+click on most Macs) on the Terminal icon in your application tray. Select <code>Quit</code> from the menu to make sure Terminal is fully stopped. Then, open it again (see Step 1).</p>
 <blockquote>
-<p><strong>Pro tip:</strong> Your settings won’t be updated until Terminal is fully stopped and restarted. If you simply minimize the program, you will not see any updates!</p>
+<p><strong>Pro tip:</strong> Your settings won't be updated until Terminal is fully stopped and restarted. If you simply minimize the program, you will not see any updates!</p>
 </blockquote>
-</section>
-<section id="check-version." class="level4">
-<h4>8. Check version.</h4>
+<ol start="8" type="1">
+<li>Check version.</li>
+</ol>
 <pre><code>python --version</code></pre>
-<p>You will get something like this. As long as it starts with a 3, you’re good to go!</p>
+<p>You will get something like this. As long as it starts with a 3, you're good to go!</p>
 <blockquote>
 <p>Python 3.6.5</p>
 </blockquote>
-<p>Now let’s check <code>pip</code>, the package installer.</p>
+<p>Now let's check <code>pip</code>, the package installer.</p>
 <pre><code>pip --version</code></pre>
 <blockquote>
 <p>pip 10.0.1 from /usr/local/lib/python3.6/site-packages/pip (python 3.6)</p>
 </blockquote>
 <p>You want <code>pip</code> to be pointing to the Python 3.x version. If either <code>python</code> or <code>pip</code> are still pointing to version 2, please alert your instructor.</p>
+<hr />
 </section>
-<section id="lets-put-pip-to-the-test" class="level4">
-<h4>9. Let’s put <code>pip</code> to the test!</h4>
+<section id="installation-instructions-mac-5" class="level2">
+<h2>Installation Instructions: Mac</h2>
+<ol start="9" type="1">
+<li>Let's put <code>pip</code> to the test!</li>
+</ol>
 <p>Try installing <code>ipython</code> with <code>pip</code>. <code>ipython</code> is an environment that you can use to run a REPL right from your terminal, so it can be useful to have.</p>
 <pre><code>pip install ipython</code></pre>
+<hr />
 </section>
-<section id="bonus-if-youre-waiting-for-others-to-finish." class="level4">
-<h4>10. (Bonus, if you’re waiting for others to finish.)</h4>
+<section id="installation-instructions-mac-6" class="level2">
+<h2>Installation Instructions: Mac</h2>
+<ol start="10" type="1">
+<li>(Bonus, if you're waiting for others to finish.)</li>
+</ol>
 <p>Type the following command in your terminal:</p>
 <pre><code>ipython</code></pre>
 <p>You are now in a development environment! <a href="#bonus">Click here</a> for more instructions.</p>
 <hr />
-</section>
 </section>
 <section id="installation-instructions-linux" class="level2">
 <h2>Installation Instructions: Linux</h2>
 <blockquote>
 <p><strong>Pro tip:</strong> The instructions are for Ubuntu. If you have another version of Linux, please follow these <a href="http://docs.python-guide.org/en/latest/starting/install3/linux/">suggested directions</a>.</p>
 </blockquote>
-<section id="open-your-terminal." class="level4">
-<h4>1. Open your terminal.</h4>
+<ol type="1">
+<li>Open your terminal.</li>
+</ol>
 <p>Either:</p>
 <ul>
-<li>Click Ubuntu icon (upper-left corner) to open Dash. Then, type “terminal” and select Terminal from the results.</li>
+<li>Click Ubuntu icon (upper-left corner) to open Dash. Then, type &quot;terminal&quot; and select Terminal from the results.</li>
 </ul>
 <p>Or:</p>
 <ul>
 <li>Hit the keyboard shortcut <code>Ctrl - Alt + T</code>.</li>
 </ul>
+<hr />
 </section>
-<section id="check-to-see-if-python-3-exists." class="level4">
-<h4>2. Check to see if Python 3 exists.</h4>
+<section id="installation-instructions-linux-1" class="level2">
+<h2>Installation Instructions: Linux</h2>
+<ol start="2" type="1">
+<li>Check to see if Python 3 exists.</li>
+</ol>
 <p>Some distributions of Linux come with Python 3 already installed. How nice! To check if you have Python 3 already, run the following command:</p>
 <pre><code>python3 --version</code></pre>
-<p>If it gives you a version, you’re good to go! Go ahead and skip the rest of the directions and go to the <a href="#bonus">bonus section</a> instead. Otherwise, move to Step 3.</p>
+<p>If it gives you a version, you're good to go! Go ahead and skip the rest of the directions and go to the <a href="#bonus">bonus section</a> instead. Otherwise, move to Step 3.</p>
+<hr />
 </section>
-<section id="install-python-3.6." class="level4">
-<h4>3. Install Python 3.6.</h4>
+<section id="installation-instructions-linux-2" class="level2">
+<h2>Installation Instructions: Linux</h2>
+<ol start="3" type="1">
+<li>Install Python 3.6.</li>
+</ol>
 <pre><code>sudo apt-get update
 sudo apt-get install python3.6</code></pre>
 <p>Check again for the Python 3 version.</p>
@@ -189,82 +227,91 @@ sudo apt-get install python3.6</code></pre>
 <p>If you are still unable to get Python 3, please alert your instructor now.</p>
 <hr />
 </section>
-</section>
 <section id="installation-instructions-windows" class="level2">
 <h2>Installation Instructions: Windows</h2>
 <blockquote>
 <p><strong>Pro tip:</strong> If you have Windows XP, you need to be downgraded from Python 3.6 to 3.4. Please ask your instructor for help if you plan on using Windows XP.</p>
 </blockquote>
-<section id="download-the-python-installer." class="level4">
-<h4>1. Download the Python installer.</h4>
-<p>Visit <a href="https://www.python.org/downloads/release/python-365/">python.org</a> and download the web-based installer for Windows. You’ll find this under a “Files” section at the bottom of the page.</p>
+<ol type="1">
+<li>Download the Python installer.</li>
+</ol>
+<p>Visit <a href="https://www.python.org/downloads/release/python-365/">python.org</a> and download the web-based installer for Windows. You'll find this under a &quot;Files&quot; section at the bottom of the page.</p>
 <p>If you have 64-bit Windows, use the link that contains <code>64</code>. If you have 32-bit Windows, download the one without <code>64</code>. If you have no idea what you have, <a href="#windows-64-bit-or-32-bit">click here to learn how to find out</a>.</p>
+<hr />
 </section>
-<section id="run-the-installer." class="level4">
-<h4>2. Run the installer.</h4>
+<section id="installation-instructions-windows-1" class="level2">
+<h2>Installation Instructions: Windows</h2>
+<ol start="2" type="1">
+<li>Run the installer.</li>
+</ol>
 <ul>
 <li>Make sure both <code>Add Python 3.6 to PATH</code> and <code>Install for all users</code> are checked.</li>
 <li>Click <code>Install Now</code>.</li>
 </ul>
+<hr />
 </section>
-<section id="disable-length-limit." class="level4">
-<h4>3. Disable length limit.</h4>
+<section id="installation-instructions-windows-2" class="level2">
+<h2>Installation Instructions: Windows</h2>
+<ol start="3" type="1">
+<li>Disable length limit.</li>
+</ol>
 <p>After the initial installation is finished, there will be an additional option that says something about a max character limit. <strong>You want this!</strong> Provide permission for this setting to be changed.</p>
-</section>
-<section id="open-your-terminal.-1" class="level4">
-<h4>4. Open your terminal.</h4>
+<ol start="4" type="1">
+<li><p>Open your terminal.</p>
 <ul>
 <li>Click <em>Start</em>.</li>
 <li>Open <em>Windows System</em> menu.</li>
 <li>Select <em>Command Prompt</em>.</li>
-</ul>
+</ul></li>
+</ol>
+<hr />
 </section>
-<section id="run-the-py-command." class="level4">
-<h4>5. Run the <code>py</code> command.</h4>
+<section id="installation-instructions-windows-3" class="level2">
+<h2>Installation Instructions: Windows</h2>
+<ol start="5" type="1">
+<li>Run the <code>py</code> command.</li>
+</ol>
 <pre><code>py</code></pre>
-<p>You should get a message telling you what version of Python you’re using as well as opening an in-terminal REPL. If you did, great! Skip to the next step.</p>
-<p>If you instead received an error message like the one below, something went wrong and Python didn’t install correctly.</p>
+<p>You should get a message telling you what version of Python you're using as well as opening an in-terminal REPL. If you did, great! Skip to the next step.</p>
+<p>If you instead received an error message like the one below, something went wrong and Python didn't install correctly.</p>
 <pre><code>&#39;py&#39; is not recognized as an internal or external command,
 operable program or batch file.</code></pre>
 <p>In this case, ask your instructor for assistance.</p>
-</section>
-<section id="bonus-if-you-are-waiting-for-others-to-finish." class="level4">
-<h4>6. (Bonus, if you are waiting for others to finish.)</h4>
-<p><a href="#bonus">Click here</a>.</p>
 <hr />
 </section>
+<section id="installation-instructions-windows-4" class="level2">
+<h2>Installation Instructions: Windows</h2>
+<ol start="6" type="1">
+<li>(Bonus, if you are waiting for others to finish.)</li>
+</ol>
+<p><a href="#bonus">Click here</a>.</p>
+<hr />
 </section>
 <section id="windows-64-bit-or-32-bit" class="level2">
 <h2>Windows 64-Bit or 32-Bit</h2>
 <blockquote>
 <p><strong>Pro tip:</strong> These directions are for Windows 7 and Windows Vista operating systems. If you have Windows 10, you most likely have a 64-bit machine, but if you want to be extra sure, <a href="https://support.microsoft.com/en-us/help/13443/windows-which-operating-system">check here</a>.</p>
 </blockquote>
-<section id="open-system-by-clicking-the-start-button." class="level4">
-<h4>1. Open “System” by clicking the “Start” button.</h4>
-</section>
-<section id="right-click-computer." class="level4">
-<h4>2. Right click “Computer.”</h4>
-</section>
-<section id="click-properties." class="level4">
-<h4>3. Click “Properties.”</h4>
-</section>
-<section id="under-system-you-can-view-the-system-type." class="level4">
-<h4>4. Under “System,” you can view the system type.</h4>
+<ol type="1">
+<li><p>Open &quot;System&quot; by clicking the &quot;Start&quot; button.</p></li>
+<li><p>Right click &quot;Computer.&quot;</p></li>
+<li><p>Click &quot;Properties.&quot;</p></li>
+<li><p>Under &quot;System,&quot; you can view the system type.</p></li>
+</ol>
 <p>This will give you a bunch of stats about your machine, including whether it is 32-bit or 64-bit.</p>
-</section>
-<section id="return-to-installation-instructions-windows." class="level4">
-<h4>5. Return to <a href="#installation-instructions-windows">Installation Instructions: Windows</a>.</h4>
+<ol start="5" type="1">
+<li>Return to <a href="#installation-instructions-windows">Installation Instructions: Windows</a>.</li>
+</ol>
 <hr />
-</section>
 </section>
 <section id="bonus" class="level2">
 <h2>Bonus</h2>
 <p>This is an optional section, in case you are waiting for others to finish.</p>
-<p>Let’s test out our in-line REPL! You can type and execute code one line at a time. Let’s do a simple exercise from our earlier variables lesson:</p>
+<p>Let's test out our in-line REPL! You can type and execute code one line at a time. Let's do a simple exercise from our earlier variables lesson:</p>
 <blockquote>
 <p>x = 10 print(x)</p>
 </blockquote>
-<p>Compared to using a text editor or the online <a href="https://repl.it/repls">repl.it</a>, how does <code>ipython</code> stack up? What do you think it’s useful for?</p>
+<p>Compared to using a text editor or the online <a href="https://repl.it/repls">repl.it</a>, how does <code>ipython</code> stack up? What do you think it's useful for?</p>
 <ul>
 <li>Play around a little bit with some mathematical operators:
 <ul>
@@ -279,12 +326,11 @@ operable program or batch file.</code></pre>
 <li>Try concatenating multiple strings together.</li>
 </ul></li>
 </ul>
-<blockquote>
 <p>Still waiting? Check out this video about <a href="https://www.youtube.com/watch?v=kK_2mzBARTU">what you can do with Python</a>!</p>
-</blockquote>
 <hr />
-<section id="additional-resources" class="level4">
-<h4>Additional Resources</h4>
+</section>
+<section id="additional-resources" class="level2">
+<h2>Additional Resources</h2>
 <ul>
 <li><a href="http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html">List of Differences Between Python 2 and 3</a></li>
 <li><a href="https://wiki.python.org/moin/Python2orPython3">Python 2 or 3?</a></li>
@@ -292,8 +338,6 @@ operable program or batch file.</code></pre>
 <li><a href="https://docs.python.org/3/using/windows.html">Official Windows Installation Instructions</a></li>
 <li><a href="https://docs.python.org/3/library/windows.html#mswin-specific-services">Windows-Specific Modules</a></li>
 </ul>
-</section>
-</section>
 </section>
 
 <footer><span class='slide-number'></span></footer>
