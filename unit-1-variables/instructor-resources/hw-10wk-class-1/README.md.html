@@ -45,8 +45,6 @@
 <div class="slides">
 
 
-<section id="python-programming" class="level3">
-<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
 <!---
 This assignment was developed by Brandi
 
@@ -55,45 +53,59 @@ Questions? Comments?
 2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
 3. Hit me up on Slack @brandib
 --->
+<section id="section" class="level2 separator">
+<h2><img src="http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Python Basics: Variables and Local Python Files
+</h1>
+<hr />
 </section>
-<section id="python-basics-variables-and-local-python-files" class="level1">
-<h1>Python Basics: Variables and Local Python Files</h1>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>So, you’ve just installed Python! Let’s put your skills to the test!</p>
-<p>You will practice these programming concepts we’ve covered in class: * Declaring and using variables * Using mathematical operators * Running local <code>.py</code> files from your terminal</p>
+<p>So, you've just installed Python! Let's put your skills to the test!</p>
+<p>You will practice these programming concepts we've covered in class:</p>
+<ul>
+<li>Declaring and using variables</li>
+<li>Using mathematical operators</li>
+<li>Running local <code>.py</code> files from your terminal</li>
+</ul>
 <hr />
 </section>
 <section id="deliverables" class="level2">
 <h2>Deliverables</h2>
 <p>For the challenges below, you will create a new <code>.py</code> file and write code to solve the problem. In this case, you will create <code>solution.py</code> for your solution code to the problem. Run the file from the command line to check your work. Detailed directions are given below</p>
 <p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python solution.py</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">python solution.py</code></pre></div>
 <blockquote>
-<p><strong>Hint</strong>: Make sure you are printing something out with the print statement! Otherwise, you won’t see any output from running your program!</p>
+<p><strong>Hint</strong>: Make sure you are printing something out with the print statement! Otherwise, you won't see any output from running your program!</p>
 </blockquote>
 </section>
 <section id="requirements" class="level2">
 <h2>Requirements:</h2>
 <ul>
 <li>By the end of this, you should have a <code>.py</code> file for the solution</li>
-<li>We know you’re just starting out, so there is just one challenge problem!</li>
+<li>We know you're just starting out, so there is just one challenge problem!</li>
 </ul>
 <hr />
 </section>
 <section id="problem-decoding-r2d2" class="level2">
 <h2>Problem: Decoding R2D2</h2>
-<p>You have a robot who communicates in a series of beeps and boops. You usually get the gist of what he means, but just once it would be nice to know what’s really on his mind! You’ve noticed a pattern in the beeps and boops, and it seems like the number of beeps and boops correspond to specific letters.</p>
-<section id="example-code" class="level4">
-<h4>Example Code</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">beeps <span class="op">=</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">boops <span class="op">=</span> <span class="dv">6</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">total <span class="op">=</span> beeps <span class="op">+</span> boops</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">print</span>(total) <span class="co"># prints 8</span></a></code></pre></div>
+<p>You have a robot who communicates in a series of beeps and boops. You usually get the gist of what he means, but just once it would be nice to know what's really on his mind! You've noticed a pattern in the beeps and boops, and it seems like the number of beeps and boops correspond to specific letters.</p>
+<p><strong>Example Code</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">beeps <span class="op">=</span> <span class="dv">2</span>
+boops <span class="op">=</span> <span class="dv">6</span>
+total <span class="op">=</span> beeps <span class="op">+</span> boops
+<span class="bu">print</span>(total) <span class="co"># prints 8</span></code></pre></div>
+<hr />
+</section>
+<section id="problem-decoding-r2d2-1" class="level2">
+<h2>Problem: Decoding R2D2</h2>
 <p>You got a result of <code>8</code>. Now, look that up in the corresponding key-value chart:</p>
 <table>
 <thead>
 <tr class="header">
+<th>Code</th>
+<th>Letter</th>
 <th>Code</th>
 <th>Letter</th>
 </tr>
@@ -102,110 +114,88 @@ Questions? Comments?
 <tr class="odd">
 <td>1</td>
 <td>A</td>
+<td>14</td>
+<td>N</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>B</td>
+<td>15</td>
+<td>O</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>C</td>
+<td>16</td>
+<td>P</td>
 </tr>
 <tr class="even">
 <td>4</td>
 <td>D</td>
+<td>17</td>
+<td>Q</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>E</td>
+<td>18</td>
+<td>R</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>F</td>
+<td>19</td>
+<td>S</td>
 </tr>
 <tr class="odd">
 <td>7</td>
 <td>G</td>
+<td>20</td>
+<td>T</td>
 </tr>
 <tr class="even">
 <td>8</td>
 <td>H</td>
+<td>21</td>
+<td>U</td>
 </tr>
 <tr class="odd">
 <td>9</td>
 <td>I</td>
+<td>22</td>
+<td>V</td>
 </tr>
 <tr class="even">
 <td>10</td>
 <td>J</td>
+<td>23</td>
+<td>W</td>
 </tr>
 <tr class="odd">
 <td>11</td>
 <td>K</td>
+<td>24</td>
+<td>X</td>
 </tr>
 <tr class="even">
 <td>12</td>
 <td>L</td>
+<td>25</td>
+<td>Y</td>
 </tr>
 <tr class="odd">
 <td>13</td>
 <td>M</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>N</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td>O</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td>P</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td>Q</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td>R</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td>S</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td>U</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td>V</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td>W</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td>X</td>
-</tr>
-<tr class="odd">
-<td>25</td>
-<td>Y</td>
-</tr>
-<tr class="even">
 <td>26</td>
 <td>Z</td>
 </tr>
 </tbody>
 </table>
-<p>So, according to the chart, the first letter is <code>H</code>! It’s your job to figure out the rest of the message! Here is the full list of inputs you’ve got written down.</p>
+<hr />
+</section>
+<section id="problem-decoding-r2d2-2" class="level2">
+<h2>Problem: Decoding R2D2</h2>
+<p>So, according to the chart, the first letter is <code>H</code>! It's your job to figure out the rest of the message! Here is the full list of inputs you've got written down.</p>
 <pre><code>2 beeps, 6 boops
 0 beeps, 5 boops
 9 beeps, 3 boops
@@ -217,18 +207,22 @@ BOP! (pretty sure this is a space!)
 1 beep, 17 boops
 5 beeps, 7 boops
 4 beeps, 0 boops</code></pre>
+<hr />
+</section>
+<section id="problem-decoding-r2d2-3" class="level2">
+<h2>Problem: Decoding R2D2</h2>
 <p>In a separate file, print out the numerical total for each beep-boop combo as we did above. In a comment, write the letter that the number corresponds to.</p>
+<p><strong>Example Code</strong></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># H</span>
+beeps <span class="op">=</span> <span class="dv">2</span>
+boops <span class="op">=</span> <span class="dv">6</span>
+total <span class="op">=</span> beeps <span class="op">+</span> boops
+<span class="bu">print</span>(total)</code></pre></div>
+<hr />
 </section>
-<section id="example-code-1" class="level4">
-<h4>Example Code</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># H</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">beeps <span class="op">=</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">boops <span class="op">=</span> <span class="dv">6</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">total <span class="op">=</span> beeps <span class="op">+</span> boops</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="bu">print</span>(total)</a></code></pre></div>
-</section>
-<section id="expected-output" class="level4">
-<h4>Expected Output</h4>
+<section id="problem-decoding-r2d2-4" class="level2">
+<h2>Problem: Decoding R2D2</h2>
+<p><strong>Expected Output</strong></p>
 <pre><code>8
 5
 12
@@ -239,46 +233,43 @@ BOP! (pretty sure this is a space!)
 18
 12
 4</code></pre>
+<hr />
 </section>
-<section id="run-it" class="level3">
-<h3>Run it!</h3>
+<section id="problem-decoding-r2d2-5" class="level2">
+<h2>Problem: Decoding R2D2</h2>
+<p>Run it!</p>
 <ol type="1">
 <li><p>Create a new file called <code>solution.py</code>.</p></li>
-<li><p>Open <code>solution.py</code> in <code>Atom</code>.</p></li>
+<li><p>Open <code>solution.py</code> in <code>Sublime Text</code>.</p></li>
 <li><p>Write your code - solve the problem! Remember to hit <code>save</code>!</p></li>
-<li><p>Open your Terminal.</p></li>
+<li><p>Open your Terminal. Consult the class notes if you have forgotten how to do this!</p></li>
+<li><p>Navigate to the correct location in your file system</p></li>
 </ol>
 <blockquote>
-<p><strong>Protip</strong>: Consult the class notes if you have forgotten how to do this!</p>
+<p><strong>Protip</strong>: You may need to use the <code>cd</code> command to navigate to the location you have saved <code>solution.py</code> at. <code>cd ..</code> navigates to the parent folder of the one you're currently in.</p>
 </blockquote>
-<ol start="5" type="1">
-<li>Navigate to the correct location in your file system</li>
-</ol>
-<blockquote>
-<p><strong>Protip</strong>: You may need to use the <code>cd</code> command to navigate to the location you have saved <code>solution.py</code> at. <code>cd ..</code> navigates to the parent folder of the one you’re currently in.</p>
-</blockquote>
+<hr />
+</section>
+<section id="problem-decoding-r2d2-6" class="level2">
+<h2>Problem: Decoding R2D2</h2>
 <ol start="6" type="1">
 <li>Type the following command:</li>
 </ol>
-<section id="maclinux" class="level4">
-<h4>Mac/Linux</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">python</span> solution.py</a></code></pre></div>
-</section>
-<section id="windows" class="level4">
-<h4>Windows</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">py</span> solution.py</a></code></pre></div>
+<p><strong>Mac/Linux</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">python</span> solution.py</code></pre></div>
+<p><strong>Windows</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">py</span> solution.py</code></pre></div>
 <ol start="7" type="1">
 <li>Until you get the expected output, you can make changes to your code and run it again to see if you have the answer. Repeat as needed!</li>
 </ol>
 <hr />
 </section>
-</section>
-</section>
 <section id="yay-all-done" class="level2">
 <h2>Yay! All done!</h2>
-<p><img src="https://media.giphy.com/media/rl1aX0WUmGcKs/giphy.gif" /></p>
+<figure>
+<img src="https://media.giphy.com/media/rl1aX0WUmGcKs/giphy.gif" />
+</figure>
 <p>Now, if you want to know a little more about why that particular message was chosen, <a href="https://blog.hackerrank.com/the-history-of-hello-world/">read up here</a>!</p>
-</section>
 </section>
 
 <footer><span class='slide-number'></span></footer>
