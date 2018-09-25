@@ -67,11 +67,11 @@ In this lesson, students will:
 ## Defining Assumptions
 
 
-We can't use REPLs forever! We can run Python right on our computers.
+We can't use repl.it forever! We can run Python right on our computers.
 
-* Why do you think that is?
-* GA is Mac-centric. I am as well. It's ok if you're not!
-* Sometimes you may need to ask questions about subtle differences. I might need Google's help. It's ok, we'll figure it out.
+* GA uses Macs for its default curriculum.
+* We are happy to help you program Python on Windows or Linux as well.
+* Sometimes you may need to ask questions about subtle differences!
 
 <aside class="notes">
 
@@ -90,7 +90,7 @@ This will take us 10 to 15 minutes, then we'll regroup.
 
 First, install Sublime Text from <a href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a>. This is where you'll write your code.
 
-Then, follow the [Python 3 installation directions](python3-installation-directions.md).
+Then, follow the [Python 3 installation directions](python3-installation-directions.md.html).
 
 <aside class="notes">
 
@@ -190,8 +190,8 @@ Talking Points:
 
 We can create a file with a `.py` extension — we can execute properly written Python code in a `.py` file.
 
-1. Create a new file with a `.py` extension. Let's call it `local_python.py`.
-2. Open `local_python.py` in `Sublime Text`.
+1. Create a new file with a `.py` extension. Let's call it `my_file.py`.
+2. Open `my_file.py` in `Sublime Text`.
 3. In this file, declare some variables. Let's mix integers and strings!
 
 ```python
