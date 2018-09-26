@@ -46,8 +46,8 @@
 
 <h2>Class 2</h2>
 <p><a target="_black" href="unit-1-variables/instructor-resources/04-unit-lab-1/04-lab-slides.md.html">Lab 1: Variables Wrap Up</a></p>
-<p><a target="_black" href="unit-2-control-flow/instructor-resources/05-conditionals/05-conditionals.md.html">Lesson 5: Conditionals</a></p>
-<p><a target="_black" href="unit-2-control-flow/instructor-resources/06-lists/06-lists.md.html">Lab 6: Lists</a></p>
+<p><a target="_black" href="unit-2-control-flow/instructor-resources/05-conditionals/05-conditionals-slides.md.html">Lesson 5: Conditionals</a></p>
+<p><a target="_black" href="unit-2-control-flow/instructor-resources/06-lists/06-lists-slides.md.html">Lab 6: Lists</a></p>
 
 </body>
 
