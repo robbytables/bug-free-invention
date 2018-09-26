@@ -104,7 +104,7 @@ In today’s lab, you will:
 
 - Print complex variables.
 
-Open the file [Unit Lab 1 Directions](04-unit-lab-1/unit-lab-1-directions.md.html) to see the lab and its instructions. Follow the instructions there.
+Open the file [Unit Lab 1 Directions](unit-lab-1-directions.md.html) to see the lab and its instructions. Follow the instructions there.
 
 Try your best! Raise your hand if you really need help.
 
