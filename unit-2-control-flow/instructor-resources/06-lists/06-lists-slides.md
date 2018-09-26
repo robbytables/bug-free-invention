@@ -2,7 +2,7 @@
 title: Intro to Python Lists
 type: lesson
 duration: "00:30"
-creator: Brandi Butler
+creator: Tara Butler
 Private gist location: https://gist.github.com/brandiw/621c35f1987e5ab680e7de7b05dfe039
 Presentation URL: https://presentations.generalassemb.ly/621c35f1987e5ab680e7de7b05dfe039#/
 -->
@@ -62,7 +62,7 @@ Variables hold one item.
 
 ```python
 my_color = "red"
-my_peer = "Brandi"
+my_peer = "Tara"
 ```
 
 **Lists** hold multiple items - and lists can hold anything.
@@ -70,7 +70,7 @@ my_peer = "Brandi"
 ```python
 # Declaring lists
 colors = ["red", "yellow", "green"]
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha"]
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
 
 # Strings
 colors = ["red", "yellow", "green"]
@@ -80,6 +80,9 @@ my_nums = [4, 7, 9, 1, 4]
 
 # Both!
 my_nums = ["red", 7, "yellow", 1, 4]
+
+# Booleans
+truth_series = [True, False, False, True]
 ```
 
 <aside class="notes">
@@ -114,15 +117,15 @@ my_nums = ["red", 7, "yellow", 1, 4]
 
 List indexes start counting at 0!
 
-|  List | "Brandi" | "Zoe" | "Steve" | "Aleksander" | "Dasha" |
+|  List | "Tara" | "Ashish" | "Denzel Washington" | "Rodney" | "Jennifer" |
 |:-----:|:--------:|:-----:|:-------:|:------:|:------:|
 | Index |     0    |   1   |    2    |    3   |    4   |
 
 ```python
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha"]
-print(my_class[0]) # Prints "Brandi"
-print(my_class[1]) # Prints "Zoe"
-print(my_class[4]) # Prints "Dasha"
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+print(my_class[0]) # Prints "Tara"
+print(my_class[1]) # Prints "Ashish"
+print(my_class[4]) # Prints "Jennifer"
 ```
 
 <aside class="notes">
@@ -145,7 +148,7 @@ print(my_class[4]) # Prints "Dasha"
 
 ## We Do: Lists
 
-1. Create a **list** with the names `"Holly"`, `"Juan"`, and `"Ming"`.
+1. Create a **list** with the names `"Ozzy"`, `"Geezer"`, `"Tony"`, and `"Bill"`.
 2. Print the third name.
 3. Create a **list** with the numbers `2`,`4`, `6`, and `8`.
 4. Print the first number.
@@ -180,7 +183,7 @@ It's blank.
 ```python
 # length_variable = len(your_list)
 
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha"]
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
 num_students = len(my_class)
 print("There are", num_students, "students in the class")
 # => 5
@@ -202,6 +205,26 @@ print("There are", num_students, "students in the class")
 
 ---
 
+## Checking Truthyness Of A List
+
+- We can check the length directly to determine if a list is empty
+
+```python
+things = []
+if len(things) == 0:
+  print('I have no things!')
+```
+
+- We can also use the "truthyness" concept, making our code a little cleaner
+
+```python
+things = []
+if not things:
+  print('I have no things!')
+```
+
+---
+
 ## Adding Elements: Append
 
 `.append()`:
@@ -213,10 +236,10 @@ print("There are", num_students, "students in the class")
 ```python
 # your_list.append(item)
 
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha"]
-my_class.append("Sonyl")
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+my_class.append("Dom")
 print(my_class)
-# => ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha", "Sonyl"]
+# => ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
 ```
 
 
@@ -241,10 +264,10 @@ print(my_class)
 ```python
 # your_list.insert(index, item)
 
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha", "Sonyl"]
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
 my_class.insert(1, "Sanju")
 print(my_class)
-# => ["Brandi", "Sanju", "Zoe", "Steve", "Aleksander", "Dasha", "Sonyl"]
+# => ["Tara", "Sanju", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
 ```
 
 <aside class="notes">
@@ -268,12 +291,12 @@ print(my_class)
 ```python
 # your_list.pop()
 
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha", "Sonyl"]
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
 student_that_left = my_class.pop()
 print("The student", student_that_left, "has left the class.")
-# => "Sonyl"
+# => "Dom"
 print(my_class)
-# => ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha"]
+# => ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
 ```
 
 
@@ -301,12 +324,12 @@ print(my_class)
 ```python
 # your_list.pop(index)
 
-my_class = ["Brandi", "Zoe", "Steve", "Aleksander", "Dasha", "Sonyl"]
+my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
 student_that_left = my_class.pop(2) # Remember to count from 0!
 print("The student", student_that_left, "has left the class.")
-# => "Steve"
+# => "Denzel Washington"
 print(my_class)
-# => ["Brandi", "Zoe", "Aleksander", "Dasha", "Sonyl"]
+# => ["Tara", "Ashish", "Rodney", "Jennifer", "Dom"]
 ```
 
 
@@ -491,7 +514,7 @@ print("The lowest batting average is", min(team_batting_avgs))
 ## You Do: Lists
 
 
-On your local computer, create a `.py` file named `list_practice.py`. In it:
+On your computer, create a `.py` file named `list_practice.py`. In it:
 
 1. Save a list with the numbers `2`, `4`, `6`, and `8` into a variable called `numbers`.
 2. Print the max of `numbers`.

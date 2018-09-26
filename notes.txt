@@ -1,0 +1,10 @@
+lesson 1
+--------
+- Never talk about data types
+- There's no time for command line lesson
+- Bug in homework, spells HELLO WJRLD
+- Homework is confusing. It doesn't spell any words, it just prints numbers, but the "hello world" aspect is forced in there. I'd rethink this completely.
+
+Lesson 2
+--------
+- When will we tell them what functions are?

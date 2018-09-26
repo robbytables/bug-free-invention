@@ -69,8 +69,8 @@ Labs are opportunities for you to learn by doing, in the classroom and with the 
 Tips for a great lab experience:
 
 - Failure _is_ an option.
-- Ask three before you ask me.
-- Reflect and be ready to debrief.
+- Before asking me, check your toolkit.
+- Think about the concept, reflect on what it means, and be ready for the debrief.
 
 
 <aside class="notes">
@@ -104,7 +104,7 @@ In today’s lab, you will:
 
 - Print complex variables.
 
-Open the file [Unit Lab 1 Directions](04-unit-lab-1/unit-lab-1-directions.md) to see the lab and its instructions. Follow the instructions there.
+Open the file [Unit Lab 1 Directions](04-unit-lab-1/unit-lab-1-directions.md.html) to see the lab and its instructions. Follow the instructions there.
 
 Try your best! Raise your hand if you really need help.
 

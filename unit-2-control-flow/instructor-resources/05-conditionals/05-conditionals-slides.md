@@ -55,7 +55,7 @@ In this lesson, students will:
 ## Learning Objectives
 *After this lesson, you will be able to:*
 
-- Use comparison and equality operators to evaluate and compare statements.
+- Use comparison and equality operators to compare values.
 - Use `if`/`elif`/`else` conditionals to control program flow.
 
 ---
@@ -66,7 +66,7 @@ In Unit 1, we ended by printing the rating for a movie: `print('The rating for',
 
 In Unit 2, we're going to learn to add logic and make this much more complex. By the end of this:
 
-- We'll have a variable that's set to either `1` or `2`. If the variable is a `1`, we'll print the movie title, and if the variable is a `2`, we'll print the rating.
+- We'll be able to **programatically** set the values to be printed. 
 - We'll have many movies in a `list` and print them all out with just one `print` statement using a `loop`.
 - We'll make pieces of our program easy to reuse using `functions`.
 
@@ -88,7 +88,7 @@ Ready? Let's go!
 ## Discussion: What Do You Notice?
 
 
-Consider the following pseudocode for "French toast à la GA."
+Consider the following pseudocode for "French toast à la Robby."
 
 ```
 1) Dip the bread in eggs.
@@ -103,6 +103,9 @@ Now, consider this:
 3) Cook the bread for 3 minutes.
 4) Check if the bread is brown on the bottom. If not, keep cooking the bread.
 5) Flip the bread, and repeat steps 3 and 4.
+6) Remove bread when it is browned on both sides.
+7) Place bread on plate.
+8) Pour all of the syrup IN THE WORLD on it, and cover it with powdered sugar, and I guess some fruit to be healthy about it.
 ```
 
 What do you notice?
@@ -266,6 +269,7 @@ Check out these comparison operators. Why do you think the last one is `False`?
 ## Equality Operators: Inequality (`!=`):
 
 
+- In computer science, the `!` (aka **bang**) operator means **not**, or **inverse**.
 - Will accept any two types of data as inputs.
 - The reverse of the equality operator.
 
@@ -329,13 +333,9 @@ What do you think the following will equal?
 ## "Truthy" and "Falsey"
 
 
-Something that's `True` is always **true**… right?
-
-```
-Yes, I totally cleaned my room. Just don't look under the bed…
-```
-
 Sometimes, we need "truthy" and "falsey." They're not explicitly `True` or `False`, but implicitly behave in the same way.
+
+This concept will allow us to ask simple questions about our data.
 
 - Sometimes, `True` and `False` really mean, "Is there anything there?"
 
@@ -553,8 +553,8 @@ Do you remember this?
 How can we put that in a program?
 
 ```python
-if the bread is thick
-    # print("Dunk the bread longer!")
+if the bread is thick:
+    print("Dunk the bread longer!")
 
 # No matter what:
 print("Finished dunking the bread")
@@ -610,7 +610,7 @@ Remember, in a We Do, you follow along!
 
 Our goal: A temperature program that lets us know when it is too hot.
 
-- On your computer, open Atom and create a new file; save it as `control_flow.md`.
+- On your computer, open Sublime Text and create a new file; save it as `control_flow.md`.
 
 - Set up a temperature variable.
 
@@ -625,7 +625,7 @@ print("It's too hot!")
 
 **Teaching Tips:**
 
-- Have them start a program on their computers. Make sure they've all opened Atom and are following along.
+- Have them start a program on their computers. Make sure they've all opened Sublime Text and are following along.
 
 - Encourage students to type, not copy. They'll need to be used to typing code out; it will help drill it in.
 
@@ -854,7 +854,7 @@ else:
 
 Pair with a new partner. Decide who will drive and who will navigate.
 
-Open a new file in Atom; save it as `check_even.py`.
+Open a new file in Sublime Text; save it as `check_even.py`.
 
 In it, write a program that prints whether a number is even or odd.
 

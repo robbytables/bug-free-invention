@@ -20,7 +20,7 @@ At the end Unit 5's lab, you're going to have an app that asks the user to enter
 
 For example, if a user searches in your app for "Blade", your app can get a list of results: "Blade," "Blade II," "Blade Runner," "Blade Runner 2049," and "Blade of the Immortal (Mugen no jûnin)." Your app can also tell the user that *Blade* has a 54% rating on Rotten Tomatoes.
 
-It's going to be awesome!
+How can we break this down?
 
 Right now, let's set up some variables and print out their values.
 
@@ -62,4 +62,4 @@ Our first goal is just to get the app printing out movie titles and ratings. We'
 
 1. Create a variable `movie_title` and set it to `Back to the Future`.
 1. Create a variable `movie_ratings` to hold the rating and set it to `8`.
-1. Make a `print` statement that says, `The rating for <movie_title> is <movie_rating>`. It should call your new variables, so for example, `The rating for Back to the Future is 8`.
+1. Make a `print` statement that says, `The rating for <movie_title> is <movie_rating>`. It should **call your new variables**, so for example, the output should be `The rating for Back to the Future is 8`, but that exact string shouldn't appear in your code. 
