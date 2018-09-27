@@ -70,7 +70,7 @@ my_peer = "Tara"
 ```python
 # Declaring lists
 colors = ["red", "yellow", "green"]
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer"]
 
 # Strings
 colors = ["red", "yellow", "green"]
@@ -117,12 +117,12 @@ truth_series = [True, False, False, True]
 
 List indexes start counting at 0!
 
-|  List | "Tara" | "Ashish" | "Denzel Washington" | "Rodney" | "Jennifer" |
+|  List | "Tara" | "Ashish" | "Evan" | "Rodney" | "Jennifer" |
 |:-----:|:--------:|:-----:|:-------:|:------:|:------:|
 | Index |     0    |   1   |    2    |    3   |    4   |
 
 ```python
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer"]
 print(my_class[0]) # Prints "Tara"
 print(my_class[1]) # Prints "Ashish"
 print(my_class[4]) # Prints "Jennifer"
@@ -183,7 +183,7 @@ It's blank.
 ```python
 # length_variable = len(your_list)
 
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer"]
 num_students = len(my_class)
 print("There are", num_students, "students in the class")
 # => 5
@@ -236,10 +236,10 @@ if not things:
 ```python
 # your_list.append(item)
 
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer"]
 my_class.append("Dom")
 print(my_class)
-# => ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
+# => ["Tara", "Ashish", "Evan", "Rodney", "Jennifer", "Dom"]
 ```
 
 
@@ -264,10 +264,10 @@ print(my_class)
 ```python
 # your_list.insert(index, item)
 
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
-my_class.insert(1, "Sanju")
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer", "Dom"]
+my_class.insert(1, "Maria")
 print(my_class)
-# => ["Tara", "Sanju", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
+# => ["Tara", "Maria", "Ashish", "Evan", "Rodney", "Jennifer", "Dom"]
 ```
 
 <aside class="notes">
@@ -291,12 +291,12 @@ print(my_class)
 ```python
 # your_list.pop()
 
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer", "Dom"]
 student_that_left = my_class.pop()
 print("The student", student_that_left, "has left the class.")
 # => "Dom"
 print(my_class)
-# => ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer"]
+# => ["Tara", "Ashish", "Evan", "Rodney", "Jennifer"]
 ```
 
 
@@ -324,10 +324,10 @@ print(my_class)
 ```python
 # your_list.pop(index)
 
-my_class = ["Tara", "Ashish", "Denzel Washington", "Rodney", "Jennifer", "Dom"]
+my_class = ["Tara", "Ashish", "Evan", "Rodney", "Jennifer", "Dom"]
 student_that_left = my_class.pop(2) # Remember to count from 0!
 print("The student", student_that_left, "has left the class.")
-# => "Denzel Washington"
+# => "Evan"
 print(my_class)
 # => ["Tara", "Ashish", "Rodney", "Jennifer", "Dom"]
 ```
@@ -421,16 +421,16 @@ list_length = len(my_list) # 4
 print(my_list[0]) # red
 
 # List Append
-my_list.append("Yi") # ["red", 7, "yellow", 1, "Yi"]
+my_list.append("Alex") # ["red", 7, "yellow", 1, "Alex"]
 
 # List Insert at Index
-my_list.insert(1, "Sanju") # ["red", "Sanju", 7, "yellow", 1, "Yi"]
+my_list.insert(1, "Maria") # ["red", "Maria", 7, "yellow", 1, "Alex"]
 
 # List Delete
-student_that_left = my_list.pop() # "Yi"; ["red", "Sanju", 7, "yellow", 1]
+student_that_left = my_list.pop() # "Alex"; ["red", "Maria", 7, "yellow", 1]
 
 # List Delete at Index
-student_that_left = my_list.pop(2) # 7; ["red", "Sanju", "yellow", 1]
+student_that_left = my_list.pop(2) # 7; ["red", "Maria", "yellow", 1]
 ```
 
 <aside class="notes">
@@ -488,7 +488,7 @@ print("The total of all the batting averages is", sum_avgs)
 
 - Built in `list` operations.
 - Finds highest, or lowest, in the list.
-- Only works on lists with numbers!
+- Works with strings as well!
 
 ```python
 # max(your_numeric_list)
@@ -499,6 +499,10 @@ print("The highest batting average is", max(team_batting_avgs))
 # => 0.328
 print("The lowest batting average is", min(team_batting_avgs))
 # => 0.208
+
+bands = ['Black Sabbath', 'AC/DC', 'Led Zeppelin']
+print("The first band name, alphabetically, is", min(bands))
+# => 'AC/DC'
 ```
 
 <aside class="notes">
@@ -552,13 +556,13 @@ list_length = len(my_list) # 4
 # List Index
 print(my_list[0]) # red
 # List Append
-my_list.append("Yi") # ["red", 7, "yellow", 1, "Yi"]
+my_list.append("Alex") # ["red", 7, "yellow", 1, "Alex"]
 # List Insert at Index
-my_list.insert(1, "Sanju") # ["red", "Sanju", 7, "yellow", 1, "Yi"]
+my_list.insert(1, "Maria") # ["red", "Maria", 7, "yellow", 1, "Alex"]
 # List Delete
-student_that_left = my_list.pop() # "Yi"; ["red", "Sanju", 7, "yellow", 1]
+student_that_left = my_list.pop() # "Alex"; ["red", "Maria", 7, "yellow", 1]
 # List Delete at Index
-student_that_left = my_list.pop(2) # 7; ["red", "Sanju", "yellow", 1]
+student_that_left = my_list.pop(2) # 7; ["red", "Maria", "yellow", 1]
 ```
 
 <aside class="notes">

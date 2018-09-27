@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<section id="python-programming" class="level3">
+<h3><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" /> Python Programming</h3>
+<!---
+This assignment was developed by Brandi
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack at @brandib.
+--->
+</section>
+<section id="python-conditionals-practice-problems" class="level1">
+<h1>Python Conditionals: Practice Problems</h1>
+<p>In this homework, you're going to write code to solve a few problems.</p>
+<p>You will practice these programming concepts we covered in class: * Declaring and using variables. * Using mathematical operators. * Implementing Python conditionals: <code>if</code>, <code>elif</code>, and <code>else</code>.</p>
+<hr />
+<section id="deliverables" class="level2">
+<h2>Deliverables</h2>
+<p>The first part of this homework is a mini-quiz. You can put all of your answers for that in a single text file.</p>
+<p>For each of the code challenges listed below, you will create a new <code>.py</code> file and write code to solve the problem. For example, you would create <code>problem1.py</code> for your solution code to the first problem. Run the file from the command line to check your work.</p>
+<p><em>Reminder: On your laptop, you can run the file from your command line with the following command:</em></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">python problem1.py</code></pre></div>
+<blockquote>
+<p><strong>Hint</strong>: Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won't see any output from running your program!</p>
+</blockquote>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements:</h2>
+<p>By the end of this, you should have: * One text file for your mini-quiz questions. * Two different <code>.py</code> files (one for each coding problem).</p>
+<hr />
+</section>
+</section>
+<section id="part-1-mini-quiz" class="level1">
+<h1>Part 1: Mini-Quiz</h1>
+<p>Put your solution into a file called <code>quiz.txt</code>.</p>
+<ol type="1">
+<li><p>True or false: An <code>if</code> statement can live without an <code>else</code> statement.</p></li>
+<li><p>True or false: An <code>else</code> statement can live without an <code>if</code> statement.</p></li>
+<li><p>True or false: An <code>elif</code> statement can live without an <code>if</code> statement.</p></li>
+<li><p>True or false: An <code>if</code> + <code>elif</code> statement can live without an <code>else</code> statement.</p></li>
+<li><p>True or false: The following statements are equivalent.</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> a <span class="op">==</span> <span class="va">True</span>:</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> a:</code></pre></div>
+<ol start="6" type="1">
+<li>In the following code block, what prints?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+b <span class="op">=</span> <span class="va">True</span>
+c <span class="op">=</span> <span class="va">False</span>
+
+<span class="cf">if</span> a:
+    <span class="bu">print</span>(<span class="st">&quot;1&quot;</span>)
+
+<span class="cf">if</span> b:
+    <span class="bu">print</span>(<span class="st">&quot;2&quot;</span>)
+
+<span class="cf">if</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;3&quot;</span>)
+
+<span class="cf">if</span> a <span class="kw">and</span> b:
+    <span class="bu">print</span>(<span class="st">&quot;4&quot;</span>)
+
+<span class="cf">if</span> a <span class="kw">and</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;5&quot;</span>)
+
+<span class="cf">if</span> b <span class="kw">and</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;6&quot;</span>)
+
+<span class="cf">if</span> a <span class="kw">or</span> b:
+    <span class="bu">print</span>(<span class="st">&quot;7&quot;</span>)
+
+<span class="cf">if</span> a <span class="kw">or</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;8&quot;</span>)
+
+<span class="cf">if</span> b <span class="kw">or</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;9&quot;</span>)</code></pre></div>
+<ol start="7" type="1">
+<li>In the following code block, what prints?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">False</span>
+b <span class="op">=</span> <span class="va">True</span>
+c <span class="op">=</span> <span class="va">True</span>
+
+<span class="cf">if</span> a:
+    <span class="bu">print</span>(<span class="st">&quot;1&quot;</span>)
+<span class="cf">elif</span> b:
+    <span class="bu">print</span>(<span class="st">&quot;2&quot;</span>)
+<span class="cf">elif</span> c:
+    <span class="bu">print</span>(<span class="st">&quot;3&quot;</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;4&quot;</span>)</code></pre></div>
+<hr />
+</section>
+<section id="part-2-code-challenges" class="level1">
+<h1>Part 2: Code Challenges</h1>
+<section id="problem-1-most-clocks-are-normal-but-some-are-cuckoo" class="level2">
+<h2>Problem 1: Most Clocks Are Normal, But Some Are Cuckoo!</h2>
+<section id="skill-youre-practicing-writing-conditionals." class="level3">
+<h3>Skill you're practicing: Writing conditionals.</h3>
+<p>For this problem, put your solution into a file called <code>problem1.py</code>.</p>
+<p>You're making a program for your coworkers that displays a message on their desktop's idle screen. Depending on the time of day, you want to print a different quote. You'll create a variable, <code>time</code>, which has an integer value between zero and 23, representing the hour of the day in <a href="https://www.thebalancecareers.com/military-time-3356971">military time</a>, which is a 24-hour clock. Write a conditional statement with Python code that prints exactly one message using the following rules:</p>
+<pre><code>If the time of day is before 9 a.m. --&gt; print the quote &quot;Morning is wonderful. Its only drawback is that it comes at such an inconvenient time of day.&quot;
+
+Otherwise if the time of day is before or exactly 4 p.m. --&gt; print the quote &quot;Working hard or hardly working?&quot;
+
+Otherwise, if the time of day is before 8 p.m. --&gt; print the quote &quot;How did it get so late so soon?&quot;
+
+Otherwise if the time of day is before 10 p.m. --&gt; print the quote &quot;A day without sunshine is like, you know, night.&quot;
+
+Otherwise, for any time 10 p.m. or later --&gt; print the quote &quot;Burning the midnight oil!&quot;</code></pre>
+<section id="starter-code" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">time <span class="op">=</span> <span class="dv">8</span></code></pre></div>
+<blockquote>
+<p><strong>Hint:</strong> Test your code with different values for time of day. Make sure you are only printing one statement, regardless of the value of <code>time</code>!</p>
+</blockquote>
+<hr />
+</section>
+</section>
+</section>
+<section id="problem-2-i-came-i-saur-i-conquered" class="level2">
+<h2>Problem 2: I Came, I 'Saur, I Conquered</h2>
+<section id="skill-youre-practicing-writing-conditionals-with-multiple-conditions." class="level3">
+<h3>Skill you're practicing: Writing conditionals with multiple conditions.</h3>
+<p>For this problem, put your solution into a file called <code>problem2.py</code>.</p>
+<p>The mighty Tyrannosaurus rex is the king of dinosaurs, and he does whatever he pleases. When he's hungry, he eats. When he's angry, he fights. When he's bored, he roars. When he's tired, he sleeps! Write a conditional statement that selects one of the following actions for T-Rex based on his current mood. T-Rex's actions are ordered by precedence:</p>
+<pre><code>If T-Rex is angry, hungry, and bored he will eat the Triceratops.
+Otherwise if T-Rex is tired and hungry, he will eat the Iguanadon.
+Otherwise if T-Rex is hungry and bored, he will eat the Stegasaurus.
+Otherwise if T-Rex is tired, he goes to sleep.
+Otherwise if T-Rex is angry and bored, he will fight with the Velociraptor.
+Otherwise if T-Rex is angry or bored, he roars.
+Otherwise T-Rex gives a toothy smile.</code></pre>
+<section id="starter-code-1" class="level4">
+<h4>Starter Code</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">angry <span class="op">=</span> <span class="va">True</span>
+bored <span class="op">=</span> <span class="va">True</span>
+hungry <span class="op">=</span> <span class="va">False</span>
+tired <span class="op">=</span> <span class="va">False</span>
+
+<span class="co"># Example `if` statement:</span>
+<span class="cf">if</span> bored:
+    <span class="bu">print</span>(<span class="st">&quot;T-Rex roars! Rawr!&quot;</span>)</code></pre></div>
+<hr />
+</section>
+</section>
+</section>
+<section id="all-done" class="level2">
+<h2>All Done!</h2>
+<p>Now, go be like a T-Rex and do what you please!</p>
+<figure>
+<img src="https://media.giphy.com/media/1NFXnqVxzGr6w/giphy.gif" />
+</figure>
+</section>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

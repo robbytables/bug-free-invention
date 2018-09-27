@@ -52,7 +52,7 @@
 
 <h3>Class 2 Homework</h3>
 <h4>Due Monday, October</h4>
-<p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-2/README.md.html">Class 2 Homework: Conditionals + Control Flow</a></p>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-2/README.pdf">Class 2 Homework: Conditionals + Control Flow</a></p>
 
 </body>
 

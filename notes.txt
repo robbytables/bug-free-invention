@@ -9,3 +9,6 @@ Lesson 2
 --------
 - Truth tables are really confusing, should change the ordering here/add more resources.
 - No time to go over homework or answer any questions. I ended up not able to do the Lists lesson.
+- REPL.it on 06-lists-slides.md.html#/we-do-lists is the wrong code
+- `max()` and `min()` are said to only work on lists with numbers, which is false
+
