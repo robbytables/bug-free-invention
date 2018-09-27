@@ -41,13 +41,18 @@
 <p><a target="_blank"  href="unit-1-variables/instructor-resources/03-local-python/python3-installation-directions.md.html">Python 3 Installation Instructions</a></p>
 
 
-<h3>Class 1 Homework: Due Wednesday, September 26 </h3>
+<h3>Class 1 Homework </h3>
+<h4>Due Wednesday, September 26 </h4>
 <p><a target="_black" href="unit-1-variables/instructor-resources/hw-10wk-class-1/README.md.html">Class 1 Homework: Variables</a></p>
 
 <h2>Class 2</h2>
-<p><a target="_black" href="unit-1-variables/instructor-resources/04-unit-lab-1/04-lab-slides.md.html">Lab 1: Variables Wrap Up</a></p>
-<p><a target="_black" href="unit-2-control-flow/instructor-resources/05-conditionals/05-conditionals-slides.md.html">Lesson 5: Conditionals</a></p>
-<p><a target="_black" href="unit-2-control-flow/instructor-resources/06-lists/06-lists-slides.md.html">Lab 6: Lists</a></p>
+<p><a target="_blank" href="unit-1-variables/instructor-resources/04-unit-lab-1/04-lab-slides.md.html">Lab 1: Variables Wrap Up</a></p>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/05-conditionals/05-conditionals-slides.md.html">Lesson 5: Conditionals</a></p>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/06-lists/06-lists-slides.md.html">Lesson 6: Lists</a></p>
+
+<h3>Class 2 Homework</h3>
+<h4>Due Monday, October</h4>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-2/README.md.html">Class 2 Homework: Conditionals + Control Flow</a></p>
 
 </body>
 

@@ -45,7 +45,7 @@ By the end of this, you should have:
 
 # Part 1: Mini-Quiz
 
-Put your solution into a file called `quiz.txt`.
+Put your solution into a file called `quiz.txt`. **Note:** If you get stuck, remember your toolkit. Try to answer these questions w/o running the code!! 
 
 1. True or false: An `if` statement can live without an `else` statement.
 
@@ -55,7 +55,7 @@ Put your solution into a file called `quiz.txt`.
 
 4. True or false: An `if` + `elif` statement can live without an `else` statement.
 
-5. True or false: The following statements are equivalent.
+5. True or false: The following statements are equivalent. **Hint:** Think about Truthyness and equality!
 
 ```python
 if a == True:
@@ -130,9 +130,9 @@ For this problem, put your solution into a file called `problem1.py`.
 You're making a program for your coworkers that displays a message on their desktop's idle screen. Depending on the time of day, you want to print a different quote. You'll create a variable, `time`, which has an integer value between zero and 23, representing the hour of the day in [military time](https://www.thebalancecareers.com/military-time-3356971), which is a 24-hour clock. Write a conditional statement with Python code that prints exactly one message using the following rules:
 
 ```
-If the time of day is before 9 a.m. --> print the quote "Morning is wonderful. Its only drawback is that it comes at such an inconvenient time of day."
+If the time of day is before 9 a.m. --> print the quote "Good morning, time to wake up and smell the coffee!"
 
-Otherwise if the time of day is before or exactly 4 p.m. --> print the quote "Working hard or hardly working?"
+Otherwise if the time of day is before or exactly 4 p.m. --> print the quote "Work work work... when will it end?"
 
 Otherwise, if the time of day is before 8 p.m. --> print the quote "How did it get so late so soon?"
 
