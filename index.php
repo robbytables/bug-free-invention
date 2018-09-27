@@ -49,6 +49,7 @@
 <p><a target="_blank" href="unit-1-variables/instructor-resources/04-unit-lab-1/04-lab-slides.md.html">Lab 1: Variables Wrap Up</a></p>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/05-conditionals/05-conditionals-slides.md.html">Lesson 5: Conditionals</a></p>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/06-lists/06-lists-slides.md.html">Lesson 6: Lists</a></p>
+<p><a target="_blank" href="https://cl.ly/bd421e98c3f8">Lesson 6 Video Lecture</a></p>
 
 <h3>Class 2 Homework</h3>
 <h4>Due Monday, October</h4>

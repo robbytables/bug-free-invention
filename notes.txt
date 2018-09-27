@@ -1,7 +1,8 @@
 lesson 1
 --------
-- Never talk about data types
+- Never talk about core data types (int/float/str/bool)
 - There's no time for command line lesson
+- We need to have in time class for installation. This is not easy, and it's irresponsible to make students do this on their own time as there is considerable risk in command line operations.
 - Bug in homework, spells HELLO WJRLD
 - Homework is confusing. It doesn't spell any words, it just prints numbers, but the "hello world" aspect is forced in there. I'd rethink this completely.
 
@@ -11,4 +12,6 @@ Lesson 2
 - No time to go over homework or answer any questions. I ended up not able to do the Lists lesson.
 - REPL.it on 06-lists-slides.md.html#/we-do-lists is the wrong code
 - `max()` and `min()` are said to only work on lists with numbers, which is false
-
+- We're introducing functions, but referring to them as operators (sum/min/max/len/insert/pop).
+- We've also never discussed what a function is, or a return type.
+  - It's technically ok to do this, as long as you give the instructors time to go over these concepts. Otherwise people will just be confused. With the ultra-rigid timing, there's just no space for injecting meaningful conversation around these concepts.
