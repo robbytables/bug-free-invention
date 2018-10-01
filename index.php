@@ -42,7 +42,7 @@
 
 
 <h3>Class 1 Homework </h3>
-<h4>Due Wednesday, September 26 </h4>
+<h5>Due Wednesday, September 26 </h5>
 <p><a target="_black" href="unit-1-variables/instructor-resources/hw-10wk-class-1/README.md.html">Class 1 Homework: Variables</a></p>
 
 <h2>Class 2</h2>
@@ -52,9 +52,13 @@
 <p><a target="_blank" href="https://cl.ly/bd421e98c3f8">Lesson 6 Video Lecture</a></p>
 
 <h3>Class 2 Homework</h3>
-<h4>Due Monday, October</h4>
+<h5>Due Monday, October</h5>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-2/README.pdf">Class 2 Homework: Conditionals + Control Flow</a></p>
 
+
+<h3>Class 3</h3>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/07-loops/07-loops-slides.md.html">Lesson 7: Loops</a></p>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/08-functions/08-functions-slides.md.html">Lesson 8: Functions</a></p>
 </body>
 
 </html>
