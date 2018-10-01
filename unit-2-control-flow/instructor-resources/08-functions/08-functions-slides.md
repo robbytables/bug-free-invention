@@ -132,7 +132,7 @@ function_name()
 
 ---
 
-## Seeing Functions in  Action
+## Seeing Functions in Action
 
 So we *define* the function, then we can *call* the function by pairing its name with the parenthesis: `print_order()`.
 
@@ -177,14 +177,13 @@ print_order()
 ## Naming a Function
 
 What can you name a function?
-- Anything you'd like.
-  - But match the *callback*!
-- Using `print_order` is more descriptive.
+- Anything you'd like, but be descriptive!
+- Typically we use snake casing, just like variables
+- If you can't give a function a clear name, maybe it's doing too much?
 
-What do you think will happen if you change the function name `print_order` to `finishedOrder` without updating the callback?
+**Note:** Functions should only ever do one thing, and one thing only. 
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-functions-planter?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
+Let's look at a pseudocode example. How would we tell a computer how to make breakfast?
 
 <aside class="notes">
 
@@ -215,11 +214,13 @@ print_order()
 How many lines of code can a function have?
 - As many lines of code as you'd like!
 - Just indent each line.
+- We commonly want our functions to be no longer than can fit on your screen.
 
 ```python
 def welcome():
   print("Hello!")
   print("Bonjour!")
+  print("Hola!")
 
 welcome()
 ```
@@ -275,48 +276,6 @@ high_low()
 
 ---
 
-## You Do: FizzBuzz
-
-This is a *very* common programming question. It's often on job interviews and a buzzword in the industry as a simple but common task to show your understanding.
-
-Open a new Python file, `fizzbuzz.py`.
-
-- Write a program that prints the numbers from 1 to 101.
-- But, for multiples of three, print “Fizz” instead of the number.
-- For multiples of five, print “Buzz”.
-- For numbers which are multiples of both three and five, print “FizzBuzz”.
-
-
-
-<aside class="notes">
-
-10 minutes
-
-**Teaching tips:**
-
-- Have each student try to do this in their own time. Allow 5-10 minutes.
-- When they've finished, give the answer below with explanation.
-
-**ANSWER**
-
-```python
-def fizz_buzz(num):
-    if num % 15 == 0:
-        print("FizzBuzz")
-    elif num % 5 == 0:
-        print("Buzz")
-    elif num % 3 == 0:
-        print("Fizz")
-    else:
-        print(num)
-
-for i in range(1, 101):
-    fizz_buzz(i)
-```
-
-</aside>
-
----
 
 ## Quick Review: Functions
 
@@ -349,52 +308,23 @@ Up next: Parameters!
 
 ---
 
+## Abstracting Functions With Parameters
 
-## Discussion: Parameters
+Functions may consume **Parameters**. These are values that can customize how the function works, and will allow us to make abstract functions.
 
-
-Remember this?
-
-```python
-def print_order():
-  print("Thank you for your order. There will be a $5.00 shipping charge for this order.")
-
-print("You've purchased a Hanging Planter.")
-print_order()
-
-print("You've purchased a Shell Mirror.")
-print_order()
-
-print("You've purchased a Modern Shag Rug.")
-print_order()
-```
-
-There's still repetition. How do you think we could improve it?
-
-<aside class="notes">
-
-**Talking Points**:
-
-- "There's still some repetition there — it always prints, "You've purchased a ..." and we'd need to write out variations of this same sentence hundreds of times. What if you could use the function to dynamically print what the user buys?"
-
-</aside>
-
----
-
-## Addressing the repetition
-
-We can dynamically pass a function values. This is a **parameter**.
+Let's revisit our order printing function.
 
 ```python
 def print_order(product):
   print("Thank you for ordering the", product, ".")
+  print("There will be a $5.00 delivery fee added to this order.")
 
 print_order("Hanging Planter")
-# Prints "Thank you for ordering the Hanging Planter."
+# Prints "Thank you for ordering the Hanging Planter." "There will be a $5.00 delivery fee added to this order."
 print_order("Shell Mirror")
-# Prints "Thank you for ordering the Shell Mirror."
+# Prints "Thank you for ordering the Shell Mirror." "There will be a $5.00 delivery fee added to this order."
 print_order("Modern Shag Rug")
-# Prints "Thank you for ordering the Modern Shag Rug."
+# Prints "Thank you for ordering the Modern Shag Rug." "There will be a $5.00 delivery fee added to this order."
 ```
 
 <aside class="notes">
@@ -415,30 +345,6 @@ print_order("Modern Shag Rug")
 - "Now, we don't need to know the product name in advance. Instead, when we call the function, we can tell Python, "Run the `print_order` function. Here is the name of the product to use." Then, when Python gets to the line `print "Thank you for ordering the ", product, "."`, it will say "OK, what was I told the product is?" and print that."
 
 - "Notice that the parenthesis after def print_order are no longer empty, and now include the parameter product."
-
-</aside>
-
----
-
-## Terminology Recap
-
-**Parameter:** The variable that's defined in a function's declaration.
-
-**Argument:** The actual value passed into the function when the function is called.
-
-```python
-def my_function(parameter):
-  # Does something.
-
-my_function(argument)
-```
-
-<aside class="notes">
-
-**Talking Points**:
-
-- "Calling a function that has a parameter lets you wrap a variable when calling the function.. This is called an **argument**, which corresponds to the parameter of the function. When we call the function with the argument `Shell Mirror`, the string is assigned as `product` (or `pineapple`). The function's internal code runs and prints the correct sentence."
-
 
 </aside>
 
@@ -475,119 +381,66 @@ print_order("Modern Shag Rug")
 
 ---
 
-## Partner Exercise: Thanks a Latte
+## You Do: FizzBuzz
 
+This is a *very* common programming question. It's often on job interviews and a buzzword in the industry as a simple but common task to show your understanding.
 
-Pair up! Decide who will be the driver and who will be the navigator.
+Open a new Python file, `fizzbuzz.py`.
 
-Imagine that you are tasked with creating a program to calculate the total amount, including sales tax, for each item at a coffee shop.
+- Write a program that prints the numbers from 1 to 101.
+- But, for multiples of three, print “Fizz” instead of the number.
+- For multiples of five, print “Buzz”.
+- For numbers which are multiples of both three and five, print “FizzBuzz”.
 
-Create a new file, `latte.py`, and type the two functions below into it, which will calculate the total amount for two drinks:
-
-```python
-def latte_total():
-  price = 5.50
-  sales_tax_rate = .10
-  total_amount = price + (price * sales_tax_rate)
-  print("The total is $", total_amount)
-
-latte_total()
-
-def americano_total():
-  price = 4.75
-  sales_tax_rate = .10
-  total_amount = price + (price * sales_tax_rate)
-  print("The total is $", total_amount)
-
-americano_total()
-```
-
-*Pro tip: Don't just copy! Typing will be good practice.*
+**Hint:** How can we determine if a number is a multiple of another value? Don't forget your toolkit!
 
 <aside class="notes">
 
-**Teaching Tips**:
+10 minutes
 
-- Pair the students up for this exercise.
-- This slide has code to copy; the next slide has the actual exercise. Make sure students all have this before turning the slide.
+**Teaching tips:**
 
-</aside>
+- Have each student try to do this in their own time. Allow 5-10 minutes.
+- When they've finished, give the answer below with explanation.
 
----
-
-## Keep it DRY (Don't Repeat Yourself)
-
-But what if we have several drinks at the coffee shop?
-
-With your partner, think about a function that could print the total of any drink if you pass it the price, like this...
+**ANSWER**
 
 ```python
-def calculate_total(price):
-  #your code here
+def fizz_buzz(num):
+    if num % 15 == 0:
+        print("FizzBuzz")
+    elif num % 5 == 0:
+        print("Buzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    else:
+        print(num)
 
-calculate_total(5.5) # This  was the latte
-calculate_total(4.75) # This was the Americano
+for i in range(1, 101):
+    fizz_buzz(i)
 ```
-
-Your task: Write this!
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Give them 5 minutes here, and walk around to see if there are questions.
-- The solution is on the next slide.
-
-**Talking Points**:
-
-- "However, what if we wanted to find the total for every item in the coffee shop, including drinks and baked goods? We don't want to have to create a separate function for each item — that's a lot of work on our end. It will also burden our program with repeated code, which we want to avoid (remember, keep it DRY — Don't Repeat Yourself)."
 
 </aside>
 
----
-
-## Latte: Solution
-
-How did it go?
-
-Is this close to yours?
-
-```python
-def calculate_total(price):
-  sales_tax_rate = .10
-  total_amount = price + (price * sales_tax_rate)
-  print("The total is $", total_amount)
-
-calculate_total(5.5) # This will print 6.05.
-calculate_total(4.75) # This will print 5.225.
-```
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Walk through this and be sure everyone understands. Functions can be tough!
-
-</aside>
 
 ---
 
 ## Multiple Parameters: Part 1
 
-What about changing sales tax? We can pass as many values into the function as we want - we can have as many parameters as we want.
+We can pass as many values into the function as we want - we can have as many parameters as we want.
 
-Here, we have a second parameter, `taxes`:
+Consider this code that will calculate a total given a sales price and the tax rate. 
 
 ```python
-def calculate_total(price, taxes):
-  total_amount = price + (price * taxes)
+def calculate_total(price, tax_rate):
+  total_amount = price + (price * tax_rate)
   print("The total is $", total_amount)
 
-calculate_total(5.5, .10) # "price" is 5.5; "taxes" is .10. This will print 6.05.
-calculate_total(4.75, .12) # "price" is 4.75; "taxes" is .12. This will print 5.32.
+calculate_total(5.5, .10) # "price" is 5.5; "tax_rate" is .10. This will print 6.05.
+calculate_total(4.75, .12) # "price" is 4.75; "tax_rate" is .12. This will print 5.32.
 ```
 
-**Protip:** Use a comma-separated list — (parameter1, parameter2, parameter3, parameter4)
+**Protip:** Use a comma-separated list, with spaces — (parameter1, parameter2, parameter3, parameter4)
 
 <aside class="notes">
 
@@ -718,9 +571,9 @@ Next up: Returns.
 
 ---
 
-## The Return
+## Return Values
 
-Sometimes, we want values *back* from functions.
+Functions may return values. Let's look at how this works.
 
 ```python
 def calculate_total(price, taxes):
@@ -732,8 +585,8 @@ def calculate_total(price, taxes):
 # This just calls the function -  we've seen this.
 calculate_total(5.5, .10)
 
-# This is new! Save the amount of this drink into a variable "latte_total."
-latte_total = calculate_total(5.5, .10)
+# This is new! Save the amount of this drink into a variable "sales_total."
+sales_total = calculate_total(5.5, .10)
 
 # Now, we can  use that variable.
 print 'Your order total is', latte_total
@@ -741,7 +594,7 @@ print 'Your order total is', latte_total
 
 * `total_amount` is returned to the main program.
 
-* The value in `total_amount` is saved as `latte_total`.
+* The value in `total_amount` is saved as `sales_total`.
 
 <aside class="notes">
 
@@ -811,7 +664,7 @@ def mystery():
    return 5
 
 my_number = mystery()
-print my_number
+print(my_number)
 ```
 
 <aside class="notes">
@@ -868,8 +721,8 @@ We can also use `return` by itself as a way to exit the function and prevent any
 
 ```python
 def rock_and_roll(muted):
-   song = "It's only Rock 'N' Roll"
-   artist = "Rolling Stones"
+   song = "Paranoid"
+   artist = "Black Sabbath"
 
    if (muted == True):
        return
