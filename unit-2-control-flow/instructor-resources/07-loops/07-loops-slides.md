@@ -5,7 +5,9 @@ duration: "01:00"
 creator: Susi Remondi
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Loops
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Python Programming: Loops</h1>
 
 
 <!--
@@ -47,9 +49,9 @@ Loops are crucial to programming. If students are struggling, extend the amount 
 ## Learning Objectives
 *After this lesson, you will be able to:*
 
-- Use a `for` loop to iterate a list.
-- Use `range()` to dynamically generate loops.
-- Use a `while` loop to control program flow.
+- Use a `for` loop to iterate a list a set number of times.
+- Use `range()` to dynamically generate a range of integers.
+- Use a `while` loop to control program flow until a condition is met.
 
 <aside class="notes">
 
@@ -76,7 +78,7 @@ print(visible_colors[4])
 print(visible_colors[5])
 ```
 
-But what would we do if there were 1,000 items in the list to print?
+But it's not great. Why not?
 
 <aside class="notes">
 
@@ -128,6 +130,7 @@ for each_color in visible_colors:
   print(each_color)
 ```
 
+`for` loops are helpful when we want to loop for a predetermined number of iterations.
 
 <aside class="notes">
 
@@ -347,50 +350,24 @@ for character in my_string:
 
 ---
 
-## What about...Looping For a Specific Number of Iterations?
+## Looping Over A Range
 
+These examples we've gone over loop over a list. But what if we didn't have a list to iterate over, and instead wanted to loop for a specific number of times? For example, What if we just wanted to perform a single operation N times?
 
-We have:
-```python
-guest_list = ["Fred", "Cho", "Brandi", "Yuna", "Nanda", "Denise"]
-
-for guest in guest_list:
-  print("Hello, " + guest + "!")
-```
-
-The loop runs for every item in the list - the length of the collection. Here, it runs 6 times.
-
-What if we don't know how long `guest_list` will be?
-
-Or only want to loop some of it?
-
-<aside class="notes">
-
-
-**Talking Points**:
-
-- "Whenever we have a collection, such as a list or string, and we want to iterate over each item it contains,
-we should use a `for` loop. Python has internal logic for determining exactly how many times the loop should
-run based on the length of the collection."
-
-- "But, what if we want to do something in a loop a specific number of times, but we don't have a collection to start with? Maybe we are initializing a new collection and we need to add a specific number of items to it or maybe we just want something to run exactly 15 times. In this case, we can have the `for` loop iterate over a range of numbers."
-
-
-</aside>
----
-
-## Enter: Range
-
+The `range(x)` function allows us to define the number of times a `for` loop will execute.
 
 `range(x)`:
 
-- Automatically generated.
-- A list that contains only integers.
-- Starts at zero.
-- Stops before the number you input.
+- Automatically generates a list that contains only integers starting at zero and stopping at `x - 1`
 
 ```python
-range(5)  # => [0, 1, 2, 3, 4]
+for i in range(5):
+    print(i)
+# -> 0
+1
+2
+3
+4
 ```
 
 <aside class="notes">
@@ -443,11 +420,15 @@ print(squares)
 
 Looping over `names` here is really just going through the loop 4 times -  at index `0`, `1`, `2`, and `3`.
 
-We can instead use `range(x)` to track the index and  loop `names`: `range(4)` is `[0, 1, 2, 3]`.
+This is essentially shorthand. What's happening under the hood?
+
+We can use `range(x)` to track the index and loop `names`: `range(4)` is `[0, 1, 2, 3]`.
+
+- **Hint**: _index_ refers to the numerical placement of the item we are currently pointing to in the list.
 
 We can then use `len(names)`, which is 4, as our range.
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-range-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="300px" width="100%" src="https://repl.it/@SuperTernary/python-programming-range-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 <aside class="notes">
@@ -495,8 +476,8 @@ But we can do:
 ```python
 guest_list = ["Fred", "Cho", "Brandi", "Yuna", "Nanda", "Denise"]
 
-for guest in range(len(guest_list)):
-  guest_list[guest] = "A new name"
+for index in range(len(guest_list)):
+  guest_list[index] = "A new name"
 ```
 
 <aside class="notes">
@@ -584,7 +565,7 @@ In it:
 
 - Create a list of colors.
 - Using a `for` loop, print out the list.
-- Using `range`, set each item in the list to be the number of characters in the list.
+- Using `range`, set each item in the list to be the number of characters in the color.
 - Print the list.
 
 For example:
@@ -662,8 +643,10 @@ for guest in range(len(guest_list)):
 
 ## The While Loop
 
+What if we don't know how many times we want to loop?
 
-What about "While the bread isn't brown, keep cooking"?
+For example, "Cook until the bread is brown".
+
 
 Python provides two loop types.
 
@@ -676,7 +659,7 @@ Python provides two loop types.
 
 - You're about to learn!
 - When your loop could run an indeterminate number of times.
-- Checks if something is `True` *(the bread isn't brown yet)* and runs until it's set to `False` *(now the bread is brown, so stop)*.
+- Checks if some conditional is `True` *(the bread isn't brown yet)* and runs until it's set to `False` *(now the bread is brown, so stop)*.
 
 <aside class="notes">
 
@@ -691,9 +674,9 @@ Python provides two loop types.
 ## While Loop Syntax
 
 ```python
-# While <something> is true:
+# While <conditional>:
 #     Run some code
-#     If you're done, set the <something> to false
+#     You're done with <conditional> is Flase
 #     Otherwise, repeat.
 
 a = 0
@@ -832,15 +815,6 @@ set it to `12` units. Next, we set up our `while` loop. We want to loop while th
 
 ##  Side Note: Input()
 
-Let's do something more fun.
-
-With a partner, you will write a program that:
-
-- Has a user guess a number.
-- Runs until the user guesses.
-
-But first, how do we have users input numbers?
-
 Using `input()`.
 
 ```python
@@ -849,8 +823,7 @@ user_name = input("Please enter your name:")
 print(user_name)
 ```
 
-Erase the code in your `practicing_while.py` file and put the above. Run it! What happens? Does it work?
-
+How do we think this works?
 
 <aside class="notes">
 
@@ -873,7 +846,7 @@ user input so that they can take guesses about our secret number. Here's how `in
 
 ## You Do: A Guessing Game
 
-Now, get with a partner! Let's write the the game.
+Now, get with a partner! Let's write a game.
 
 Decide who will be driver  and who will be navigator. Add this to your existing file.
 
