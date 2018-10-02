@@ -15,7 +15,7 @@ In this homework, you're going to write code for two challenge problems.
 
 You will practice these programming concepts we've covered in class:
 
-* Declaring and using lists.
+* Declaring and using lists. If you haven't seen the video lecture on lists, [watch it here](https://cl.ly/bd421e98c3f8) 
 * Using the Python conditionals `if`, `elif`, and `else`.
 * Using `for` and `while` loops.
 
@@ -35,14 +35,12 @@ For each of the code challenges listed below, you will create a new `.py` file a
 python problem1.py
 ```
 
-> **Hint:** Make sure you are printing something out with the `print` statement! Otherwise, you won't see any output from running your program!
+> **Hint:** Make sure you are printing something out with the `print` statement, Otherwise, you won't see any output from running your program. But the `print` statement doesn't _return_ values, it just displays them on the console. This is how we can verify the state of our code, by logging information to be displayed.
 
 
 ## Requirements
 
-By the end of this, you should have:
-* Two different `.py` files (one for each code challenge).
-* One text file with answers to the five reading comprehension questions.
+By the end of this, you should have two different `.py` files (one for each code challenge), and one text file with answers to the five reading comprehension questions.
 
 ---
 
@@ -52,38 +50,39 @@ By the end of this, you should have:
 
 ### Skill you're practicing: Writing `for` loops to iterate over a list.
 
-You have a list of Disney characters and you want to find out if each of them contain `i`, `o`, or `u` in their names. Loop through each character in the list and print out the following:
+You have a list of band names and you want to find out if each of them contain `i`, `o`, or `u` in their names. Loop through each band in the list and print out the following:
 
 ```
-If the name contains a "u," print out the name plus "U are so Uniquely U!"
-Otherwise if the name contains an "i," print out the name plus "I bet you're Impressively Intelligent!"
-Otherwise if the name contains an "o," print out the name plus "O My! How Original!"
-Otherwise, print the name plus "Ehh, a's and e's are so ordinary."
+If the name contains a "u," print out the name plus " rocks!"
+Otherwise if the name contains an "i," print out the name plus " should win every award, ever."
+Otherwise if the name contains an "o," print out the name plus " is one of the greatest bands of all time."
+Otherwise, print the name plus " is super meh."
 ```
+
+> **Bonus:** Write a function that, given a letter, will return the first band name in the list that contains that letter. If no band name is found, just return "Black Sabbath". They're the greatest band of all time, so it just makes sense to do that. 
 
 #### Starter Code
 
 ```python
-disney_characters = ["simba", "ariel", "pumba", "flounder", "nala", "ursula", "scar", "flotsam", "timon"]
+band_names = ["Rush", "Red Hot Chili Peppers", "Kanye West", "The Ramones", "Wu-Tang", "Beck", "Fleetwood Mac", "Sonic Youth", "Green Day"]
 
 ```
 
 #### Expected Output
 
 ```
-simba I bet you're Impressively Intelligent!
-ariel I bet you're Impressively Intelligent!
-pumba U are so Uniquely U!
-flounder U are so Uniquely U!
-nala Ehh, a's and e's are so ordinary.
-ursula U are so Uniquely U!
-scar Ehh, a's and e's are so ordinary.
-flotsam O My! How Original!
-timon I bet you're Impressively Intelligent!
+Rush rocks!
+Red Hot Chili Peppers should win every award, ever.
+Kanye West is super meh.
+The Ramones is one of the greatest bands of all time.
+Wu-Tang rocks!
+Beck is super meh.
+Sonic Youth rocks!
+Green Day is super meh.
 ```
 
 
-> **Hint**: You can determine whether or not a string contains a particular character with an `if` statement. For example, `if "b" in my_string:` will be true if `my_string` contains any b's.
+> **Hint**: You can determine whether or not a string contains a particular character with an `if` statement. For example, `if "b" in my_string:` will be true if `my_string` contains any b's. The `in` syntax works for lists as well. Test it out - [http://repl.it](http://repl.it)!
 
 ---
 
@@ -98,6 +97,10 @@ While the temperature is greater than 75 degrees Fahrenheit, print "The temperat
 
 Once the temperature is cool enough and the loop is done, print "75. Ahh, that's better."
 ```
+
+> **BONUS 1:** When the AC is off, make the temperature climb by 1 degree after every 5th loop. Make sure to wait until the temperature is 78 degrees before you turn the AC back on!
+
+> **BONUS 2:** Create a function containing this logic. Your function should have a meaningful name, and should accept 1 parameter representing the starting temperature. 
 
 #### Starter Code
 
@@ -124,20 +127,25 @@ Temperature is 78 — crank the AC!
 
 Read through the examples in these two articles about [`for` loops](https://www.digitalocean.com/community/tutorials/how-to-construct-for-loops-in-python-3) and [`while` loops](https://www.digitalocean.com/community/tutorials/how-to-construct-while-loops-in-python-3) from Digital Ocean. Then, answer the following questions.
 
-1. What is a nested loop?
+1. What is a nested loop? When would you use one?
 
-2. Which kind of loop is based on a conditional statement: `while` loops or `for` loops?
+2. In your own words, what is a `for` loop and why would you use one?
 
-3. When you want to iterate a specific number of times, would you typically use a `while` loop or a `for` loop?
+3. In your own words, what is a `while` loop and why would you use one?
 
-4. Is it possible to loop through a string one letter at a time? What is the example given in the article?
+4. What is associated the risk involved with `while` loops, and how can it be avoided?
 
-5. Extrapolate from what you learned in the articles: Do you think a `for` loop be nested inside a `while` loop? Why or why not?
+> **SUPER HARD BONUS CHALLENGE:** Write a function `unique_combinations(list1, list2)` , where `list1` and `list2` are both lists of strings, that will create a list of strings representing each unique pairs of strings in each input list.
+
+> For example:
+
+> ```python
+> unique_combinations(['a', 'b'], ['c', 'd', 'e'])
+> ```
+
+> Will produce the output `['ac', 'ad', 'ae', 'bc', 'bd', 'be']`
+
 
 ---
 
 ## All Done!
-
-Time to get some rest!
-
-![](https://media.giphy.com/media/13h8Y1oVRO30KQ/giphy.gif)

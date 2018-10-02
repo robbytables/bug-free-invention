@@ -52,7 +52,7 @@
 <p><a target="_blank" href="https://cl.ly/bd421e98c3f8">Lesson 6 Video Lecture</a></p>
 
 <h3>Class 2 Homework</h3>
-<h5>Due Monday, October</h5>
+<h5>Due Monday, October 1</h5>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-2/README.pdf">Class 2 Homework: Conditionals + Control Flow</a></p>
 
 
@@ -60,5 +60,10 @@
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/07-loops/07-loops-slides.md.html">Lesson 7: Loops</a></p>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/08-functions/08-functions-slides.md.html">Lesson 8: Functions</a></p>
 </body>
+
+<h3>Class 3 Homework</h3>
+<h5>Due Wednesday, October 3</h5>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-3/homework3.pdf">Class 3 Homework: Lists + Loops</a></p>
+
 
 </html>
