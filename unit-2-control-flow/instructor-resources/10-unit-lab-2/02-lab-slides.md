@@ -65,9 +65,7 @@ Do you remember the first unit lab? You have a print statement to show the user 
 
 In today's lab, you will use functions, `if` statements, and loops. By the end, your movie app will print a movie title, a movie rating, or both, depending on a string value.
 
-**Open the file {`unit-lab-2-directions`} see the lab and its instructions. Follow the instructions there.**
-
-- *If your solution to the last lab didn't quite work, there's working code provided in the {`starter-code`} folder. Copy that to your local folder and work from there.*
+**Open the file [Unit 2 Lab Instructions](unit-lab-2-directions.pdf) see the lab and its instructions. Follow the instructions there.**
 
 Try your best! Raise your hand if you really need help.
 

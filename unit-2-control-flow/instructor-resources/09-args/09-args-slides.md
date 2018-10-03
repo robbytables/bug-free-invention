@@ -5,7 +5,9 @@ duration: "01:00"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Advanced Function Arguments
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Python Programming: Advanced Function Arguments</h1>
 
 
 <!--
@@ -440,7 +442,7 @@ dinner(app="chicken wings", main_course="medium rare steak", drink="water", dess
 dinner("chicken wings", "water", dessert="medium rare steak", main_course="medium rare steak")
 ```
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-kwargs-dessert?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="300px" width="100%" src="https://repl.it/@SuperTernary/python-programming-kwargs-dessert?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 <aside class="notes">
 
