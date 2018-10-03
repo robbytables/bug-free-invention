@@ -64,35 +64,6 @@ In this lesson, students will:
 
 ---
 
-## Kicking Off Unit 3
-
-In Unit 2, we ended by changing what our movie app printed depending on the value of a variable.
-
-Unit 3 is about **objects** in programming.
-
-- Objects are different kinds of things variables can hold.
-- Objects help give our programs more structure and functionality.
-- You already have one object down! Lists are an object with built-in functionality like `append()` and `pop()`.
-
-In Unit 3, we're going to add many more objects. By the end, your movie app will have the same functionality, but it will be structured in a totally different way.
-
-Ready? Let's go!
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Recap what students learned in Unit 2. Give a quick overview of what they'll learn in Unit 3.
-- Feel free to speak about your own definition of "object-oriented programming" here.
-
-**Talking Points:**
-
-- Now that you have a feel for control flow, let's talk about objects.
-
-</aside>
-
----
-
 ## Introducing Dictionaries
 
 Think about dictionaries — they're filled with words and definitions that are paired together.
@@ -162,7 +133,7 @@ print(my_dictionary["Puppy"])
 
 The order of keys you see printed may differ from how you entered them. That's fine!
 
-You can't have the same key twice. Imagine having two "puppies" in a real dictionary! If you try, the last value will be the one that's kept.
+You can't have the same key twice. Imagine having two definitions for the word "puppy" in a real dictionary! If you try, the last value will be the one that's kept.
 
 What's more, printing a key that doesn't exist gives an error.
 
@@ -299,7 +270,9 @@ collection_2 = {"three": 3, "five": 5, 9: "nine"}
 ## Looping Through Dictionaries
 
 
-We can print a dictionary with `print(my_dictionary)`, but, like a list, we can also loop through the items with a `for` loop:
+We can print a dictionary with `print(my_dictionary)`, but, like a list, we can also loop through the items with a `for` loop.
+
+If we want to print both the `key` and the `value`, all we have to do is provide 2 labels, separated by a comma. Python unpacks it for us!
 
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-for-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -334,9 +307,7 @@ for key in my_dictionary:
 
 ---
 
-## Partner Exercise: Dictionary Practice
-
-You know the drill: Grab a partner and pick a driver!
+## Watch Me: Dictionary Practice
 
 Create a new local file, `dictionary_practice.py`. Write a script that declares a dictionary called `my_name`.
 
@@ -371,7 +342,7 @@ Write a loop that prints the dictionary, but formatted.
 
 ## Partner Exercise: Most Popular Word
 
-With the same partner, switch who's driving.
+Grab a partner!
 
 Write a function, `mostPopularWord()`, that takes a list of strings and returns the string that appears the most.
 
@@ -405,7 +376,7 @@ print(mostPopularWord(words))
 
 ---
 
-## Other Values
+## Other Values: Take Home Work!
 
 We're almost there! Let's make this more complex.
 

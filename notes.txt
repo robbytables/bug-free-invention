@@ -1,4 +1,4 @@
-lesson 1
+Class 1
 --------
 - Never talk about core data types (int/float/str/bool)
 - There's no time for command line lesson
@@ -6,7 +6,7 @@ lesson 1
 - Bug in homework, spells HELLO WJRLD
 - Homework is confusing. It doesn't spell any words, it just prints numbers, but the "hello world" aspect is forced in there. I'd rethink this completely.
 
-Lesson 2
+Class 2
 --------
 - Truth tables are really confusing, should change the ordering here/add more resources.
 - No time to go over homework or answer any questions. I ended up not able to do the Lists lesson.
@@ -15,3 +15,23 @@ Lesson 2
 - We're introducing functions, but referring to them as operators (sum/min/max/len/insert/pop).
 - We've also never discussed what a function is, or a return type.
   - It's technically ok to do this, as long as you give the instructors time to go over these concepts. Otherwise people will just be confused. With the ultra-rigid timing, there's just no space for injecting meaningful conversation around these concepts.
+
+Class 3
+-------
+loops
+- not knowing the number of times we want to iterate isn't a meaningful explanation for use of `range(x)`, as we need an x.
+- range(x) does not return a list of integers, rather a generator. It is misleading to tell the students otherwise.
+
+functions
+- Improper use of 'callbacks'
+- fizzbuzz uses paramters before we introduce the concept
+
+Class 4
+------
+
+lab
+- Tons of anti-patterns here. "search_or_ratings" is a terrible function name, directly violates the Single Responsibility Principal.
+- Seems to be little reasoning behind which variables are global and which are local.
+- What is this magic number that determines how our code works?
+- Why are we doing all of this? There's no idication of what the final product will do, so students don't understand why they're doing these steps now.
+- Instructions are too specific.

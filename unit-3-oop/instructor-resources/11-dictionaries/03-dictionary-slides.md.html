@@ -106,39 +106,17 @@ In this lesson, students will:
 </aside>
 <hr />
 </section>
-<section id="kicking-off-unit-3" class="level2">
-<h2>Kicking Off Unit 3</h2>
-<p>In Unit 2, we ended by changing what our movie app printed depending on the value of a variable.</p>
-<p>Unit 3 is about <strong>objects</strong> in programming.</p>
-<ul>
-<li>Objects are different kinds of things variables can hold.</li>
-<li>Objects help give our programs more structure and functionality.</li>
-<li>You already have one object down! Lists are an object with built-in functionality like <code>append()</code> and <code>pop()</code>.</li>
-</ul>
-<p>In Unit 3, we’re going to add many more objects. By the end, your movie app will have the same functionality, but it will be structured in a totally different way.</p>
-<p>Ready? Let’s go!</p>
-<aside class="notes">
-<p><strong>Teaching Tips:</strong></p>
-<ul>
-<li>Recap what students learned in Unit 2. Give a quick overview of what they’ll learn in Unit 3.</li>
-<li>Feel free to speak about your own definition of “object-oriented programming” here.</li>
-</ul>
-<p><strong>Talking Points:</strong></p>
-<ul>
-<li>Now that you have a feel for control flow, let’s talk about objects.</li>
-</ul>
-</aside>
-<hr />
-</section>
 <section id="introducing-dictionaries" class="level2">
 <h2>Introducing Dictionaries</h2>
-<p>Think about dictionaries — they’re filled with words and definitions that are paired together.</p>
+<p>Think about dictionaries — they're filled with words and definitions that are paired together.</p>
 <p>Programming has a dictionary object just like this!</p>
 <ul>
 <li>Dictionaries hold keys (words) and values (the definitions).</li>
 <li>In a real dictionary, you can look up a word and find the definition. In a Python dictionary, you can look up a key and find the value.</li>
 </ul>
-<p><img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/dictionary.png" /></p>
+<figure>
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/dictionary.png" />
+</figure>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -155,18 +133,18 @@ In this lesson, students will:
 <section id="declaring-a-dictionary" class="level2">
 <h2>Declaring a Dictionary</h2>
 <p>Dictionaries in programming are made of <strong>key-value pairs</strong>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Here&#39;s the syntax:</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">name_of_dictionary <span class="op">=</span> {<span class="st">&quot;Key1&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key2&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key3&quot;</span>: <span class="st">&quot;Value&quot;</span>}</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(name_of_dictionary[key_to_look_up])</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Prints the value</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># And in action...</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">print</span>(my_dictionary)</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># Prints the whole dictionary</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="bu">print</span>(my_dictionary[<span class="st">&quot;Puppy&quot;</span>])</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co"># =&gt; Prints Puppy&#39;s value: &quot;Furry, energetic animal&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Here&#39;s the syntax:</span>
+name_of_dictionary <span class="op">=</span> {<span class="st">&quot;Key1&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key2&quot;</span>: <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Key3&quot;</span>: <span class="st">&quot;Value&quot;</span>}
+<span class="bu">print</span>(name_of_dictionary[key_to_look_up])
+<span class="co"># Prints the value</span>
+
+<span class="co"># And in action...</span>
+my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}
+
+<span class="bu">print</span>(my_dictionary)
+<span class="co"># Prints the whole dictionary</span>
+<span class="bu">print</span>(my_dictionary[<span class="st">&quot;Puppy&quot;</span>])
+<span class="co"># =&gt; Prints Puppy&#39;s value: &quot;Furry, energetic animal&quot;</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -187,17 +165,17 @@ In this lesson, students will:
 </section>
 <section id="we-do-dictionaries-and-quick-tips" class="level2">
 <h2>We Do: Dictionaries and Quick Tips</h2>
-<p>The order of keys you see printed may differ from how you entered them. That’s fine!</p>
-<p>You can’t have the same key twice. Imagine having two “puppies” in a real dictionary! If you try, the last value will be the one that’s kept.</p>
-<p>What’s more, printing a key that doesn’t exist gives an error.</p>
-<p>Let’s create a dictionary together.</p>
+<p>The order of keys you see printed may differ from how you entered them. That's fine!</p>
+<p>You can't have the same key twice. Imagine having two definitions for the word &quot;puppy&quot; in a real dictionary! If you try, the last value will be the one that's kept.</p>
+<p>What's more, printing a key that doesn't exist gives an error.</p>
+<p>Let's create a dictionary together.</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
 <li>Create a dictionary; print it out; print out a few keys.</li>
-<li>Make your dictionary anything you’d like! Get input from the students on what it should be.</li>
+<li>Make your dictionary anything you'd like! Get input from the students on what it should be.</li>
 <li>Dictionaries can be tough, especially with all the syntax. The more practice, the better! Make sure they follow along.</li>
 <li>Try other cases: Use an integer for a key. Try printing a value and show that it fails — just like a real dictionary.</li>
 </ul>
@@ -206,19 +184,17 @@ In this lesson, students will:
 <li>Keys can be a string or integer. (Show this.)</li>
 <li>You can look up any key — but not the value (just like a real dictionary!).</li>
 <li>Use meaningful keys: <code>my_zip_code</code> is better than <code>some_numbers</code>.</li>
-<li>The items that are returned when you access a dictionary come in any order they please.
-<ul>
-<li>This doesn’t really matter that much, however, because the typical use case for a dictionary is when you know the exact key for the value you’re looking for.</li>
+<li>The items that are returned when you access a dictionary come in any order they please.</li>
+<li>This doesn't really matter that much, however, because the typical use case for a dictionary is when you know the exact key for the value you're looking for.</li>
 <li>But, you should never count on the contents of a dictionary being in any order at all.</li>
-</ul></li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="we-do-dictionary-syntax" class="level2">
 <h2>We Do: Dictionary Syntax</h2>
-<p>What if a value changes? We can reassign a key’s value: <code>my_dictionary[&quot;Puppy&quot;] = &quot;Cheerful&quot;</code>.</p>
-<p>What if we have new things to add? It’s the same syntax as changing the value, just with a new key: <code>my_dictionary[&quot;Yoga&quot;] = &quot;Peaceful&quot;</code>.</p>
+<p>What if a value changes? We can reassign a key's value: <code>my_dictionary[&quot;Puppy&quot;] = &quot;Cheerful&quot;</code>.</p>
+<p>What if we have new things to add? It's the same syntax as changing the value, just with a new key: <code>my_dictionary[&quot;Yoga&quot;] = &quot;Peaceful&quot;</code>.</p>
 <ul>
 <li>Changing values is case sensitive — be careful not to add a new key!</li>
 </ul>
@@ -232,9 +208,9 @@ In this lesson, students will:
 <li>Show that capitalization matters!</li>
 </ul>
 <p><strong>Repl.it note</strong>: This repl.it has:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(my_dictionary)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}
+
+<span class="bu">print</span>(my_dictionary)</code></pre></div>
 </aside>
 <hr />
 </section>
@@ -244,24 +220,24 @@ In this lesson, students will:
 <ul>
 <li>Make a dictionary.</li>
 <li>Print a dictionary.</li>
-<li>Print one key’s value.</li>
-<li>Change a key’s value.</li>
+<li>Print one key's value.</li>
+<li>Change a key's value.</li>
 </ul>
-<p>Here’s a best practice: Declare your dictionary across multiple lines for readability. Which is better?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># This works but is not proper style.</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Do this instead!</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">my_dictionary <span class="op">=</span> {</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></pre></div>
+<p>Here's a best practice: Declare your dictionary across multiple lines for readability. Which is better?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This works but is not proper style.</span>
+my_dictionary <span class="op">=</span> {<span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>, <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>, <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>}
+
+<span class="co"># Do this instead!</span>
+my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>
+}</code></pre></div>
 <aside class="notes">
 <p>2 MINUTES</p>
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>Do a quick check for understanding, then mention the line breaks. Make sure it’s clear that the breaks are the only change.</li>
+<li>Do a quick check for understanding, then mention the line breaks. Make sure it's clear that the breaks are the only change.</li>
 <li>Make sure that students can do this thus far. Perhaps open an interpreter.</li>
 </ul>
 <p><strong>Talking Points:</strong></p>
@@ -277,25 +253,26 @@ In this lesson, students will:
 <section id="discussion-collection-identification-practice" class="level2">
 <h2>Discussion: Collection Identification Practice</h2>
 <p>What are <code>a</code> and <code>b</code> below?:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># What object is this?</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">collection_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="st">&quot;nine&quot;</span>]</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># What object is this?</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">collection_2 <span class="op">=</span> {<span class="st">&quot;three&quot;</span>: <span class="dv">3</span>, <span class="st">&quot;five&quot;</span>: <span class="dv">5</span>, <span class="dv">9</span>: <span class="st">&quot;nine&quot;</span>}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># What object is this?</span>
+
+collection_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="st">&quot;nine&quot;</span>]
+
+<span class="co"># What object is this?</span>
+collection_2 <span class="op">=</span> {<span class="st">&quot;three&quot;</span>: <span class="dv">3</span>, <span class="st">&quot;five&quot;</span>: <span class="dv">5</span>, <span class="dv">9</span>: <span class="st">&quot;nine&quot;</span>}</code></pre></div>
 <aside class="notes">
 <p>1 MINUTE</p>
 <p><strong>Teaching Tips:</strong></p>
 <ul>
 <li>This is to quickly see if students can identify lists versus dictionaries.</li>
-<li>Talk about the difference between an “object” and a “collection” at a high level.</li>
+<li>Talk about the difference between an &quot;object&quot; and a &quot;collection&quot; at a high level.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="looping-through-dictionaries" class="level2">
 <h2>Looping Through Dictionaries</h2>
-<p>We can print a dictionary with <code>print(my_dictionary)</code>, but, like a list, we can also loop through the items with a <code>for</code> loop:</p>
+<p>We can print a dictionary with <code>print(my_dictionary)</code>, but, like a list, we can also loop through the items with a <code>for</code> loop.</p>
+<p>If we want to print both the <code>key</code> and the <code>value</code>, all we have to do is provide 2 labels, separated by a comma. Python unpacks it for us!</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-for-loop?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
 <aside class="notes">
@@ -308,37 +285,36 @@ In this lesson, students will:
 <li>Now, how do we loop through a dictionary? We can use the same <code>for</code> loop structure, but, instead of it iterating over each element in the collection, it will iterate over each key. We can then use the key to access the value.</li>
 <li>The lines in our <code>for</code> loop work like this:
 <ul>
-<li>The first line says, “For every key in the <code>friendzips</code> dictionary…”</li>
-<li>The second line says, “… print the value in <code>friendzips</code> associated with the provided key.”</li>
+<li>The first line says, &quot;For every key in the <code>friendzips</code> dictionary...&quot;</li>
+<li>The second line says, &quot;… print the value in <code>friendzips</code> associated with the provided key.&quot;</li>
 </ul></li>
 </ul>
 <p><strong>Repl.it note:</strong> This repl.it has:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">my_dictionary <span class="op">=</span> {</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="cf">for</span> key <span class="kw">in</span> my_dictionary:</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="bu">print</span>(my_dictionary[key])</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="cf">for</span> key <span class="kw">in</span> my_dictionary:</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="bu">print</span>(key, <span class="st">&quot;:&quot;</span>, my_dictionary[key])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>
+}
+
+<span class="cf">for</span> key <span class="kw">in</span> my_dictionary:
+  <span class="bu">print</span>(my_dictionary[key])
+
+<span class="cf">for</span> key <span class="kw">in</span> my_dictionary:
+  <span class="bu">print</span>(key, <span class="st">&quot;:&quot;</span>, my_dictionary[key])</code></pre></div>
 </aside>
 <hr />
 </section>
-<section id="partner-exercise-dictionary-practice" class="level2">
-<h2>Partner Exercise: Dictionary Practice</h2>
-<p>You know the drill: Grab a partner and pick a driver!</p>
+<section id="watch-me-dictionary-practice" class="level2">
+<h2>Watch Me: Dictionary Practice</h2>
 <p>Create a new local file, <code>dictionary_practice.py</code>. Write a script that declares a dictionary called <code>my_name</code>.</p>
 <ul>
 <li>Add a key for each letter in your name with a value of how many times that letter appears.</li>
 </ul>
-<p>As an example, here is the dictionary you’d make for <code>&quot;Callee&quot;</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">my_name <span class="op">=</span> {<span class="st">&quot;c&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;l&quot;</span>: <span class="dv">2</span>, <span class="st">&quot;e&quot;</span>: <span class="dv">2</span>}</a></code></pre></div>
+<p>As an example, here is the dictionary you'd make for <code>&quot;Callee&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_name <span class="op">=</span> {<span class="st">&quot;c&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;l&quot;</span>: <span class="dv">2</span>, <span class="st">&quot;e&quot;</span>: <span class="dv">2</span>}</code></pre></div>
 <p>Write a loop that prints the dictionary, but formatted.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># The letter l appears in my name 2 times.</span></a></code></pre></div>
-<p><strong>Bonus (if you have time)</strong>: If it’s only one time, instead print <code>The letter l appears in my name once</code>. If it’s only two times, instead print <code>The letter l appears in my name twice.</code></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># The letter l appears in my name 2 times.</span></code></pre></div>
+<p><strong>Bonus (if you have time)</strong>: If it's only one time, instead print <code>The letter l appears in my name once</code>. If it's only two times, instead print <code>The letter l appears in my name twice.</code></p>
 <aside class="notes">
 <p>5 MINUTES</p>
 <p><strong>Teaching Tips:</strong></p>
@@ -352,17 +328,17 @@ In this lesson, students will:
 </section>
 <section id="partner-exercise-most-popular-word" class="level2">
 <h2>Partner Exercise: Most Popular Word</h2>
-<p>With the same partner, switch who’s driving.</p>
+<p>Grab a partner!</p>
 <p>Write a function, <code>mostPopularWord()</code>, that takes a list of strings and returns the string that appears the most.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">words <span class="op">=</span> [</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="st">&quot;hello&quot;</span>,</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="st">&quot;water&quot;</span>,</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="st">&quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  ]</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="bu">print</span>(mostPopularWord(words))</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co"># Prints &quot;hello&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">words <span class="op">=</span> [
+    <span class="st">&quot;hello&quot;</span>,
+    <span class="st">&quot;water&quot;</span>,
+    <span class="st">&quot;hello&quot;</span>
+  ]
+
+<span class="bu">print</span>(mostPopularWord(words))
+<span class="co"># Prints &quot;hello&quot;</span></code></pre></div>
 <p><strong>Hints:</strong></p>
 <ul>
 <li>Create a dictionary with words as keys and the count as the values.</li>
@@ -378,9 +354,9 @@ In this lesson, students will:
 </aside>
 <hr />
 </section>
-<section id="other-values" class="level2">
-<h2>Other Values</h2>
-<p>We’re almost there! Let’s make this more complex.</p>
+<section id="other-values-take-home-work" class="level2">
+<h2>Other Values: Take Home Work!</h2>
+<p>We're almost there! Let's make this more complex.</p>
 <p>In a list or a dictionary, anything can be a value. - This is a good reason to split dictionary declarations over multiple lines!</p>
 <p>Open this repl.it in a new window so you can see it all (the button in the top-right corner).</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-dictionary-other-values?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
@@ -388,32 +364,32 @@ In this lesson, students will:
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>This slide can be skipped in classes with struggling students; it’s good information but not crucial to know at a beginner’s level.</li>
+<li>This slide can be skipped in classes with struggling students; it's good information but not crucial to know at a beginner's level.</li>
 <li>This is a demo, not an exercise.</li>
 <li>This can be tough. Spend some time here.</li>
 <li>This repl.it is huge! Open it in a new window so students can see it all.</li>
 <li>All the code is there, you just need to walk through it.</li>
 </ul>
 <p><strong>Repl.it note:</strong> This code is:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">other_values_in_a_dictionary <span class="op">=</span> {</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="st">&quot;CA&quot;</span>: {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">        <span class="st">&quot;another_key&quot;</span> : <span class="st">&quot;a value&quot;</span>,</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">        <span class="st">&quot;Joe&quot;</span> : <span class="st">&quot;Even more dictionary!&quot;</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">        },</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="st">&quot;WA&quot;</span>: [<span class="st">&quot;Trevor&quot;</span>, <span class="st">&quot;Courtney&quot;</span>, <span class="st">&quot;Brianna&quot;</span>, <span class="st">&quot;Kai&quot;</span>],</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">  <span class="st">&quot;NY&quot;</span>: <span class="st">&quot;Just Tatyana&quot;</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Here&#39;s a dictionary and list in a dictionary:&quot;</span>, other_values_in_a_dictionary)</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="bu">print</span>(<span class="st">&quot;----------&quot;</span>)</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">other_values_in_a_list <span class="op">=</span> [</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">  <span class="st">&quot;a value&quot;</span>,</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">  {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>, <span class="st">&quot;key2&quot;</span> : <span class="st">&quot;value 2&quot;</span>},</a>
-<a class="sourceLine" id="cb9-17" data-line-number="17">  [<span class="st">&quot;now&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;list&quot;</span>]</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18">  ]</a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="bu">print</span>(<span class="st">&quot;Here&#39;s a list and dictionary in a list:&quot;</span>, other_values_in_a_list)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">other_values_in_a_dictionary <span class="op">=</span> {
+  <span class="st">&quot;CA&quot;</span>: {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>,
+        <span class="st">&quot;another_key&quot;</span> : <span class="st">&quot;a value&quot;</span>,
+        <span class="st">&quot;Joe&quot;</span> : <span class="st">&quot;Even more dictionary!&quot;</span>
+        },
+  <span class="st">&quot;WA&quot;</span>: [<span class="st">&quot;Trevor&quot;</span>, <span class="st">&quot;Courtney&quot;</span>, <span class="st">&quot;Brianna&quot;</span>, <span class="st">&quot;Kai&quot;</span>],
+  <span class="st">&quot;NY&quot;</span>: <span class="st">&quot;Just Tatyana&quot;</span>
+}
+
+<span class="bu">print</span>(<span class="st">&quot;Here&#39;s a dictionary and list in a dictionary:&quot;</span>, other_values_in_a_dictionary)
+
+<span class="bu">print</span>(<span class="st">&quot;----------&quot;</span>)
+
+other_values_in_a_list <span class="op">=</span> [
+  <span class="st">&quot;a value&quot;</span>,
+  {<span class="st">&quot;key1&quot;</span> : <span class="st">&quot;value 1&quot;</span>, <span class="st">&quot;key2&quot;</span> : <span class="st">&quot;value 2&quot;</span>},
+  [<span class="st">&quot;now&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;list&quot;</span>]
+  ]
+<span class="bu">print</span>(<span class="st">&quot;Here&#39;s a list and dictionary in a list:&quot;</span>, other_values_in_a_list)</code></pre></div>
 </aside>
 <hr />
 </section>
@@ -423,17 +399,15 @@ In this lesson, students will:
 <ul>
 <li>Are another kind of collection, instead of a list.</li>
 <li>Use <strong>keys</strong> to access <strong>values</strong>, not indices!</li>
-<li>Should be used instead of lists when:
-<ul>
-<li>You don’t care about the order of the items.</li>
-<li>You’d prefer more meaningful keys than just index numbers.</li>
-</ul></li>
+<li>Should be used instead of lists when:</li>
+<li>You don't care about the order of the items.</li>
+<li>You'd prefer more meaningful keys than just index numbers.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">my_dictionary <span class="op">=</span> {</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {
+  <span class="st">&quot;Puppy&quot;</span>: <span class="st">&quot;Furry, energetic animal&quot;</span>,
+  <span class="st">&quot;Pineapple&quot;</span>: <span class="st">&quot;Acidic tropical fruit&quot;</span>,
+  <span class="st">&quot;Tea&quot;</span>: <span class="st">&quot;Herb-infused drink&quot;</span>
+}</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -449,20 +423,20 @@ In this lesson, students will:
 <p>Finding the value from a key is easy: <code>my_dictionary[key]</code>. But, what if you only have the value and want to find the key?</p>
 <p>You task is to write a function, <code>reverse_lookup()</code>, that takes a dictionary and a value and returns the corresponding key.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">state_capitals <span class="op">=</span> {</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="st">&quot;Alaska&quot;</span> : <span class="st">&quot;Juneau&quot;</span>,</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="st">&quot;Colorado&quot;</span> : <span class="st">&quot;Denver&quot;</span>,</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="st">&quot;Oregon&quot;</span> : <span class="st">&quot;Salem&quot;</span>,</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="st">&quot;Texas&quot;</span> : <span class="st">&quot;Austin&quot;</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="bu">print</span>(reverse_lookup(<span class="st">&quot;Denver&quot;</span>))</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co"># Prints Colorado</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">state_capitals <span class="op">=</span> {
+  <span class="st">&quot;Alaska&quot;</span> : <span class="st">&quot;Juneau&quot;</span>,
+  <span class="st">&quot;Colorado&quot;</span> : <span class="st">&quot;Denver&quot;</span>,
+  <span class="st">&quot;Oregon&quot;</span> : <span class="st">&quot;Salem&quot;</span>,
+  <span class="st">&quot;Texas&quot;</span> : <span class="st">&quot;Austin&quot;</span>
+  }
+
+<span class="bu">print</span>(reverse_lookup(<span class="st">&quot;Denver&quot;</span>))
+<span class="co"># Prints Colorado</span></code></pre></div>
 <aside class="notes">
 <p>~15 MINUTES</p>
 <p><strong>Teaching Tips:</strong></p>
 <ul>
-<li>This is a You Do to assign only if there’s time. Otherwise, the same exercise is in the <code>xx-additional-exercises</code> folder as <code>dictionary_reverse_lookup</code>; assign it as additional homework.</li>
+<li>This is a You Do to assign only if there's time. Otherwise, the same exercise is in the <code>xx-additional-exercises</code> folder as <code>dictionary_reverse_lookup</code>; assign it as additional homework.</li>
 <li>After students have given this</li>
 </ul>
 </aside>

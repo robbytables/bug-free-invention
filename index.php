@@ -1,4 +1,5 @@
-<!doctype html>
+<
+doctype html>
 
 <html lang="en">
 
@@ -65,5 +66,9 @@
 <h5>Due Wednesday, October 3</h5>
 <p><a target="_blank" href="unit-2-control-flow/instructor-resources/hw-10wk-class-3/homework3.pdf">Class 3 Homework: Lists + Loops</a></p>
 
+
+<h3>Class 4</h3>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/11-dictionaries/03-dictionary-slides.md.html">Lesson 9: Dictionaries!</a></p>
+<p><a target="_blank" href="unit-2-control-flow/instructor-resources/10-unit-lab-2/02-lab-slides.md.html">Lab 2: Control Flow</a></p>
 
 </html>
