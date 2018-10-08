@@ -76,7 +76,7 @@ Amélie (2001): One person can change your life forever.
 **Hint:** Remember, you can access a tuple sort of like a list, with the square brackets `[]` counting from zero (e.g., the value of `romantic_movie1[0]` is `"The Princess Bride"`).
 
 ### Bonus:
-Change the `print` statement's separator character to an empty string `""` instead of a space so that you can print the year as `(1987)` instead of `( 1987 )`.
+Change the `print` statement's separator character to an empty string `""` instead of a space so that you can print the year as `(1987)` instead of `( 1987 )`. Use your toolkit!
 
 ---
 
@@ -113,8 +113,84 @@ April Ludgate in Administration can be reached at 555-3345.
 
 ---
 
-## Celebrate!
 
-You're all finished!
+# Reverse Lookup
 
-![](https://media.giphy.com/media/UkhHIZ37IDRGo/giphy.gif)
+## Overview:
+
+Finding the value from a key is easy: `my_dictionary[key]`. But what if you only have the value and want to find the key?
+
+There's no built-in function for this - you'll be writing it here.
+
+You will practice these programming concepts we've covered in class:
+* Functions
+* Loops
+* Dictionaries
+
+## Deliverables
+
+One `.py` file with code that solves the problem.
+
+## Requirements
+You task is to write a function that takes a dictionary and a value, returning the corresponding key.
+
+For example:
+
+```python
+state_capitals = {
+  "Alaska" : "Juneau",
+  "Colorado" : "Denver",
+  "Oregon" : "Salem",
+  "Texas" : "Austin"
+  }
+
+print(reverse_lookup("Denver"))
+# Prints Colorado
+```
+### ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Part Time
+
+<!---
+
+Questions? Comments?
+1. Log an issue to this repo to alert me of a problem.
+2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
+3. Hit me up on Slack @susiremondi
+--->
+
+# Equal Sets
+
+## Overview:
+
+For two sets to be equal, they simply have to contain the same elements - it doesn't matter what order they're in.
+
+Unfortunately in Python, comparing two sets using `==` will only produce `True` if the elements are in the same order - not what we want!
+
+There's no built-in function for this - so you'll be writing it here.
+
+You will practice these programming concepts we've covered in class:
+- Functions
+- Sets
+
+
+## Deliverables
+
+One `.py` file with code that solves the problem.
+
+## Requirements:
+
+Write a function that takes two sets and returns `True` if they have the same elements, even if they aren't in the same order.
+
+Here is an example - try running this normally:
+
+```python
+fruits = ['orange', 'pear', 'kiwi', 'apple', 'banana']
+
+fruits_copy = ['orange', 'pear', 'kiwi', 'apple', 'banana']
+
+fruits_reordered = ['pear', 'apple', 'kiwi', 'orange', 'banana']
+
+print("Copy comparison", fruits == fruits_copy)
+print("Reordered comparison", fruits == fruits_reordered)
+```
+
+By default, the second comparison fails. Your function would instead return `True`.

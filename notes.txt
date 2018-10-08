@@ -35,3 +35,22 @@ lab
 - What is this magic number that determines how our code works?
 - Why are we doing all of this? There's no idication of what the final product will do, so students don't understand why they're doing these steps now.
 - Instructions are too specific.
+
+args
+- Didn't teach this. Needed to make more time to go over more relevant info. These concepts are unnecessary for students at this stage in their edevelopment, and are prone to being misused. It's too risky to teach this at this point. Instead, I covered dictionaries. Looking back I wish I'd done tuples and sets first, but either would be fine.
+
+dicts
+- Not bad but most of the slides were just bleh, I think this is something that is easier to teach by just doing examples in repl.it, writing some key concepts on the board, and pasting the code in slack so students can keep it
+
+tuples + sets
+- Something problematic I've seen in the entire class, naming variables after the type they are. This is unstructured and in many cases redundant. For example, "subscribed_emails_list" should just be "subscribed emails"
+- 'We Do: Tuples' repl.it throws 404
+- We keep referencing tuples as a "kind of list" and lists as "regular lists". This is improperly conflating the concept of lists and collection, and treating sets/tuples as some sort of second class list. We should instead be referring to each as different types of collections.
+
+
+
+Class 5:
+-------
+1. Review Lab 2
+2. Sets + Tuples
+3. Intermediate Vars

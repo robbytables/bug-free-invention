@@ -5,8 +5,10 @@ duration: "00:30"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Intermediate Variables
 
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Unit 3 Lab: Intermediate Variables</h1>
 
 
 <!--
@@ -47,7 +49,8 @@ In this lesson, students will:
 ## Lesson Objectives
 *After this lesson, you will be able to...*
 
-* Create and floor floats.
+* Create floats.
+* Type Cast values.
 * Use special string characters.
 * Format strings.
 
@@ -116,13 +119,14 @@ Therefore, quotients are always floats - even when they look like ints. Python d
 
 ---
 
-## Explicit Type Conversion
+## Explicit Type Conversion (AKA Type Casting)
 
-`6 / 2 == 3.0`: A float. What if you just want the int `3`? (Pretty soon, having the right type will be important!). We need **explicit type conversion.**
+`6 / 2 == 3.0`: A float. What if you just want the int `3`? (Pretty soon, having the right type will be important!). We need **explicit type conversion**, also referred to as **type casting**.
 
 - `int()` converts something to an integer.
 - `float()` converts to a float.
-- `str()` converts to a string
+- `str()` converts to a string.
+- `bool()` converts to a boolean.
 
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-type-conversion?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -202,8 +206,9 @@ You can use *explicit type conversion* to turn one variable type into another:
 - `int()` converts to an integer: `int(6.0) # 6`
 - `float()` converts to a float: `float(6) # 6.0`
 - `str()` converts to a string: `str(6) # "6"`
+- `bool()` converts to a boolean: `bool(6) # True`
 
-**Up next:** Floor Division.
+**Up next:** Integer Division.
 
 <aside class="notes">
 
@@ -222,18 +227,12 @@ One intermediate variable down! Let's move on past floats.
 What if we want to find the middle index of a list?
 
 ```python
-# An odd numbered list (length of 5)
 characters = ["Green Arrow", "Super Girl", "The Flash", "Wonder Woman", "Batman"]
 
 index = len(characters) / 2 # Index is 2.5
 
 print(characters[index]) # There's no element 2.5!
 ```
-
-We want `2`. Any ideas? This is a very common use case - there must be a way!
-
-**Protip:** Remember, indexes start at 0!
-
 
 <aside class="notes">
 **Teaching Tips**:
@@ -247,14 +246,12 @@ We want `2`. Any ideas? This is a very common use case - there must be a way!
 
 ---
 
-## Introducing Floor Division
+## Introducing Integer Division
 
-Python has a shortcut.
-
-**Floor division** (a.k.a. integer division):
+**Integer division** (a.k.a. floor division):
 
 * We use `//` instead of just `/`.
-* Does normal division, then drops the decimal and returns an int.
+* Performs division operation, then drops the decimal and returns an int.
 - Think of the floor - it's beneath you. We floor by rounding **down**. The decimal is chopped! `2.8` will become `2`, not `3`.
 
 ```python
@@ -272,49 +269,6 @@ int_index = 5 // 2
 
 - "You may hear the terms `integer division` and `floor division` used interchangeably"
 - "If you recall the terms floor and ceiling from math class, you'll understand that floor just means that the decimal is removed. Floor division is NOT the same as rounding to the nearest whole number! It literally just cuts off the decimal point!"
-</aside>
-
----
-
-## You Do: Using Floor Division
-
-Correct the code by using floor division:
-
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-floor-division?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Give them just a couple minutes to do this, then show the answer.
-
-**Talking Points**:
-
-- "Let's take a minute or two to correct our midpoint code from earlier"
-
-**Repl.it Note:** This replit has:
-```python
-# Your job: Add multiplication (product) and division (quotient)
-# to the addition and subtraction that have already been done.
-# Observe: What is the result's type for each operation?
-
-# Start with two integers
-x = 6
-y = 2
-
-# Calculate the sum, difference, product, and quotient
-result_sum = x + y
-result_difference = x - y
-# TODO: Multiplication of x and y
-# TODO: Division of x and y
-
-# Print out all results
-print("result sum", result_sum)
-print("result difference", result_difference)
-# TODO: Print result product
-# TODO: Print result quotient
-```
 </aside>
 
 ---
@@ -388,7 +342,7 @@ This is a line later.
 |-----------|-----|-----------------------------------------|
 | Newline | \n | Whitespace: Inserts another line |
 | Tab | \t | Whitespace: Inserts a tab |
-| Quote | \" | Print a double quote, don't end the string |
+| Quote | \" | Print a double quote, won't end the string |
 | Backslash | \\ | Prints \ |
 
 ```python

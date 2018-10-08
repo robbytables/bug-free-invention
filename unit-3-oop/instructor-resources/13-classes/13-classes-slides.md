@@ -1,4 +1,6 @@
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Objects and Classes
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Python Programming: Objects and Classes</h1>
 
 
 <!--
@@ -119,19 +121,14 @@ An actual car might have:
 
 In Python, the concept of blueprints and objects is common. A **class** is the blueprint for an **object**. Everything you declare in Python is an object, and it has a class.
 
-Consider the `List` class — every list you make has the same basic concept.
+Consider the `Dictionary` class. There are three defining features for a class:
 
-Variables:
+1. Variables: The keys and values in a `Dictionary` are the variables. They aren't, however, publicly accessible without use of indexing.
+1. Functions: `get()`, `items()`, `keys()`, `values()`, and more.
+1. Initialization: `dict(list_of_tuples)` will return a new `Dictionary()` object, initialized with the values passed in.
 
-- Elements: What's in the list! E.g., `my_list = [element1, element2, element3]`.
 
-Functions that all lists have:
-
-- `my_list.pop()`, `my_list.append()`, `my.list.insert(index)`
-
-![](https://s3.amazonaws.com/ga-instruction/assets/programming-fundamentals/pythonlistclass.png)
-
-What behaviors and properties do you think are in the `Dictionary` class? The `Set` class?
+What behaviors and properties do you think are in the `Set` class? The `List` class?
 
 
 <aside class="notes">
@@ -165,7 +162,7 @@ Think about the `Dog` blueprint. What variables might our class have? What funct
 
 **Pro tip:** When functions are in a class, they are called "methods." They're the same thing!
 
-**Pro tip:** While objects are named in snake_case, classes are conventionally named in TitleCase.
+**Pro tip:** While objects are named in snake_case, classes are conventionally named in TitleCase, while instances of classes are named in camelCase.
 
 <aside class="notes">
 
@@ -212,11 +209,37 @@ class Dog():
 
 ---
 
+## A Brief Aside: Named Args
+
+Refresher: Arguments are named variables passed to functions. i.e.:
+
+```python
+# Plays the given song, setting the client to play the song at the given volume
+def play_song(song_title, volume):
+  song = music_client.get(song_title)
+  song.play(volume)
+```
+
+Arguments can be assigned *default values*, using the same syntax as variable definition.
+
+```python
+# Plays the given song, setting the client to play the song at the given volume,
+# or with volume = 0 if no volume is passed in.
+def play_song(song_title, volume=0):
+  song = music_clinet.get(song_title)
+  song.play(volume)
+```
+
+This is useful when you need to have a value, or want to allow "preferred" values to be overridden. 
+
+---
+
 ## We Do: The `__init__` Method
 
-What first? Every class starts with an `__init__` method. It's:
+What first? Every class has a `__init__` method. These methods are *always* defined before any other methods.
 
-* Where we define the class' variables.
+* Populates variables with important information.
+* Should not be responsible for any object functionality.
 * Short for "initialize."
   * "Every time you make an object from this class, do what's in here."
 
@@ -280,25 +303,7 @@ We're done defining the class!
 
 ---
 
-## Aside: Instantiating Objects From Classes
-
-Now we have a `Dog` template!
-
-Each `dog` object we make from this template:
-
-* Has a name.
-* Has an age.
-* Can bark.
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Point out the lowercase "d!"
-</aside>
----
-
-## We Do: How Do We Make a `Dog` Object?
+## Another Brief-ish Aside: Instantiating Objects From Classes
 
 We call our class name like we call a function — passing in arguments, which go to the `init`.
 
@@ -306,16 +311,16 @@ Add this under your class (non-indented!):
 
 ```python
 # Declare the objects.
-gracie = Dog("Gracie", 8)
-spitz = Dog("Spitz", 5)
-buck = Dog("Buck", 3)
+yuki = Dog("Yuki", 4)
+snukie = Dog("Snukie", 5)
+maxx = Dog("Maxx", 8)
 
 # Test them out!
-gracie.bark_hello()
-print("This dog's name is", gracie.name)
-print("This dog's age is", gracie.age)
-spitz.bark_hello()
-buck.bark_hello()
+yuki.bark_hello()
+print("This dog's name is", yuki.name)
+print("This dog's age is", yuki.age)
+snukie.bark_hello()
+maxx.bark_hello()
 ```
 
 Try it! Run `Dog.py` like a normal Python file: `python Dog.py`.
@@ -338,42 +343,6 @@ Try it! Run `Dog.py` like a normal Python file: `python Dog.py`.
 
 ---
 
-## We Do: Adding Print
-
-`__init__` is just a method. It creates variables, but we can also add a `print` statement! This will run when we create the object.
-
-```python
-class Dog():
-  def __init__(self, name="", age=0):
-    self.name = name
-    self.age = age
-    print(name, "created.") # Run when init is finished.
-
-  def bark_hello(self):
-    print("Woof! I am called", self.name, "; I am", self.age, "human-years old.")
-
-fox = Dog("Fox") #  Note that "Fox created." prints — and we're using the default age.
-fox.bark_hello()
-```
-
-Try it!
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Run this a few times to show the default variables. Take out the default for name to show that variables don't need a default value.
-
-**Talking Points:**
-
-- Reminder: "Method" is a function in a class.
-- Note that `print` statements can be anywhere — it's not a variable! `__init__` is a method.
-- The `__init__` method will execute once and only once when you create a new object from a class. Note that the `print` statement never happens again.
-
-</aside>
-
-
----
 
 ## Quick Review: Classes
 
@@ -412,25 +381,25 @@ fox.bark_hello() # The object now has those methods and variables!
 </aside>
 ---
 
-## Discussion: What About Tea?
+## Discussion: What About Wahtah?
 
-Let's make a `TeaCup` class.
+Let's make a `WaterGlass` class.
 
-* What variables would a cup of tea have?
+* What variables would a glass of water have?
 * What methods?
 
 <aside class="notes">
 
 **Teaching Tips:**
 
-- Have the students discuss suggestions for properties for a `Tea` class.
+- Have the students discuss suggestions for properties for a `WaterGlass` class.
 - The exercise has `capacity`, `amount`, `fill`, `empty`, and `drink`.
 
 </aside>
 
 ---
 
-## A Potential `TeaCup` Class
+## A Potential `WaterGlass` Class
 
 We could say:
 
@@ -441,32 +410,32 @@ Variables:
 
 Methods:
 
-* `fill()` our cup.
-* `empty()` our cup.
-* `drink()` some tea from our cup.
+* `fill()` our glass.
+* `empty()` our glass.
+* `drink()` some water from our glass.
 
 <aside class="notes">
 
 **Talking Points:**
 
-- Given a well-defined cup of tea, we can use the class definition to create **instances** of the class.
-- Each **instance** of the `TeaCup` class can have a different `capacity` and keep track of different `amounts`.
+- Given a well-defined glass of water, we can use the class definition to create **instances** of the class.
+- Each **instance** of the `WaterGlass` class can have a different `capacity` and keep track of different `amounts`.
 - Although different, properties are affected by actions like `fill()`, `empty()`, and `drink()` similarly.
 </aside>
 
 ---
 
-## Example: A `TeaCup` Class
+## Example: A `WaterGlass` Class
 
 
-Here's what a `TeaCup` class definition might look like in Python:
+Here's what a `WaterGlass` class definition might look like in Python:
 
 ```python
-class TeaCup():
+class WaterGlass():
   def __init__(self, capacity):
-    # Python executes when a new cup of tea is created.
-    self.capacity = capacity # Total ounces the cup holds.
-    self.amount = 0 # Current ounces in the cup. All cups start empty!
+    # Python executes when a new glass of water is created.
+    self.capacity = capacity # Total ounces the glass holds.
+    self.amount = 0 # Current ounces in the cup. All glassess start empty!
 
   def fill(self):
     self.amount = self.capacity
@@ -477,12 +446,12 @@ class TeaCup():
   def drink(self, amount_drank):
     self.amount -= amount_drank
     # If it's empty, it stays empty!
-    if (self.amount == 0):
+    if (self.amount <= 0):
       self.amount = 0
 
-steves_cup = TeaCup(12)  # Maybe a fancy tea latte.
-yis_cup = TeaCup(16)    # It's a rough morning!
-brandis_cup = TeaCup(2)  # Just a quick sip.
+steves_cup = WaterGlass(12)  # Gotta stay hydrated.
+yis_cup = WaterGlass(26)    # HYDRATION IS LIFE
+brandis_cup = WaterGlass(2)  # Just a quick sip.
 ```
 
 <aside class="notes">
@@ -501,8 +470,8 @@ brandis_cup = TeaCup(2)  # Just a quick sip.
 ## Quick Knowledge Check:
 
 ```python
-class TeaCup():
-  def __init__(self, capacity = 8):
+class WaterGlass():
+  def __init__(self, capacity=8):
     self.capacity = capacity
     self.amount = 0
 ```
@@ -522,145 +491,48 @@ When will the capacity be `8`?
 
 ---
 
-## Variables for All Class Objects
+## A Second Type Of Var: Class Variables
 
-Next up: new types of class variables!
+Variables can be set on the class level, applying to all objects of that class. 
 
-Let's revisit our `Dog` class:
+Rather than referencing these variables with the `self.var` syntax, we access them with the name of the class, i.e. `Class.var`
 
 ```python
 class Dog():
+  number_of_dogs_adopted = 0
 
-  def __init__(self, name="", age=0):
+  def __init__(self, name):
     self.name = name
-    self.age = age
-    print(name, "created.")
+    Dog.number_of_dogs_adopted += 1
 
-  def bark_hello(self):
-    print("Woof! I am called", self.name, "; I am", self.age, "human-years old")
+  def display_info(self):
+    print(name, "has been adopted! So far,", Dog.number_of_dogs_adopted, "have been adopted!")
 ```
 
-What if there are variables that we want across all dogs?
+These variables should be used *very* carefully, as any object of this type has access to them.
 
-For example, can we count how many `dog` objects we make and track it in the class?
-
-<aside class="notes">
-
-**Talking Points:**
-
-- Our `Dog` class had variables attached to `self` that exist independently for each object that's created.
-    * Each object instance has its own copies of these variables, and they can vary across objects.
-- We can attach variables to the class itself so that there's one single thing that exists for an entire class.
-</aside>
+They also can be accessed publicly- let's see this in a REPL.
 
 
 ---
 
-## I Do: Class vs. Instance Members
-
-We already have **instance variables**, which are specific to each `dog` object (each has its own name!).
-
-A **class variable** is specific to the class, regardless of the object. It's created **above** `__init__`.
-
-```python
-class Dog():
-
-  ### Here, we define class variables. ###
-  # These are the same for ALL dogs.
-  total_dogs = 0
-
-  def __init__(self, name="", age=0):
-
-    ### These are instance variables. ###
-    self.name = name
-    self.age = age
-    print(name, "created.")
-
-  def bark_hello(self):
-    print("Woof! I am called", self.name, "; I am", self.age, "human-years old")
-    print("There are", Dog.total_dogs, "dogs in this room!") # There's no "self" — we call the Dog class name!
-
-molly = Dog("Molly", 8)
-molly.bark_hello()
-
-sheera = Dog("Sheera", 5)
-sheera.bark_hello()
-```
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Demo this, but don't worry about having students follow along. Their understanding is more important than their typing.
-
-**Talking Points:**
-
-- Our `Dog` class had variables attached to `self` that exist independently for each object that's created.
-    * These are called **instance variables**.
-    * Each object instance has its own copies of these variables, and they can vary across objects.
-- We can attach variables to the class itself so that there's one single thing that exists for an entire class.
-    * These are called **class variables**.
-</aside>
-
----
-
-## I Do: Tallying Dogs
-
-We can increment the `class` variable any time.
-
-```python
-class Dog():
-  total_dogs = 0
-  def __init__(self, name="", age=0):
-    self.name = name
-    self.age = age
-    Dog.total_dogs += 1 #  We can increment this here!
-    print(name, "created:")
-
-  def bark_hello(self):
-    print("Woof! I am called", self.name, "; I am", self.age, "human-years old.")
-    print("There are", Dog.total_dogs, "dogs in this room!")
-
-molly = Dog("Molly", 8)
-molly.bark_hello()
-
-sheera = Dog("Sheera", 5)
-sheera.bark_hello()
-```
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Again, note that `self` doesn't exist for the `class` variables! Really stress when `self` is there and when it isn't.
-- Show it increasing!
-- Once students get the hang of this, create a method that increments `total_dogs` as well.
-
-**Talking Points:**
-
-- We can keep a tally of how many `dog`s we have running around in our app.
-- We could put a copy of the tally in each `dog` object, but that's not efficient, as we would be duplicating a value in memory multiple times, and we would have to update the value in every `dog` object in order to keep it accurate.
-- It's much better if we can store it in the class. That way, each `dog` object can access it, but we only need to store it and set it in one place.
-- Finally, we create a new `dog`. The `__init__` method increments the `total_dogs` counter, which is stored in the `Dog` class itself. We can access the value stored in `Dog.total_dogs` inside our script, and each `dog` object can access it from their own functions.
-</aside>
-
----
 
 ## Partner Exercise: Create a Music Genre Class
 
 Pair up! Create a new file, `Band.py`.
 
 - Define a class, `Band`, with these instance variables: `"genre"`, `"band_name"`, and `"albums_released"` (defaulting to `0`).
-- Give `Band` a method called `print_stats()`, which prints a string like `"The rock band Queen has 15 albums."`
-- Create a class variable, `number_of_bands`, that tracks the number of bands created.
+- Give `Band` a method called `display_bio()`, which prints a string like `"The rock band Queen has 15 albums."`
+- Store the `genre` in a class variable called `valid_genres` using an appopriate data type, and pre-populate with the genres `rock`, `pop`, and `rap`.
+- In the `__init__()` function, if the provided genre isn't in the `valid_genres` collection, print `"Unknown genre"` and set the `genre` variable to `"Unknown"`.
 
-Test your code with calls like:
+You should be able to create an instance of this class with the following code:
 
 ```python
-my_band = ("Queen", 15, "rock")
+queen = ("Queen", "rock", 15)
+queen.diplay_bio()
 ```
 
-**Bonus:** If the genre provided isn't `"pop"`, `"classical"`, or `"rock"`, print out `"This isn't a genre I know."`
 
 <aside class="notes">
 
@@ -692,7 +564,6 @@ Bank accounts should:
 * Be created with the `accountType` property (either `"savings"` or `"checking"`).
 * Keep track of its current `balance`, which always starts at `0`.
 * Have access to `deposit()` and `withdraw()` methods, which take in an integer and update `balance` accordingly.
-* Have a class-level variable tracking the total amount of money in all accounts, adding or subtracting whenever `balance` changes.
 
 **Bonus:** Start each account with an additional `overdraftFees` property that begins at `0`. If a call to `withdraw()` ends with the `balance` below `0`, then `overdraftFees` should be incremented by `20`.
 
@@ -719,23 +590,23 @@ Bank accounts should:
 
 ---
 
-## Knowledge Check: Select the Best Answer
+## Knowledge Check
 
 Consider the following class definition for `Cat()`:
 
 ```python
 class Cat(Animal):
- def __init__(self, name='Lucky'):
+ def __init__(self, name=''):
   self.name = name
   self.fur = short
 ```
 
 How would you instantiate a `Cat` object with the `name` attribute `'Furball'`?
 
-1. `mycat = Cat(name='Furball')`
+1. `furball = Cat('Furball')`
 2. `furball = Cat()`
-3. `mycat = Cat(self, name='Furball')`
-4. `mycat = Cat.init(name='Furball')`
+3. `furball = Cat(self, name='Furball')`
+4. `furball = Cat.__init__(name='Furball')`
 
 <aside class="notes">
 
@@ -750,14 +621,14 @@ How would you instantiate a `Cat` object with the `name` attribute `'Furball'`?
 
 ---
 
-## Knowledge Check: Select All That Apply.
+## Knowledge Check
 
 Which of the following statements are true about the ```self``` argument in class definitions?
 
 - The user does not need to supply `self` when using instance methods.
 - The `self` argument is a reference to the instance object.
 - Any variable assigned with `self` (e.g., `self.var`) will be shared across instances of the class.
-- With an instance object, `obj`, entering `obj.self.var` will provide the value for `var` for that instance.
+- With an instance object, `obj`, we can access the variables `var` with the code `obj.self.var`.
 
 <aside class="notes">
 
@@ -784,16 +655,16 @@ Consider the following code:
 
 ```python
 class Shape(object):
- possible = ['triangle','square','circle','pentagon','polygon','rectangle']
+ valid_labels = ['triangle','square','circle','pentagon','polygon','rectangle']
 
  def __init__(self, label='triangle'):
   self.label = label
 
  def is_possible(self):
-  if self.label in self.possible:
-   print('This is possible')
+  if self.label in self.valid_labels:
+   print('Shape is possible')
   else:
-   print('This is impossible')
+   print('Shape is impossible')
 
 square = Shape(label='square')
 wormhole = Shape(label='wormhole')
@@ -811,7 +682,7 @@ If you were to enter `wormhole.is_possible()`, would the outcome be `"This is po
 **Answer:**
 `This is possible`
 
-Correct answer explanation: 
+Correct answer explanation:
 
 - The possible list is defined at the class level as opposed to as an instance variable. When we append the string `'wormhole'` to the possible list of the `square` object, this list is shared with the wormhole instance. Therefore the output will be `This is possible`.
 </aside>
