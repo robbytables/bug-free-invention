@@ -74,7 +74,7 @@ In this lesson, students will:
 What's wrong with this list?
 
 ```python
-subscribed_emails = ["mary@gmail.com", "opal@gmail.com", "mary@gmail.com", "sayed@gmail.com"]
+user_emails = ["ed@gmail.com", "bob@gmail.com", "ed@gmail.com", "ed@gmail.com"]
 ```
 
 
@@ -105,16 +105,16 @@ What have we learned recently that could help eliminate the problem of duplicate
 
 Lists:
 ```python
-subscribed_emails = ["mary@gmail.com", "opal@gmail.com", "mary@gmail.com", "sayed@gmail.com"]
+user_emails = ["ed@gmail.com", "bob@gmail.com", "ed@gmail.com", "ed@gmail.com"]
 print(subscribed_emails)
-# -> ["mary@gmail.com", "opal@gmail.com", "mary@gmail.com", "sayed@gmail.com"]
+# -> ["ed@gmail.com", "bob@gmail.com", "bob@gmail.com", "ed@gmail.com"]
 ```
 
 Sets: Lists without duplicates!
 ```python
-subscribed_emails = {"mary@gmail.com", "opal@gmail.com", "mary@gmail.com", "sayed@gmail.com"}
+user_emails = {"ed@gmail.com", "bob@gmail.com", "ed@gmail.com", "ed@gmail.com"}
 print(subscribed_emails)
-# -> {"mary@gmail.com", "opal@gmail.com", "sayed@gmail.com"}
+# -> {"ed@gmail.com", "bob@gmail.com"}
 ```
 
 - Notice the `[]` versus the `{}`.
@@ -133,10 +133,9 @@ print(subscribed_emails)
 ---
 
 
-## How Can We Make a Set?
+## Making a set via a list 
 
-
-Making a set via a list - Python removes duplicates automatically.
+Python removes duplicates automatically.
 
 ```python
 my_set = set(a_list_to_convert)
@@ -150,6 +149,8 @@ product_categories = set(product_categories)
 product_categories = set(["shirts", "pants", "shirts", "jackets", "socks", "shirts"])
 # => {"shirts", "pants", "jackets", "socks"}
 ```
+---
+## Curly Braces
 
 Making a set directly, in curly braces:
 
@@ -178,17 +179,19 @@ colors = {"red", "orange", "yellow", "green", "blue", "indigo", "violet"}
 
 ## Important Note: Sets
 
-Lists are always in the same order:
+List contents are always stored in the same order:
 
-- `my_list = ["green", "yellow", "red"]` is always going to be`["green", "yellow", "red"]`
-- `my_list[0]` is always  `"green"`; `my_list[1]` is always `"yellow"`; `my_list[2]` is always `"red"`.
+- `colors = ["green", "yellow", "red"]` is always going to be`["green", "yellow", "red"]`
+- `my_list[0]` is always  `"green"`
+- `my_list[1]` is always `"yellow"`
+- `my_list[2]` is always `"red"`.
 
-Sets are not! Like dictionaries, they're in any order.
+Set contents, like dictionaries, are stored in any order:
 
-- `my_set = {"green", "yellow", "red"}` could later be `{"red", "yellow", "green"}`!
-- `my_set[0]` could be `"green"`, `"red"`, or `"yellow"` - we don't know!
+- `colors = {"green", "yellow", "red"}` could later be `{"red", "yellow", "green"}`
+- `colorst[0]` could be `"green"`, `"red"`, or `"yellow"`
 
-We **cannot** do:  `print(my_set[0])` - it could be anything! Python won't let us.
+We **cannot** do:  `print(colors[0])` - it could be anything! Python won't let us.
 
 ---
 
@@ -219,10 +222,10 @@ How do we add more to a set?
 
 ```python
 # In a list:
-clothing.append("red")
+colors.append("red")
 
 # In a set
-clothing.add("red")
+colors.add("red")
 ```
 
 Think About It...

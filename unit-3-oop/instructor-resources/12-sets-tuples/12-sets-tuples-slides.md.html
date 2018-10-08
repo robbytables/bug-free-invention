@@ -115,7 +115,7 @@ In this lesson, students will:
 <section id="discussion-lists" class="level2">
 <h2>Discussion: Lists</h2>
 <p>What's wrong with this list?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">subscribed_emails <span class="op">=</span> [<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_emails <span class="op">=</span> [<span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;bob@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>]</code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
@@ -134,13 +134,13 @@ In this lesson, students will:
 <section id="introducing-sets" class="level2">
 <h2>Introducing Sets</h2>
 <p>Lists:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">subscribed_emails <span class="op">=</span> [<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>]
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_emails <span class="op">=</span> [<span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;bob@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>]
 <span class="bu">print</span>(subscribed_emails)
-<span class="co"># -&gt; [&quot;mary@gmail.com&quot;, &quot;opal@gmail.com&quot;, &quot;mary@gmail.com&quot;, &quot;sayed@gmail.com&quot;]</span></code></pre></div>
+<span class="co"># -&gt; [&quot;ed@gmail.com&quot;, &quot;bob@gmail.com&quot;, &quot;bob@gmail.com&quot;, &quot;ed@gmail.com&quot;]</span></code></pre></div>
 <p>Sets: Lists without duplicates!</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">subscribed_emails <span class="op">=</span> {<span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;opal@gmail.com&quot;</span>, <span class="st">&quot;mary@gmail.com&quot;</span>, <span class="st">&quot;sayed@gmail.com&quot;</span>}
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_emails <span class="op">=</span> {<span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;bob@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>, <span class="st">&quot;ed@gmail.com&quot;</span>}
 <span class="bu">print</span>(subscribed_emails)
-<span class="co"># -&gt; {&quot;mary@gmail.com&quot;, &quot;opal@gmail.com&quot;, &quot;sayed@gmail.com&quot;}</span></code></pre></div>
+<span class="co"># -&gt; {&quot;ed@gmail.com&quot;, &quot;bob@gmail.com&quot;}</span></code></pre></div>
 <ul>
 <li>Notice the <code>[]</code> versus the <code>{}</code>.</li>
 </ul>
@@ -153,9 +153,9 @@ In this lesson, students will:
 </aside>
 <hr />
 </section>
-<section id="how-can-we-make-a-set" class="level2">
-<h2>How Can We Make a Set?</h2>
-<p>Making a set via a list - Python removes duplicates automatically.</p>
+<section id="making-a-set-via-a-list" class="level2">
+<h2>Making a set via a list</h2>
+<p>Python removes duplicates automatically.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_set <span class="op">=</span> <span class="bu">set</span>(a_list_to_convert)
 
 <span class="co"># In action:</span>
@@ -166,35 +166,22 @@ product_categories <span class="op">=</span> <span class="bu">set</span>(product
 <span class="co"># Instead of passing a list in (a_list_to_convert), we could just type it:</span>
 product_categories <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;shirts&quot;</span>, <span class="st">&quot;pants&quot;</span>, <span class="st">&quot;shirts&quot;</span>, <span class="st">&quot;jackets&quot;</span>, <span class="st">&quot;socks&quot;</span>, <span class="st">&quot;shirts&quot;</span>])
 <span class="co"># =&gt; {&quot;shirts&quot;, &quot;pants&quot;, &quot;jackets&quot;, &quot;socks&quot;}</span></code></pre></div>
-<p>Making a set directly, in curly braces:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">colors <span class="op">=</span> {<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;indigo&quot;</span>, <span class="st">&quot;violet&quot;</span>}</code></pre></div>
-<aside class="notes">
-<p><strong>Talking Points</strong>:</p>
-<ul>
-<li><p>&quot;Creating a <em>set</em> is easy; we just need to use the <code>set()</code> method like this.&quot;</p></li>
-<li><p>&quot;Because we had two <code>red</code>s, Python removed the extra one for us.&quot;</p></li>
-</ul>
-<p><strong>Teaching Tips</strong>:</p>
-<ul>
-<li>Point out the difference between parentheses, brackets, and curly braces.</li>
-</ul>
-</aside>
-</aside>
-<hr />
 </section>
 <section id="important-note-sets" class="level2">
 <h2>Important Note: Sets</h2>
-<p>Lists are always in the same order:</p>
+<p>List contents are always stored in the same order:</p>
 <ul>
-<li><code>my_list = [&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code> is always going to be<code>[&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code></li>
-<li><code>my_list[0]</code> is always <code>&quot;green&quot;</code>; <code>my_list[1]</code> is always <code>&quot;yellow&quot;</code>; <code>my_list[2]</code> is always <code>&quot;red&quot;</code>.</li>
+<li><code>colors = [&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code> is always going to be<code>[&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;]</code></li>
+<li><code>my_list[0]</code> is always <code>&quot;green&quot;</code></li>
+<li><code>my_list[1]</code> is always <code>&quot;yellow&quot;</code></li>
+<li><code>my_list[2]</code> is always <code>&quot;red&quot;</code>.</li>
 </ul>
-<p>Sets are not! Like dictionaries, they're in any order.</p>
+<p>Set contents, like dictionaries, are stored in any order:</p>
 <ul>
-<li><code>my_set = {&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</code> could later be <code>{&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;}</code>!</li>
-<li><code>my_set[0]</code> could be <code>&quot;green&quot;</code>, <code>&quot;red&quot;</code>, or <code>&quot;yellow&quot;</code> - we don't know!</li>
+<li><code>colors = {&quot;green&quot;, &quot;yellow&quot;, &quot;red&quot;}</code> could later be <code>{&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;}</code></li>
+<li><code>colorst[0]</code> could be <code>&quot;green&quot;</code>, <code>&quot;red&quot;</code>, or <code>&quot;yellow&quot;</code></li>
 </ul>
-<p>We <strong>cannot</strong> do: <code>print(my_set[0])</code> - it could be anything! Python won't let us.</p>
+<p>We <strong>cannot</strong> do: <code>print(colors[0])</code> - it could be anything! Python won't let us.</p>
 <hr />
 </section>
 <section id="we-do-creating-a-set-from-a-list" class="level2">
@@ -220,10 +207,10 @@ product_categories <span class="op">=</span> <span class="bu">set</span>([<span 
 <h2>We Do: Adding to a Set</h2>
 <p>How do we add more to a set?</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># In a list:</span>
-clothing.append(<span class="st">&quot;red&quot;</span>)
+colors.append(<span class="st">&quot;red&quot;</span>)
 
 <span class="co"># In a set</span>
-clothing.add(<span class="st">&quot;red&quot;</span>)</code></pre></div>
+colors.add(<span class="st">&quot;red&quot;</span>)</code></pre></div>
 <p>Think About It... - Why is the function <code>add</code> rather than <code>append</code>? - What happens if you add a duplicate?</p>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
