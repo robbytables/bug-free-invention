@@ -76,6 +76,6 @@
 
 <h3>Class 5 Homework</h3>
 <h5>Due Wednesday, October 10</h5>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/hw-10wk-class-5/readme.pdf">Class 5 Homework: Sets, Tuples, Dictionaries - Oh My!</p></a>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/hw-10wk-class-5/README.pdf">Class 5 Homework: Sets, Tuples, Dictionaries - Oh My!</p></a>
 
 </html>

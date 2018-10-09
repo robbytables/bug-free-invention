@@ -54,3 +54,9 @@ Class 5:
 1. Review Lab 2
 2. Sets + Tuples
 3. Intermediate Vars
+
+Class 6:
+------
+1. Review Homework
+2. Classes
+3. Lab 3
