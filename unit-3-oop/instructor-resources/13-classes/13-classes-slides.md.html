@@ -203,7 +203,7 @@ In this lesson, students will:
 <p>Follow along! Let's create a new file, <code>Dog.py</code>.</p>
 <p>Class definitions are similar to function definitions, but instead of <code>def</code>, we use <code>class</code>.</p>
 <p>Let's declare a class for <code>Dog</code>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog:
  <span class="co"># We&#39;ll define the class here.</span>
  <span class="co"># Our dog will have two variables: name and age.</span></code></pre></div>
 <figure>
@@ -250,7 +250,7 @@ In this lesson, students will:
 <li>&quot;Every time you make an object from this class, do what's in here.&quot;</li>
 </ul>
 <p>Let's add this:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog:
 
   <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
     <span class="co"># Note the optional parameters and defaults.</span>
@@ -277,7 +277,7 @@ In this lesson, students will:
 <section id="we-do-adding-a-bark_hello-method" class="level2">
 <h2>We Do: Adding a <code>bark_hello()</code> Method</h2>
 <p>All dogs have the behavior <code>bark</code>, so let's add that. This is a regular function (method), just inside the class!</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog:
 
   <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>):
   <span class="co"># Note the defaults.</span>
@@ -335,7 +335,7 @@ maxx.bark_hello()</code></pre></div>
 <p>A class is a blueprint for an object. Some classes are built into Python, like <code>List</code>. We can always make a <code>list</code> object.</p>
 <p>We can make a class for anything!</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Created like a function; TitleCase</span>
-<span class="kw">class</span> Dog():
+<span class="kw">class</span> Dog:
 
   <span class="co"># __init__: A method (function) that happens just once, when the object is created.</span>
   <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name<span class="op">=</span><span class="st">&quot;&quot;</span>, age<span class="op">=</span><span class="dv">0</span>): <span class="co"># What&#39;s passed in to the class is used here.</span>
@@ -457,7 +457,7 @@ brandis_cup <span class="op">=</span> WaterGlass(<span class="dv">2</span>)  <sp
 <h2>A Second Type Of Var: Class Variables</h2>
 <p>Variables can be set on the class level, applying to all objects of that class.</p>
 <p>Rather than referencing these variables with the <code>self.var</code> syntax, we access them with the name of the class, i.e. <code>Class.var</code></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog():
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Dog:
   number_of_dogs_adopted <span class="op">=</span> <span class="dv">0</span>
 
   <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):

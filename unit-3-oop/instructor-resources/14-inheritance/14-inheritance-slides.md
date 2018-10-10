@@ -146,9 +146,9 @@ class Phone:
     print("Sending text from", self.number, "to", other_number)
     print(msg)
 
-test_phone = Phone(5214)
-test_phone.call(515)
-test_phone.text(51121, "Hi!")
+test_phone = Phone(123)
+test_phone.call(617)
+test_phone.text(666, "Hi!")
 ```
 
 <aside class="notes">
@@ -165,6 +165,8 @@ test_phone.text(51121, "Hi!")
 ## We Do: `IPhone` Class
 
 Underneath the `Phone` class definition, let's create the `IPhone` class.
+
+To allow the `IPhone` class to inherit the `Phone` class, we pass it into the class defintion. 
 
 ```python
 class IPhone(Phone):

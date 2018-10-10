@@ -185,7 +185,7 @@ Class definitions are similar to function definitions, but instead of `def`, we 
 Let's declare a class for `Dog`:
 
 ```python
-class Dog():
+class Dog:
  # We'll define the class here.
  # Our dog will have two variables: name and age.
 ```
@@ -246,7 +246,7 @@ What first? Every class has a `__init__` method. These methods are *always* defi
 Let's add this:
 
 ```python
-class Dog():
+class Dog:
 
   def __init__(self, name="", age=0):
     # Note the optional parameters and defaults.
@@ -279,7 +279,7 @@ class Dog():
 All dogs have the behavior `bark`, so let's add that. This is a regular function (method), just inside the class!
 
 ```python
-class Dog():
+class Dog:
 
   def __init__(self, name="", age=0):
   # Note the defaults.
@@ -352,7 +352,7 @@ We can make a class for anything!
 
 ```python
 # Created like a function; TitleCase
-class Dog():
+class Dog:
 
   # __init__: A method (function) that happens just once, when the object is created.
   def __init__(self, name="", age=0): # What's passed in to the class is used here.
@@ -498,7 +498,7 @@ Variables can be set on the class level, applying to all objects of that class.
 Rather than referencing these variables with the `self.var` syntax, we access them with the name of the class, i.e. `Class.var`
 
 ```python
-class Dog():
+class Dog:
   number_of_dogs_adopted = 0
 
   def __init__(self, name):
