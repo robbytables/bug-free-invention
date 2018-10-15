@@ -5,8 +5,9 @@ duration: "00:30"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Variable Scope
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
+<h1>Unit 3 Lab: Variable Scope</h1>
 
 <!--
 
@@ -63,15 +64,15 @@ In this lesson, students will:
 
 ## Discussion: Delivering a Letter
 
-What if someone wanted to send Brandi a letter?
+What if someone wanted to send your instructor Robby a letter?
 
-If you just had "For Brandi," the mail carrier would give the letter to the first Brandi they see!
+If you just had "For Robby" the mail carrier would give the letter to the first Robby they see.
 
-They'd look:
+Think about how they would go about finding me:
 
-- First in the class. Is there a "Brandi" here? They get the letter!
-- No? OK, look in the town. Is there a "Brandi" here? They get the letter!
-- No? OK, look in the state. Is there a "Brandi" here? They get the letter!
+- First in the class. Is there a "Robby" here? They get the letter!
+- No? OK, look in the GA Boston Office. Is there a "Robby" here? They get the letter!
+- No? OK, look in the entire GA network. Is there a "Robby" here? They get the letter!
 
 <aside class="notes">
 
@@ -85,40 +86,34 @@ They'd look:
 
 ## Discussion: Your Address
 
+This is similar to how variables are looked up.
+
 That's why **scope** matters. We might have to get more specific. To correctly deliver the letter, if the mail carrier only looked in the scope of:
 
 Your class:
 
-- You're probably the only Brandi.
-- "For Brandi" is fine.
+- I'm probably the only Robby.
+- "For Robby" is fine.
 
-Your town:
+GA Boston:
 
-- There might be multiple Brandis in the town.
-- "For Brandi, on Main Street" is a bit more specific.
+- There might be multiple Robby's in GA Boston.
+- "For Robby, in Classroom 3" is a bit more specific.
 
-In your state:
+Entire GA Network:
 
-- There are multiple Main Streets in New York!
-- "For Brandi, on Main Street in Brooklyn" is more specific.
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Don't mention programming here. Just make sure the class is clear on the idea of scope and how, depending on where we look, we have to be more specific. If we aren't specific, we'll look first in town, then state — continue getting wider.
-</aside>  
+- There are multiple Classroom 3's across all GA locations!
+- "For Brandi, in Classroom 3 in Boston" is more specific.
 
 ---
 
 ## Discussion: What Is `x`?
 
-Python has **scope**, too. We can have many variables with the same name, and Python will look for the most specific one.
+Python has a concept of **scope** as well. We can have many variables with the same name, and Python will look for the most specific one.
 
-In different scopes, you can reuse the same name. Each one is a *completely different* variable.
+Across different scopes, you can reuse the same name. Each one is a *completely different* variable.
 
-Functions and classes create individual **local scopes**. A **local variable** doesn't exist outside its local function or class scope.
+Functions and classes each have their own individual **local scope**. A **local variable** doesn't exist outside its local function or class scope.
 
 ```python
 def my_func1():
@@ -152,11 +147,11 @@ print(x) # x is OUT OF SCOPE - no x exists here!
 
 ## Global Scope
 
-Variables that are in **global scope** can be accessed anywhere.
+Variables that are in **global scope** can be accessed anywhere. We define the **global scope** for a specific file as being unbounded to any class or function. 
 - Python will check for a local variable before using a global one.
 
 ```python
-x = 2
+x = 2 # Global to this file
 
 def my_func1():
   x = 1
@@ -209,7 +204,7 @@ def multiply(x, y):
 def divide(x, y):
     return x / y
 
-divide (8,2) # Returns 4
+divide(8,2) # Returns 4
 multiply(3,1) # Returns 3
 ```
 
@@ -311,32 +306,38 @@ print(foo) # prints 5
 
 ---
 
+## Editing Global Variables
 
-## I Do: The Global Keyword
-
-You can call a global variable intentionally with `global`.
-* What do you think happens if you forget the `global` keyword?
+How might we alter the global variable?
 
 ```python
 foo = 5
 def incrementFoo():
-  global foo
-  foo += 1
+  foo = 6
+  print(foo) # prints 6
+  return foo # returns 6
 
 print(foo) # prints 5
-incrementFoo()
-print(foo) # prints 6!
+foo = incrementFoo()
+print(foo) # prints 6
 ```
-
 
 <aside class="notes">
 
+**Teaching Tip:**
+
+- Spend some time here. Ensure student understanding.
+
 **Talking Points:**
 
-- It is very clearly marked as `global`, so anyone using it is fully aware it's global.
-- If you forget the `global` keyword, it simply becomes an unrelated local variable.
-</aside>
+- Hey! The variable `foo` went back to its old value after the function finished! Actually, not quite. Here's what happened:
+    - The line in the function where `foo` is assigned the value of `6` causes the creation of a new local variable.
+    - We then set this variable's value to `6`, the function prints the value, and the function finishes. However, the global variable `foo` was never touched by the function.
 
+**Teaching Tips:**
+
+- Run this!
+</aside>
 
 ---
 
@@ -361,57 +362,18 @@ def my_func1():
   print(x) # Print the local x
 
 # Using global x:
-def my_func2():
-  global x # We declare we'd like to use the global x.
-  print(x) # Print that global x.
-  x = 3 # Change that global x.
+def my_func2(x):
+  print(x)
+  x = 3
+  return x
 
 my_func1()
-my_func2()
+x = my_func2(x)
 
 # Print global variable x.
 print(x) # Did x get permanently changed by my_func2()?
 ```
 </aside>
-
----
-
-## You Do: Just a Day in the Jungle
-
-Open a new local file, `piranhas.py`.
-
-* Declare a global variable `piranhas_hungry` and set it to `True`.
-* Write two functions, `swing_vine_over_river` and `jump_in_river`.
-* In `swing_vine_over_river`, print `Ahhh! Piranhas got me!`.
-  * Change `piranhas_hungry` to `False`.
-* In `jump_in_river`, if `piranhas_hungry` is `True`, print `I'm not going in there! There are hungry piranhas!`.
-  * Otherwise, print `Piranhas are full! Swimming happily through the Amazon!`
-
-```python
-# Call functions in this order.
-jump_in_river()
-swing_vine_over_river()
-jump_in_river()
-```
-
-**Pro tip:** Raise your hand if you need some help!
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Give students a few minutes. The answer is in a repl.it on the next slide.
-</aside>
-
----
-
-## We Do: Check Your Answers
-
-* Did you remember the `global` keyword?
-* What happens if that keyword is removed?
-* Comment out line 4. What happens? Why?
-
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-scope-piranha?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ---
 
@@ -439,6 +401,5 @@ There can be more levels. Python always works from the inside out — keep that 
 
 ## Additional Resources
 
-* [Global vs. Local Variables](https://www.python-course.eu/python3_global_vs_local_variables.php)
 * [Variables and Scope](http://python-textbok.readthedocs.io/en/1.0/Variables_and_Scope.html)
 * [Nested Functions — What Are They Good For?](https://realpython.com/inner-functions-what-are-they-good-for/)

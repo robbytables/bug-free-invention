@@ -61,18 +61,18 @@ Questions? Comments?
 <section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Welcome to the Unit 3 lab!</p>
-<p>Our goal is that at the end of the Unit 5 lab, you’ll have an app that prints out the Rotten Tomatoes rating for any movie a user enters. We’re getting closer!</p>
-<p>Right now, let’s use object-oriented programming concepts to improve our code. Specifically, we’ll be using dictionaries and classes.</p>
+<p>Our goal is that at the end of the Unit 5 lab, you'll have an app that prints out the Rotten Tomatoes rating for any movie a user enters. We're getting closer!</p>
+<p>Right now, let's use object-oriented programming concepts to improve our code. Specifically, we'll be using dictionaries and classes.</p>
 <hr />
 </section>
 <section id="deliverables" class="level2">
 <h2>Deliverables</h2>
-<p>You’re going to continue building this locally from where you left off with the last lab. You’ll write all of your code in the same <code>movie_app.py</code> file.</p>
+<p>You're going to continue building this locally from where you left off with the last lab. You'll write all of your code in the same <code>movie_app.py</code> file.</p>
 <p>Run the file from the command line to check your work.</p>
 <p><em>Reminder: On your laptop, you can run the file from your command line with the following:</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">python movie_app.py</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">python movie_app.py</code></pre></div>
 <blockquote>
-<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won’t see any output from running your program!</p>
+<p><strong>Hint:</strong> Make sure you are printing something out with the <code>print</code> statement. Otherwise, you won't see any output from running your program!</p>
 </blockquote>
 </section>
 <section id="requirements" class="level2">
@@ -80,14 +80,6 @@ Questions? Comments?
 <ol type="1">
 <li>You have a <code>Movie</code> class.</li>
 <li>Have docstrings on each function.</li>
-<li>Your <code>main</code> function always prints:</li>
-</ol>
-<pre><code>The movie Back to the Future has a rating of 4
-The movie Blade has a rating of 4
-The movie Spirited Away has a rating of 4</code></pre>
-<p>Then: 1. If <code>search_or_ratings</code> is <code>1</code>, your program prints an indented list of movies: <code>Back to the Future     Blade     Spirited Away</code></p>
-<ol type="1">
-<li>If <code>search_or_ratings</code> is <code>2</code>, your program prints <code>The rating for Moana is 7</code>.</li>
 </ol>
 </section>
 <section id="directions" class="level2">
@@ -96,17 +88,11 @@ The movie Spirited Away has a rating of 4</code></pre>
 <section id="part-1-docstrings" class="level3">
 <h3>Part 1: Docstrings</h3>
 <ol type="1">
-<li>First, for each of your existing functions, add docstrings to document what each function does. (It doesn’t hurt to add them to all functions, including <code>main()</code>!).
+<li>First, for each of your existing functions, add docstrings to document what each function does. (It doesn't hurt to add them to all functions, including <code>main()</code>!).
 <ol type="1">
-<li>Remember that a <code>docstring</code> is made with <code>&quot;&quot;&quot;</code>. For example, your <code>main()</code> could look like this:</li>
-</ol>
-<pre><code> def main():
- &quot;&quot;&quot;
- Main is the entry point into the program, and it calls into the search or
- ratings functions depending on what the user decides to do.
- &quot;&quot;&quot;</code></pre>
-<ol start="2" type="1">
+<li>Remember that a <code>docstring</code> is made with <code>&quot;&quot;&quot;</code>. For example, your <code>main()</code> could look like this: <code>def main():   &quot;&quot;&quot;Main is the entry point into the program, and it calls into the search or   ratings functions depending on what the user decides to do.   &quot;&quot;&quot;</code></li>
 <li>As you go through this lab, update your docstrings and create new ones for new functions. It will help you, and others in the future, keep track of what each function does.</li>
+<li>For best practices, follow the Google Docstrings Style Guide!</li>
 </ol></li>
 </ol>
 </section>
@@ -114,37 +100,28 @@ The movie Spirited Away has a rating of 4</code></pre>
 <h3>Part 2: Adding a Class</h3>
 <p><strong>Part 2a: The Class</strong></p>
 <ol type="1">
-<li>OK, let’s get going! Let’s create a class. We’re going to have several movies, each of which will have a title and a rating. We can use a <code>Movie</code> class as a scaffold to create many movie objects. Near the top of your file, create a class, <code>Movie</code>, that takes an argument of <code>object</code>. Your <code>Movie</code> class should have three functions:
+<li>OK, let's get going! Let's create a class. We're going to have several movies, each of which will have a title and a rating. We can use a <code>Movie</code> class as a scaffold to create many movie objects. Near the top of your file, create a class, <code>Movie</code>, that takes an argument of <code>object</code>. Your <code>Movie</code> class should have three functions:</li>
+<li><code>__init__</code>, which will take in <code>self</code> and <code>movie_data</code> (this will be a dictionary containing the title and rating of each movie). The <code>__init__</code> function will set two class variables based on the contents of the dictionary: <code>title</code> and <code>rating</code>.</li>
+<li><code>get_title()</code>, a getter function that returns the value of the <code>title</code> variable.</li>
+<li><p><code>get_rating()</code>, a getter function that returns the value of the <code>rating</code> variable.</p></li>
+<li>Now that we have a class, let's set up some functions. Write these <em>under</em> the <code>Movie</code> class definition, outside of the class scope. First, let's make a function that creates <code>Movie</code> objects.
 <ol type="1">
-<li><code>__init__</code>, which will take in <code>self</code> and <code>movie_data</code> (this will be a dictionary containing the title and rating of each movie). <code>__init__</code> will set a member variable, <code>movie_data</code>, to equal the <code>movie_data</code> dictionary passed in.</li>
-<li><code>get_movie_title()</code>, a getter function that returns the value of the <code>title</code> key in the <code>movie_data</code> dictionary.</li>
-<li><code>get_movie_rating()</code>, a getter function that returns the value of the <code>rating</code> key in the <code>movie_data</code> dictionary.</li>
-</ol></li>
-<li>Now that we have a <code>Movie</code> class with getter functions, we won’t need <code>print_movie_rating()</code> or <code>print_movie_title()</code>, so delete them.
-<ol type="1">
-<li>Then, in your <code>main()</code> function, set the existing <code>elif search_or_ratings == 2:</code> to <code>print_single_movie_rating</code>, and set <code>else</code> to print <code>&quot;Error: Your input must be 1 or 2!&quot;</code>.</li>
-</ol></li>
-<li>Now that we have a class, let’s make a function that creates <code>Movie</code> objects.
-<ol type="1">
-<li>Create a function called <code>return_single_movie_object()</code> that takes two arguments, <code>movie_title</code> and <code>movie_rating</code>.</li>
+<li>Create a function called <code>build_movie()</code> that takes two arguments, <code>movie_title</code> and <code>movie_rating</code>.</li>
 <li>Have it create and return a <code>Movie</code> object with those values.</li>
 </ol></li>
 </ol>
 <p><strong>Part 2b: The Class Objects</strong></p>
-<p>Now we can make <code>Movie</code> objects. Let’s look at all the places we’re currently using regular movie titles. Can we replace some of them with <code>Movie</code> objects? 1. First, let’s look at <code>print_all_ratings</code>. Right now, it loops through a list of movie titles and prints out each one. We want it to make <code>Movie</code> objects instead, but we don’t have ratings. Let’s use placeholders and set each rating to <code>4</code>. 1. Change <code>print_all_ratings</code> to loop through the movie title list and call <code>return_single_movie_object</code> on each title, passing in the title and <code>4</code> in the list for parameters. Then, print out <code>&quot;The movie&quot;, title, &quot;has a rating of&quot;, rating)</code>. Use the object’s getter functions for the <code>title</code> and <code>rating</code>.</p>
+<p>Now we can make <code>Movie</code> objects. Let's look at all the places we're currently using regular movie titles. Can we replace some of them with <code>Movie</code> objects?</p>
 <ol type="1">
-<li>Next, let’s look at <code>print_single_movie_rating</code>. Right now, it prints out the variables for <code>movie_title</code> and <code>movie_rating</code> that we have declared at the top of the file. However, we’re going to want it to print out the rating and title of any <code>Movie</code> object so that it’s useful to the user when they look for a movie.
-<ol type="1">
-<li>Change <code>print_single_movie_rating</code> to take in a movie title, <code>movie_query</code>.</li>
-<li>Then, create a <code>Movie</code> object from the title that’s passed in. In <code>print_single_movie_rating</code>, call <code>return_single_movie_object</code> on that title, with a rating of <code>7</code> (later, the rating will be accurate; for now, let’s hard-code it.)</li>
-<li>Now, change the <code>print</code> statement to use the getter functions on the new <code>Movie</code> object.</li>
-<li>We’re calling <code>print_single_movie_rating</code> in <code>main()</code>, so we’ll need to change that to provide an argument. Pass it a title of a movie you like, such as <code>&quot;Moana&quot;</code>.</li>
-</ol></li>
-<li>Now that we aren’t using <code>movie_title</code> and <code>movie_rating</code> at the top of the file, you can delete them.</li>
+<li>First, let's convert <code>print_movie_rating()</code> to consume a <code>Movie</code> object. Be sure to reference the class attributes appropriately in the function.</li>
+<li>Next, convert the list of <code>movie_titles</code> to be instead a list of <code>Movie</code> objects.</li>
+<li>Are there any other places we can use the <code>Movie</code> object?</li>
 </ol>
-<p><strong>Pro tip:</strong> If you get confused as to how all these functions interact, it’s helpful to draw it out on a piece of paper. Check back to the Requirements section above for an overview.</p>
-<p>Phew. You’re done! Awesome job.</p>
-<p><img src="https://thumbs.gfycat.com/GenerousFluffyDegu-size_restricted.gif" /></p>
+<p><strong>Pro tip:</strong> If you get confused as to how all these functions interact, it's helpful to draw it out on a piece of paper. Check back to the Requirements section above for an overview.</p>
+<p>Phew. You're done! Awesome job.</p>
+<figure>
+<img src="https://thumbs.gfycat.com/GenerousFluffyDegu-size_restricted.gif" />
+</figure>
 </section>
 </section>
 </section>

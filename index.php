@@ -76,15 +76,20 @@
 
 <h3>Class 5 Homework</h3>
 <h5>Due Wednesday, October 10</h5>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/hw-10wk-class-5/README.pdf">Class 5 Homework: Sets, Tuples, Dictionaries - Oh My!</p></a>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/hw-10wk-class-5/README.pdf">Class 5 Homework: Sets, Tuples, Dictionaries - Oh My!</a></p>
 
 <h3>Class 6</h3>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/13-classes/13-classes-slides.md.html">Lesson 12: Classes</p></a>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/14-inheritance/14-inheritance-slides.md.html">Lesson 13: Inheritance</p></a>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/13-classes/13-classes-slide.md.html">Lesson 12: Classes</a></p>
 
 <h3>Class 6 Homework</h3>
 <h5>Due Monday, October 15</h5>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/xx-additional-exercises/inheritance_accounts.pdf">Class 6 Homework: Bank Accounts</p></a>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/xx-additional-exercises/inheritance_accounts.pdf">Class 6 Homework: Bank Accounts</a></p>
 
+
+<h3>Class 7: The One Where Robby Had A Concussion</h3>
+<h5>Check the video links!</h5>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/14-inheritance/14-inheritance-slides.md">Lesson 13: Inheritance</a></p>
+<p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/18-debugging/18-debugging-slides.md.html">Lesson 14: Debugging</a></p>
+<p><a target="_blank" href="unit-3-oop/instructir-resources/15-unit-lab-3/unit-lab-3-directions.md.html">Lab 3: Classes</a></p>
 
 </html>

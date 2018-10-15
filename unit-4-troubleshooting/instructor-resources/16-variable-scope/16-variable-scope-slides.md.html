@@ -109,56 +109,57 @@ In this lesson, students will:
 </section>
 <section id="discussion-delivering-a-letter" class="level2">
 <h2>Discussion: Delivering a Letter</h2>
-<p>What if someone wanted to send Brandi a letter?</p>
-<p>If you just had “For Brandi,” the mail carrier would give the letter to the first Brandi they see!</p>
-<p>They’d look:</p>
+<p>What if someone wanted to send your instructor Robby a letter?</p>
+<p>If you just had &quot;For Robby&quot; the mail carrier would give the letter to the first Robby they see.</p>
+<p>Think about how they would go about finding me:</p>
 <ul>
-<li>First in the class. Is there a “Brandi” here? They get the letter!</li>
-<li>No? OK, look in the town. Is there a “Brandi” here? They get the letter!</li>
-<li>No? OK, look in the state. Is there a “Brandi” here? They get the letter!</li>
+<li>First in the class. Is there a &quot;Robby&quot; here? They get the letter!</li>
+<li>No? OK, look in the GA Boston Office. Is there a &quot;Robby&quot; here? They get the letter!</li>
+<li>No? OK, look in the entire GA network. Is there a &quot;Robby&quot; here? They get the letter!</li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tip:</strong></p>
 <ul>
-<li>Don’t mention programming here. Just make sure the class is clear on the idea of scope and how, if we aren’t specific, we’ll look first in town, then state — continue getting wider.</li>
+<li>Don't mention programming here. Just make sure the class is clear on the idea of scope and how, if we aren't specific, we'll look first in town, then state — continue getting wider.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="discussion-your-address" class="level2">
 <h2>Discussion: Your Address</h2>
-<p>That’s why <strong>scope</strong> matters. We might have to get more specific. To correctly deliver the letter, if the mail carrier only looked in the scope of:</p>
+<p>This is similar to how variables are looked up.</p>
+<p>That's why <strong>scope</strong> matters. We might have to get more specific. To correctly deliver the letter, if the mail carrier only looked in the scope of:</p>
 <p>Your class:</p>
 <ul>
-<li>You’re probably the only Brandi.</li>
-<li>“For Brandi” is fine.</li>
+<li>I'm probably the only Robby.</li>
+<li>&quot;For Robby&quot; is fine.</li>
 </ul>
-<p>Your town:</p>
+<p>GA Boston:</p>
 <ul>
-<li>There might be multiple Brandis in the town.</li>
-<li>“For Brandi, on Main Street” is a bit more specific.</li>
+<li>There might be multiple Robby's in GA Boston.</li>
+<li>&quot;For Robby, in Classroom 3&quot; is a bit more specific.</li>
 </ul>
-<p>In your state:</p>
+<p>Entire GA Network:</p>
 <ul>
-<li>There are multiple Main Streets in New York!</li>
-<li>“For Brandi, on Main Street in Brooklyn” is more specific.</li>
+<li>There are multiple Classroom 3's across all GA locations!</li>
+<li>&quot;For Brandi, in Classroom 3 in Boston&quot; is more specific.</li>
 </ul>
 <hr />
 </section>
 <section id="discussion-what-is-x" class="level2">
 <h2>Discussion: What Is <code>x</code>?</h2>
-<p>Python has <strong>scope</strong>, too. We can have many variables with the same name, and Python will look for the most specific one.</p>
-<p>In different scopes, you can reuse the same name. Each one is a <em>completely different</em> variable.</p>
-<p>Functions and classes create individual <strong>local scopes</strong>. A <strong>local variable</strong> doesn’t exist outside its local function or class scope.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> my_func1():</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  x <span class="op">=</span> <span class="dv">1</span>    <span class="co"># This is a LOCAL variable.</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="bu">print</span>(x) <span class="co"># 1</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">def</span> my_func2():</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  x <span class="op">=</span> <span class="dv">5</span>    <span class="co"># This is a DIFFERENT local variable.</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="bu">print</span>(x) <span class="co">#5</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">print</span>(x) <span class="co"># x is OUT OF SCOPE - no x exists here!</span></a></code></pre></div>
+<p>Python has a concept of <strong>scope</strong> as well. We can have many variables with the same name, and Python will look for the most specific one.</p>
+<p>Across different scopes, you can reuse the same name. Each one is a <em>completely different</em> variable.</p>
+<p>Functions and classes each have their own individual <strong>local scope</strong>. A <strong>local variable</strong> doesn't exist outside its local function or class scope.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> my_func1():
+  x <span class="op">=</span> <span class="dv">1</span>    <span class="co"># This is a LOCAL variable.</span>
+  <span class="bu">print</span>(x) <span class="co"># 1</span>
+
+<span class="kw">def</span> my_func2():
+  x <span class="op">=</span> <span class="dv">5</span>    <span class="co"># This is a DIFFERENT local variable.</span>
+  <span class="bu">print</span>(x) <span class="co">#5</span>
+
+<span class="bu">print</span>(x) <span class="co"># x is OUT OF SCOPE - no x exists here!</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -177,37 +178,37 @@ In this lesson, students will:
 </section>
 <section id="global-scope" class="level2">
 <h2>Global Scope</h2>
-<p>Variables that are in <strong>global scope</strong> can be accessed anywhere. - Python will check for a local variable before using a global one.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">x <span class="op">=</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">def</span> my_func1():</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  x <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="bu">print</span>(x) <span class="co"># 1 - Python checks local scopes first.</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">def</span> my_func2():</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  x <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="bu">print</span>(x) <span class="co"># 5 - Python checks local scopes first.</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">my_func1()</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">my_func2()</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="bu">print</span>(x) <span class="co"># 2 - Python found no local scope; prints global variable.</span></a></code></pre></div>
+<p>Variables that are in <strong>global scope</strong> can be accessed anywhere. We define the <strong>global scope</strong> for a specific file as being unbounded to any class or function. - Python will check for a local variable before using a global one.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">2</span> <span class="co"># Global to this file</span>
+
+<span class="kw">def</span> my_func1():
+  x <span class="op">=</span> <span class="dv">1</span>
+  <span class="bu">print</span>(x) <span class="co"># 1 - Python checks local scopes first.</span>
+
+<span class="kw">def</span> my_func2():
+  x <span class="op">=</span> <span class="dv">5</span>
+  <span class="bu">print</span>(x) <span class="co"># 5 - Python checks local scopes first.</span>
+
+my_func1()
+my_func2()
+
+<span class="bu">print</span>(x) <span class="co"># 2 - Python found no local scope; prints global variable.</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points:</strong></p>
 <ul>
 <li>If some variables are specifically local, what are the variables outside of a function or class called?</li>
-<li>Any variable declared or assigned outside of any function or class is considered “global.”</li>
+<li>Any variable declared or assigned outside of any function or class is considered &quot;global.&quot;</li>
 <li>Global variables are accessible from anywhere in the script. This is not necessarily a good thing, however, because those variables can be accessed, changed, or reassigned by anything, and this can lead to troublesome bugs.</li>
-<li>This is another case where Python has our backs. It’s preventing us from making an accidental error that could easily occur in many other languages.</li>
+<li>This is another case where Python has our backs. It's preventing us from making an accidental error that could easily occur in many other languages.</li>
 <li>Python assumes local unless otherwise specified.
 <ul>
 <li>Meaning, these <code>x</code>s are three different variables.</li>
 </ul></li>
 <li>Python does this to prevent unexpected behavior and accidental bad practice.
 <ul>
-<li>It’s considered sloppy to have too many global variables.</li>
+<li>It's considered sloppy to have too many global variables.</li>
 <li>If you have a large code base, you may have forgotten that you used a variable name elsewhere.</li>
-<li>If you’re working on a team, another person may have used a variable name without your knowledge.</li>
+<li>If you're working on a team, another person may have used a variable name without your knowledge.</li>
 </ul></li>
 </ul>
 </aside>
@@ -216,21 +217,21 @@ In this lesson, students will:
 <section id="multiple-variables-one-name" class="level2">
 <h2>Multiple Variables, One Name</h2>
 <p>Use case: <code>x</code> and <code>y</code> are frequently used to represent numbers.</p>
-<p>Scope is important so they don’t interact!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> add(x, y):</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="cf">return</span> x <span class="op">+</span> y</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">def</span> subtract(x, y):</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="cf">return</span> x <span class="op">-</span> y</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">def</span> multiply(x, y):</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="cf">return</span> x <span class="op">*</span> y</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw">def</span> divide(x, y):</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="cf">return</span> x <span class="op">/</span> y</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">divide (<span class="dv">8</span>,<span class="dv">2</span>) <span class="co"># Returns 4</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">multiply(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># Returns 3</span></a></code></pre></div>
+<p>Scope is important so they don't interact!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(x, y):
+    <span class="cf">return</span> x <span class="op">+</span> y
+
+<span class="kw">def</span> subtract(x, y):
+    <span class="cf">return</span> x <span class="op">-</span> y
+
+<span class="kw">def</span> multiply(x, y):
+    <span class="cf">return</span> x <span class="op">*</span> y
+
+<span class="kw">def</span> divide(x, y):
+    <span class="cf">return</span> x <span class="op">/</span> y
+
+divide(<span class="dv">8</span>,<span class="dv">2</span>) <span class="co"># Returns 4</span>
+multiply(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># Returns 3</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Point:</strong></p>
 <ul>
@@ -241,15 +242,15 @@ In this lesson, students will:
 </section>
 <section id="we-do-accessing-scopes" class="level2">
 <h2>We Do: Accessing Scopes</h2>
-<p>Let’s start with global scope:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">foo <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="bu">print</span>(foo)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">foo <span class="op">=</span> <span class="dv">7</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="bu">print</span>(foo)</a></code></pre></div>
+<p>Let's start with global scope:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="bu">print</span>(foo)
+foo <span class="op">=</span> <span class="dv">7</span>
+<span class="bu">print</span>(foo)</code></pre></div>
 <aside class="notes">
 <p><strong>Talking Point:</strong></p>
 <ul>
-<li>Python makes it a little trickier than other languages to fiddle around with global variables if we’re not already in that scope. First, start up a blank script. The following line will assign a global variable named foo the value of <code>5</code>. We can easily reassign and access that variable with the following lines. That’s the global scope: There’s no restriction on accessing or mutating a variable.</li>
+<li>Python makes it a little trickier than other languages to fiddle around with global variables if we're not already in that scope. First, start up a blank script. The following line will assign a global variable named foo the value of <code>5</code>. We can easily reassign and access that variable with the following lines. That's the global scope: There's no restriction on accessing or mutating a variable.</li>
 </ul>
 <p><strong>Teaching Tip:</strong></p>
 <ul>
@@ -261,16 +262,16 @@ In this lesson, students will:
 <section id="we-do-accessing-local-scope" class="level2">
 <h2>We Do: Accessing Local Scope</h2>
 <p>What if we add a variable in a local function scope and try to access it from the global scope?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">foo <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># Delete your other code.</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># Add this function and print calls instead.</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">def</span> coolFunc():</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">  bar <span class="op">=</span> <span class="dv">8</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">coolFunc()</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="bu">print</span>(foo)</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="bu">print</span>(bar)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+
+<span class="co"># Delete your other code.</span>
+<span class="co"># Add this function and print calls instead.</span>
+<span class="kw">def</span> coolFunc():
+  bar <span class="op">=</span> <span class="dv">8</span>
+
+coolFunc()
+<span class="bu">print</span>(foo)
+<span class="bu">print</span>(bar)</code></pre></div>
 <p>It fails!</p>
 <aside class="notes">
 <p><strong>Talking Points:</strong></p>
@@ -285,14 +286,14 @@ In this lesson, students will:
 <section id="scope-can-be-tricky" class="level2">
 <h2>Scope Can Be Tricky</h2>
 <p>What do you think happened here?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">foo <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">def</span> incrementFoo():</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  foo <span class="op">=</span> <span class="dv">6</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="bu">print</span>(foo) <span class="co"># prints 6</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="bu">print</span>(foo) <span class="co"># prints 5</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">incrementFoo()</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="bu">print</span>(foo) <span class="co"># prints 5</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="kw">def</span> incrementFoo():
+  foo <span class="op">=</span> <span class="dv">6</span>
+  <span class="bu">print</span>(foo) <span class="co"># prints 6</span>
+
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span>
+incrementFoo()
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tip:</strong></p>
 <ul>
@@ -300,10 +301,10 @@ In this lesson, students will:
 </ul>
 <p><strong>Talking Points:</strong></p>
 <ul>
-<li>Hey! The variable <code>foo</code> went back to its old value after the function finished! Actually, not quite. Here’s what happened:
+<li>Hey! The variable <code>foo</code> went back to its old value after the function finished! Actually, not quite. Here's what happened:
 <ul>
 <li>The line in the function where <code>foo</code> is assigned the value of <code>6</code> causes the creation of a new local variable.</li>
-<li>We then set this variable’s value to <code>6</code>, the function prints the value, and the function finishes. However, the global variable <code>foo</code> was never touched by the function.</li>
+<li>We then set this variable's value to <code>6</code>, the function prints the value, and the function finishes. However, the global variable <code>foo</code> was never touched by the function.</li>
 </ul></li>
 </ul>
 <p><strong>Teaching Tips:</strong></p>
@@ -313,28 +314,40 @@ In this lesson, students will:
 </aside>
 <hr />
 </section>
-<section id="i-do-the-global-keyword" class="level2">
-<h2>I Do: The Global Keyword</h2>
-<p>You can call a global variable intentionally with <code>global</code>. * What do you think happens if you forget the <code>global</code> keyword?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">foo <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">def</span> incrementFoo():</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="kw">global</span> foo</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  foo <span class="op">+=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="bu">print</span>(foo) <span class="co"># prints 5</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">incrementFoo()</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="bu">print</span>(foo) <span class="co"># prints 6!</span></a></code></pre></div>
+<section id="editing-global-variables" class="level2">
+<h2>Editing Global Variables</h2>
+<p>How might we alter the global variable?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">foo <span class="op">=</span> <span class="dv">5</span>
+<span class="kw">def</span> incrementFoo():
+  foo <span class="op">=</span> <span class="dv">6</span>
+  <span class="bu">print</span>(foo) <span class="co"># prints 6</span>
+  <span class="cf">return</span> foo <span class="co"># returns 6</span>
+
+<span class="bu">print</span>(foo) <span class="co"># prints 5</span>
+foo <span class="op">=</span> incrementFoo()
+<span class="bu">print</span>(foo) <span class="co"># prints 6</span></code></pre></div>
 <aside class="notes">
+<p><strong>Teaching Tip:</strong></p>
+<ul>
+<li>Spend some time here. Ensure student understanding.</li>
+</ul>
 <p><strong>Talking Points:</strong></p>
 <ul>
-<li>It is very clearly marked as <code>global</code>, so anyone using it is fully aware it’s global.</li>
-<li>If you forget the <code>global</code> keyword, it simply becomes an unrelated local variable.</li>
+<li>Hey! The variable <code>foo</code> went back to its old value after the function finished! Actually, not quite. Here's what happened:
+<ul>
+<li>The line in the function where <code>foo</code> is assigned the value of <code>6</code> causes the creation of a new local variable.</li>
+<li>We then set this variable's value to <code>6</code>, the function prints the value, and the function finishes. However, the global variable <code>foo</code> was never touched by the function.</li>
+</ul></li>
+</ul>
+<p><strong>Teaching Tips:</strong></p>
+<ul>
+<li>Run this!</li>
 </ul>
 </aside>
 <hr />
 </section>
-<section id="we-do-global-vs.local" class="level2">
-<h2>We Do: Global vs. Local</h2>
+<section id="we-do-global-vs.-local" class="level2">
+<h2>We Do: Global vs. Local</h2>
 <p>In the following code, there are three <code>print</code> statements. Before you run the code, guess what those <code>print</code> statements will print.</p>
 <iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-scope-quiz?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
@@ -349,56 +362,17 @@ def my_func1():
   print(x) # Print the local x
 
 # Using global x:
-def my_func2():
-  global x # We declare we&#39;d like to use the global x.
-  print(x) # Print that global x.
-  x = 3 # Change that global x.
+def my_func2(x):
+  print(x)
+  x = 3
+  return x
 
 my_func1()
-my_func2()
+x = my_func2(x)
 
 # Print global variable x.
 print(x) # Did x get permanently changed by my_func2()?</code></pre>
 </aside>
-<hr />
-</section>
-<section id="you-do-just-a-day-in-the-jungle" class="level2">
-<h2>You Do: Just a Day in the Jungle</h2>
-<p>Open a new local file, <code>piranhas.py</code>.</p>
-<ul>
-<li>Declare a global variable <code>piranhas_hungry</code> and set it to <code>True</code>.</li>
-<li>Write two functions, <code>swing_vine_over_river</code> and <code>jump_in_river</code>.</li>
-<li>In <code>swing_vine_over_river</code>, print <code>Ahhh! Piranhas got me!</code>.
-<ul>
-<li>Change <code>piranhas_hungry</code> to <code>False</code>.</li>
-</ul></li>
-<li>In <code>jump_in_river</code>, if <code>piranhas_hungry</code> is <code>True</code>, print <code>I'm not going in there! There are hungry piranhas!</code>.
-<ul>
-<li>Otherwise, print <code>Piranhas are full! Swimming happily through the Amazon!</code></li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Call functions in this order.</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">jump_in_river()</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">swing_vine_over_river()</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">jump_in_river()</a></code></pre></div>
-<p><strong>Pro tip:</strong> Raise your hand if you need some help!</p>
-<aside class="notes">
-<p><strong>Teaching Tip:</strong></p>
-<ul>
-<li>Give students a few minutes. The answer is in a repl.it on the next slide.</li>
-</ul>
-</aside>
-<hr />
-</section>
-<section id="we-do-check-your-answers" class="level2">
-<h2>We Do: Check Your Answers</h2>
-<ul>
-<li>Did you remember the <code>global</code> keyword?</li>
-<li>What happens if that keyword is removed?</li>
-<li>Comment out line 4. What happens? Why?</li>
-</ul>
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-scope-piranha?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-</iframe>
 <hr />
 </section>
 <section id="summary-and-qa" class="level2">
@@ -407,9 +381,9 @@ print(x) # Did x get permanently changed by my_func2()?</code></pre>
 <ul>
 <li>Functions and classes create individual <strong>local scopes</strong>.
 <ul>
-<li>A <code>local</code> variable doesn’t exist outside its local function or class scope.</li>
+<li>A <code>local</code> variable doesn't exist outside its local function or class scope.</li>
 </ul></li>
-<li>Any variable declared or assigned outside of any function or class is considered “global.”
+<li>Any variable declared or assigned outside of any function or class is considered &quot;global.&quot;
 <ul>
 <li>Variables that are in <strong>global scope</strong> can be accessed anywhere.</li>
 </ul></li>
@@ -427,7 +401,6 @@ print(x) # Did x get permanently changed by my_func2()?</code></pre>
 <section id="additional-resources" class="level2">
 <h2>Additional Resources</h2>
 <ul>
-<li><a href="https://www.python-course.eu/python3_global_vs_local_variables.php">Global vs. Local Variables</a></li>
 <li><a href="http://python-textbok.readthedocs.io/en/1.0/Variables_and_Scope.html">Variables and Scope</a></li>
 <li><a href="https://realpython.com/inner-functions-what-are-they-good-for/">Nested Functions — What Are They Good For?</a></li>
 </ul>
