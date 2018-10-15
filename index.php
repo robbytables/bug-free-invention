@@ -90,6 +90,6 @@
 <h5>Check the video links!</h5>
 <p><a target="_blank" href="unit-3-oop/instructor-resources/14-inheritance/14-inheritance-slides.md.html">Lesson 13: Inheritance</a></p>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/18-debugging/18-debugging-slides.md.html">Lesson 14: Debugging</a></p>
-<p><a target="_blank" href="unit-3-oop/instructir-resources/15-unit-lab-3/unit-lab-3-directions.md.html">Lab 3: Classes</a></p>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/15-unit-lab-3/unit-lab-3-directions.pdf">Lab 3: Classes</a></p>
 
 </html>
