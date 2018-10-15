@@ -79,7 +79,7 @@
 <p><a target="_blank" href="unit-3-oop/instructor-resources/hw-10wk-class-5/README.pdf">Class 5 Homework: Sets, Tuples, Dictionaries - Oh My!</a></p>
 
 <h3>Class 6</h3>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/13-classes/13-classes-slide.md.html">Lesson 12: Classes</a></p>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/13-classes/13-classes-slides.md.html">Lesson 12: Classes</a></p>
 
 <h3>Class 6 Homework</h3>
 <h5>Due Monday, October 15</h5>
