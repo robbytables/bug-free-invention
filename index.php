@@ -89,6 +89,8 @@
 <h3>Class 7: The One Where Robby Had A Concussion</h3>
 <h5>Check the video links!</h5>
 <p><a target="_blank" href="unit-3-oop/instructor-resources/14-inheritance/14-inheritance-slides.md.html">Lesson 13: Inheritance</a></p>
+<p><a target="_blank" href="https://cl.ly/44a789b15398">Inheritance Video Lecture Part 1</a></p>
+<p><a target="_blank" href="https://cl.ly/16d0444c91a1">Inheritance Video Lecture Part 2</a></p>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/18-debugging/18-debugging-slides.md.html">Lesson 14: Debugging</a></p>
 <p><a target="_blank" href="unit-3-oop/instructor-resources/15-unit-lab-3/unit-lab-3-directions.pdf">Lab 3: Classes</a></p>
 
