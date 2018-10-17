@@ -95,10 +95,10 @@
 <p><a target="_blank" href="unit-3-oop/instructor-resources/15-unit-lab-3/unit-lab-3-directions.pdf">Lab 3: Classes</a></p>
 
 <h3>Class 8: Major Recap</h3>
-<p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/16-variable-scope/16-variables-scope-slides.md.html">Lesson 15: Variable Scope</a></p>
+<p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/16-variable-scope/16-variable-scope-slides.md.html">Lesson 15: Variable Scope</a></p>
 <p><a target="_blank" href="unit-5-intermediate/instructor-resources/20-intermediate-intro/20-intermed-intro-slides.md.html">Lesson 16: Intro to Intermediate Python</p></a>
 
-<h3>Class 7 Homework</h3>
+<h3>Class 8 Homework</h3>
 <h5>Due Monday, October 22</h5>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/hw-10wk-class-7/README.pdf">Troubleshooting</a></p>
 
