@@ -143,13 +143,13 @@ Read through the examples in this Data Camp article about [data types and type c
 * c) `typeof`, but it is an operator not a function
 * d) `get_type()`
 
-#### 4. Which of the following is NOT a primitive data structure?
+#### 4. Which of the following are NOT primitive data structures?
 
 * a) Float
 * b) Integer
 * c) List
 * d) String
-* e) Both a and c are not primitives
+* e) Boolean
 
 #### 5. According to the article, what is the main reason to convert a tuple into a list?
 

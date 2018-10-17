@@ -1,20 +1,19 @@
 <!--
----
 title: Intro to Intermediate Python
 type: introduction
 duration: "00:15"
 creator: Brandi Michelle Butler
----
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Intro to Intermediate Python
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
+<h1>Intro to Intermediate Python</h1>
 
 <!--
 
 
 ## Overview
-This lesson starts with a recap of all of the topics covered up to this point, giving students a final chance to express their questions before we move beyond the basics. Most slides are in a "Lecture + Question --> Answer" format. It then has a very quick overview of the upcoming unit — user input and file I/O, abstraction, modules, and APIs.
+This lesson starts with a recap of all of the topics covered up to this point, giving students a final chance to express their questions before we move beyond the basics. Most slides are in a "Lecture + Question -> Answer" format. It then has a very quick overview of the upcoming unit — user input and file I/O, abstraction, modules, and APIs.
 
 - As you go through this lesson, do frequent checks for understanding. It's important that students understand everything before we add more complicated things like `itertools` and APIs.
 
@@ -513,9 +512,9 @@ A class can inherit properties and methods from another class.
 
 **Teaching Tip:**
 
-- After a minute, go over the answer.
+- After a minute, go over the answer:
 
-**Repl.it note:**
+**Repl.it note: Here is our `Animal()` class**
 ```python
 class Animal():
 def __init__(self):
@@ -645,7 +644,7 @@ Modules and libraries are:
 
 This one tells us when Mother's Day is for a given year:
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-inter-modules?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="200px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-inter-modules?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 <aside class="notes">
@@ -678,7 +677,7 @@ We can incorporate stocks, movie ratings, or GIFs from the internet into your pr
 
 This API lists *Star Wars* characters.
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-intermediate-apis?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="300px" width="100%" src="https://repl.it/@SuperTernary/python-programming-intro-intermediate-apis?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 <aside class="notes">
