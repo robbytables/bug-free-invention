@@ -105,6 +105,6 @@
 
 <h3>Class 9 Homework</h3>
 <h5>Due Monday, October 29</h5>
-<p><a target="_blank" href="unit-5-intermediate/instructur-resources/hw-10wk-class-8/README.pdf">Input: CSVs and Fun</a></p>
+<p><a target="_blank" href="unit-5-intermediate/instructor-resources/hw-10wk-class-8/README.pdf">Input: CSVs and Fun</a></p>
 
 </html>
