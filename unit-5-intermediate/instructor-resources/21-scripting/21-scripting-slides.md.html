@@ -96,7 +96,7 @@ It would be easy to get carried away and spend a lot of time covering all the ti
 </section>
 <section id="lesson-objectives" class="level2">
 <h2>Lesson Objectives</h2>
-<p><em>After this lesson, you will be able to…</em></p>
+<p><em>After this lesson, you will be able to...</em></p>
 <ul>
 <li>Explain the uses of scripting.</li>
 <li>Write scripts that perform file I/O.</li>
@@ -104,60 +104,46 @@ It would be easy to get carried away and spend a lot of time covering all the ti
 </ul>
 <hr />
 </section>
-<section id="introduction" class="level2">
-<h2>Introduction</h2>
-<p>Discussion: What comes to mind when you hear the word “scripting”?</p>
-<p><img src="https://c1.staticflickr.com/2/1570/25942496133_27fb6f2261_b.jpg" /></p>
-<aside class="notes">
-<p><strong>Talking Points</strong>:</p>
-<ul>
-<li>“Chances are you’ve run into a problem and heard a coworker smugly say, ‘don’t worry!, I’ll just write a script for it’. Maybe it sounded fancy or mysterious at the time, but today we’ll demystify it, and well, now you’re going to be that coworker!”</li>
-</ul>
-<p>🚫 Scripting is NOT</p>
-<ul>
-<li><del>Mysterious</del></li>
-<li><del>Difficult</del></li>
-<li><del>Impossible</del></li>
-<li><del>Only for super smart, expert programmers</del></li>
-</ul>
-<p>✅ Scripting IS</p>
-<ul>
-<li>Helpful.</li>
-<li>Convenient.</li>
-<li>Fun.</li>
-<li>Makes you look cool to your coworkers!</li>
-</ul>
-</aside>
-<hr />
-</section>
 <section id="whats-a-scripting-language" class="level2">
-<h2>What’s a Scripting Language?</h2>
-<p>There are only two types of programming languages in the world: <strong>scripting languages</strong> or <strong>compiled languages</strong>.</p>
-<p>All languages, like Python, are one of these two categories.</p>
+<h2>What's a Scripting Language?</h2>
+<p>There are two main categories of programming languages in the world: <strong>interpreted languages</strong> and <strong>compiled languages</strong>.</p>
+<p>Interpreted Languages are also known as Scripting Languages.</p>
 <p>Scripting languages:</p>
 <ul>
-<li>One is Python!</li>
-<li>Write code, then immediate run it: <code>python my_file.py</code></li>
-<li>Executes statements in order.</li>
-<li>Find a bug? Fix it, run it, repeat.</li>
+<li>Python</li>
+<li>PHP</li>
+<li>BASIC</li>
+<li>Javascript</li>
+</ul>
+<p>Compiled Languages:</p>
+<ul>
+<li>Java (sometimes)</li>
+<li>C++</li>
+<li>C</li>
+<li>Lisp</li>
 </ul>
 <hr />
 </section>
 <section id="whats-a-scripting-language-1" class="level2">
-<h2>What’s a Scripting Language?</h2>
+<h2>What's a Scripting Language?</h2>
 <p>Compiled languages:</p>
 <ul>
-<li>Compile means “build”.</li>
-<li><em>We can’t immediate run code - the computer can’t just read the code and needs to translate it to something it understands first.</em></li>
-<li>Write code, <em>then compile it (not quick!),</em> then run it.</li>
-<li>Find a bug? Fix it, <em>wait for the code to compile,</em> run it, repeat.</li>
+<li>Compile means &quot;build&quot;.</li>
+<li>Compilation is the process of building a machine runnable file</li>
+<li>More steps between coding and running, but tend to run faster</li>
+<li>Customized to run in a specific environment</li>
 </ul>
-<p>You don’t need to memorize this - just know that there’s a difference, and Python is scripting.</p>
-<p>What do you think a <em>script</em> is?</p>
+<p>Interpreted Languages:</p>
+<ul>
+<li>Are ran in a &quot;virtual machine&quot;, can be run in any environment</li>
+<li>Faster iterations between coding and running, but runtime tends to be slower</li>
+<li>Are ran line by line, errors are found when they happen</li>
+</ul>
+<p>You don't need to memorize this - just know that there's a difference.</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>It’s not important for them to memorize what compiled is - just get the idea that it’s a different kind of language.</li>
+<li>It's not important for them to memorize what compiled is - just get the idea that it's a different kind of language.</li>
 </ul>
 <p><strong>Talking Points</strong>:</p>
 <ul>
@@ -168,26 +154,18 @@ It would be easy to get carried away and spend a lot of time covering all the ti
 <p>All programming languages that exist in the world fall into one of two buckets. A <code>scripting language</code> or interpreted language like Python executes statements in order. A compiled language needs to build your program before running it.</p>
 <p>Imagine; you wrote an application with Java. Before you can run it, you need to compile it - turn it After compiling completed, you run your application. When running your application, you notice a bug. To fix it, you have to stop your application, go back to source code, fix the bug, wait for the code to recompile, and restart your application to confirm that it is fixed. And if you find another bug, you’ll need to repeat that process again.</p>
 <p>In a scripting language, you can fix the bug and just need to reload your application —no need to restart or recompile anymore. It’s as simple as that.</p>
-<p>Technically, you’ve been writing scripts already.</p>
+<p>Technically, you've been writing scripts already.</p>
 </aside>
 <hr />
 </section>
 <section id="what-is-a-script" class="level2">
 <h2>What is a Script?</h2>
-<p>Just some code that does something.</p>
-<ul>
-<li>Usually written in a scripting language.</li>
-<li>Can be as simple or as complex as needed!</li>
-</ul>
-<p>Let’s write a script:</p>
-<ul>
-<li>Create a file called <code>my_script.py</code></li>
-<li>Open the file in <code>Atom</code>.</li>
-<li>Type the line</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;hello world!&quot;</span>)</a></code></pre></div>
+<p>Code that automates a task.</p>
+<p>Can be as simple or as complex as needed!</p>
+<p>Let's write a script:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;hello world!&quot;</span>)</code></pre></div>
 <p><strong>CONGRATS</strong>: You now have a script!</p>
-<p>Look familiar? You’ve been scripting since day 1!</p>
+<p>Look familiar? You've been scripting since day 1!</p>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 It turns out, you already know how to do this!
@@ -203,73 +181,50 @@ It turns out, you already know how to do this!
 <li>Reads or writes to a file.</li>
 <li>Performs a task.</li>
 </ul>
-<p>We have “perform a task” down!</p>
+<p>We have &quot;perform a task&quot; down!</p>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
-All Python files you write are scripts! But when people say scripts, that’s not really what they mean.
-</aside>
-<hr />
-</section>
-<section id="quick-review" class="level2">
-<h2>Quick Review</h2>
-<p><strong>Script</strong>:</p>
-<ul>
-<li>Just code that does something. You’ve written dozens of scripts in Python so far!</li>
-</ul>
-<p><strong>Scripting Language</strong>:</p>
-<ul>
-<li>A language where you can immediately run code. Python is one!</li>
-<li>Write -&gt; Run.</li>
-</ul>
-<p><strong>Compiled Language</strong>:</p>
-<ul>
-<li>Compile means build! We can’t immediately run code.</li>
-<li>Write -&gt; Build -&gt; Run.</li>
-</ul>
-<p>We’re only working with Python, so we can just write and run our code!</p>
-<p><strong>Next Up</strong>: Playing with files in Python.</p>
-<aside class="notes">
-<p><strong>Teaching Tips</strong>:</p>
-<ul>
-<li>Do a quick check for understanding. Compile can be tough to wrap their head around, since they aren’t doing it.</li>
-</ul>
+All Python files you write are scripts! But when people say scripts, that's not really what they mean.
 </aside>
 <hr />
 </section>
 <section id="scripting-part-1-files" class="level2">
 <h2>Scripting, Part 1: Files</h2>
-<p>Let’s further our programming toolkit.</p>
+<p>Let's further our programming toolkit.</p>
 <p>On your computer, you can:</p>
 <ul>
-<li>Create or open a file (text, jpg, Word doc…).</li>
+<li>Create or open a file (text, jpg, Word doc...).</li>
 <li>Read it.</li>
 <li>Edit it.</li>
 <li>Close it.</li>
 </ul>
-<p>These are pretty basic actions. Can we do it in Python?</p>
+<p>Anything a user can do on a computer, Python can do as well.</p>
 <aside class="notes">
 <p>Teaching tip:</p>
 <ul>
-<li>This is to get them to conceptually understand what we’re about to do - don’t mention code here.</li>
+<li>This is to get them to conceptually understand what we're about to do - don't mention code here.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="we-do-lets-read-a-file" class="level2">
-<h2>We Do: Let’s Read a File!</h2>
+<h2>We Do: Let's Read a File!</h2>
 <p>With files, there are three key points.</p>
 <ol type="1">
-<li>Tell Python to open the file: <code>my_file = open(&lt;file name&gt;)</code></li>
+<li>Tell Python to open the file: <code>file = open(&lt;file name&gt;)</code></li>
 <li>Do something with the file! (Read it, edit it, etc).</li>
-<li>Close the file when you’re done: <code>my_file.close()</code></li>
+<li>Close the file when you're done: <code>file.close()</code></li>
 </ol>
-<p>First, let’s check out <strong>read</strong>: View, but not change, the contents, with <code>read()</code>.</p>
-<p>Let’s try. On your Desktop, create a file called “hello.txt” with the word “hi” in it.</p>
+<p>Let's try this out.</p>
 <ol type="1">
-<li>Now, also on your Desktop, create a file, <code>first_reading.py</code>. Fill it with: <code>python  my_file = open(&quot;hello.txt&quot;)  print(my_file.read())  my_file.close()</code></li>
-<li>Run it!</li>
+<li><p>Create a file called <code>message.txt</code>, and put a secret message in there.</p></li>
+<li><p>Now, also on your Desktop, create a file, <code>file_reading_script.py</code>. Fill it with:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>)
+<span class="bu">print</span>(<span class="bu">file</span>.read())
+<span class="bu">file</span>.close()</code></pre></div></li>
+<li><p>Run it!</p></li>
 </ol>
-<p>Note: The file must exist already!</p>
+<p><strong>Note:</strong> The file must exist already!</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
@@ -281,43 +236,61 @@ All Python files you write are scripts! But when people say scripts, that’s no
 </section>
 <section id="what-about-editing-files" class="level2">
 <h2>What About Editing Files?</h2>
-<p>In programming, “edit” is referred to as “write”, short for “write to.” How do we write a file?</p>
+<p>In Python, &quot;edit&quot; is referred to as &quot;write&quot;, short for &quot;write to.&quot; How do we write a file?</p>
 <p><code>open(&lt;file name&gt;)</code> has optional parameters: <code>open(&lt;file name&gt;, &lt;mode&gt;)</code></p>
 <ul>
-<li>Mode: “What do you want to do with the file?” The default is “read.” Use <code>w</code> for “write”:</li>
+<li>Mode: &quot;What do you want to do with the file?&quot; The default is &quot;read.&quot; Use <code>w</code> for &quot;write&quot;:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># To read a file:</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(my_file.read()) <span class="co">## We want this to be write, not read!</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">my_file.close()</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># To write a file:</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">## Write some stuff</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">my_file.close()</a></code></pre></div>
-<p><strong>Important:</strong> Write <em>overwrites</em> the current file!</p>
-<aside class="notes">
-<p><strong>Talking Points</strong>:</p>
-<ul>
-<li>Reinforce that write is “replace what’s there”, not “add to the file”.</li>
-</ul>
-</aside>
+<section id="file-modes" class="level4">
+<h4>File Modes</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Name</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>'r'</td>
+<td>Read</td>
+<td>Read only, can't change contents</td>
+</tr>
+<tr class="even">
+<td>'a'</td>
+<td>Append</td>
+<td>Can write but only to the end of the file</td>
+</tr>
+<tr class="odd">
+<td>'w'</td>
+<td>Write</td>
+<td>Able to edit file freely</td>
+</tr>
+<tr class="even">
+<td>'r+'</td>
+<td>Read + Write</td>
+<td>Can read and write to/from the file</td>
+</tr>
+</tbody>
+</table>
 <hr />
+</section>
 </section>
 <section id="we-do-writing-files" class="level2">
 <h2>We Do: Writing Files</h2>
-<p>Let’s try this. Change your script. We’re going to make it a little more complex - since we’re programming, we can use variables!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Open the file hello.txt</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Write some content to my_file.txt</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">my_file.write(<span class="st">&quot;Hello world&quot;</span>)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span> <span class="co"># Use the variable!</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">my_file.write(my_text) <span class="co"># Writes &quot;Apple juice is delicious.&quot;</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">my_file.write(<span class="st">&quot;Have a nice day!&quot;</span>)</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># Always close the file</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">my_file.close()</a></code></pre></div>
+<p>Let's write the value of a variable to our file.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Open the file</span>
+<span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;message.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+<span class="co"># Write some content</span>
+<span class="bu">file</span>.write(<span class="st">&quot;Hello bartender&quot;</span>)
+text <span class="op">=</span> <span class="st">&quot;I&#39;ll take a Whiskey.&quot;</span>
+<span class="bu">file</span>.write(text)
+<span class="bu">file</span>.write(<span class="st">&quot;Have a nice day!&quot;</span>)
+
+<span class="co"># Always close the file!!!!!!!!!!!</span>
+<span class="bu">file</span>.close()</code></pre></div>
 <p>Run it!</p>
 <p>Open the file to check.</p>
 <p><strong>Thought:</strong> How could you make new lines?</p>
@@ -326,52 +299,29 @@ All Python files you write are scripts! But when people say scripts, that’s no
 <ul>
 <li>Do this with them.</li>
 <li>Make sure they have all successfully run the code.</li>
-<li>Have them talk about making new lines - they’ve learned <code>\n</code> previously.</li>
+<li>Have them talk about making new lines - they've learned <code>\n</code> previously.</li>
 <li>If you think they can handle it, give them a few reasons to always close the file.</li>
-</ul>
-</aside>
-<hr />
-</section>
-<section id="discussion-writing-complex-strings" class="level2">
-<h2>Discussion: Writing Complex Strings</h2>
-<p>What happens if we try to <code>write</code> multiple strings?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># But it doesn&#39;t  work with write.</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">my_file.write(my_text, <span class="st">&quot;Don&#39;t you think?&quot;</span>) <span class="co"># Error! Write takes 1 argument (2 given).</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">my_file.close()</a></code></pre></div>
-<p>Error! <code>write</code> only takes one argument. We need to concat the strings. <em>Always just pass one argument to file.write()</em>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">my_text <span class="op">=</span> <span class="st">&quot;Apple juice is delicious.&quot;</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">string_to_write <span class="op">=</span> my_text <span class="op">+</span> <span class="st">&quot;Don&#39;t you think?&quot;</span> <span class="co"># Make one string here!</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">my_file.write(string_to_write)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">my_file.close()</a></code></pre></div>
-<aside class="notes">
-<p><strong>Teaching Tips</strong>:</p>
-<ul>
-<li>Demo this!</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="we-do-creating-files" class="level2">
 <h2>We Do: Creating Files</h2>
-<p>What if the file doesn’t exist yet?</p>
+<p>What if the file doesn't exist yet?</p>
 <p><strong>Write</strong> to the rescue!</p>
 <ul>
-<li>Write opens a file for writing…</li>
+<li>Write opens a file for writing...</li>
 <li>But it also creates it if need be!</li>
 </ul>
-<p>At the bottom of your script, add:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Open OR create file totally_new_file.txt</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">my_new_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;totally_new_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Write some content to totally_new_file.txt</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">my_new_file.write(<span class="st">&quot;Content goes here&quot;</span>)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># Always close the file</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">my_new_file.close()</a></code></pre></div>
+<p>Try this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Open OR create file</span>
+new_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;totally_new_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+<span class="co"># Write some content</span>
+new_file.write(<span class="st">&quot;Content goes here&quot;</span>)
+
+<span class="co"># Always close the file</span>
+new_file.close()</code></pre></div>
 <p>Check your desktop after running it!</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -382,48 +332,46 @@ All Python files you write are scripts! But when people say scripts, that’s no
 </aside>
 <hr />
 </section>
-<section id="you-do-create-a-file" class="level2">
-<h2>You Do: Create a file</h2>
-<p>Now, try it yourself. Write a new script:</p>
-<ul>
-<li><code>Open</code> for <code>read</code> mode your existing <code>a_file.txt</code>.</li>
-<li><code>Read()</code> the file and save the contents into a variable, <code>file_contents</code>.</li>
-<li>Under that, using <code>write</code>, create a file called <code>my_file_script.py</code>.</li>
-<li>In <code>my_file_script.py</code>, write what you read from <code>a_file.txt</code>.</li>
-</ul>
-<p>Don’t forget to <code>close()</code> your files!</p>
+<section id="lets-try-copying-a-file" class="level2">
+<h2>Let's try: Copying a File</h2>
+<p>Let's try doing the following:</p>
+<ol type="1">
+<li>Read in the contents of a file</li>
+<li>Write those contents to a new file</li>
+<li>Make sure to close all open files!!</li>
+</ol>
 <aside class="notes">
 <p>3 minutes</p>
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
-<li>After they do this, show it to them. Show them opening multiple files at the top, too, so they know you don’t have to go sequentially: e.g.</li>
+<li>After they do this, show it to them. Show them opening multiple files at the top, too, so they know you don't have to go sequentially: e.g.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">string_to_write <span class="op">=</span> file_to_read.read()</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">file_to_write.write(string_to_write)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">file_to_read.close()</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">file_to_write.close()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)
+file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+
+string_to_write <span class="op">=</span> file_to_read.read()
+file_to_write.write(string_to_write)
+
+file_to_read.close()
+file_to_write.close()</code></pre></div>
 </aside>
 <hr />
 </section>
-<section id="quick-review-1" class="level2">
+<section id="quick-review" class="level2">
 <h2>Quick Review</h2>
 <p>You can open, read, and write files with Python.</p>
-<p>Write will create the file if it doesn’t already exist.</p>
+<p>Write will create the file if it doesn't already exist.</p>
 <p>Always close your files!</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">string_to_write <span class="op">=</span> file_to_read.read()</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">file_to_write.write(string_to_write)</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">file_to_read.close()</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">file_to_write.close()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_to_read <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;a_file.txt&quot;</span>)
+file_to_write <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;file_script.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+
+
+string_to_write <span class="op">=</span> file_to_read.read()
+file_to_write.write(string_to_write)
+
+file_to_read.close()
+file_to_write.close()</code></pre></div>
 <p><strong>Next up:</strong> More advanced file options.</p>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
@@ -433,107 +381,55 @@ All Python files you write are scripts! But when people say scripts, that’s no
 </aside>
 <hr />
 </section>
-<section id="other-file-modes" class="level2">
-<h2>Other File Modes</h2>
-<p>What if we want to read AND write a file? Or write to the end of a file instead of overwriting what’s there?</p>
-<p><code>open</code> has a few other modes.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Mode</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>r</code></td>
-<td>Reading</td>
-<td>Read only. The default!</td>
-</tr>
-<tr class="even">
-<td><code>w</code></td>
-<td>Write</td>
-<td>Use to change (and create) file contents</td>
-</tr>
-<tr class="odd">
-<td><code>a</code></td>
-<td>Append</td>
-<td>Use to write to the end of a file</td>
-</tr>
-<tr class="even">
-<td><code>r+</code></td>
-<td>Read Plus</td>
-<td>Can do both read and write</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Don’t memorize this; just know it’s there. A lot of programming is understanding your options and then Googling the syntax! The biggest thing for you to learn is the concepts that Python can do.</p>
-</blockquote>
-<aside class="notes">
-<p><strong>Teaching Tips</strong>:</p>
-<ul>
-<li><p>Stress that this is a lot to take in and they don’t need to remember it all. We’re practicing for their understanding, not their memorization. (Also, the more we practice, the more likely they’ll just remember it).</p></li>
-<li><p>Show <code>r+</code> and <code>a</code>. You can work off this basic code:</p></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Open the file hello.txt</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;hello.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">my_file.read() <span class="co"># Error! Not readable.</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">my_file.write(<span class="st">&quot;hey&quot;</span>)</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># Close the file</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">my_file.close()</a></code></pre></div>
-</aside>
-<hr />
-</section>
 <section id="i-do-the-with-keyword" class="level2">
 <h2>I Do: The With Keyword</h2>
-<p>Always remembering to close a file can be hard. There’s another way to open files so Python closes it for us!</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Instead of:</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">file_object <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">file_object.write(<span class="st">&quot;Hello World!&quot;</span>)</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">file_object.close()</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co"># We can say:</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> file_object: <span class="co"># This line replaces the open and close above</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  file_object.write(<span class="st">&quot;Hello World!&quot;</span>) <span class="co"># This line is the same; note the indent!</span></a></code></pre></div>
+<p>Always remembering to close a file can be hard. There's another way to open files so Python closes it for us!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Instead of:</span>
+<span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)
+<span class="bu">file</span>.write(<span class="st">&quot;Hello World!&quot;</span>)
+<span class="bu">file</span>.close()
+
+<span class="co"># We can say:</span>
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> <span class="bu">file</span>: <span class="co"># This introduces a block that will automatically close the file when it&#39;s exited</span>
+  <span class="bu">file</span>.write(<span class="st">&quot;Hello World!&quot;</span>) <span class="co"># Note the indent!</span></code></pre></div>
 <aside class="notes">
 <p><strong>Talking Points</strong>:</p>
 <ul>
 <li>As you can see, file I/O is associated with a lot of potential errors.</li>
-<li>Sometimes if a file doesn’t close properly, this can lead to:
+<li>Sometimes if a file doesn't close properly, this can lead to:
 <ul>
 <li>Memory pollution on your computer</li>
-<li>Keeping a file in use when it isn’t</li>
+<li>Keeping a file in use when it isn't</li>
 </ul></li>
 <li>These are bad problems! Luckily, Python has our back once again with <code>with</code>!</li>
 <li><code>With</code> shortens our code, catches errors gracefully, and makes <code>close</code> unnecessary.</li>
 </ul>
 <p><strong>Teaching Tips</strong>:</p>
-It’s not necessary they become experts in this. Just show it to them so that they’re aware if they find it in a tutorial. Here is a repl.it, if you’d like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-03">@brandiw/03-Python-Scripting-03</span>
+It's not necessary they become experts in this. Just show it to them so that they're aware if they find it in a tutorial. Here is a repl.it, if you'd like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-03">@brandiw/03-Python-Scripting-03</span>
 </aside>
 <hr />
 </section>
 <section id="what-else-is-in-file" class="level2">
 <h2>What Else is in File?</h2>
-<p>These are just for reference - we won’t be using them!</p>
+<p>These are just for reference - we won't be using them!</p>
+<p>For future reference: <a href="https://docs.python.org/3/tutorial/inputoutput.html">Documentation on File I/O</a></p>
 <ul>
-<li><p>Do you have a list that you want to write on multiple lines? Use <code>my_file.writelines([&lt;your list&gt;])</code></p></li>
-<li><p>Does your file have things on multiple lines you want to read into a list variable? Use <code>list_contents = my_file.readlines()</code></p></li>
+<li><p>Do you have a list of strings that you want to write on multiple lines? Use <code>file.writelines([&lt;your list&gt;])</code></p></li>
+<li><p>Does your file have things on multiple lines you want to read into a list variable? Use <code>list_contents = file.readlines()</code></p></li>
 <li><p>Separating some written lines? Add <code>\n</code> to the <code>write()</code></p></li>
 </ul>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
 <li>If you have time (remember, user input is still coming), open a file and show these in action.</li>
-<li>It’s not essential for students to know, but it’s good for them to see.</li>
+<li>It's not essential for students to know, but it's good for them to see.</li>
 <li>Skim this slide quickly if students are starting to look lost.</li>
 </ul>
-Here is a repl.it, if you’d like: &quot;https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-01">@brandiw/03-Python-Scripting-01</span>
+Here is a repl.it, if you'd like: &quot;https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-01">@brandiw/03-Python-Scripting-01</span>
 </aside>
 <hr />
 </section>
-<section id="quick-review-2" class="level2">
+<section id="quick-review-1" class="level2">
 <h2>Quick Review:</h2>
 <p>File has a lot of advanced options.</p>
 <ul>
@@ -541,38 +437,30 @@ Here is a repl.it, if you’d like: &quot;https://repl.it/<span class="citation"
 <li>Write only takes one argument, so concat your strings!</li>
 <li>You can open files using <code>with</code> to automatically close them.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Instead of:</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">file_object <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">file_object.write(<span class="st">&quot;Hello World!&quot;</span>)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">file_object.close()</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co"># We can say:</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;my_file.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> file_object: <span class="co"># This line replaces the open and close above</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">  file_object.write(<span class="st">&quot;Hello World!&quot;</span>) <span class="co"># This line is the same; note the indent!</span></a></code></pre></div>
 <p><strong>Next up:</strong> User Input!</p>
 <hr />
 </section>
 <section id="what-about-user-input" class="level2">
 <h2>What about User Input?</h2>
-<p>We’ve just done a lot with file I/O (in/out).</p>
+<p>We've just done a lot with file I/O (in/out).</p>
 <p>We can prompt users for information, too.</p>
-<p>You’ve seen this a few times (remember the error checking, with the try/catch?)! It’s very common.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Prompts with &quot;input&quot;</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># Saves result in user_name</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">user_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please type your name:&quot;</span>)</a></code></pre></div>
+<p>You've seen this a few times, it's very common in scripting to allow finer grained control.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Prompts with &quot;input&quot;</span>
+<span class="co"># Saves result in user_name</span>
+user_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please type your name:&quot;</span>)</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
 <li>Run this! Show this a few ways. Try type casting the input to an int.</li>
 </ul>
-Here’s a repl.it, if you’d like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-04?lite">@brandiw/03-Python-Scripting-04?lite</span>=true
+Here's a repl.it, if you'd like: https://repl.it/<span class="citation" data-cites="brandiw/03-Python-Scripting-04?lite">@brandiw/03-Python-Scripting-04?lite</span>=true
 </aside>
 <hr />
 </section>
 <section id="you-do-bring-it-all-together" class="level2">
 <h2>You Do: Bring it all together!</h2>
 <ol type="1">
-<li>Create a file called <code>about_script.py</code>.</li>
+<li>Create a file called <code>about.py</code>.</li>
 <li>In it, prompt the user for their name. Then, prompt them for their favorite food.</li>
 <li>Using write, create a file called <code>about_me.txt</code>.</li>
 <li>In <code>about_me.txt</code>, write out the name and favorite food in a sentence.</li>
@@ -583,7 +471,7 @@ Here’s a repl.it, if you’d like: https://repl.it/<span class="citation" data
 <p><strong>Teaching Tips</strong>:</p>
 <ul>
 <li>After students give this a shot, show the answer.</li>
-<li>If there’s still time, show a few variations of this with other things we’ve covered, like append and <code>with</code> to open.</li>
+<li>If there's still time, show a few variations of this with other things we've covered, like append and <code>with</code> to open.</li>
 </ul>
 </aside>
 <hr />
@@ -605,10 +493,10 @@ Here’s a repl.it, if you’d like: https://repl.it/<span class="citation" data
 <h2>Summary and Q&amp;A</h2>
 <p>File I/O:</p>
 <ul>
-<li><code>my_file = open(&quot;a_file.txt&quot;, &quot;w&quot;)</code></li>
-<li><code>my_file.write(&quot;Some content&quot;)</code></li>
-<li><code>my_file.write(my_text)</code></li>
-<li><code>my_file.close()</code></li>
+<li><code>file = open(&quot;a_file.txt&quot;, &quot;w&quot;)</code></li>
+<li><code>file.write(&quot;Some content&quot;)</code></li>
+<li><code>file.write(my_text)</code></li>
+<li><code>file.close()</code></li>
 </ul>
 <p>User input</p>
 <ul>
@@ -625,7 +513,7 @@ Here’s a repl.it, if you’d like: https://repl.it/<span class="citation" data
 <li>Defined what a script means contextually.</li>
 <li>Showed how to open and close a file on your computer.</li>
 <li>Discussed different modes of opening files.</li>
-<li>Wrote a script that accepted a user’s input</li>
+<li>Wrote a script that accepted a user's input</li>
 </ul>
 </aside>
 <hr />

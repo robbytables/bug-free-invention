@@ -81,10 +81,6 @@
 <h3>Class 6</h3>
 <p><a target="_blank" href="unit-3-oop/instructor-resources/13-classes/13-classes-slides.md.html">Lesson 12: Classes</a></p>
 
-<h3>Class 6 Homework</h3>
-<h5>Due Monday, October 22</h5>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/xx-additional-exercises/inheritance_accounts.pdf">Class 6 Homework: Bank Accounts</a></p>
-
 
 <h3>Class 7: The One Where Robby Had A Concussion</h3>
 <h5>Check the video links!</h5>
@@ -92,7 +88,6 @@
 <p><a target="_blank" href="https://cl.ly/44a789b15398">Inheritance Video Lecture Part 1</a></p>
 <p><a target="_blank" href="https://cl.ly/840a7758edf5">Inheritance Video Lecture Part 2</a></p>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/18-debugging/18-debugging-slides.md.html">Lesson 14: Debugging</a></p>
-<p><a target="_blank" href="unit-3-oop/instructor-resources/15-unit-lab-3/unit-lab-3-directions.pdf">Lab 3: Classes</a></p>
 
 <h3>Class 8: Major Recap</h3>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/16-variable-scope/16-variable-scope-slides.md.html">Lesson 15: Variable Scope</a></p>
@@ -101,5 +96,15 @@
 <h3>Class 8 Homework</h3>
 <h5>Due Monday, October 22</h5>
 <p><a target="_blank" href="unit-4-troubleshooting/instructor-resources/hw-10wk-class-7/README.pdf">Troubleshooting</a></p>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/xx-additional-exercises/inheritance_accounts.pdf">Class 6 Homework: Bank Accounts</a></p>
+<p><a target="_blank" href="unit-3-oop/instructor-resources/15-unit-lab-3/unit-lab-3-directions.pdf">Lab 3: Classes</a></p>
+
+<h3>Class 9: Scripting</h3>
+<p><a target="_blank" href="unit-5-intermediate/instructor-resources/21-scripting/21-scripting-slides.md.html">Lesson 17: Scripting</a></p>
+<p><a target="_blank" href="unit-5-intermediate/instructor-resources/23-modules/23-modules-slides.md.html">Lesson 18: Modules</a></p>
+
+<h3>Class 9 Homework</h3>
+<h5>Due Monday, October 29</h5>
+<p><a target="_blank" href="unit-5-intermediate/instructur-resources/hw-10wk-class-8/README.pdf">Input: CSVs and Fun</a></p>
 
 </html>

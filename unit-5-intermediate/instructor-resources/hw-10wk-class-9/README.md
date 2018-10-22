@@ -47,6 +47,8 @@ By the end of this, you should have:
 
 ### Skill you're practicing: Importing and using modules/packages.
 
+**Geocoding**: _A term that refers to the process of converting street addresses to geographic coordinates, i.e. longitude and latitude._
+
 Cody and his friends Heather and Matt are going on a road trip across the Western United States and Canada. They want to visit several landmarks, national parks, and big cities. Here's their agenda:
 
 ```

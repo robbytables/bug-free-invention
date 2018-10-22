@@ -5,7 +5,9 @@ duration: "00:35"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Scripting
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Python Programming: Scripting</h1>
 
 
 <!--
@@ -56,58 +58,44 @@ It would be easy to get carried away and spend a lot of time covering all the ti
 
 ---
 
-## Introduction
+## What's a Scripting Language?
 
-Discussion: What comes to mind when you hear the word "scripting"?
+There are two main categories of programming languages in the world: **interpreted languages** and **compiled languages**.
 
-![](https://c1.staticflickr.com/2/1570/25942496133_27fb6f2261_b.jpg)
+Interpreted Languages are also known as Scripting Languages.
 
+Scripting languages:
 
-<aside class="notes">
-**Talking Points**:
+* Python
+* PHP
+* BASIC
+* Javascript
 
-- "Chances are you've run into a problem and heard a coworker smugly say, 'don't worry!, I'll just write a script for it'. Maybe it sounded fancy or mysterious at the time, but today we'll demystify it, and well, now you're going to be that coworker!"
+Compiled Languages:
 
-🚫 Scripting is NOT
-
-* ~~Mysterious~~
-* ~~Difficult~~
-* ~~Impossible~~
-* ~~Only for super smart, expert programmers~~
-
-✅ Scripting IS
-
-* Helpful.
-* Convenient.
-* Fun.
-* Makes you look cool to your coworkers!
-</aside>
+* Java (sometimes)
+* C++
+* C
+* Lisp
 
 ---
 
 ## What's a Scripting Language?
 
-There are only two types of programming languages in the world: **scripting languages** or **compiled languages**.
-
-All languages, like Python, are one of these two categories.
-
-Scripting languages:
-
-- One is Python!
-- Write code, then immediate run it: `python my_file.py`
-- Executes statements in order.
-- Find a bug? Fix it, run it, repeat.
-
 Compiled languages:
 
-- Compile means "build".
-- *We can't immediate run code - the computer can't just read the code and needs to translate it to something it understands first.*
-- Write code, *then compile it (not quick!),* then run it.
-- Find a bug? Fix it, *wait for the code to compile,* run it, repeat.
+* Compile means "build".
+* Compilation is the process of building a machine runnable file
+* More steps between coding and running, but tend to run faster
+* Customized to run in a specific environment
 
-You don't need to memorize this - just know that there's a difference, and Python is scripting.
+Interpreted Languages:
 
-What do you think a *script* is?
+* Are ran in a "virtual machine", can be run in any environment
+* Faster iterations between coding and running, but runtime tends to be slower
+* Are ran line by line, errors are found when they happen
+
+You don't need to memorize this - just know that there's a difference.
 
 
 <aside class="notes">
@@ -136,16 +124,11 @@ Technically, you've been writing scripts already.
 
 ## What is a Script?
 
-Just some code that does something.
+Code that automates a task.
 
-- Usually written in a scripting language.
-- Can be as simple or as complex as needed!
+Can be as simple or as complex as needed!
 
 Let's write a script:
-
-- Create a file called `my_script.py`
-- Open the file in `Atom`.
-- Type the line
 
 ```python
 print("hello world!")
@@ -182,37 +165,6 @@ All Python files you write are scripts! But when people say scripts, that's not 
 
 ---
 
-## Quick Review
-
-**Script**:
-
-- Just code that does something. You've written dozens of scripts in Python so far!
-
-**Scripting Language**:
-
-- A language where you can immediately run code. Python is one!
-- Write -> Run.
-
-**Compiled Language**:
-
-- Compile means build! We can't immediately run code.
-- Write -> Build -> Run.
-
-We're only working with Python, so we can just write and run our code!
-
-**Next Up**: Playing with files in Python.
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Do a quick check for understanding. Compile can be tough to wrap their head around, since they aren't doing it.
-
-</aside>
-
----
-
-
 ## Scripting, Part 1: Files
 
 Let's further our programming toolkit.
@@ -224,7 +176,7 @@ On your computer, you can:
 - Edit it.
 - Close it.
 
-These are pretty basic actions. Can we do it in Python?
+Anything a user can do on a computer, Python can do as well.
 
 
 <aside class="notes">
@@ -241,23 +193,23 @@ Teaching tip:
 
 With files, there are three key points.
 
-1. Tell Python to open the file: `my_file = open(<file name>)`
+1. Tell Python to open the file: `file = open(<file name>)`
 2. Do something with the file! (Read it, edit it, etc).
-3. Close the file when you're done: `my_file.close()`
+3. Close the file when you're done: `file.close()`
 
-First, let's check out **read**: View, but not change, the contents, with `read()`.
+Let's try this out.
 
-Let's try. On your Desktop, create a file called "hello.txt" with the word "hi" in it.
+1. Create a file called `message.txt`, and put a secret message in there.
 
-1. Now, also on your Desktop, create a file, `first_reading.py`.  Fill it with:
+2. Now, also on your Desktop, create a file, `file_reading_script.py`.  Fill it with:
     ```python
-    my_file = open("hello.txt")
-    print(my_file.read())
-    my_file.close()
+    file = open("hello.txt")
+    print(file.read())
+    file.close()
     ```
-2. Run it!
+3. Run it!
 
-Note: The file must exist already!
+**Note:** The file must exist already!
 
 
 <aside class="notes">
@@ -274,55 +226,37 @@ Note: The file must exist already!
 
 ## What About Editing Files?
 
-In programming, "edit" is referred to as "write", short for "write to." How do we write a file?
+In Python, "edit" is referred to as "write", short for "write to." How do we write a file?
 
 `open(<file name>)` has optional parameters: `open(<file name>, <mode>)`
 
 - Mode: "What do you want to do with the file?" The default is "read." Use `w` for "write":
 
-
-```python
-# To read a file:
-my_file = open("hello.txt")
-print(my_file.read()) ## We want this to be write, not read!
-my_file.close()
-
-# To write a file:
-my_file = open("hello.txt", "w")
-## Write some stuff
-my_file.close()
-```
-
-**Important:** Write *overwrites* the current file!
-
-
-<aside class="notes">
-
-**Talking Points**:
-
-- Reinforce that write is "replace what's there", not "add to the file".
-
-</aside>
-
-
+#### File Modes
+| Value  | Name  | Details  |
+|---|---|---|
+| 'r' | Read  | Read only, can't change contents  |
+| 'a' | Append  | Can write but only to the end of the file  |
+| 'w' | Write  | Able to edit file freely  |
+| 'r+' | Read + Write | Can read and write to/from the file |
 ---
 
 ## We Do: Writing Files
 
-Let's try this. Change your script. We're going to make it a little more complex - since we're programming, we can use variables!
+Let's write the value of a variable to our file.
 
 ```python
-# Open the file hello.txt
-my_file = open("hello.txt", "w")
+# Open the file
+file = open("message.txt", "w")
 
-# Write some content to my_file.txt
-my_file.write("Hello world")
-my_text = "Apple juice is delicious." # Use the variable!
-my_file.write(my_text) # Writes "Apple juice is delicious."
-my_file.write("Have a nice day!")
+# Write some content
+file.write("Hello bartender")
+text = "I'll take a Whiskey."
+file.write(text)
+file.write("Have a nice day!")
 
-# Always close the file
-my_file.close()
+# Always close the file!!!!!!!!!!!
+file.close()
 ```
 
 Run it!
@@ -344,39 +278,6 @@ Open the file to check.
 
 ---
 
-## Discussion:  Writing Complex Strings
-
-What happens if we try to `write` multiple strings?
-
-```python
-# But it doesn't  work with write.
-my_file = open("a_file.txt", "w")
-my_text = "Apple juice is delicious."
-my_file.write(my_text, "Don't you think?") # Error! Write takes 1 argument (2 given).
-
-my_file.close()
-```
-
-Error! `write` only takes one argument. We need to concat the strings. *Always just pass one argument to file.write()*.
-
-```python
-my_file = open("a_file.txt", "w")
-my_text = "Apple juice is delicious."
-string_to_write = my_text + "Don't you think?" # Make one string here!
-my_file.write(string_to_write)
-my_file.close()
-```
-
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Demo this!
-
-</aside>
-
----
 
 ## We Do: Creating Files
 
@@ -387,17 +288,17 @@ What if the file doesn't exist yet?
 * Write opens a file for writing...
 * But it also creates it if need be!
 
-At the bottom of your script, add:
+Try this:
 
 ```python
-# Open OR create file totally_new_file.txt
-my_new_file = open("totally_new_file.txt", "w")
+# Open OR create file
+new_file = open("totally_new_file.txt", "w")
 
-# Write some content to totally_new_file.txt
-my_new_file.write("Content goes here")
+# Write some content
+new_file.write("Content goes here")
 
 # Always close the file
-my_new_file.close()
+new_file.close()
 ```
 
 Check your desktop after running it!
@@ -414,16 +315,13 @@ Check your desktop after running it!
 
 ---
 
-## You Do: Create a file
+## Let's try: Copying a File
 
-Now, try it yourself. Write a new script:
+Let's try doing the following:
 
-- `Open` for `read` mode your existing `a_file.txt`.
-- `Read()` the file and save the contents into a variable, `file_contents`.
-- Under that, using `write`, create a file called `my_file_script.py`.
-- In `my_file_script.py`, write what you read from `a_file.txt`.
-
-Don't forget to `close()` your files!
+1. Read in the contents of a file
+2. Write those contents to a new file
+3. Make sure to close all open files!!
 
 <aside class="notes">
 
@@ -435,7 +333,7 @@ Don't forget to `close()` your files!
 
 ```python
 file_to_read = open("a_file.txt")
-file_to_write = open("my_file_script.txt", "w")
+file_to_write = open("file_script.txt", "w")
 
 
 string_to_write = file_to_read.read()
@@ -458,7 +356,7 @@ Always close your files!
 
 ```python
 file_to_read = open("a_file.txt")
-file_to_write = open("my_file_script.txt", "w")
+file_to_write = open("file_script.txt", "w")
 
 
 string_to_write = file_to_read.read()
@@ -480,42 +378,6 @@ file_to_write.close()
 
 ---
 
-## Other File Modes
-
-What if we want to read AND write a file? Or write to the end of a file instead of overwriting what's there?
-
-`open` has a few other modes.
-
-| Value | Mode | Purpose |
-| ----- | ------------ | -------------- |
-| `r` | Reading | Read only. The default! |
-| `w` | Write | Use to change (and create) file contents |
-| `a` | Append | Use to write to the end of a file |
-| `r+` | Read Plus | Can do both read and write |
-
-
-> Don't memorize this; just know it's there. A lot of programming is understanding your options and then Googling the syntax! The biggest thing for you to learn is the concepts that Python can do.
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Stress that this is a lot to take in and they don't need to remember it all. We're practicing for their understanding, not their memorization. (Also, the more we practice, the more likely they'll just remember it).
-
-- Show `r+` and `a`. You can work off this basic code:
-
-```python
-# Open the file hello.txt
-my_file = open("hello.txt", "w")
-my_file.read() # Error! Not readable.
-my_file.write("hey")
-# Close the file
-my_file.close()
-```
-
-</aside>
-
----
 
 
 ## I Do: The With Keyword
@@ -524,13 +386,13 @@ Always remembering to close a file can be hard.  There's another way to open fil
 
 ```python
 # Instead of:
-file_object = open("my_file.txt", "w")
-file_object.write("Hello World!")
-file_object.close()
+file = open("file.txt", "w")
+file.write("Hello World!")
+file.close()
 
 # We can say:
-with open("my_file.txt", "w") as file_object: # This line replaces the open and close above
-  file_object.write("Hello World!") # This line is the same; note the indent!
+with open("file.txt", "w") as file: # This introduces a block that will automatically close the file when it's exited
+  file.write("Hello World!") # Note the indent!
 ````
 
 
@@ -557,9 +419,11 @@ https://repl.it/@brandiw/03-Python-Scripting-03
 
 These are just for reference - we won't be using them!
 
-- Do you have a list that you want to write on multiple lines? Use `my_file.writelines([<your list>])`
+For future reference: [Documentation on File I/O](https://docs.python.org/3/tutorial/inputoutput.html)
 
-- Does your file have things on multiple lines you want to read into a list variable? Use `list_contents = my_file.readlines()`
+- Do you have a list of strings that you want to write on multiple lines? Use `file.writelines([<your list>])`
+
+- Does your file have things on multiple lines you want to read into a list variable? Use `list_contents = file.readlines()`
 
 - Separating some written lines? Add `\n` to the `write()`
 
@@ -584,16 +448,6 @@ File has a lot of advanced options.
 - Write only takes one argument, so concat your strings!
 - You can open files using `with` to automatically close them.
 
-```python
-# Instead of:
-file_object = open("my_file.txt", "w")
-file_object.write("Hello World!")
-file_object.close()
-
-# We can say:
-with open("my_file.txt", "w") as file_object: # This line replaces the open and close above
-  file_object.write("Hello World!") # This line is the same; note the indent!
-````
 
 **Next up:** User Input!
 
@@ -605,7 +459,7 @@ We've just done a lot with file I/O (in/out).
 
 We can prompt users for information, too.
 
-You've seen this a few times (remember the error checking, with the try/catch?)! It's very common.
+You've seen this a few times, it's very common in scripting to allow finer grained control.
 
 ```python
 # Prompts with "input"
@@ -625,7 +479,7 @@ https://repl.it/@brandiw/03-Python-Scripting-04?lite=true
 
 ## You Do: Bring it all together!
 
-1. Create a file called `about_script.py`.
+1. Create a file called `about.py`.
 2. In it, prompt the user for their name. Then, prompt them for their favorite food.
 3. Using write, create a file called `about_me.txt`.
 3. In `about_me.txt`, write out the name and favorite food in a sentence.
@@ -655,12 +509,16 @@ Script:
 
 - Just some code!
 
+---
+
+## Summary and Q&A
+
 File I/O:
 
-- `my_file = open("a_file.txt", "w")`
-- `my_file.write("Some content")`
-- `my_file.write(my_text)`
-- `my_file.close()`
+- `file = open("a_file.txt", "w")`
+- `file.write("Some content")`
+- `file.write(my_text)`
+- `file.close()`
 
 User input
 

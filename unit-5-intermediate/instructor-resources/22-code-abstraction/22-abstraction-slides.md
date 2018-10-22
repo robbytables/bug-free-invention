@@ -7,7 +7,9 @@ creators: Steven Peters (initial draft) and Brandi Butler (final draft)
 ---
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Code Abstraction
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Python Code Abstraction</h1>
 
 <!--
 
@@ -159,6 +161,10 @@ Sometimes, our lists contain repeated items that work better for us if they are 
 
 * `key`: The name of the group (in this case `dog` and `horse`).
 * `group`: A list containing all occurrences of that key from the original list.
+
+---
+
+## Our First Itertool: `groupby()`
 
 All the gibberish-looking stuff is memory addresses. Python tells us, "I made a new object and I put it here." We'll talk about this on the next slide.
 
@@ -349,6 +355,10 @@ We've looked at our first itertool, `groupby()`. It groups things in lists, tupl
 
 `groupby()` needs to be run on something sorted. We can sort with another built-in function: `sorted(list_to_be_sorted)`.
 
+---
+
+## Quick Review
+
 We only worked on lists, but tuples are a better use case for `groupby()`. `groupby()` can be run on any collection.
 
 ```python
@@ -389,7 +399,7 @@ The `chain()` function takes any number of lists or sequences as parameters to t
 - `chained_list = list(itertools.chain(list1, list2, list3))`
 
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-chain?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="370px" width="100%" src="https://repl.it/@SuperTernary/python-programming-itertools-chain?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 <aside class="notes">
@@ -425,6 +435,10 @@ print(chained_list)
 ```
 
 **Answer 1:** `itertools.chain` is more efficient — it's faster, even if it's still too fast for you to notice the difference.
+
+---
+
+## What Happened to the Plus Operator?
 
 **Answer 2:** `itertools.chain` can contain different types of iterables.
 
@@ -804,6 +818,10 @@ Then you can make:
 new_list = [modification  old_list_iteration  [condition]]
 ```
 
+---
+
+## Discussion: More Conditionals Practice
+
 Let's say we have a string containing both numbers and letters:
 
 ```python
@@ -893,6 +911,10 @@ print(nums_list) # Prints ['9', '9', '1', '3', '2']
 
 - `chain()`: Creates one long list from many lists.
   -  `chained_list = list(itertools.chain(list1, list2, list3))`
+
+---
+
+## Summary and Q&A:
 
 - `accumulate()`: Performs some operation on a list and returns the accumulated results.
   - `results = list(itertools.accumulate(primes))`

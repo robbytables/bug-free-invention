@@ -85,7 +85,7 @@ If you run the previous example locally, you'll end up with a spreadsheet that l
 | Wonderful | Spam |
 
 
-If you view it in a text editor like Atom, you'll just see the values separated by commas:
+If you view it in a text editor like Sublime Text, you'll just see the values separated by commas:
 
 ```
 first_name,last_name

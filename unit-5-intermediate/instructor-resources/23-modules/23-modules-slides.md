@@ -5,7 +5,9 @@ duration: "00:40"
 creator: Brandi Butler
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Modules and Packages
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Modules and Packages</h1>
 
 
 <!--
@@ -74,15 +76,13 @@ Since there are many modules, students may start asking questions along the line
 
 ---
 
-## Discussion: Let's Dive In
+## Discussion: Code Reuse
 
-Do you remember `itertools`?
+Remember our discussion about Pseudo-Random Number Generators?
 
-What do you think these have in common?
+Why would we want to recreate those difficult calculations every time we need them?
 
-- `itertools`.
-- A Python function that tells us when Mother's Day is.
-- A Python function that gets all the contents of a webpage for us.
+There must be a better way...
 
 <aside class="notes">
 **Teaching Tips**:
@@ -95,25 +95,24 @@ What do you think these have in common?
 
 ## What is a Module?
 
-Answer: They're all available to us via modules! (In fact, `itertools` IS a module).
+Modules are collections Python code that can be shared, used, and reused throughout applications.
 
-Modules are collections of useful Python code and functions that we can use.
+How do we load modules?
 
-- This is much like a class that someone else has written.
-- It's free - less work for us!
+* `import <module_name>` at the top of your code- ALWAYS AT THE TOP!
+* Then `<module_name>.function_you_want()` when you want to use it.
 
-Use a function by `import <module>` at the top of your code, then `<module>.function_you_want()`.
 
 ```python
-# import < module name > - brings in the module file, so we can use it.
-import itertools
+# import <module_name> - brings in the module file, so we can use it.
+import random
 
-food = ['pizza', 'tacos', 'sushi']
-colors = ['red', 'green']
+# random.randint : "Look in the random module, and use the randint function"
+correct_answer = random.randint(0,100)
 
-# itertools.chain : "Look in the itertools module, and use the chain function"
-chained_list = list(itertools.chain(food, colors))
 ```
+
+**Discuss:** Why do we need to namespace the `randint` function?
 
 
 **Pro Tip**: Check the Additional Reading at the end of the lesson to see how to write your own module!
@@ -141,21 +140,11 @@ chained_list = list(itertools.chain(food, colors))
 
 We're going to look at several different modules to get you used to them.
 
+
 The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules, so we can just `import` (use) them.
 
-We've seen the `itertools` module already. Let's look at another module, `random`:
 
-```python
-import random
-# Done! Now we can use any functions in the random module!
-
-# randint is a function in the random module
-my_random_number = random.randint(2,8)
-
-# This could be 2, 3, 4, 5, 6, 7, or 8
-print(my_random_number)
-```
-
+These files are already installed with Python, but aren't loaded into memory autmatically. *Why do you think that is?*
 
 <aside class="notes">
 **Talking Points**:
@@ -164,47 +153,6 @@ print(my_random_number)
 - "There are modules to help with databases, operating systems, logging, data processing, file I/O, and testing, just to name a few!"
 - "If you want to use any functions from a module in the standard library, all you need to do is include an import statement for that module at the top of your file."
 - "Let's say we're using the random module. We import it; now, we can use the functions in it. Randint returns a random integer between two numbers we give it, including both those numbers."
-</aside>
-
----
-
-## We Do: Let's Import Random
-
-
-Run the code in the repl below. What happened? Why?
-
-Uncomment the first line: `import random`. Run it again. Try changing the values.
-
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/python-programming-modules-random?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
-
-<aside class="notes">
-
-**Teaching Tips**:
-
-- Use this as  a teaching aid, not an exercise.
-- Demonstrate how to import a module.
-- Point out what happens when we forget the import statement.
-- Show the correct way to use the basic `randint` function.
-- Demonstrate
-
-**Talking Points**:
-
-- Post-activity: "Importing the module tells your program that the module exists - there are thousands of modules, so to save space, your program will only use the ones you tell it to."
-- "You may have noticed a NameError. That means it doesn't know what module you're referring to since it wasn't imported."
-different values for the randint function as a short "we do" activity. Show a large range and a small range.
-
-**Repl.it Note**:
-```python
-# import random
-# Done! Now we can use the random module all we want!
-
-# randint is a function in the random module
-my_random_number = random.randint(2,8)
-
-# This could be 2, 3, 4, 5, 6, 7, or 8
-print(my_random_number)
-```
 </aside>
 
 ---
@@ -221,7 +169,7 @@ Every module has documentation, which has:
 - What functions are in the module.
 - How to use them.
 
-Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>_.
+Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>.
 
 - Can you find our `randint` function?
 
@@ -250,12 +198,12 @@ Let's consult the documentation to get an idea of what functions are available f
 
 Get with a partner and pick a driver! Together:
 
-- Find the `random` function in the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation</a>_. (Yes, a function can have the same name as the module).
+- Find the `random` function in the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation</a>. 
 - Print out a randomly generated number using `random()`.
 - Run the program several times; is your random number different every time?
 * Why do you think this is useful?
 
-<iframe height="400px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="385px" width="100%" src="https://repl.it/@SuperTernary/Empty-Replit?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 > **Protip**: The `[`, in mathematics means `inclusive`, whereas the `)` means `exclusive`. Thus the possible values include 0.0, but do **not** include 1.0!
 
@@ -282,21 +230,15 @@ Modules are collections of useful Python code and functions that we can use.
 
 Use a function by `import <module>` at the top of your code, then `<module>.function_you_want()`.
 
-We've looked at two modules: `itertools` and `random`.
+We've looked at one module: `random`.
 
 ```python
 # Import statements go at the top of your file
-import itertools
 import random
 
 # Using the randint function in the random module
 my_random_number = random.randint(2,8)
 print(my_random_number)
-
-# Using the chain function in the intertools module
-food = ['pizza', 'tacos', 'sushi']
-colors = ['red', 'green']
-chained_list = list(itertools.chain(food, colors))
 ```
 
 The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules, so we can just `import` (use) them.
@@ -320,9 +262,9 @@ The [Python Standard Library](https://docs.python.org/3/library/) bundles all co
 How could you pick a random value from a list? The `random` module has a function called `choice` - it works on any non-empty list.
 
 ```python
-people_in_lottery = ["Tina", "Batu", "Gina", "Jim", "Andres"]
+people_in_lottery = ["Michael", "Soufiane", "Ashish", "Peter", "Tara"]
 lottery_winner = random.choice(people_in_lottery)
-print(lottery_winner, "wins a new car!") # Gina
+print(lottery_winner, "wins a new car!")
 ```
 
 Let's try.
@@ -365,14 +307,15 @@ print(lottery_winner, "wins a new car!")
 
 ## Partner Exercise: Let's Get Random!
 
-Get with a partner and create a local file, `random_test.py`
+Get with a partner and create a local file, `random_cards.py`
 
 - Generate a random number with `random.randrange()`. Print it out.
-- Create a list, like `deck = ["ten", "jack", "queen", "king", "ace"]`
-- Use `random.choice()` to pick a random card in your deck. Print it out.
+- Create a list of cards, like `cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"]`
 - Use `random.shuffle()` to mix up your deck; print that out.
+- Use `random.choice()` to deal a random card in your deck. Print it out.
+- **BONUS:** Create a function that can take an integer argument corresponding to the number of cards to deal. Make sure each card can only be dealt once per function call.
 
-Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>, so you can look up functions._
+Here is the <a href="https://docs.python.org/3/library/random.html" target="_blank">documentation for the random module</a>, so you can look up functions.
 
 <aside class="notes">
 
@@ -396,20 +339,16 @@ Modules are collections of useful Python code and functions that we can use.
 
 Use a function by `import <module>` at the top of your code, then `<module>.function_you_want()`.
 
-The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules, so we can just `import` (use) them. `itertools` and `random` are modules inside the Python Standard Library.
+The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules, so we can just `import` them. `random` is a module inside the Python Standard Library.
 
 ```python
 # Import statements go at the top of your file - they import straight from the Python Standard Library!
-import itertools
 import random
 
 # Using the randint function in the random module
 my_random_number = random.randint(2,8)
 print(my_random_number)
 
-# Using the chain function in the intertools module
-food = ['pizza', 'tacos', 'sushi']
-colors = ['red', 'green']
 chained_list = list(itertools.chain(food, colors))
 ```
 
@@ -426,17 +365,15 @@ chained_list = list(itertools.chain(food, colors))
 
 ---
 
-## What is a Package?
+## What are Modules and Packages?
 
-A package, also called a **library**, is  a place where one or more related modules are stored.
+* A Module is a Python file
+* Each Module contains structures and functionality for a single utility
+* A Package is a collection of Modules
+* Packages are bundles of diverse solutions centered on some common goal
+* Package == Library
 
-- In technical terms, *one or more* modules bundled together under a single namespace.
-- A package is like a folder, while a module is like a file.
-
-
-The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules - it's the package with `itertools` and `random` modules inside it.
-
-**All packages are modules, but not all modules are packages.**
+The [Python Standard Library](https://docs.python.org/3/library/) bundles all common modules - it's the package with the `random` module inside it.
 
 
 <aside class="notes">
@@ -447,7 +384,7 @@ The [Python Standard Library](https://docs.python.org/3/library/) bundles all co
 
 ---
 
-## We Do: ModuleNotFoundError
+## External Modules: PyTime
 
 
 The Python Standard Library has a [huge list](https://docs.python.org/3/library/index.html) of modules. But not every Python module in the world is part of it!
@@ -457,19 +394,7 @@ The Python Standard Library has a [huge list](https://docs.python.org/3/library/
 * Get dates, date ranges, and times.
 * Find the date of a particular holiday.
 
-Create a new file called `pytime_test.py`. Put this line in it and run it:
-
-```python
-import pytime
-```
-
-What's happened?
-
-`ModuleNotFoundError`:
-
-- The module isn't part of the standard library.
-- If we want to use modules from other packages, we'll have to tell Python that those packages exist.
-
+PyTime is *not* in the PSL.
 
 <aside class="notes">
 
@@ -490,27 +415,28 @@ What's happened?
 
 ## Including PyTime
 
-When importing from the standard library, the package is implied:
+If you're importing from the Python Standard Library, you can just import the module directly.
 
 ```python
-# (from standard) import MODULE
+# (implied: from standard_library) import <package>
 import random
 ```
 
-Otherwise, you need to specify the package!
+Otherwise, you have to specify the package from which you want to import the module.
 
 ```python
 # from PACKAGE import MODULE
 from pytime import pytime
 
-# The names don't need to be the same:
+# The names won't always be the same:
 from pygame import joystick
-# Yes - that's real!
 ```
 
-Change your file to read `from pytime import pytime`. Does it work?
 
-> **Protip**: Remember that *package* means *library*!
+Some good reading on this:
+
+* [Stack Overflow Answer #1](https://softwareengineering.stackexchange.com/questions/187403/import-module-vs-from-module-import-function/187471)
+* [Stack Overflow Answer #2](https://stackoverflow.com/questions/710551/use-import-module-or-from-module-import)
 
 
 <aside class="notes">
@@ -531,21 +457,24 @@ Change your file to read `from pytime import pytime`. Does it work?
 ## Installing PyTime
 
 
-New packages need to be installed.
+New packages that aren't in the Python Standard Library (AKA PSL AKA Pumpkin Spice Latte) need to be installed.
 
-- Let's install `pytime`.  
+Let's install `pytime`.
 
-In your command prompt:
+First, find it on [PyPi](https://pypi.org/project/pytime/)
+
+Now, in your **command prompt**:
 
 ```
 pip3 install pytime
 ```
 
-Once that's successful, try again to run your file.
+Once that's successful, import `pytime` in a file called `module_practice.py`.
 
 > **Protip**: `pip` stands for `Pip Installs Packages`. `pip3` uses Python3.
 
-> Note: Repl.it is a great website for testing, because it automatically installs libraries for us.
+
+> Note: Repl.it is a great website for testing, because it has all Python packages _ever_ already installed.
 
 
 <aside class="notes">
@@ -568,23 +497,24 @@ Once that's successful, try again to run your file.
 
 Let's explore PyTime:
 
-- Scan the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>,_ to find the `mother` function.
+- Scan the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>, to find the `mother` function.
 
 When is Mother's Day?
 
 ```python
+from pytime import pytime
+
 # This gets mother's day of 2016
 mothers_day = pytime.mother(2016) # 2016-05-08
 ```
 
-What about this year?
+What about the current year?
 
 ```python
 # This gets mother's day of this year
 mothers_day = pytime.mother()
 ```
 
-Try these in your file to be sure you can call PyTime functions!
 
 
 <aside class="notes">
@@ -640,9 +570,9 @@ You can use the website repl.it for testing small pieces of code - it has packag
 
 ## You Do: PyTime Festivals
 
-Look through the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>;_ can you find the `father` and `easter` functions?
+Look through the <a href="https://github.com/shinux/PyTime" target="_blank">PyTime docs</a>; can you find the `father` and `easter` functions?
 
-In your local file, pick a year. In that year, print the month and day of:
+In your local file, create a variable holding your date year as an integer. In that year, print the month and day of:
 
 * Mother's Day.
 * Father's Day.
@@ -691,34 +621,11 @@ Because a module is simply a `.py` file, we can view it.
 
 ---
 
-## You Do: Using the PyTime Module
-
-In your `pytime_test.py`:
-
-1. Decide on a list of three holidays you like.
-  - (e.g. Christmas, Halloween...)
-1. Write a function that prompts a user for a year and a holiday.
-  - (e.g. "Enter a year", then "Choose Christmas, Halloween, or Mother's Day")
-1. Have your function print out the date of that holiday for that year.
-  - (e.g. "In 2016, Mother's Day was on 2016-05-08")
-
-
-<aside class="notes">
-5 min
-
-**Teaching Tips**:
-
-- Give students a few minutes to do this themselves. Walk around for questions.
-- After time, write up and demo the answer.
-</aside>
-
----
-
 ## Summary and Q&A
 
 Modules are `.py` files with functions. They're written by other people for us to use!
 
-- A packages (a.k.a. library) is a bundle of one or more modules.
+- A package (a.k.a. library) is a bundle of one or more modules.
 - Python's standard library has a lot of common modules! `random`, `itertools`, etc.
 - Nonstandard libraries need to be installed (`pip3 install pytime`).
 
