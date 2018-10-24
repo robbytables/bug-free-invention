@@ -115,16 +115,18 @@ Address any remaining questions in the parking lot here.
 <ul>
 <li>A website with Google Maps on the page (like Yelp)?</li>
 <li>A program that had live stock market info?</li>
-<li>A website that isn’t Twitter but shows a live Twitter feed?</li>
+<li>A website that isn't Twitter but shows a live Twitter feed?</li>
 <li>Any app that pulls info from somewhere else?</li>
 </ul>
 <p>How did they do this?</p>
-<p><img src="https://twimgs.com/ddj/images/article/2014/0314/GoogleMap_adrian.gif" /></p>
+<figure>
+<img src="https://twimgs.com/ddj/images/article/2014/0314/GoogleMap_adrian.gif" />
+</figure>
 <aside class="notes">
 <p><strong>Talking Points:</strong></p>
 <ul>
 <li>Give examples here, like…</li>
-<li>Have you seen a website that had a Google Map on it like Yelp? Yelp’s developers <em>didn’t</em> build that map themselves, as it was created by Google. What if you want a Google Map embedded in your web app to show people where they can visit you? You aren’t going to make that map yourself, so somehow you have to call Google. Well, Google has a way you can get that map information — all you have to do is send a request to the URL that Google provides, and it gives you back a map you can use.</li>
+<li>Have you seen a website that had a Google Map on it like Yelp? Yelp's developers <em>didn't</em> build that map themselves, as it was created by Google. What if you want a Google Map embedded in your web app to show people where they can visit you? You aren't going to make that map yourself, so somehow you have to call Google. Well, Google has a way you can get that map information — all you have to do is send a request to the URL that Google provides, and it gives you back a map you can use.</li>
 </ul>
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -138,14 +140,14 @@ Address any remaining questions in the parking lot here.
 <h2>APIs (Application Program Interfaces)</h2>
 <p>An API is a service that provides raw data for public use.</p>
 <p>APIs give us data, maps, anything!</p>
-<table>
+<table style="width:28%;">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 66%" />
+<col style="width: 9%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>What’s the API?</th>
+<th>What's the API?</th>
 <th>Sample URL — put this in a new tab!</th>
 </tr>
 </thead>
@@ -155,7 +157,7 @@ Address any remaining questions in the parking lot here.
 <td>http://swapi.co/api/people/3</td>
 </tr>
 <tr class="even">
-<td><strong><a href="http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL" target="_blank">Markit Digital’s API: Request current Apple stock info</a></strong></td>
+<td><strong><a href="http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL" target="_blank">Markit Digital's API: Request current Apple stock info</a></strong></td>
 <td>http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL</td>
 </tr>
 <tr class="odd">
@@ -164,9 +166,9 @@ Address any remaining questions in the parking lot here.
 </tr>
 </tbody>
 </table>
-<p>Do you think you’ve been on websites that call an API?</p>
+<p>What websites can you think of that leverage APIs?</p>
 <blockquote>
-<p>Does the JSON look unreadable in the browser? If you’re using Chrome, install the <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">JSONView plugin</a>.</p>
+<p>Does the JSON look unreadable in the browser? If you're using Chrome, install the <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">JSONView plugin</a>.</p>
 </blockquote>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
@@ -176,11 +178,11 @@ Address any remaining questions in the parking lot here.
 </ul>
 <p><strong>Talking Points:</strong></p>
 <ul>
-<li>Basically, an API is a service that provides raw data for public use. As third-party software developers, we can access an organization’s API and use its data within our own applications. The term now commonly refers to web URLs that can be accessed for raw data.</li>
-<li>Why recreate data when we don’t have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.</li>
+<li>Basically, an API is a service that provides raw data for public use. As third-party software developers, we can access an organization's API and use its data within our own applications. The term now commonly refers to web URLs that can be accessed for raw data.</li>
+<li>Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.</li>
 <li>APIs can provide us with data that we would otherwise not be able to create ourselves.</li>
 <li>There are a variety of APIs available on the internet. To call an API, send a request to a URL and that API will return data to your program. You can pull data from anywhere that offers an API.</li>
-<li>You can make this request as specific as you’d like — each web app out there offers different options for its API. You just have to find out what you can request!</li>
+<li>You can make this request as specific as you'd like — each web app out there offers different options for its API. You just have to find out what you can request!</li>
 <li>Here are just a few examples of APIs you can use. Check it out — the left column is the common name you might know. The right column is the URL to which you, in your program, would send a request. You can click those URLs to see what each call would return.</li>
 </ul>
 </aside>
@@ -188,17 +190,17 @@ Address any remaining questions in the parking lot here.
 </section>
 <section id="how-do-we-use-an-api" class="level2">
 <h2>How Do We Use an API?</h2>
-<p>We’ll use the <code>requests</code> module.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> requests</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Call the API by opening the URL and reading the data.</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># We use the `get()` function in `requests`.</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">response <span class="op">=</span> requests.get(<span class="st">&quot;&lt;API URL HERE&gt;&quot;</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(response)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Prints out the requested information!</span></a></code></pre></div>
-<p>This works, but there’s one very helpful line missing!</p>
-<p>Before we see this in action, let’s look at what the API might return.</p>
+<p>There are a lot of steps involved with using APIs. But we don't need to do it all ourselves - we can instead use the <code>requests</code> module.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> requests
+
+<span class="co"># Call the API by opening the URL and reading the data.</span>
+<span class="co"># We use the `get()` function in `requests`.</span>
+response <span class="op">=</span> requests.get(<span class="op">&lt;</span>SOME API URL<span class="op">&gt;</span>)
+
+<span class="bu">print</span>(response)
+<span class="co"># Prints out the requested information!</span></code></pre></div>
+<p>This works, but there's one very helpful line missing!</p>
+<p>Before we see this in action, let's look at what the API might return.</p>
 <aside class="notes">
 <p><strong>Teaching Tip:</strong></p>
 <ul>
@@ -206,53 +208,31 @@ Address any remaining questions in the parking lot here.
 </ul>
 <p><strong>Talking Point:</strong></p>
 <ul>
-<li>We’re going to demo this and write this code soon! But first, we need to see what the API might give us back.</li>
-</ul>
-</aside>
-<hr />
-</section>
-<section id="json-vs.xml" class="level2">
-<h2>JSON vs. XML</h2>
-<p>Imagine: You write code for a list.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">my_list.append(<span class="bu">len</span>(my_list))</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">my_list[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;new element!&quot;</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">for</span> item <span class="kw">in</span> my_list:</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="bu">print</span> item</a></code></pre></div>
-<p>But then, <code>my_list</code> is unexpectedly a dictionary, or an int, or even a class! The code we wrote won’t work.</p>
-<p>APIs can give data back in two ways: JSON or XML. Depending on what the API does, we need to write our program a different way.</p>
-<aside class="notes">
-<p><strong>Teaching Tips:</strong></p>
-<ul>
-<li>Go down the code here — be sure students understand the idea.</li>
-</ul>
-<p><strong>Talking Point:</strong></p>
-<ul>
-<li>We’re going to demo this and write this code soon! But first, we need to see what the API might give us back.</li>
+<li>We're going to demo this and write this code soon! But first, we need to see what the API might give us back.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="how-do-apis-give-us-info-option-1-json" class="level2">
 <h2>How Do APIs Give Us Info? Option 1: JSON</h2>
-<p>Here’s a potential return from an API:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">&quot;users&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Wonder Woman&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Black Panther&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Batgirl&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">}</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="ot">]</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="fu">}</span></a></code></pre></div>
+<p>Here's a potential return from an API:</p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+  <span class="dt">&quot;users&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Wonder Woman&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">}</span><span class="ot">,</span>
+    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Black Panther&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">}</span><span class="ot">,</span>
+    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Batgirl&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">}</span>
+  <span class="ot">]</span>
+<span class="fu">}</span></code></pre></div>
 <p>Looks like a dictionary with a list of dictionaries inside it, right?</p>
-<p>But it’s not a dictionary! It’s <strong>JSON</strong> (JavaScript Object Notation).</p>
-<p>The <code>requests</code> module has a <a href="http://docs.python-requests.org/en/master/user/quickstart/#json-response-content">built-in JSON decoder</a> to turn JSON into a Python dictionary.</p>
-<p>We can <strong>decode</strong> JSON with <code>decoded_data = response_from_request.json()</code>.</p>
+<p>But it's not a dictionary! It's <strong>JSON document</strong> (JavaScript Object Notation).</p>
+<p><strong>JSON</strong> is a standard way to structure data.</p>
+<p>The <code>requests</code> module has a <a href="http://docs.python-requests.org/en/master/user/quickstart/#json-response-content">built-in JSON decoder</a> that will turn JSON into a Python dictionary.</p>
+<p>We can <strong>load</strong> JSON with <code>decoded_data = response_from_request.json()</code>.</p>
 <aside class="notes">
 <p><strong>Talking Points:</strong></p>
 <ul>
 <li>So, APIs are great… What does it look like?</li>
-<li><strong>JSON</strong> stands for “JavaScript Object Notation” and has become a universal standard for serializing native data structures for transmission. It is lightweight, easy to read, and quick to parse. JSON looks like this — it’s easily readable and information is separated with braces (<code>{}</code>) and commas.</li>
+<li><strong>JSON</strong> stands for &quot;JavaScript Object Notation&quot; and has become a universal standard for serializing native data structures for transmission. It is lightweight, easy to read, and quick to parse. JSON looks like this — it's easily readable and information is separated with braces (<code>{}</code>) and commas.</li>
 </ul>
 </aside>
 <hr />
@@ -260,56 +240,50 @@ Address any remaining questions in the parking lot here.
 <section id="how-do-apis-give-us-info-option-2-xml" class="level2">
 <h2>How Do APIs Give Us Info? Option 2: XML</h2>
 <p>Instead of JSON, we might get XML:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;users&gt;</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;0&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">&lt;name&gt;</span>Wonder Woman<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">&lt;/user&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="kw">&lt;name&gt;</span>Black Panther<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="kw">&lt;/user&gt;</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="kw">&lt;name&gt;</span>Batgirl<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="kw">&lt;/user&gt;</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="kw">&lt;/users&gt;</span></a></code></pre></div>
-<p>JSON is certainly easier to read!</p>
-<ul>
-<li>We’ll stick with JSON whenever we can.</li>
-</ul>
-<blockquote>
-<p><strong>Pro tip:</strong> Most of you don’t need to know about XML, but if you’re working with legacy code or an older API, you may have to use it. In that case, look up <a href="https://python.readthedocs.io/en/stable/library/xml.etree.elementtree.html">Element Tree XML</a>.</p>
-</blockquote>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;users&gt;</span>
+  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;0&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;name&gt;</span>Wonder Woman<span class="kw">&lt;/name&gt;</span>
+  <span class="kw">&lt;/user&gt;</span>
+  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;name&gt;</span>Black Panther<span class="kw">&lt;/name&gt;</span>
+  <span class="kw">&lt;/user&gt;</span>
+  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;name&gt;</span>Batgirl<span class="kw">&lt;/name&gt;</span>
+  <span class="kw">&lt;/user&gt;</span>
+<span class="kw">&lt;/users&gt;</span></code></pre></div>
+<p>Modern API's don't use XML. Let's ignore this for now, but just know that it exists.</p>
 <aside class="notes">
 <p><strong>Talking Points:</strong></p>
 <ul>
-<li><strong>XML</strong>, which stands for “Extensible Markup Language,” is one of the first serialized data formats (itself based on HTML). XML is messy and cumbersome to parse, but remains a major format because of its legacy usage across the web.</li>
-<li>Conveniently, many APIs publish data in multiple formats and let you specify which you’d like. For example, <code>https:///api/index.php?output=json</code> or <code>https:///api/index.php?output=xml</code>.</li>
-<li>We’ll be using JSON.</li>
+<li><strong>XML</strong>, which stands for &quot;Extensible Markup Language,&quot; is one of the first serialized data formats (itself based on HTML). XML is messy and cumbersome to parse, but remains a major format because of its legacy usage across the web.</li>
+<li>Conveniently, many APIs publish data in multiple formats and let you specify which you'd like. For example, <code>https:///api/index.php?output=json</code> or <code>https:///api/index.php?output=xml</code>.</li>
+<li>We'll be using JSON.</li>
 </ul>
 </aside>
 <hr />
 </section>
 <section id="lets-choose-an-api" class="level2">
-<h2>Let’s Choose an API</h2>
+<h2>Let's Choose an API</h2>
 <p><strong>To recap:</strong> APIs give us data we can use in either XML or JSON.</p>
-<p>Let’s call one!</p>
+<p>Let's call one!</p>
 <p>Check out <a href="http://api.open-notify.org/astros.json" target="\_blank">http://api.open-notify.org/astros.json</a>, which tells us the people currently aboard the International Space Station (ISS).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="dt">&quot;number&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="dt">&quot;people&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Oleg Novitskiy&quot;</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Thomas Pesquet&quot;</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Peggy Whitson&quot;</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Fyodor Yurchikhin&quot;</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Jack Fischer&quot;</span><span class="fu">}</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">        <span class="ot">]</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">        <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;success&quot;</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;number&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span>
+    <span class="dt">&quot;people&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Oleg Novitskiy&quot;</span><span class="fu">}</span><span class="ot">,</span>
+        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Thomas Pesquet&quot;</span><span class="fu">}</span><span class="ot">,</span>
+        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Peggy Whitson&quot;</span><span class="fu">}</span><span class="ot">,</span>
+        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Fyodor Yurchikhin&quot;</span><span class="fu">}</span><span class="ot">,</span>
+        <span class="fu">{</span><span class="dt">&quot;craft&quot;</span><span class="fu">:</span> <span class="st">&quot;ISS&quot;</span><span class="fu">,</span> <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Jack Fischer&quot;</span><span class="fu">}</span>
+        <span class="ot">]</span><span class="fu">,</span>
+        <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;success&quot;</span>
+<span class="fu">}</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
 <li>The number of astronauts and names currently aboard the International Space Station (ISS).</li>
 <li>Go to the website in the browser so that students can see what it returns.</li>
-<li>Ask if it’s JSON or XML to check their memory.</li>
+<li>Ask if it's JSON or XML to check their memory.</li>
 </ul>
 </aside>
 <hr />
@@ -330,60 +304,43 @@ Address any remaining questions in the parking lot here.
 <li>Terminology: parse.</li>
 </ul>
 <p><strong>Repl.it note:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Call the API by opening the URL and reading the data.</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">response <span class="op">=</span> requests.get(<span class="st">&quot;http://api.open-notify.org/astros.json&quot;</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Decode the raw JSON data.</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">response_data <span class="op">=</span> response.json()</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="bu">print</span>(response_data)</a></code></pre></div>
-</aside>
-<hr />
-</section>
-<section id="you-do-calling-an-api" class="level2">
-<h2>You Do: Calling an API</h2>
-<p>Open a new file, <code>my_api.py</code>. Type and run the code:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">import</span> requests</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># Call the API by opening the URL and reading the data.</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">response <span class="op">=</span> requests.get(<span class="st">&quot;http://api.open-notify.org/astros.json&quot;</span>)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># Decode the raw JSON data.</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">response_data <span class="op">=</span> response.json()</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="bu">print</span>(response_data)</a></code></pre></div>
-<aside class="notes">
-<p><strong>Teaching Tips:</strong></p>
-<ul>
-<li>It’s the same code to get them used to typing it with an expected output. Discourage copying anything but the URL.</li>
-<li>Walk around to be sure everyone can do it.</li>
-</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Call the API by opening the URL and reading the data.</span>
+response <span class="op">=</span> requests.get(<span class="st">&quot;http://api.open-notify.org/astros.json&quot;</span>)
+
+<span class="co"># Decode the raw JSON data.</span>
+response_data <span class="op">=</span> response.json()
+
+<span class="bu">print</span>(response_data)</code></pre></div>
 </aside>
 <hr />
 </section>
 <section id="we-do-a-new-api" class="level2">
 <h2>We Do: A New API</h2>
-<p>Awesome! Go back to your file. Let’s instead call this URL:</p>
+<p>Let's instead call this URL:</p>
 <p><code>http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL</code></p>
-<p>Why does it break? We can’t parse XML like JSON.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">&lt;QuoteApiModel&gt;</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="kw">&lt;Data&gt;</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="kw">&lt;Status&gt;</span>SUCCESS<span class="kw">&lt;/Status&gt;</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw">&lt;Name&gt;</span>Apple Inc<span class="kw">&lt;/Name&gt;</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="kw">&lt;Symbol&gt;</span>AAPL<span class="kw">&lt;/Symbol&gt;</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="kw">&lt;LastPrice&gt;</span>185.5<span class="kw">&lt;/LastPrice&gt;</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="kw">&lt;Change&gt;</span>1.34<span class="kw">&lt;/Change&gt;</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="kw">&lt;ChangePercent&gt;</span>0.7276281494<span class="kw">&lt;/ChangePercent&gt;</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="kw">&lt;Timestamp&gt;</span>Thu Jun 28 00:00:00 UTC-04:00 2018<span class="kw">&lt;/Timestamp&gt;</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="kw">&lt;MarketCap&gt;</span>911758099000<span class="kw">&lt;/MarketCap&gt;</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="kw">&lt;Volume&gt;</span>17365235<span class="kw">&lt;/Volume&gt;</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="kw">&lt;ChangeYTD&gt;</span>169.23<span class="kw">&lt;/ChangeYTD&gt;</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="kw">&lt;ChangePercentYTD&gt;</span>9.6141346097<span class="kw">&lt;/ChangePercentYTD&gt;</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="kw">&lt;High&gt;</span>186.21<span class="kw">&lt;/High&gt;</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">    <span class="kw">&lt;Low&gt;</span>183.8<span class="kw">&lt;/Low&gt;</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">    <span class="kw">&lt;Open&gt;</span>184.1<span class="kw">&lt;/Open&gt;</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">  <span class="kw">&lt;/Data&gt;</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="kw">&lt;/QuoteApiModel&gt;</span></a></code></pre></div>
+<hr />
+</section>
+<section id="it-broke" class="level2">
+<h2>It Broke :(</h2>
+<p>Why does it break? We can't parse XML like JSON.</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;QuoteApiModel&gt;</span>
+  <span class="kw">&lt;Data&gt;</span>
+    <span class="kw">&lt;Status&gt;</span>SUCCESS<span class="kw">&lt;/Status&gt;</span>
+    <span class="kw">&lt;Name&gt;</span>Apple Inc<span class="kw">&lt;/Name&gt;</span>
+    <span class="kw">&lt;Symbol&gt;</span>AAPL<span class="kw">&lt;/Symbol&gt;</span>
+    <span class="kw">&lt;LastPrice&gt;</span>185.5<span class="kw">&lt;/LastPrice&gt;</span>
+    <span class="kw">&lt;Change&gt;</span>1.34<span class="kw">&lt;/Change&gt;</span>
+    <span class="kw">&lt;ChangePercent&gt;</span>0.7276281494<span class="kw">&lt;/ChangePercent&gt;</span>
+    <span class="kw">&lt;Timestamp&gt;</span>Thu Jun 28 00:00:00 UTC-04:00 2018<span class="kw">&lt;/Timestamp&gt;</span>
+    <span class="kw">&lt;MarketCap&gt;</span>911758099000<span class="kw">&lt;/MarketCap&gt;</span>
+    <span class="kw">&lt;Volume&gt;</span>17365235<span class="kw">&lt;/Volume&gt;</span>
+    <span class="kw">&lt;ChangeYTD&gt;</span>169.23<span class="kw">&lt;/ChangeYTD&gt;</span>
+    <span class="kw">&lt;ChangePercentYTD&gt;</span>9.6141346097<span class="kw">&lt;/ChangePercentYTD&gt;</span>
+    <span class="kw">&lt;High&gt;</span>186.21<span class="kw">&lt;/High&gt;</span>
+    <span class="kw">&lt;Low&gt;</span>183.8<span class="kw">&lt;/Low&gt;</span>
+    <span class="kw">&lt;Open&gt;</span>184.1<span class="kw">&lt;/Open&gt;</span>
+  <span class="kw">&lt;/Data&gt;</span>
+<span class="kw">&lt;/QuoteApiModel&gt;</span></code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -392,47 +349,18 @@ Address any remaining questions in the parking lot here.
 </ul>
 <p><strong>Talking Point:</strong></p>
 <ul>
-<li>XML is out of the scope of our class. But, if your API errors, check that you’re correctly parsing XML or JSON. We’ll go back to JSON now.</li>
+<li>XML is out of the scope of our class. But, if your API errors, check that you're correctly parsing XML or JSON. We'll go back to JSON now.</li>
 </ul>
 </aside>
-<hr />
-</section>
-<section id="quick-review" class="level2">
-<h2>Quick Review</h2>
-<p>We’ve called an API! Great job. We did this with the <code>get()</code> function in the <code>requests</code> module. APIs are made available by other websites or applications. They give us data we can use in either XML or JSON.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">import</span> requests</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">response <span class="op">=</span> requests.get(<span class="st">&quot;http://api.open-notify.org/astros.json&quot;</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">response_data <span class="op">=</span> response.json()</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="bu">print</span>(response_data)</a></code></pre></div>
-<p>JSON:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">&quot;users&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Wonder Woman&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Black Panther&quot;</span><span class="fu">,</span> <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">}</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="ot">]</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
-<hr />
-</section>
-<section id="quick-review-1" class="level2">
-<h2>Quick Review</h2>
-<p>XML:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">&lt;users&gt;</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;0&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="kw">&lt;name&gt;</span>Wonder Woman<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="kw">&lt;/user&gt;</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="kw">&lt;user</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="kw">&lt;name&gt;</span>Black Panther<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="kw">&lt;/user&gt;</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw">&lt;/users&gt;</span></a></code></pre></div>
 <hr />
 </section>
 <section id="you-do-back-to-json" class="level2">
 <h2>You Do: Back to JSON</h2>
 <p>Back in your file, change the API call back to <code>http://api.open-notify.org/astros.json</code>.</p>
-<p>Once it’s decoded, it’s a dictionary!</p>
+<p>Once it's decoded, it's a dictionary!</p>
 <p>Replace your <code>print</code> statement:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="cf">for</span> key, ratings <span class="kw">in</span> response_data_decoded.items():</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&quot;Key:&quot;</span>, key, <span class="st">&quot;Value:&quot;</span>, ratings, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> key, ratings <span class="kw">in</span> response_data_decoded.items():
+    <span class="bu">print</span>(<span class="st">&quot;Key:&quot;</span>, key, <span class="st">&quot;Value:&quot;</span>, ratings, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
 <p>Can we go further? Try to only print the <code>name</code>s of the astronauts.</p>
 <aside class="notes">
 <p>5 MINUTES</p>
@@ -456,8 +384,8 @@ Address any remaining questions in the parking lot here.
 For people the value is [{&#39;craft&#39;: &#39;ISS&#39;, &#39;name&#39;: &#39;Oleg Artemyev&#39;}, {&#39;craft&#39;: &#39;ISS&#39;, &#39;name&#39;: &#39;Andrew Feustel&#39;}, .....].
 
 For number the value is 6.</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="cf">for</span> item <span class="kw">in</span> response_data_decoded[<span class="st">&quot;people&quot;</span>]:</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">    <span class="bu">print</span>(item[<span class="st">&quot;name&quot;</span>])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> item <span class="kw">in</span> response_data_decoded[<span class="st">&quot;people&quot;</span>]:
+    <span class="bu">print</span>(item[<span class="st">&quot;name&quot;</span>])</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -483,54 +411,20 @@ For number the value is 6.</code></pre>
 <section id="shakespeare-solution" class="level2">
 <h2>Shakespeare: Solution</h2>
 <p>Print only the poem.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="im">import</span> requests</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co"># Call the API by opening the URL and reading the data.</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">response <span class="op">=</span> requests.get(<span class="st">&quot;http://ShakeItSpeare.com/api/poem&quot;</span>)</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co"># Decode the raw JSON data.</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">response_data <span class="op">=</span> response.json()</a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="bu">print</span>(response_data[<span class="st">&quot;poem&quot;</span>])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> requests
+
+<span class="co"># Call the API by opening the URL and reading the data.</span>
+response <span class="op">=</span> requests.get(<span class="st">&quot;http://ShakeItSpeare.com/api/poem&quot;</span>)
+
+<span class="co"># Decode the raw JSON data.</span>
+response_data <span class="op">=</span> response.json()
+
+<span class="bu">print</span>(response_data[<span class="st">&quot;poem&quot;</span>])</code></pre></div>
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
 <li>Walk through this with them.</li>
 <li>Show the code!</li>
-</ul>
-</aside>
-<hr />
-</section>
-<section id="quick-review-2" class="level2">
-<h2>Quick Review</h2>
-<p>When we convert JSON, it keeps the same format, only in a Python structure.</p>
-<p>When parsing an API’s return, look through the JSON to find the exact structure you need. Is it the string value from the <code>poem</code> key? Or the value from each <code>name</code> key in a list of dictionaries, which is the value of the <code>people</code> key?</p>
-<p>Think it through before writing your code.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># From the ISS API:</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">{  <span class="co"># The outer dictionary</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="st">&quot;number&quot;</span>: <span class="dv">5</span>,  <span class="co"># Key: value</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="st">&quot;people&quot;</span>: [  <span class="co"># Key and value, again. Here, the value is a list of dictionaries.</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">        {<span class="st">&quot;craft&quot;</span>: <span class="st">&quot;ISS&quot;</span>, <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Oleg Novitskiy&quot;</span>},</a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">        {<span class="st">&quot;craft&quot;</span>: <span class="st">&quot;ISS&quot;</span>, <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Thomas Pesquet&quot;</span>},</a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">        {<span class="st">&quot;craft&quot;</span>: <span class="st">&quot;ISS&quot;</span>, <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Peggy Whitson&quot;</span>},</a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">        {<span class="st">&quot;craft&quot;</span>: <span class="st">&quot;ISS&quot;</span>, <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Fyodor Yurchikhin&quot;</span>},</a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">        {<span class="st">&quot;craft&quot;</span>: <span class="st">&quot;ISS&quot;</span>, <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Jack Fischer&quot;</span>}</a>
-<a class="sourceLine" id="cb16-10" data-line-number="10">        ],</a>
-<a class="sourceLine" id="cb16-11" data-line-number="11">        <span class="st">&quot;message&quot;</span>: <span class="st">&quot;success&quot;</span>   <span class="co"># Key and value.</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12">}</a>
-<a class="sourceLine" id="cb16-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14"><span class="co"># From the Shakespeare API</span></a>
-<a class="sourceLine" id="cb16-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb16-16" data-line-number="16">{ <span class="co"># The outer dictionary.</span></a>
-<a class="sourceLine" id="cb16-17" data-line-number="17">  <span class="co"># The first key: value is the poem.</span></a>
-<a class="sourceLine" id="cb16-18" data-line-number="18">  <span class="st">&#39;poem&#39;</span>: <span class="st">&#39;Pardoned!</span><span class="ch">\n</span><span class="st">Nurs.</span><span class="ch">\n</span><span class="st">Bepaint my cheek?&#39;</span>,</a>
-<a class="sourceLine" id="cb16-19" data-line-number="19">  <span class="st">&#39;markov&#39;</span>: <span class="dv">2</span>,  <span class="co"># The second key: value pair.</span></a>
-<a class="sourceLine" id="cb16-20" data-line-number="20">  <span class="st">&#39;lines&#39;</span>: <span class="dv">3</span>  <span class="co"># The third key: value pair. This is the number of lines in the poem.</span></a>
-<a class="sourceLine" id="cb16-21" data-line-number="21">}</a></code></pre></div>
-<aside class="notes">
-<p><strong>Teaching Tip:</strong></p>
-<ul>
-<li>Do a quick check for understanding.</li>
 </ul>
 </aside>
 <hr />
@@ -550,13 +444,13 @@ For number the value is 6.</code></pre>
 <p>Syntax Notes:</p>
 <ul>
 <li>The main API URL is <code>http://api.giphy.com/v1/gifs/search</code>.</li>
-<li><code>?</code> always delineates a URL and its parameters.
+<li><code>?</code> always separates a URL and its parameters.
 <ul>
-<li>(The <code>?</code> is a standard for every URL! Searching Google for “banana,” with <code>q</code> short for “query:” <code>https://www.google.com/search?q=banana</code>).</li>
-<li>(Here’s another one! Searching Amazon for “banana:” <code>https://www.amazon.com/s?field-keywords=banana</code>.)</li>
+<li>The <code>?</code> is a standard for every URL! Searching Google for &quot;banana,&quot; with <code>q</code> , short for &quot;query&quot;, being the parameter name <code>https://www.google.com/search?q=banana</code>.</li>
+<li>Here's another one! Searching Amazon for &quot;banana:&quot; <code>https://www.amazon.com/s?field-keywords=banana</code>.</li>
 </ul></li>
 </ul>
-<p><strong>Most importantly</strong>, never publish your key for a backend service, including on GitHub! (This is an example.) There are other ways to provide your key to a server in order to keep that key safe. However, if your code is using JavaScript, that’s ok as that provides only read access in general (assuming you have your permissions properly configured.) This is a sticking point for developers coming to Python from a front-end perspective.</p>
+<strong>Most importantly</strong>, never publish your key for a backend service, including on GitHub! (This is an example.) There are other ways to provide your key to a server in order to keep that key safe.
 <aside class="notes">
 <p><strong>Teaching Tips:</strong></p>
 <ul>
@@ -565,11 +459,11 @@ For number the value is 6.</code></pre>
 </ul>
 <p><strong>Talking Points:</strong></p>
 <ul>
-<li>While the majority of APIs are free to use, many of them require an API “key” that identifies the developer requesting data access.</li>
+<li>While the majority of APIs are free to use, many of them require an API &quot;key&quot; that identifies the developer requesting data access.</li>
 <li>This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.</li>
-<li>Some APIs, such as Spotify’s music catalog, might seem like they should be available for anyone to access, but imagine if PayPal had an API from which shops could request your money. Now, imagine Etsy calls PayPal when you buy something. You’d want Etsy to have to prove it was actually Etsy, right? You don’t want anyone to be able to pretend to be Etsy, go to PayPal, and charge you $500. Instead, you’d want Etsy to somehow authenticate to PayPal.</li>
-<li>This is accomplished by giving Etsy a private key to use at PayPal that only Etsy knows. Every time Etsy makes a request to PayPal, Etsy can say, “Hey, I’m requesting this. Here is my proof that I’m allowed to do so.”</li>
-<li>When you are calling APIs that require a key, it’s up to you to store those keys somewhere private. They are the only proof that you are you and you are allowed to call that API, after all.</li>
+<li>Some APIs, such as Spotify's music catalog, might seem like they should be available for anyone to access, but imagine if PayPal had an API from which shops could request your money. Now, imagine Etsy calls PayPal when you buy something. You'd want Etsy to have to prove it was actually Etsy, right? You don't want anyone to be able to pretend to be Etsy, go to PayPal, and charge you $500. Instead, you'd want Etsy to somehow authenticate to PayPal.</li>
+<li>This is accomplished by giving Etsy a private key to use at PayPal that only Etsy knows. Every time Etsy makes a request to PayPal, Etsy can say, &quot;Hey, I'm requesting this. Here is my proof that I'm allowed to do so.&quot;</li>
+<li>When you are calling APIs that require a key, it's up to you to store those keys somewhere private. They are the only proof that you are you and you are allowed to call that API, after all.</li>
 </ul>
 </aside>
 <hr />
@@ -577,14 +471,14 @@ For number the value is 6.</code></pre>
 <section id="you-do-openweather-api" class="level2">
 <h2>You Do: OpenWeather API</h2>
 <p>Read about the API <a href="https://openweathermap.org/current" target="\_blank">here</a>.</p>
-<p>Use this key: <code>&amp;appid=052f26926ae9784c2d677ca7bc5dec98</code>.</p>
-<p>Call this URL: <code>http://api.openweathermap.org/data/2.5/weather?zip=&lt;ZIP_CODE_HERE&gt;,us&amp;appid=052f26926ae9784c2d677ca7bc5dec98</code>.</p>
+<p>Use this key: <code>052f26926ae9784c2d677ca7bc5dec98</code>.</p>
+<p>Call this URL: <code>http://api.openweathermap.org/data/2.5/weather?zip=&lt;ZIP_CODE_HERE&gt;,us&amp;appid=&lt;KEY_HERE&gt;</code>.</p>
 <p>Note the parameters:</p>
 <ul>
 <li><code>zip=&lt;ZIP_CODE_HERE&gt;</code></li>
-<li><code>appid=&lt;KEY HERE&gt;</code></li>
+<li><code>appid=&lt;KEY_HERE&gt;</code></li>
 </ul>
-<p>Enter any zip code you choose (e.g., <code>60614</code>).</p>
+<p>Enter any zip code you choose (e.g., <code>08022</code>).</p>
 <ul>
 <li>Display the current temperature, high and low temperature, current weather description, and the name of the city that came back from the API.</li>
 </ul>
@@ -593,7 +487,7 @@ For number the value is 6.</code></pre>
 <p>5-10 MINUTES</p>
 <p><strong>Teaching Tip:</strong></p>
 <ul>
-<li>Give students five or 10 minutes — encourage them to look through the documentation. If students look lost, run this as a We Do and open the documentation with them. It’s not a quiz — it’s just to get their brains thinking.</li>
+<li>Give students five or 10 minutes — encourage them to look through the documentation. If students look lost, run this as a We Do and open the documentation with them. It's not a quiz — it's just to get their brains thinking.</li>
 </ul>
 </aside>
 <hr />
@@ -618,7 +512,7 @@ For number the value is 6.</code></pre>
 <section id="additional-resources" class="level2">
 <h2>Additional Resources</h2>
 <ul>
-<li>Here’s an example of a <a href="https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight">stolen key horror story</a>.</li>
+<li>Here's an example of a <a href="https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight">stolen key horror story</a>.</li>
 <li>The <a href="http://www.programmableweb.com/apis/directory">Programmable Web API Directory</a></li>
 <li><a href="https://python.readthedocs.io/en/stable/library/xml.etree.elementtree.html">Element Tree XML</a></li>
 </ul>
