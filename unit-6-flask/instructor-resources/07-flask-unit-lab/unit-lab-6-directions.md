@@ -13,7 +13,12 @@ Questions? Comments?
 # Unit 7 Lab: Flask
 
 ## Overview
+<<<<<<< HEAD:unit-6-flask/instructor-resources/07-flask-unit-lab/README.md
 Welcome to the Flask unit lab! You're going to build on to your Rotten Tomatoes application. You'll leave what's there, but you'll also create a web app where a user can enter and search for a movie, then see the results and details.
+=======
+
+Welcome to the Flask unit lab! You're going to build on to your Rotten Tomatoes application. You'll leave what's there, but you'll also create a web app where a user can enter a movie to search for, see the results, and see the details.
+>>>>>>> main:unit-6-flask/instructor-resources/07-flask-unit-lab/unit-lab-6-directions.md
 
 -------------
 

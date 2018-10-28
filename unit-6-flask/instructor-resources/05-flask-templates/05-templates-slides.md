@@ -5,7 +5,9 @@ duration: "01:00"
 creator: Kevin Coyle
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Templates
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Templates</h1>
 
 ---
 
@@ -27,7 +29,7 @@ creator: Kevin Coyle
 
 ---
 
-## We Do: Your Index.html Page
+## We Do: Your `index.html` Page
 
 - Any route can use an `html` page.
 
@@ -45,7 +47,7 @@ creator: Kevin Coyle
 
 **Teaching Tip:**
 
-- Talk for a few minutes here about design patterns, and why it's important to split data from presentation.
+- Talk for a few minutes here about design patterns and why it's important to split data from presentation.
 </aside>
 
 We use templates to:
@@ -72,14 +74,14 @@ As well as for one important design reason:
 
 **Talking Points:**
 
-- "Jinja2 is kind of like the engine that powers our vehicle (Flask). However, this happens behind the scenes."
-- "We're quickly peering behind the scenes to get an idea of what our engine can do."
+- Jinja2 is kind of like the engine that powers our vehicle (Flask). However, this happens behind the scenes.
+- We're quickly peering behind the scenes to get an idea of what our engine can do.
 
-- "Some examples of what makes Jinja2 awesome are:
+- Some examples of what makes Jinja2 awesome are:
   - **Template inheritance:** You can extend templates in very efficient ways.
   - **HTML escaping:** Malicious hackers can create XSS attacks by injecting HTML code into our site where other users insert data. Jinja2 helps us avoid that.
   - **Speed and efficiency:** Jinja2 is very fast. It compiles optimized Python code.
-  - **Flexibility and extensibility:** It's really easy to add our own filters and functions."
+  - **Flexibility and extensibility:** It's really easy to add our own filters and functions.
 </aside>
 
 Jinja2 has some really powerful features that web design folks want to take advantage of:
@@ -132,12 +134,12 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 **Talking Points:**
 
-- "This is the function that Flask uses to… you guessed it: render our template(s)!"
-- For this exercise, we want to add some programming language (Python) into our HTML template."
+- This is the function that Flask uses to… you guessed it: Render our template(s)!
+- For this exercise, we want to add some programming language (Python) into our HTML template.
 </aside>
 
 - Remember `import render_template`?
-- This is the function that Flask uses to… you guessed it: render our template(s)!
+- This is the function that Flask uses to… you guessed it: Render our template(s)!
 
 ---
 
@@ -161,10 +163,10 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 **Talking Points:**
 
-- "What's awesome about this is that inside of these brackets, we can pass in Python syntax."
-- "In our example, we have a variable, which we're calling `name`."
-- "Whatever we assign to the variable `name` will be rendered when our page renders."
-- "Statements are where we would pass in logic like {%if this thing%} {% else that thing%}."
+- What's awesome about this is that inside of these brackets, we can pass in Python syntax.
+- In our example, we have a variable, which we're calling `name`.
+- Whatever we assign to the variable `name` will be rendered when our page renders.
+- Statements are where we would pass in logic like {%if this thing%} {% else that thing%}.
 </aside>
 
 - Recognize the `{{}}`?
@@ -173,7 +175,7 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 - **Statements** are rendered with curly brackets and percent signs (`{% %}`).
 
-  - A use case here is passing in logic like
+  - A use case here is passing in logic like:
 	```python
 	{% if name == 'kevin' %}
 	# Do the thing
@@ -183,20 +185,20 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 ---
 
-## Rendering a template in Flask
+## Rendering a Template in Flask
 
 <aside class="notes">
 
 **Talking Points:**
 
-- "We're going to modify the rest of our Flask app to pass some values into our variable in the template (curly brackets).
-- Let's change the rest of our `hello_flask.py` so that the whole thing looks the following script on screen."
+- We're going to modify the rest of our Flask app to pass some values into our variable in the template (curly braces).
+- Let's change the rest of our `hello_flask.py` so that the whole thing looks the following script on screen.
 
-- "Here, we use `render_template` function which takes in two arguments:
+- Here, we use `render_template` function which takes in two arguments:
   1. Our template name, `index.html`.
-  1. Our **context** which, from the documentation is 'the variables that should be available in the context of the template.'"
+  1. Our **context** which, from the documentation is "the variables that should be available in the context of the template."
 
-- "Here, our variable is name which is passed into the <user> part of our route, and then becomes the value that we assign to the variable called `name`."
+- Here, our variable is name which is passed into the <user> part of our route, and then becomes the value that we assign to the variable called `name`.
 </aside>
 
 Let's change our `my_website.py` accordingly:
@@ -233,7 +235,7 @@ What two arguments did we pass into the `render_template` function?
 
 **Talking Point:**
 
-- Answer: "`index.html`, our template name, and `greeting`, which is our context.
+- Answer: `index.html`, our template name, and `greeting`, which is our context.
 </aside>
 
 What's one reason we use templates?
@@ -243,9 +245,9 @@ What's one reason we use templates?
 **Talking Points:**
 
 Possible answers:
-- "Adding programming languages to our HTML templates."
-- "Transferring info from Flask to HTML."
-- "Lets us separate data from how we present data to users."
+- Adding programming languages to our HTML templates.
+- Transferring info from Flask to HTML.
+- Lets us separate data from how we present data to users.
 </aside>
 
 ---
@@ -265,7 +267,7 @@ Possible answers:
 ## Summary
 
 - Jinja:
-  - A popular templating engine is.
+  - A popular templating engine.
   - Templates save us time and abstract presentation from data.
 
 - Template fun:

@@ -5,7 +5,9 @@ duration: "01:00"
 creator: Kevin Coyle and Susi Remondi
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Styling Flask
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Styling Flask</h1>
 
 <!--
 
@@ -78,15 +80,15 @@ How do we add colors? Styles? Formatting?
 
 We need HTML and CSS.
 
-> Pro tip: This is front-end web development!
+> **Pro tip**: This is front-end web development!
 
 
 <aside class="notes">
 
 **Talking Points:**
 
-- "Our `hello world` Flask app is beautiful. But not everyone else knows how to look at it and fully appreciate its beauty."
-- "In this lesson we're going to focus on HTML."
+- Our `hello world` Flask app is beautiful. But not everyone else knows how to look at it and fully appreciate its beauty.
+- In this lesson, we're going to focus on HTML.
 </aside>
 
 ---
@@ -137,7 +139,7 @@ HTML means...
 
 **Talking Point:**
 
-- "HTML is a markup language — we mark up text with it. But we can't write programs with it."
+- HTML is a markup language — we mark up text with it. But we can't write programs with it.
 </aside>
 
 
@@ -147,7 +149,7 @@ HTML means...
 
 The fundamental building block of HTML is the element.
 
-`<p>Here is a paragraph, with p tags. The tags won't appear to the user.</p>`
+`<p>Here is a paragraph with p tags. The tags won't appear to the user.</p>`
 
 - (Most) elements consist of:
 
@@ -182,7 +184,7 @@ Tags are *always* in angle brackets.
 Different tags apply different formatting.
 
 - Paragraphs:
-    - These will be regular sized text.
+    - These will be regular-sized text.
 
   ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraphs.png)
 
@@ -196,7 +198,7 @@ Different tags apply different formatting.
 
 **Talking Point:**
 
-- "There is a tag for literally every piece of content on the website."
+- There is a tag for every piece of content on the website.
 </aside>
 
 ---
@@ -206,6 +208,10 @@ Different tags apply different formatting.
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraphs.png)
 
 These are possibly the most common tags — all websites have paragraphs!
+
+- Used to group related chunks of text.
+- Browsers will apply default styling.
+- The most universal content tag in HTML.
 
 <aside class="notes">
 
@@ -218,20 +224,17 @@ These are possibly the most common tags — all websites have paragraphs!
 
 ## Paragraph Tags
 
-- Used to group related chunks of text.
-- Browsers will apply default styling.
-- The most universal content tag in HTML.
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraph-guitar.png)
 
 
-*Note: Since "Amazing Guitar Website" doesn't have a `p` tag, it looks different. The browser doesn't yet know how to display it.*
+*Note: As "Amazing Guitar Website" doesn't have a `p` tag, it looks different. The browser doesn't yet know how to display it.*
 
 <aside class="notes">
 
 **Talking Point:**
 
-- "Note that since 'Amazing Guitar Website' doesn't have a tag, it looks different. The browser doesn't think it's a paragraph."
+- Note that because "Amazing Guitar Website" doesn't have a tag, it looks different. The browser doesn't think it's a paragraph.
 </aside>
 ---
 
@@ -285,11 +288,8 @@ I recently graduated from a Front-End Web Development course at General Assembly
 ## Heading Tags
 
 - Used to display text as a title/headline of a webpage or webpage section.
-
 - Tags `<h1>` through `<h6>`.
-
 - `<h1>` defines the most important title on the page.
-
 - Note that we didn't do anything — browsers just know headings are bigger!
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading-guitar.png)
@@ -299,7 +299,7 @@ I recently graduated from a Front-End Web Development course at General Assembly
 
 **Talking Point:**
 
-- "These play a role in SEO; search engines pay special attention to what is in these tags."
+- These play a role in search engine optimization (SEO); search engines pay special attention to what is in these tags.
 </aside>
 
 ---
@@ -357,8 +357,8 @@ I recently graduated from a Front-End Web Development course at General Assembly
 ## What About Lists?
 
 There are two types of lists:
-- Unordered lists
-- Ordered lists (aka numbered lists)
+- Unordered lists.
+- Ordered lists (aka, numbered lists).
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/bullets.png)
 
@@ -421,7 +421,7 @@ There are two types of lists:
 
 **Teaching Tip:**
 
-- Note that "o" is for ordered list and "u" is for unordered list.
+- Note that `o` is for ordered list and `u` is for unordered list.
 
 </aside>
 
@@ -443,7 +443,7 @@ There are two types of lists:
 - Have students do this. See if they can all do it before doing it for them.
 
 
-**CodePen has:** the same text as earlier.
+**CodePen has:** The same text as earlier.
 
 </aside>
 
@@ -474,8 +474,8 @@ All HTML is formed with tags:
 
 ## We Do: Defining HTML
 
-1. Open any webpage
-2. Right-click.
+1. Open any webpage.
+2. Right click.
 3. Click "View Page Source."
 
 
@@ -545,7 +545,7 @@ Within our `<html>` tags, we have:
 
 **Teaching Tip:**
 
-- Stress that this has to be there and that this is the structure of literally every course.
+- Stress that this has to be there and that this is the structure of every course.
 
 </aside>
 
@@ -555,7 +555,7 @@ Within our `<html>` tags, we have:
 
 - `<head>`: The first tag inside `<html></html>`.
 
-  - Adds additional, behind-the-scenes content
+  - Adds additional, behind-the-scenes content.
   - Is not displayed, but is machine-parsable.
 
 ```html
@@ -576,7 +576,7 @@ Within our `<html>` tags, we have:
 
 **Teaching Tip:**
 
-- You'll need to explain charset. Don't spend a lot of time on this — it really isn't important to them.
+- You'll need to explain `charset`. Don't spend a lot of time on this — it really isn't important to them.
 
 </aside>
 
@@ -637,7 +637,7 @@ Put this content:
 </html>
 ```
 
-Double-click your file to open it in a browser!
+Double click your file to open it in a browser!
 
 
 <aside class="notes">
@@ -701,7 +701,7 @@ An HTML file looks like this:
 </html>
 ```
 
-This is the file your browser gets for any webpage you visit, like google.com!
+This is the file your browser gets for any webpage you visit, like Google.com!
 
 
 <aside class="notes">
@@ -778,8 +778,8 @@ Don't memorize these!
 - You can always:
   - Ask a friend.
   - Ask me!
-  - Google "HTML" + what you want to do
-    - e.g., "HTML image"
+  - Google "HTML" + what you want to do.
+    - E.g., "HTML image"
 
 Up next: CSS!
 
@@ -817,7 +817,7 @@ How do we style it?
 ## CSS
 
 CSS means…
-- Cascading Style Sheets
+- Cascading Style Sheets.
 - Styling your HTML (e.g., colors, fonts, text sizes).
 
 CSS tags match HTML tags.
@@ -1103,7 +1103,7 @@ p {
 
 This is a crash course. It's a huge topic! We just need the basics.
 
-**Up next: How do we do this with Flask?**
+**Up next**: How do we do this with Flask?
 
 
 <aside class="notes">
@@ -1220,7 +1220,7 @@ Flask automatically makes a basic webpage for us. The HTML looks like this:
 
 Flask does that automatically — we just need to write the Python code for the `body`.
 
-Up next: But what if we have a *ton* of code?
+**Up next**: But what if we have a *ton* of code?
 
 
 <aside class="notes">
@@ -1302,7 +1302,7 @@ Now all our lines can go in the HTML:
 
     <p>If music be the food of love, play on!</p>
 
-    <img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>    
+    <img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>
 </body>
 ```
 
@@ -1343,15 +1343,19 @@ If your HTML gets to be too long to put in just a function without being confusi
 
 - Where Flask looks for CSS files.
 
+---
+
+## We Do: Adding CSS
+
 Create a `static` folder with a file, `style.css`.
 
 Your directory should look like:
 
 ```
 project_folder
-│   
+│
 │   │   my_website.py
-│   │   
+│   │
 │   │
 │   └───templates
 │   │    └─── index.html
@@ -1488,7 +1492,7 @@ Modify your HTML and CSS files. Here are some ideas:
 
 <aside class="notes">
 
-5-10 minutes
+5-10 MINUTES
 
 **Teaching Tips:**
 
@@ -1504,7 +1508,7 @@ Modify your HTML and CSS files. Here are some ideas:
 - HTML:
     - Structures pages with headings, paragraphs, lists, etc.
 - CSS:
-    - Styles pages! e.g., colors, bold, underline, font size.
+    - Styles pages! E.g., colors, bold, underline, font size.
 
 - Adding HTML and CSS to Flask:
     - Use the `template` and the `static` folders.
@@ -1522,8 +1526,8 @@ Modify your HTML and CSS files. Here are some ideas:
 
 ## Additional Reading
 
-- [MDN docs on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/)
-- [MDN docs on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [MDN Docs on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/)
+- [MDN Docs on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [HTMLDog](http://www.htmldog.com/)
-- [A tutorial that gets into CSS styling](https://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822)
-- [A bullet list of HTML5 and CSS3 history](http://www.wdtonline.com/wdtMagazine/MemberWorks/WiserWays/csshtml.htm)
+- [A Tutorial That Gets Into CSS Styling](https://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822)
+- [A Bullet List of HTML5 and CSS3 History](http://www.wdtonline.com/wdtMagazine/MemberWorks/WiserWays/csshtml.htm)

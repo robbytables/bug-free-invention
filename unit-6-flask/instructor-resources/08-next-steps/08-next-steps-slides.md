@@ -303,12 +303,20 @@ Either way, you need a database. Install MongoDB:
 - `brew install mongodb`
 - `brew install mongodb --devel`
 
+---
+
+## How to Get Started With PyMongo
+
 Start your MongoDB instance:
 
 - `mkdir -p /data/db`
     - Note: If that results in an error, you need different privileges.
     - Run: `sudo mkdir -p /data/db`.
 - Start your database with the Mongo daemon with the command `mongod`.
+
+---
+
+## How to Get Started With PyMongo
 
 Then, add some data to your database. Save the below to a Python file and then try making `GET` and `POST` requests!
 

@@ -43,7 +43,7 @@ class Movie(object):
             if ratings["Source"] == source:
                 return ratings["Value"]
 
-        # If the code makes it here, it hasn't returned in the `for` loop
+        # If the code makes it here, it hasn't returned in the for loop.
         return "- Wait - Rating for source {0} was not found!".format(source)
 
 class OMDB(object):
@@ -149,7 +149,7 @@ def list_search_results(movie_to_look_up):
     # result is a dictionary).
     movie_titles = [each_movie["Title"] for each_movie in matching_movie_list]
 
-    # Loop through list of titles and print them (indented with 4 spaces).
+    # Loop through list of titles and print them (indented with four spaces).
     for title in movie_titles:
         print("    " + title)
 
@@ -193,7 +193,7 @@ def print_all_ratings(movie_list):
         print("The movie", movie_object.get_movie_title(), "has a rating of", movie_object.get_movie_rating())
 
 
-# Create one main function which will call everything else
+# Create one main function that will call everything else.
 def cli_app():
 
     """
@@ -201,11 +201,11 @@ def cli_app():
     ratings functions depending on what the user decides to do.
     """
 
-    # A hard-coded movie list to test with.
+    # A hard-coded movie list with which to test.
     default_movie_list = ["Back to the Future", "Blade", "Spirited Away"]
 
 
-    # Let's test: Call a `print_all_ratings` function and pass it the `default_movie_list` as a parameter.
+    # Let's test: Call a `print_all_ratings()` function and pass it the `default_movie_list` as a parameter.
     print_all_ratings(default_movie_list)
 
     # We set up an infinite loop (while True) so that we can keep asking the

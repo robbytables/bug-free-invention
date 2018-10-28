@@ -6,7 +6,7 @@ This assignment was developed by Kevin
 Questions? Comments?
 1. Log an issue to this repo to alert me of a problem.
 2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
-3. Hit me up on Slack @kevin.coyle
+3. Hit me up on Slack at @kevin.coyle.
 --->
 
 # Flask: Final Practice Problems
@@ -15,9 +15,9 @@ In this homework, you're going to write code for a few problems.
 
 You will practice these programming concepts we've covered in class:
 
-* Rendering templates
-* Creating an API
-* Making GET/POST requests
+* Rendering templates.
+* Creating an API.
+* Making `GET`/`POST` requests.
 
 ------------
 
@@ -25,24 +25,24 @@ You will practice these programming concepts we've covered in class:
 
 For each of the challenges listed below, you will create a new `.py` file and write code to solve the problem. For example, you would create `problem1.py` with your solution code to the first problem. Run the file from the command line to check your work.
 
-*Reminder: On your laptop, you can run the file from your command line with the following command:*
+*Reminder: On your laptop, you can run the file from your command line with the following:*
 
 ```
 python problem1.py
 ```
 
-> **Hint**: After finish writing your code, launch your server, go into your browser and be sure that your Flask app is outputting the intended data.
+> **Hint**: After finish writing your code, launch your server, go into your browser, and be sure that your Flask app is outputting the intended data.
 
 
 ## Requirements:
 
-* By the end of this, you should have 4 different `.py` files (three for the first problem, and one for the second problem).
+* By the end of this, you should have four different `.py` files (three for the first problem and one for the second problem).
 
 ------------
 
-## Problem 1: "Rendering like Rembrandt"
+## Problem 1: "Rendering Like Rembrandt"
 
-### Skill You're Practicing: Using templates to render Python
+### Skill You're Practicing: Using templates to render Python.
 
 Create a Flask app that renders an HTML template. In the template, display a greeting and a `name` variable (don't forget to pass the template the argument!).
 
@@ -60,7 +60,7 @@ render_template('index.html', name=user)
 
 **Hint 1:**
 
-Remember: Templates for variables use the double brackets `{{}}`
+Remember: Templates for variables use the double brackets `{{}}`.
 
 **Hint 2:**
 
@@ -90,9 +90,9 @@ project
 
 ## Problem 2: "A Detective, a PI"
 
-### Skill You're Practicing: Creating an API
+### Skill You're Practicing: Creating an API.
 
-Write a Flask app that makes a GET request and returns a JSON of one of the items in a list.
+Write a Flask app that makes a `GET` request and returns a JSON of one of the items in a list.
 
 
 #### Example Test Code
@@ -107,11 +107,11 @@ return jsonify({'pie ingredient': 'ingredients[0]'})
 
 **Hint 1:**
 
-Refer to your class notes from the variable lesson for how to read in a variable directly in a Flask app.
+Refer to your class notes from the Variables lesson for how to read in a variable directly in a Flask app.
 
 **Hint 2:**
 
-There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`
+There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`.
 
 **Hint 3:**
 
@@ -119,11 +119,11 @@ Try passing the variable name into your function, as well as making that your en
 
 ----
 
-## Problem 3: "The POST man deliverth"
+## Problem 3: "The POST Man Deliverth"
 
-### Skill You're Practicing: Creating an API
+### Skill You're Practicing: Creating an API.
 
-Write a Flask app that makes a POST request and returns a JSON of one of the items in a list.
+Write a Flask app that makes a `POST` request and returns a JSON of one of the items in a list.
 
 
 #### Example Test Code
@@ -139,11 +139,11 @@ return jsonify({'pie ingredient': ingredients})
 
 **Hint 1:**
 
-Refer to your class notes from the variable lesson for how to read in a variable directly in a Flask app.
+Refer to your class notes from the Variables lesson for how to read in a variable directly in a Flask app.
 
 **Hint 2:**
 
-There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`
+There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`.
 
 **Hint 3:**
 

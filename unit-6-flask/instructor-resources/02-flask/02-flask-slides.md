@@ -7,12 +7,14 @@ creator: Anna Zucher + Susi Remondi
 ---
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Intro to Flask
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Intro to Flask</h1>
 
 <!--
 
 ## Overview
-We're introducing what Flask is. After a brief introduction, we jump into a We Do that walks students through running a basic Flask app. Near the end, there's a slide on the history of Flask.
+We're introducing Flask. After a brief introduction, we jump into a We Do that walks students through running a basic Flask app. Near the end, there's a slide on the history of Flask.
 
 ## Important Notes or Prerequisites
 - Make sure you have Flask installed!
@@ -35,7 +37,7 @@ In this lesson, students will:
 | --- | --- | --- |
 | 0:00 - 0:02 | Welcome |
 | 0:02 - 0:07 | Flask Introduction |
-| 0:07 - 0:25 | Building a Flask app |
+| 0:07 - 0:25 | Building a Flask App |
 | 0:25 - 0:28 | History |
 | 0:28 - 0:30 | Summary |
 
@@ -97,19 +99,19 @@ What else?
 Some quick notes about Flask:
 
 - It's a Python micro web framework.
-- It can create and write the entire back end in Python!
-- It can do small tasks, e.g., create a microblog or stand up a simple API.
-- It can do complex tasks, e.g., Pinterest's API or create a Twitter clone.
+- It can create and write the entire back-end in Python!
+- It can do small tasks (e.g., create a microblog or stand up a simple API).
+- It can do complex tasks (e.g., Pinterest's API or create a Twitter clone).
 
 
 <aside class="notes">
 
 **Talking Points:**
 
-- "Flask is classified as a microframework because it does not require particular tools or libraries."
+- Flask is classified as a microframework because it does not require particular tools or libraries.
 - Open the lesson by describing what students are going to do (build a Flask app), and why this is so exciting ("We are using Flask to actually put your stuff on the internet!").
-- "Why do we use a lighter web framework like Flask?"
-- Talk about how these sites work (lots of interaction and data), and why it is helpful to use Flask for these (get to focus on the interactivity/data, and not just getting the thing up on to the internet and staying there).
+- Why do we use a lighter web framework like Flask?
+- Talk about how these sites work (lots of interaction and data) and why it is helpful to use Flask for these (get to focus on the interactivity/data and not just getting the thing up on to the internet and staying there).
 
 </aside>
 
@@ -124,7 +126,7 @@ We just make a normal Python app.
 It looks like:
 
 ```python
-#Import Flask class from flask library. (Note the upper/lowercase convention.)
+# Import Flask class from flask library. (Note the upper/lowercase convention.)
 from flask import Flask
 
 # Initialize an instance of the Flask class.
@@ -159,10 +161,10 @@ if __name__ == '__main__':
 
 *<Note: This is copied from the Flask docs.>*
 
-- "First we imported the Flask class."
-- "Next, we create an instance of this class. We use `__name__` so that Flask knows where to look for templates, static files, and so on."
-- "We then use the `route()` decorator to tell Flask what URL should trigger our function."
-- "The function is given a name, which is also used to generate URLs for that particular function, and returns the message we want to display in the user’s browser."
+- First we imported the Flask class.
+- Next, we create an instance of this class. We use `__name__` so that Flask knows where to look for templates, static files, and so on.
+- We then use the `route()` decorator to tell Flask what URL should trigger our function.
+- The function is given a name, which is also used to generate URLs for that particular function and returns the message we want to display in the user’s browser.
 
 </aside>
 
@@ -180,7 +182,7 @@ Create a file called `my_website.py`.
 Start with:
 
 ```python
-#Import Flask class from flask library.
+# Import Flask class from flask library.
 from flask import Flask
 ```
 
@@ -189,15 +191,15 @@ from flask import Flask
 
 **Talking Points:**
 
-- "Flask (and lots of web frameworks) can be launched on the command line, giving developers more control and clarity into what is going on."
-- "Set global variable (so Flask knows where our main application logic lives)."
+- Flask (and lots of web frameworks) can be launched on the command line, giving developers more control and clarity into what is going on.
+- Set global variable (so Flask knows where our main application logic lives).
 
 **Teaching Tips:**
 
 - Make sure everyone has done these steps!
 - If there are difficulties with `pip`, check `sudo`.
 - Demo these so students have the idea, then let them experiment on their own.
-- For more advanced students, write longer scripts in the `index` function, or, if time, assign them the task.
+- For more advanced students, write longer scripts in the `index()` function, or, if time, assign them the task.
 </aside>
 
 ---
@@ -259,7 +261,7 @@ def index():
 
 **Teaching Tip:**
 
-- Change around what's returned in `index`, so they can see that that's what makes the display.
+- Change around what's returned in `index()`, so they can see that that's what makes the display.
 
 </aside>
 
@@ -272,7 +274,7 @@ def index():
 
 It's just Python — we can write any code.
 
-- But 'return' essentially just takes strings.
+- But `return` essentially just takes strings.
 
 ```python
 def index():
@@ -293,7 +295,7 @@ def index():
 
 **Teaching Tips:**
 
-- Change around what's returned in `index`, in a more advanced way.
+- Change around what's returned in `index()` in a more advanced way.
 - They can follow along if they'd like.
 </aside>
 
@@ -308,7 +310,7 @@ def index():
 - `app` could be `guitar`.
     - Be sure to change it in all places!
 
-But naming variables sensibly is important!
+But, naming variables sensibly is important!
 
 ```python
 from flask import Flask
@@ -361,11 +363,11 @@ Flask is built on two libraries:
 
 **Talking Points:**
 
-* "Around 2010 a group of open-source Python developers released the first version of Flask!."
-* "Before this, there was no easy way to use Python to develop the front end for web apps."
-* "Flask is built using two libraries (already written bundles of code)"
-1. "*Werkzeug* is a library to interface with the web. It helps to handle request and connections."
-2. "*Jinja* is a templating engine, which lets us write an HTML file once, and then apply that file to all of our site."
+* Around 2010, a group of open-source Python developers release the first version of Flask!.
+* Before this, there was no easy way to use Python on the internet/for web apps.
+* Flask is built using two libraries (already written bundles of code).
+1. *Werkzeug* is a library to interface with the web. It helps to handle request and connections.
+2. *Jinja* is a templating engine, which lets us write an HTML file once and then apply that file to all of our site.
 </aside>
 
 
@@ -378,7 +380,7 @@ Flask is built on two libraries:
 
 Looks like this:
 ```python
-#Import Flask class from flask library.
+# Import Flask class from flask library.
 from flask import Flask
 
 # Initialize an instance of the Flask class.
@@ -408,6 +410,6 @@ if __name__ == '__main__':
 ## Additional Reading
 
 - [Flask Documentation](http://flask.pocoo.org/docs/0.11/)
-- [A Flask tutorial to follow along with](https://github.com/miguelgrinberg/flask-pycon2014)
-- [The Flask mega-tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates)
-- [A great guide to those weird "decorators"](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
+- [A Flask Tutorial to Follow Along With](https://github.com/miguelgrinberg/flask-pycon2014)
+- [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates)
+- [A Great Guide to Those Weird "Decorators"](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/)

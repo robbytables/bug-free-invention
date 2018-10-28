@@ -55,12 +55,12 @@ In this lesson, students will:
 
 ---
 
-### Activity: Welcome (2 minutes)
+### Activity: Welcome (2 min)
 > Introduce the lesson objectives and agenda.
 
 ---
 
-### Activity: APIs and HTTP (8 minutes)
+### Activity: APIs and HTTP (8 min)
 > Recap the main terminology involved in APIs.
 
 > **Teaching Tips:**
@@ -74,12 +74,12 @@ In this lesson, students will:
 > - Ask students if they have any familiarity interacting with APIs outside of the last unit's materials.
 > - It's **important** to explain to students that in Unit 5 we *called* an API. Today we are *creating* an API.
 >  - This can be explained with an example like, "In Unit 5 we were reading a book, and today, we're writing a book that others can read."
->  - "Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible."
+>  - Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible.
 
 
 ---
 
-### Activity: Creating a GET Request (9 minutes)
+### Activity: Creating a `GET` Request (9 min)
 > Create an API that makes a `GET` request with Flask.
 
 > **Teaching Tips:**
@@ -90,7 +90,7 @@ In this lesson, students will:
 
 ---
 
-### Activity: Creating a `POST` Request (8 minutes)
+### Activity: Creating a `POST` Request (8 min)
 > Create an API that makes a `POST` request with Flask.
 
 >  **Teaching Tips:**
@@ -106,5 +106,5 @@ In this lesson, students will:
 
 ---
 
-### Activity: Summary (3 minutes)
+### Activity: Summary (3 min)
 > Wrap up the learning and share next steps.

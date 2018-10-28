@@ -1,5 +1,7 @@
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) APIs and Requests in Flask
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>APIs and Requests in Flask</h1>
 
 ---
 
@@ -47,14 +49,15 @@ Head to [https://swapi.co/api/people/13/?format=wookiee](https://swapi.co/api/pe
 
 **Talking Points:**
 
-- "At a theoretical level, you can think of interfaces kind of analogous to real-world counterparts:
+- At a theoretical level, you can think of interfaces kind of analogous to real-world counterparts:
   - Door handles. These interfaces get pushed or pulled, and the door opens to a new space. We could even have crazy DeLorean style doors that open upward.
-  - A standard telephone. When you call someone, you are connected from your space to another space using this interface."
+  - A standard telephone. When you call someone, you are connected from your space to another space using this interface.
 
-- "Today, we'll write a function based on displaying a list of heroes of the Python/programming world."
-- "Using the abstracted examples from a second ago, you can think of the function call as the phone number that you're dialing, or the handle that you make a request on."
-- "Many web programmers today use web APIs. The rise of JavaScript and the current state of programming techniques are the principal movers of this rise, because JavaScript helps us retrieve data from a third-party website with AJAX efficiently and easily. We're going to create an API today using Flask."
-- "Because of how interactive many websites have become (again, fingers pointed at JavaScript), many other languages like Python started co-opting standards to communicate data to and from servers."
+- Today, we'll write a function based on displaying a list of heroes of the Python/programming world.
+- Using the abstracted examples from a second ago, you can think of the function call as the phone number that you're dialing, or the handle that you make a request on.
+- Many web programmers today use web APIs. The rise of JavaScript and the current state of programming techniques are the principal movers of this rise. We're going to create an API today using Flask.
+- Because of how interactive many websites have become (again, fingers pointed at JavaScript), many other languages like Python started co-opting standards to communicate data to and from servers.
+
 </aside>
 
 
@@ -68,7 +71,8 @@ What's the difference between calling and creating an API?
 
 **Talking Point:**
 
-- Answer: "Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible."
+- Answer: Calling an API allows you to retrieve data, while creating an API makes some data that you want to publish accessible.
+</aside>
 
 ---
 
@@ -83,13 +87,14 @@ What's the difference between calling and creating an API?
 
 There are **clients** that:
 
-- "HTTP clients respond to HTTP responses from a web server/HTTP server."
-- "Web servers receive HTTP requests and generate HTTP responses."
+- HTTP clients respond to HTTP responses from a web server/HTTP server.
+- Web servers receive HTTP requests and generate HTTP responses.
+
 </aside>
 
 ---
 
-# Recap: Clients and Servers
+## Recap: Clients and Servers
 
 With HTTP, there are two sides:
 
@@ -113,9 +118,10 @@ These four functions are everywhere in programming:
 
 **Talking Points:**
 
-- "CRUD operations are the four basic functions in persistent storage."
-- "CRUD operations are everywhere in programming."
-- "Here, we're most concerned with how our API is going to create, read, and update data via an HTTP URL."
+- CRUD operations are the four basic functions in persistent storage.
+- CRUD operations are everywhere in programming.
+- Here, we're most concerned with how our API is going to create, read, and update data via an HTTP URL.
+
 </aside>
 
 
@@ -147,9 +153,11 @@ What do we do when calling the OMDb API?
 
 **Talking Points:**
 
-- "Here are HTTP methods used to map to CRUD (create, read, update, delete) operations to HTTP requests:
-  - `GET`, `PUT`, and `PATCH`."
-- "They must be safe and idempotent (i.e., regardless of how many times it repeats with the same parameters, the results are the same)."
+- Here are HTTP methods used to map to CRUD (create, read, update, delete) operations to HTTP requests:
+  - `GET`, `PUT`, and `PATCH`.
+- They must be safe and idempotent (i.e., regardless of how many times it repeats with the same parameters, the results are the same).
+
+</aside>
 
 ---
 
@@ -161,6 +169,7 @@ What does CRUD stand for?
 **Talking Point:**
 
 - Answer: "Create, Read/Retrieve, Update, and Delete/Destroy."
+
 </aside>
 
 ---
@@ -173,7 +182,8 @@ What's the difference between a `POST` and `GET` request?
 
 **Talking Point:**
 
-- Answer: "A `POST` request will create or update something, while a `GET` request will read something."
+- Answer: A `POST` request will create or update something, while a `GET` request will read something.
+
 </aside>
 
 ---
@@ -202,8 +212,9 @@ heroes_json = [{'person': 'Peter_Norvig'}, {'person': 'Gilbert_Strang'}, {'perso
 
 **Talking Points:**
 
-- "The most that we need to know right now about JSON is that it has a similar data structure in Python: the dictionary."
-- "We're going to modify `hello_api.py` again in your code editor."
+- The most that we need to know right now about JSON is that it has a similar data structure in Python: the dictionary.
+- We're going to modify `hello_api.py` again in your code editor.
+
 </aside>
 
 ---
@@ -241,6 +252,7 @@ from flask import Flask, jsonify, request
 **Talking Point:**
 
 - Explain why we're taking these in.
+
 </aside>
 
 
@@ -248,7 +260,7 @@ from flask import Flask, jsonify, request
 
 ## We Do: First API Route
 
-- Add a new route under our `hello` homepage.
+- Add a new route under our `hello` home page.
 
 ```python
 @app.route('/api', methods=['GET'])
@@ -266,11 +278,11 @@ def returnJsonTest():
 
 **Talking Points:**
 
-- "Let's add a new route under our `hello world` homepage."
-- "Save your Python file. If we have our code right, our new page should return our JSON!"
-- "Open your browser and first head to `localhost:5000`."
-- "Then head to `localhost:5000/api`."
-- "It worked! Congratulations!"
+- Let's add a new route under our `Hello World` home page.
+- Save your Python file. If we have our code right, our new page should return our JSON!
+- Open your browser and first head to `localhost:5000`.
+- Then head to `localhost:5000/api`.
+- It worked! Congratulations!
 
 </aside>
 
@@ -286,7 +298,8 @@ What do they do?
 
 **Talking Point:**
 
-- Answer: "`jsonify` and `request`."
+- Answer: `jsonify` and `request`.
+
 </aside>
 
 ---
@@ -309,13 +322,13 @@ What can we do with that?
 
 **Talking Points:**
 
-- "This is cool, but what if we want that data to change?"
-- "Let's create a list like the one on the screen."
-- "Let's add that into our script in `hello_api.py`."
+- This is cool, but what if we want that data to change?
+- Let's create a list like the one on the screen.
+- Let's add that into our script in `hello_api.py`.
 
 **Teaching Tips:**
 
-The code currently is
+The code currently is:
 ```
 from flask import Flask, jsonify, request
 
@@ -355,13 +368,14 @@ def gimmeAllHeroes():
 
 **Talking Points:**
 
-- "We also need to add in some code to give us the data from our list.
+- We also need to add in some code to give us the data from our list.
   - We'll add a function to return all the data.
-  - Type out the code on the slide in your `hello_api.py` script, below the `def`."
+  - Type out the code on the slide in your `hello_api.py` script, below the `def`.
 
-- "There are a few things going on here:
+- There are a few things going on here:
   - We loop over our list of heroes.
-  - We return one of the heroes if our name in the HTTP address matches the name in our function."
+  - We return one of the heroes if our name in the HTTP address matches the name in our function.
+
 </aside>
 
 ---
@@ -382,9 +396,9 @@ def gimmeOneHero(name):
 
 **Talking Point:**
 
-- "There are a few things going on here:
+- There are a few things going on here:
   - We loop over our list of heroes.
-  - We return one of the heroes if our name in the HTTP address matches the name in our function."
+  - We return one of the heroes if our name in the HTTP address matches the name in our function.
 
 </aside>
 
@@ -417,7 +431,7 @@ def gimmeOneHero(name):
 
 **Talking Point:**
 
-- "Let's try adding data to our list of heroes with a `POST` request. Right now, our app looks like the following on the screen."
+- Let's try adding data to our list of heroes with a `POST` request. Right now, our app looks like the following on the screen.
 
 </aside>
 
@@ -440,8 +454,9 @@ def addMyHero():
 
 **Talking Points:**
 
-- "We'll use the same route, and if a `POST` request gets made, we'll append that into our heroes list."
-- "Add in the following function that I've named `addMyHero`."
+- We'll use the same route, and if a `POST` request gets made, we'll append that into our heroes list.
+- Add in the following function that I've named `addMyHero()`.
+
 </aside>
 
 ---
@@ -454,7 +469,8 @@ Assuming our code doesn't have any errors, what should happen when our `POST` re
 
 **Talking Point:**
 
-- "We should append a hero (our data) into our heroes list (our database)."
+- We should append a hero (our data) into our heroes list (our database).
+
 </aside>
 
 ---
@@ -484,13 +500,14 @@ Now we'll check to see if our `POST` request works.
 We need the server to remain running locally.
   3. In the new tab, we're going to make a `POST` request with a particular content type of JSON.
 - The content type here is JSON, but we could extend this to be other data types by changing our function and then changing the `cURL` command we run below.
-  4. Type "`curl -X POST -H "Content-Type: application/json" -d '{"person":"<<insert a name here>>"}' http://localhost:5000/heroes`".
-- cURL is a command line tool. It stands for Client URL. Colloquially, we can describe it as being like a browser, but in your command line. More formally, it's a command line tool for getting or sending files with URL syntax.
+  4. Type `curl -X POST -H "Content-Type: application/json" -d '{"person":"<<insert a name here>>"}' http://localhost:5000/heroes`.
+- `cURL` is a command line tool. It stands for Client URL. Colloquially, we can describe it as being like a browser, but in your command line. More formally, it's a command line tool for getting or sending files with URL syntax.
   5. We should see our new hero list with our personal hero appended!
 
 **Teaching Tips:**
 
 - Walk around while doing this. cURL can be tough. Check for typos!
+
 </aside>
 
 ---
@@ -530,15 +547,16 @@ def butAmIMakingARequest():
 ```python
 type_of_request = [{"requestType:" :" This is definitely a POST Request"}]
 @app.route('/myapiroute', methods=['GET'])
-def butAmIMakingARequest():    
+def butAmIMakingARequest():
     return jsonify({"theAnswer" :  type_of_request})
-```    
+```
 
 <aside class="notes">
 
 **Talking Point:**
 
-- Answer: "Despite what the variables and key-value pairs are named, the correct answer is Option A."
+- Answer: Despite what the variables and key-value pairs are named, the correct answer is Option A.
+
 </aside>
 
 ___

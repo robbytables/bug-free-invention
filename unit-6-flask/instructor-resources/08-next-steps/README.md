@@ -14,7 +14,7 @@ Questions? Comments?
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Lesson Plan: Next Steps in Web Development
 
 ## Overview
-This lesson goes over some next steps to take on the path of web development in Python, especially as it relates to Flask. It gives an overview of next steps for front- and back-end development, and a few frameworks and libraries to look into. There are knowledge checks sprinkled throughout to encourage discussion.
+This lesson goes over some next steps to take on the path of web development in Python, especially as it relates to Flask. It gives an overview of next steps for front- and back-end development, and a few frameworks and libraries to explore. There are knowledge checks sprinkled throughout to encourage discussion.
 
 
 ## Learning Objectives
@@ -60,37 +60,37 @@ In this lesson, students will:
 
 ---
 
-### Activity: Welcome (5 minutes)
+### Activity: Welcome (5 min)
 > Introduce the lesson’s objectives and agenda.
 
 ---
 
-### Activity: Front and Back End Web Dev (10 minutes)
+### Activity: Front and Back End Web Dev (10 min)
 > Give solid advice about pursuing either front- or back-end web development.
 
 > **Teaching Tips:**
->  - Use this opportunity to recap the difference between front end and back end, and what the jobs actually involve. It might be easy to understand what something means, but more difficult to really understand what the day-to-day would be like.
+>  - Use this opportunity to recap the difference between front-end and back-end, and what the jobs actually involve. It might be easy to understand what something means, but more difficult to really understand what the day to day would be like.
 > - Try to give solid next steps — they have a small project coming up, so perhaps some of these are things they can look into for that.
 > - Students might have questions about other languages at this stage, but those are beyond the scope of this lesson.
 
 ---
 
-### Activity: Extending Flask (15 minutes)
+### Activity: Extending Flask (15 min)
 > Give a deeper look at libraries and modules related that can be used with Flask.
 
 > **Talking Points:**
-> - "The onus of creativity is on the designer."
-> - "However, many ideas of extensions of Flask have already been built!"
-> - "Check documentation to make sure you aren't recoding the wheel."
+> - The onus of creativity is on the designer.
+> - However, many ideas of extensions of Flask have already been built!
+> - Check documentation to make sure you aren't recoding the wheel.
 
 > **Teaching Tips:**
-> - As you go through the libraries and modules, stress the purposes of them and whether they'd be front end, back end, or both.
+> - As you go through the libraries and modules, stress the purposes of them and whether they'd be front-end, back-end, or both.
 > - If possible, demo an incorporated library, but don't walk through setting it all up. They can refer to these slides later.
 
 
 ---
 
-### Activity: Other Python Web Frameworks (12 minutes)
+### Activity: Other Python Web Frameworks (12 min)
 > Explore Django and Pelican.
 
 > **Teaching Tips:**
@@ -100,7 +100,7 @@ In this lesson, students will:
 
 ---
 
-### Activity: Summary (3 minutes)
+### Activity: Summary (3 min)
 > Wrap up the learning and share next steps.
 
 > **Teaching Tips:**

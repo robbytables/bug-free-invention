@@ -114,5 +114,8 @@
 <p><a target="_blank" href="unit-5-intermediate/instructor-resources/hw-10wk-class-9/README.pdf">Geocoding</a></p>
 <p><a target="_blank" href="unit-5-intermediate/instructor-resources/hw-10wk-class-10/README.pdf">Geocoding Part 2: APIs</a></p>
 
+<h3>Class 11: Final Lab</h3>
+<p><a target="_blank" href="unit-5-intermediate/instructor-resources/25-unit-lab-5/unit-lab-5-directions.pdf">Lab 4: Make It Work!</a></p>
+
 
 </html>

@@ -50,7 +50,7 @@ In this lesson, students will:
 
 ---
 
-### Activity: Welcome (3 minutes)
+### Activity: Welcome (3 min)
 > Introduce the lesson’s objectives and agenda.
 
 #### Teaching Tips:
@@ -60,7 +60,7 @@ In this lesson, students will:
 
 ---
 
-### Activity: Jinja Templates (5 minutes)
+### Activity: Jinja Templates (5 min)
 > High-level discussion on templates.
 
 > **Teaching Tips:**
@@ -69,16 +69,16 @@ In this lesson, students will:
 
 ---
 
-### Activity: Implementing Templates (10 minutes)
+### Activity: Implementing Templates (10 min)
 >  Extending the `my_website.py` Flask app to pass variables into the template.
 
 > **Teaching Tip:**
-> - There should be sufficient time in this section to answer/clear up outstanding questions regarding the Hello World app.
+> - There should be sufficient time in this section to answer/clear up outstanding questions regarding the `Hello World` app.
 
 ---
 
 
-### Activity: File Variables and Templates (8 minutes)
+### Activity: File Variables and Templates (8 min)
 > Challenge to pull variables from a file into the template.
 
 > **Teaching Tip:**
@@ -86,5 +86,5 @@ In this lesson, students will:
 
 ---
 
-### Activity: Summary (2 minutes)
+### Activity: Summary (2 min)
 > Wrap up the learning and share next steps.

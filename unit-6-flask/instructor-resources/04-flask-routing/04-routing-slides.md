@@ -5,7 +5,9 @@ duration: "01:00"
 creator: Kevin Coyle
 -->
 
-## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Variables and Routing in Flask
+## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+
+<h1>Variables and Routing in Flask</h1>
 
 ---
 
@@ -23,10 +25,10 @@ creator: Kevin Coyle
 
 **Talking Points:**
 
-- "One of the things that makes Python so fantastic is that it is object-oriented."
-- "Assigning variables turns them into a type of object — with an object, we can do some awesome things."
-- "We're going to look at variables in our Flask app. Creating variables allows us to return values of those variables, as well as provides us with all the methods and attributes in that type of object."
-- "Routes allow us to extend this a step further — we can take variables and put them into our URL, which we can then use to render some data on the page."
+- One of the things that makes Python so fantastic is that it is object-oriented.
+- Assigning variables turns them into a type of object — with an object, we can do some awesome things.
+- We're going to look at variables in our Flask app. Creating variables allows us to return values of those variables, as well as provides us with all the methods and attributes in that type of object.
+- Routes allow us to extend this a step further — we can take variables and put them into our URL, which we can then use to render some data on the page.
 </aside>
 
 - Our website is cool, but it's just one page.
@@ -42,10 +44,10 @@ But first, we need to learn `variables`.
 
 **Talking Points:**
 
- - "When we're talking about variables here, we're talking about the same thing as variables in base Python."
- - "You assign a variable to a value and that value gets stored in memory."
- - "We'll go over some common use cases for including variables in your Flask app."
- - "Note, though, that using variables in templates and requests will be covered in a later lesson."
+ - When we're talking about variables here, we're talking about the same thing as variables in base Python.
+ - You assign a variable to a value and that value gets stored in memory.
+ - We'll go over some common use cases for including variables in your Flask app.
+ - Note, however, that using variables in templates and requests will be covered in a later lesson.
  </aside>
 
 
@@ -67,11 +69,11 @@ But first, we need to learn `variables`.
 
 **Talking Points:**
 
-- "There are several ways to obtain the value for a variable."
-- "Depending on that value and what it represents, there are different ways of going about entering that into our Flask app."
-- "The first is to have the variable assignment take place right in our Flask app."
-- "Another is to read it from a Python script, like you would for any other library."
-- "Yet another is to read it in from a file, unlike you would import any library."
+- There are several ways to obtain the value for a variable.
+- Depending on that value and what it represents, there are different ways of going about entering that into our Flask app.
+- The first is to have the variable assignment take place right in our Flask app.
+- Another is to read it from a Python script, like you would for any other library.
+- Yet another is to read it in from a file, unlike you would import any library.
 </aside>
 
 Variables come from:
@@ -82,15 +84,15 @@ Variables come from:
 
 ---
 
-## Method 1: Set Variables in Our Flask app
+## Method 1: Set Variables in Our Flask App
 
 <aside class="notes">
 
 **Talking Points:**
 
-- "The easiest way to obtain a value from a variable in Flask is to assign it directly in your Flask app."
-- "This makes sense if we are only trying to output a very small amount of information."
-- "Consider the following modification on our Hello World app."
+- The easiest way to obtain a value from a variable in Flask is to assign it directly in your Flask app.
+- This makes sense if we are only trying to output a very small amount of information.
+- Consider the following modification on our `Hello World` app.
 </aside>
 
 These *aren't* set inside `def hello()`.
@@ -117,7 +119,7 @@ if __name__ == '__main__':
 
 ## We Do: In-App Variables
 
-- So we can practice this: In your existing `my_website.py`, comment out the `return render_template("index.html")`.
+- We can practice this: In your existing `my_website.py`, comment out the `return render_template("index.html")`.
 
 Instead, have:
 
@@ -137,10 +139,10 @@ def home():
 
 **Talking Points:**
 
-- "The next way to read in a variable is to assign it in a Python file, then import that file."
-- "This is considered the most 'pythonic' way to read variables into other Python files."
-- "In order to use this approach, you need another file that ends in `.py`."
-- "You then read this file into your Flask app with an `import <myFile>`."
+- The next way to read in a variable is to assign it in a Python file, then import that file.
+- This is considered the most "pythonic" way to read variables into other Python files.
+- In order to use this approach, you need another file that ends in `.py`.
+- You then read this file into your Flask app with an `import <myFile>`.
 </aside>
 
 - You're never limited to just one `.py` file!
@@ -188,9 +190,9 @@ Your normal Flask app:
 
 **Talking Points:**
 
-- "A great use case for this is when you'd like to have your secret info (tokens, passwords, etc.) in a file that isn't your Flask app."
-- "When you push your code to GitHub, you can then have your Flask app open for the world to see, and your passwords safely in a file on your local drive."
-- "Another use case is file management. Pretend you have a lot of variables that may not make it into every file, but you want a 'master file' from which to read all these variables."
+- A great use case for this is when you'd like to have your secret info (tokens, passwords, etc.) in a file that isn't your Flask app.
+- When you push your code to GitHub, you can then have your Flask app open for the world to see, and your passwords safely in a file on your local drive.
+- Another use case is file management. Pretend you have a lot of variables that may not make it into every file, but you want a "master file" from which to read all these variables.
 </aside>
 
 Why?
@@ -217,15 +219,15 @@ Now it's your turn!
 <aside class="notes">
 
 - Yet another way to read variables in is in non-Python files.
-- Not all data/info you'll need will be in a static Python file
-- This approach is a combo of one of the earlier two approaches
-- Pretend say you have another file that's a .txt file
+- Not all data/info you'll need will be in a static Python file.
+- This approach is a combo of one of the earlier two approaches.
+- Pretend say you have another file that's a .txt file.
 - We can do two things:
-  - Read that .txt file in directly in our flask app and set that to a variable (like approach 1), or
-  - Read that .txt in with another file and save that to a variable which your Flask app reads (like approach 2).
-    - Here, we take approach 1. First, though, we create a .txt file.
-    - Then we open it with os and file open.
-    - Then we set that .txt to a variable and print that variable in our route function.
+  - Read that .txt file in directly in our Flask app and set that to a variable (like Approach 1).
+  - Read that .txt in with another file and save that to a variable which your Flask app reads (like Approach 2).
+    - Here, we take Approach 1. First, though, we create a .txt file.
+    - Then, we open it with `os` and `file open`.
+    - Then, we set that .txt to a variable and print that variable in our `route()` function.
 </aside>
 
 Let's create a `.txt` file called `hi.txt` in the same folder where our app lives. We'll include some Shakespeare poetry.
@@ -241,7 +243,7 @@ How do you think we get this into our Flask app?
 
 ## With File Open
 
-Then we'll add a bit in our Flask app:
+Then, we'll add a bit in our Flask app:
 
 ```python
 import os # Note the new import — to be in the file system.
@@ -299,12 +301,12 @@ What are the three approaches to read in variables to a Flask app?
 <aside class="notes">
 
 **Talking Points:**
-- "By now, you may be wondering about that `@app` that we keep putting on the line before our function."
-  - "`@` is a way to use a "decorator"."
-  - "A decorator is a way to put one Python function into another Python function."
-  - "More formally, this process is called "wrapping a function" inside of another function."
-  - "You can check out more on decorators later, but for now, knowing that our `@app.route(endpoint)` is a way that we pass an argument — the endpoint — into a routing function."
-  - "In other words: We tell our Flask app to listen to a particular endpoint and then we have a function that happens if that endpoint gets hit."
+- By now, you may be wondering about that `@app` that we keep putting on the line before our function.
+  - `@` is a way to use a "decorator."
+  - A decorator is a way to put one Python function into another Python function.
+  - More formally, this process is called "wrapping a function" inside of another function.
+  - You can check out more on decorators later, but for now, knowing that our `@app.route(endpoint)` is a way that we pass an argument — the endpoint — into a routing function.
+  - In other words: We tell our Flask app to listen to a particular endpoint and then we have a function that happens if that endpoint gets hit.
 </aside>
 
 We have:
@@ -313,8 +315,8 @@ We have:
 - Do `def home()` if someone goes there.
 
 ```python
-@app.route('/') # When someone goes here
-def home(): # Do this
+@app.route('/') # When someone goes here...
+def home(): # Do this.
   return render_template("index.html")"
 ```
 
@@ -331,7 +333,7 @@ What if we want to go to `https://localhost.com/sayHi`?
 - New pages on our web app!
 
 ```python
-@app.route('/sayHi') # When someone goes here
+@app.route('/sayHi') # When someone goes here...
 def hello(): # Do this.
 	return "Hello, Mr. Fieri."
 ```
@@ -343,7 +345,7 @@ def hello(): # Do this.
 - In `my_website.py`, under `def home()`, add:
 
 	```python
-	@app.route('/sayHi') # When someone goes here
+	@app.route('/sayHi') # When someone goes here...
 	def hello(): # Do this.
 		return "Hello, Mr. Fieri."
 	```
@@ -358,9 +360,9 @@ def hello(): # Do this.
 
 **Talking Points:**
 
-- "A route in our context here consists of our `localhost:5000`, as well as the rest of our URL."
-- "We pass the rest of our endpoint into our `app.route` function as an argument."
-- "This means everything inside of the parentheses and inside of quotes becomes our URL."
+- A route in our context here consists of our `localhost:5000`, as well as the rest of our URL.
+- We pass the rest of our endpoint into our `app.route()` function as an argument.
+- This means everything inside of the parentheses and inside of quotes becomes our URL.
 </aside>
 
 - The URL: `http://localhost:5000/sayHi`
@@ -374,7 +376,7 @@ def hello(): # Do this.
 - We only need to add:
 
 	```python
-	@app.route('/<endpoint>') # When someone goes here
+	@app.route('/<endpoint>') # When someone goes here...
 	def function_name(): # Do this.
 		return string
 	```
@@ -399,10 +401,10 @@ def hello(): # Do this.
 
 **Talking Points:**
 
-- "OK, so I said these are two separate concepts, but that's only halfway true."
-- "We can actually assign values in the URL to into variables in our Flask app."
-- "Why would we do this? Because we can change the URL to reflect what sort of data we wish to see."
-- "In the code snippet you see here: We are assigning the name variable to a value, which we insert into our function and then return to the user, in the middle of a sentence."
+- OK, so I said these are two separate concepts, but that's only halfway true.
+- We can actually assign values in the URL to into variables in our Flask app.
+- Why would we do this? Because we can change the URL to reflect what sort of data we wish to see.
+- In the code snippet you see here: We are assigning the name variable to a value, which we insert into our function and then return to the user, in the middle of a sentence.
 </aside>
 
 - You can pass a variable in the route itself.
@@ -435,9 +437,9 @@ Try adding route in your Flask app to have:
 We covered variables and routing in Flask:
 
 - Variables can be made:
-	- In the Flask app: used like normal variables.
-	- In a Python file: imported like a module.
-	- In another file: used `file` to read it.
+	- In the Flask app: Used like normal variables.
+	- In a Python file: Imported like a module.
+	- In another file: Used `file` to read it.
 
 - Routing:
 	- `@app.route(<endpoint>)` is how we make new pages in our app!
