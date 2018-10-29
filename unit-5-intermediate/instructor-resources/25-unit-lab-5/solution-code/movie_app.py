@@ -99,7 +99,6 @@ def print_movie_rating(movie_query):
     
     print("The rating for \"{0}\" is {1}.".format(movie.get_title(), movie.get_rating()))
 
-
     
 def get_mode_from_user():
     mode = input(mode_prompt)
