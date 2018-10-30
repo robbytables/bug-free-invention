@@ -99,9 +99,9 @@ What else?
 Some quick notes about Flask:
 
 - It's a Python micro web framework.
-- It can create and write the entire back-end in Python!
+- It can create the entire back-end in Python
 - It can do small tasks (e.g., create a microblog or stand up a simple API).
-- It can do complex tasks (e.g., Pinterest's API or create a Twitter clone).
+- It can do complex tasks (e.g. power Pinterest's API or high frequency web services at Wayfair).
 
 
 <aside class="notes">
@@ -134,14 +134,14 @@ from flask import Flask
 app = Flask(__name__)
 
 # The default URL ends in / ("my-website.com/").
-# Could be instead "my-website.com/about" or anything - more on this later.
+# We can also define "my-website.com/about" or anything - more on this later.
 @app.route('/')
 
-# Function that returns the page: Display "Hello, World!"
+# Function that sends the API response. In this case, it will display "Hello, world!"
 def index():
   return 'Hello, World!'
 
-# Run the app when the program starts!
+# Run the app when the program starts, and set `debug` to True so we can get error messages!
 if __name__ == '__main__':
     app.run(debug=True)
 
@@ -209,6 +209,41 @@ from flask import Flask
 Let's add:
 
 ```python
+# Import Flask class from flask library.
+from flask import Flask
+
+# Initialize an instance of the Flask class.
+# This starts the website!
+app = Flask(__name__)
+```
+---
+
+## We Do: The Main Flask App
+
+Let's add:
+
+```python
+# Import Flask class from flask library.
+from flask import Flask
+
+# Initialize an instance of the Flask class.
+# This starts the website!
+app = Flask(__name__)
+
+# The default URL ends in / ("my-website.com/").
+@app.route('/')
+
+```
+---
+
+## We Do: The Main Flask App
+
+Let's add:
+
+```python
+# Import Flask class from flask library.
+from flask import Flask
+
 # Initialize an instance of the Flask class.
 # This starts the website!
 app = Flask(__name__)
@@ -219,10 +254,32 @@ app = Flask(__name__)
 # Function that returns the page: Display "Hello, World!"
 def index():
   return 'Hello, World!'
+```
+---
+
+## We Do: The Main Flask App
+
+Let's add:
+
+```python
+# Import Flask class from flask library.
+from flask import Flask
+
+# Initialize an instance of the Flask class.
+# This starts the website!
+app = Flask(__name__)
+
+# The default URL ends in / ("my-website.com/").
+@app.route('/')
+
+# Function that returns the page: Display "Hello, World!"
+def index():
+    return 'Hello, World!'
 
 # Run the app when the program starts!
 if __name__ == '__main__':
     app.run(debug=True)
+
 ```
 
 
@@ -302,57 +359,33 @@ def index():
 
 ---
 
-## We Do: Flask Variations
-
-`app` and `index` are just naming conventions.
-
-- `def index():` could be `def monkey():`.
-- `app` could be `guitar`.
-    - Be sure to change it in all places!
-
-But, naming variables sensibly is important!
-
-```python
-from flask import Flask
-
-guitar = Flask(__name__)
-@guitar.route('/')
-
-def monkey():
-  return 'Hello, World!'
-
-if __name__ == '__main__':
-    guitar.run(debug=True)
-```
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Show this.
-</aside>
-
-
----
-
 ## Flask History
 
 Let's back up. Where did Flask come from?
 
 - Before 2010:
     - No easy method for Python websites.
+
 - 2010:
-    - A few developers built Flask to fix this.
+    - An international group of developers built Flask... As an April Fool's Joke.
+
+- 2016:
+    - Flask was the **#1** most popular Github repository.
+
+---
+
+## Flask Basis
+
 
 Flask is built on two libraries:
 
 - *Werkzeug*:
     - Interfaces with the web.
     - Helps handle request and connections.
+
 - *Jinja*:
+    - Lets us write templates for all pages across our web app.
     - We'll be using this later!
-    - We can write templates for all pages across our web app.
 
 
 <aside class="notes">
@@ -413,3 +446,4 @@ if __name__ == '__main__':
 - [A Flask Tutorial to Follow Along With](https://github.com/miguelgrinberg/flask-pycon2014)
 - [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates)
 - [A Great Guide to Those Weird "Decorators"](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/)
+- [April Fool's Post Mortem](https://web.archive.org/web/20180514202042/http://lucumr.pocoo.org/2010/4/3/april-1st-post-mortem/)

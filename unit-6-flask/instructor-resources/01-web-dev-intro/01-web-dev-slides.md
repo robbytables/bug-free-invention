@@ -207,38 +207,23 @@ How does a website work?
 
 ---
 
-## Discussion: What Is Web Development?
+## Web Development
 
-Does anyone want to guess (or know) what web development comprises?
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Encourage discussion!
-</aside>
-
-
----
-
-## Web
-
-The work involved with building and maintaining a live website is split into two sides:
+The work involved with building and maintaining a live website is split into two focuses:
 
 **Front-End**
 
 - In a restaurant:
   - The dining room.
 - In web development:
-  - What the user sees.
+  - What runs on the user's browser, including what they see.
 
 **Back-End**
 
 - In a restaurant:
   - The kitchen, loading dock, and offices.
 - In web development:
-  - What makes the website work (e.g., connects to servers).
-  - Behind-the-scenes code.
+  - The code that runs on the server, including the database interactions and API code.
 
 <aside class="notes">
 
@@ -265,26 +250,10 @@ The work involved with building and maintaining a live website is split into two
 
 ---
 
-## Front-End vs. Back-End: A Better Visual
-
-
-
-![](https://images-cdn.9gag.com/photo/a8pzYPp_700b.jpg)
-
-<aside class="notes">
-
-**Talking Points:**
-
-- The back-end is seen as much scarier, as it's more programming intensive.
-- It's where we work out all the bugs!
-</aside>
-
----
-
 ## We Do: Front-End vs. Back-End
 
 
-Head to the [New York Public Library](https://www.nypl.org/)'s website: `https://www.nypl.org/`.
+Let's look at [General Assembly's Website](www.generalassemb.ly)
 
 - What is the happening on the front-end?
 - What is happening on the back-end?
@@ -313,8 +282,7 @@ Back-End Developer
 
 Full-Stack Developer
 
-- Does both as well as database work!
-
+- Doesn't really exist!
 
 <aside class="notes">
 
@@ -326,31 +294,6 @@ Full-Stack Developer
 
 ---
 
-## Quick Recap
-
-Front-end development:
-
-- The visuals.
-- How a website looks and how a user interacts with it.
-
-Back-end development:
-
-- The underlying code.
-- How the website actually works.
-
-Full-stack development:
-
-- Includes both!
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do a quick check for understanding.
-</aside>
-
----
 
 ## Discussion: What Is a Web Framework?
 
@@ -451,6 +394,21 @@ You can have a hybrid!
 
 ---
 
+## Examples
+
+Websites:
+
+- www.boston.com
+- www.wikipedia.com
+- www.craigslist.com
+
+Web Apps:
+
+- www.pinterest.com
+- www.maps.google.com
+- www.spotify.com
+
+---
 ## Web Development Is Hard
 
 - Don't worry!
@@ -467,8 +425,10 @@ What'd we do?
 
 - DNS
     - The actual address of a website.
+
 - The Client-Server Relationship
     - Server sends website files to the client (your browser).
+
 - Front-End vs. Back-End
     - What the user sees versus what makes the website work.
 

@@ -118,4 +118,11 @@
 <p><a target="_blank" href="unit-5-intermediate/instructor-resources/25-unit-lab-5/unit-lab-5-directions.pdf">Lab 4: Make It Work!</a></p>
 
 
+<h3>Class 12: Intro To Web Dev</h3>
+<p><a target="_blank" href="unit-6-flask/instructor-resources/01-web-dev-intro/01-web-dev-slides.md.html">Lesson 20: Intro To Web Development</a></p>
+<p><a target="_blank
+<p><a target="_blank" href="unit-6-flask/instructor-resources/02-flask/01-flask-slides.md.html">Lesson 21: Flask"</a></p>
+
+<h3>Class 11 Homework</h3>
+<h5>Finish Lab 4, and Have Fun With Flask!</h5>
 </html>
