@@ -5,7 +5,7 @@ duration: "01:00"
 creator: Kevin Coyle
 -->
 
-## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+## ![](https://s3.amazonaws.com/python-ga/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
 <h1>Variables and Routing in Flask</h1>
 
@@ -37,8 +37,22 @@ creator: Kevin Coyle
 
 But first, we need to learn `variables`.
 
+---
 
 ## Variables? Again?
+
+
+- Yes! Regular variables.
+
+	`x = "this string"`
+
+- Difference: Here, we're in the Flask app.
+
+- Very specific use cases:
+
+	- Routes (We're learning now.)
+	- Templates (We'll learn next.)
+	- Requests (We'll learn later.)
 
 <aside class="notes">
 
@@ -48,18 +62,8 @@ But first, we need to learn `variables`.
  - You assign a variable to a value and that value gets stored in memory.
  - We'll go over some common use cases for including variables in your Flask app.
  - Note, however, that using variables in templates and requests will be covered in a later lesson.
- </aside>
 
-
-- Yes! Regular variables.
-
-	`x = "this string"`
-
-- Difference: Here, we're in the Flask app.
-- Very specific use cases:
-	- Routes (We're learning now.)
-	- Templates (We'll learn next.)
-	- Requests (We'll learn later.)
+</aside>
 
 ---
 
@@ -96,6 +100,7 @@ Variables come from:
 </aside>
 
 These *aren't* set inside `def hello()`.
+
 - What does that make them?
 
 `hello_variables.py`
@@ -131,6 +136,31 @@ def home():
 	return "Hello, " + my_job_title
 ```
 
+<aside class="notes">
+**Current Code Status**:
+
+The code could look like this now:
+
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+my_job_title = "Python pro"
+
+@app.route('/')
+def home():
+	return "Hello, " + my_job_title
+
+def hello_world():
+    line1 = "<h1><b>Hello</b> World!</h1>"
+    line2 = "<p>If music be the food of love, play on!</p>"
+    line3 = "<img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>"
+    total = line1 + line2 + line3
+    # return render_template("index.html")
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+</aside>
 ---
 
 ## Method 2: Read Variables From a Python File
@@ -149,10 +179,10 @@ def home():
 
 - New Python file: `mySecrets.py`
 
-	```python
-	username = "Guy Fieri"
-	password = "flavortown"
-	```
+```python
+username = "Guy Fieri"
+password = "flavortown"
+```
 
 How would we print that in our Flask app?
 
@@ -164,23 +194,23 @@ Any ideas?
 
 Your normal Flask app:
 
-	```python
-	from flask import Flask
-	import mySecrets ## You can import any file!
+```python
+from flask import Flask
+import mySecrets ## You can import any file!
 
-	app = Flask(__name__)
+app = Flask(__name__)
 
-	## Call it like a module.
-	my_name = mySecrets.username
-	my_password = mySecrets.password
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
 
-	@app.route('/')
-	def hello():
-		return "Hello, " + my_name + ", welcome to " + my_password
+@app.route('/')
+def hello():
+	return "Hello, " + my_name + ", welcome to " + my_password
 
-	if __name__ == '__main__':
-		app.run(debug=True)
-	```
+if __name__ == '__main__':
+	app.run(debug=True)
+```
 
 ---
 
@@ -270,12 +300,50 @@ Now it's your turn!
 - `import os` so you can find the file.
 - Use this code:
 
-	```python
-	with open(os.path.join(file_path, 'more_variables.txt')) as f:
-		the_text = f.read()
-	```
+```python
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+```
 
 - Display the text from `more_variables` in your Flask app.
+
+<aside class="notes">
+
+**Current Code Status**:
+Possible solution code:
+
+```python
+from flask import Flask
+import mySecrets ## You can import any file!
+import python_variables
+import os # Note the new import — to be in the file system.
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+student_name = python_variables.student_name
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+
+@app.route('/text')
+def read_txt():
+	return the_text
+
+@app.route('/')
+def hello():
+	return "Hello, " + my_name + ", welcome to " + my_password + ". You are " + student_name + ". More variables are: " + the_text
+
+if __name__ == '__main__':
+	app.run(debug=True)
+
+```
+
 
 ---
 
@@ -317,13 +385,13 @@ We have:
 ```python
 @app.route('/') # When someone goes here...
 def home(): # Do this.
-  return render_template("index.html")"
+  return render_template("index.html")
 ```
 
-`https://localhost.com/`
+`http://127.0.0.1:5000/`
 `=> render_template("index.html")"`
 
-What if we want to go to `https://localhost.com/sayHi`?
+What if we want to go to `http://127.0.0.1:5000/sayHi`?
 
 ---
 
@@ -349,7 +417,49 @@ def hello(): # Do this.
 	def hello(): # Do this.
 		return "Hello, Mr. Fieri."
 	```
-- Reload the page! Go to `https://localhost.com:5000/sayHi`.
+- Reload the page! Go to `http://127.0.0.1:5000/sayHi`.
+
+<aside class="notes">
+**Current Code Status**:
+Possible code:
+
+```python
+from flask import Flask, render_template
+import mySecrets ## You can import any file!
+import python_variables
+import os # Note the new import — to be in the file system.
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+student_name = python_variables.student_name
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+
+@app.route('/text')
+def read_txt():
+	return the_text
+
+@app.route('/') # When someone goes here...
+def home(): # Do this.
+    return render_template("index.html")
+
+@app.route('/sayHi') # When someone goes here...
+def hello(): # Do this.
+    return "Hello, Mr. Fieri."
+
+
+if __name__ == '__main__':
+	app.run(debug=True)
+
+
+```
 
 ---
 
@@ -365,11 +475,11 @@ def hello(): # Do this.
 - This means everything inside of the parentheses and inside of quotes becomes our URL.
 </aside>
 
-- The URL: `http://localhost:5000/sayHi`
+- The URL: `http://127.0.0.1:5000/sayHi`
 - We *route* to different URLs:
-	- `http://localhost:5000/sayHi`
-	- `http://localhost:5000/Cats`
-	- `http://localhost:5000/profile`
+	- `http://127.0.0.1:5000/sayHi`
+	- `http://127.0.0.1:5000/Cats`
+	- `http://127.0.0.1:5000/profile`
 
 - `sayHi`, `Cats`, `/`, and `profile` are **endpoints** from our main app.
 
@@ -385,13 +495,58 @@ def hello(): # Do this.
 
 ## You Do: Adding a Route
 
-- In `my_website.py`, add a new route to a `dice` endpoint.
+- In `my_website.py`, add a new route to a `randnum` endpoint.
 - In the function for this endpoint, display a string that's a random number.
 	- *Hint:* Remember the `random` module? You can use `randint(1, 100)`.
 	- *Hint:* You can turn an integer to a string with `str(number)`.
 
 - Reload the page and go to your endpoint to try it out!
 
+
+<aside class="notes">
+**Current Code Status**:
+
+```python
+from flask import Flask, render_template
+import mySecrets ## You can import any file!
+import python_variables
+import os # Note the new import — to be in the file system.
+import random
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+student_name = python_variables.student_name
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+
+@app.route('/text')
+def read_txt():
+	return the_text
+
+@app.route('/') # When someone goes here...
+def home(): # Do this.
+    return render_template("index.html")
+
+@app.route('/sayHi') # When someone goes here...
+def hello(): # Do this.
+    return "Hello, Mr. Fieri."
+
+@app.route('/randnum')
+def randnum():
+    return str(random.randint(1, 100))
+
+if __name__ == '__main__':
+	app.run(debug=True)
+
+
+```
 ---
 
 
@@ -412,7 +567,7 @@ def hello(): # Do this.
 - You can use that variable in your function.
 
 ```python
-@app.route('sayhi/<name>')
+@app.route('/sayHi/<name>')
 def hello(name):
 	return "Hello, " + name + ", your coding skills impress me!"
 ```
@@ -420,17 +575,110 @@ def hello(name):
 `http://localhost:5000/sayHi/Hari`
 `=> Hello, Hari, your coding skills impress me!"`
 
+
+<aside class="notes">
+**Current Code Status**:
+
+```python
+from flask import Flask, render_template
+import mySecrets ## You can import any file!
+import python_variables
+import os # Note the new import — to be in the file system.
+import random
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+student_name = python_variables.student_name
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+
+@app.route('/text')
+def read_txt():
+	return the_text
+
+@app.route('/') # When someone goes here...
+def home(): # Do this.
+    return render_template("index.html")
+
+@app.route('/sayHi/<name>')
+def hello(name):
+	return "Hello, " + name + ", your coding skills impress me!"
+
+@app.route('/randnum')
+def randnum():
+    return str(random.randint(1, 100))
+
+if __name__ == '__main__':
+	app.run(debug=True)
+```
+
 ---
 
 ## Your Turn!
 
 Try adding route in your Flask app to have:
 
-- A `dice/<int>` route that displays the product of an integer in the route multiplied by four.
+- A `/timesfour/<number>` route that displays the product of an integer in the route multiplied by four.
 - A `repeat` route that takes a string passed into the URL, then displays it four times in a row.
 
 ---
 
+## Final Code Status
+
+Your code should look similar to this:
+
+```python
+from flask import Flask, render_template
+import mySecrets ## You can import any file!
+import python_variables
+import os # Note the new import — to be in the file system.
+import random
+
+app = Flask(__name__)
+
+## Call it like a module.
+my_name = mySecrets.username
+my_password = mySecrets.password
+
+student_name = python_variables.student_name
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'more_variables.txt')) as f:
+	the_text = f.read()
+
+@app.route('/text')
+def read_txt():
+	return the_text
+
+@app.route('/') # When someone goes here...
+def home(): # Do this.
+    return render_template("index.html")
+
+@app.route('/sayHi/<name>')
+def hello(name):
+	return "Hello, " + name + ", your coding skills impress me!"
+
+@app.route('/timesfour/<number>')
+def timesfour(number):
+    return str(int(number) * 4)
+
+@app.route('/repeat/<number>')
+def repeat(number):
+    return number * 4
+
+if __name__ == '__main__':
+	app.run(debug=True)
+```
+
+---
 
 ## Summary
 

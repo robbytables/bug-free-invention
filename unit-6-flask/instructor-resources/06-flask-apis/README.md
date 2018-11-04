@@ -1,6 +1,3 @@
-# For Andrea and Claire: [Link to view (unformatted) slides](https://slides.com/sonylnagale/python-17?token=sjdGFqAF)
-
-
 <!---
 Questions? Comments?
 1. Log an issue to this repo to alert me of a problem.

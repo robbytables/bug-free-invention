@@ -1,5 +1,5 @@
 
-## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+## ![](https://s3.amazonaws.com/python-ga/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
 <h1>APIs and Requests in Flask</h1>
 

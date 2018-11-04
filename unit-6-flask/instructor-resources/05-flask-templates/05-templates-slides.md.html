@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title></title>
+
+<meta name="description" content="">
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+<link rel="stylesheet" href="../../../lib/css/prism.css">
+
+<link rel="stylesheet" href="../../../css/reveal.css">
+<link rel="stylesheet" href="../../../css/theme/ga-title.css" id="theme">
+
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="c../../../ss/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="https://nagale.com/proxima-nova/fonts.css" />
+
+</head>
+
+<body class="language-python">
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+<!--
+title: Next Steps in Web Development
+type: lesson
+duration: "01:00"
+creator: Kevin Coyle
+-->
+<section id="section" class="level2 separator">
+<h2><img src="https://s3.amazonaws.com/python-ga/images/GA_Cog_Medium_White_RGB.png" /></h2>
+<h1>
+Templates
+</h1>
+<hr />
+</section>
+<section id="learning-objectives" class="level2">
+<h2>Learning Objectives</h2>
+<p><em>After this lesson, you will be able to:</em></p>
+<ul>
+<li>Create a template HTML document.</li>
+<li>Pass variables to a template HTML document via a Flask app.</li>
+</ul>
+<hr />
+</section>
+<section id="a-million-copies" class="level2">
+<h2>A Million Copies</h2>
+<ul>
+<li><p>Don't you hate it when you have to repeat yourself?</p></li>
+<li><p>What if you had a website with 10 pages that were almost the same?</p></li>
+<li><p>Would you code them all from scratch?</p></li>
+</ul>
+<hr />
+</section>
+<section id="we-do-your-index.html-page" class="level2">
+<h2>We Do: Your <code>index.html</code> Page</h2>
+<ul>
+<li><p>Any route can use an <code>html</code> page.</p></li>
+<li>Try it!
+<ul>
+<li>In your <code>my_website.py</code>, set the <code>/randnum/&lt;inte&gt;</code> and <code>/</code> routes to both <code>render_template(&quot;index.html&quot;)</code>.</li>
+</ul></li>
+<li>What if we want them to display a different heading?</li>
+<li><p>Do we need to rewrite the whole file?</p></li>
+</ul>
+<hr />
+</section>
+<section id="no-thats-what-templates-are-for" class="level2">
+<h2>No! That's What Templates Are For!</h2>
+<aside class="notes">
+<p><strong>Teaching Tip:</strong></p>
+<ul>
+<li>Talk for a few minutes here about design patterns and why it's important to split data from presentation.</li>
+</ul>
+</aside>
+<p>We use templates to:</p>
+<ul>
+<li>Write one HTML file.</li>
+<li>Pass it variables.</li>
+<li>Transfer info from Flask to HTML.</li>
+</ul>
+<p>As well as for one important design reason:</p>
+<ul>
+<li>We can separate data from how we present data to users.</li>
+</ul>
+<hr />
+</section>
+<section id="jinja2" class="level2">
+<h2>Jinja2</h2>
+<ul>
+<li>One of the most widely used template engines for Python.</li>
+<li>Used in places that you might have visited already, like Instagram or NPR.</li>
+</ul>
+<hr />
+</section>
+<section id="why-jinja2" class="level2">
+<h2>Why Jinja2?</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>Jinja2 is kind of like the engine that powers our vehicle (Flask). However, this happens behind the scenes.</li>
+<li><p>We're quickly peering behind the scenes to get an idea of what our engine can do.</p></li>
+<li>Some examples of what makes Jinja2 awesome are:</li>
+<li><strong>Template inheritance:</strong> You can extend templates in very efficient ways.</li>
+<li><strong>HTML escaping:</strong> Malicious hackers can create XSS attacks by injecting HTML code into our site where other users insert data. Jinja2 helps us avoid that.</li>
+<li><strong>Speed and efficiency:</strong> Jinja2 is very fast. It compiles optimized Python code.</li>
+<li><strong>Flexibility and extensibility:</strong> It's really easy to add our own filters and functions.</li>
+</ul>
+</aside>
+<p>Jinja2 has some really powerful features that web design folks want to take advantage of:</p>
+<ul>
+<li>Template inheritance</li>
+<li>Like class inheritance!</li>
+<li>HTML escaping</li>
+<li>Stops some hacking attacks (XSS and SQL injection).</li>
+<li>Speed and efficiency</li>
+<li>Optimized Python code.</li>
+<li>Flexibility and extensibility</li>
+<li>We can add our own filters and functions.</li>
+</ul>
+</section>
+<section id="expanding-on-our-index.html" class="level2">
+<h2>Expanding on Our <code>index.html</code></h2>
+<ul>
+<li><p>We'll send a <code>greeting</code> variable into our <code>index.html</code> from both routes.</p></li>
+<li><p>The routes will display different things!</p></li>
+</ul>
+<hr />
+</section>
+<section id="adding-templates" class="level2">
+<h2>Adding Templates</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>This is the function that Flask uses to… you guessed it: Render our template(s)!</li>
+<li>For this exercise, we want to add some programming language (Python) into our HTML template.</li>
+</ul>
+</aside>
+<ul>
+<li>Remember <code>import render_template</code>?</li>
+<li>This is the function that Flask uses to… you guessed it: Render our template(s)!</li>
+</ul>
+<hr />
+</section>
+<section id="edit-index.html" class="level2">
+<h2>Edit <code>index.html</code></h2>
+<ul>
+<li>Change the <code>&lt;h1&gt;</code> to be <code>{{ greeting }}</code>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">...
+   <span class="kw">&lt;body&gt;</span>
+      <span class="kw">&lt;h1&gt;</span>Hello {{ name }}!<span class="kw">&lt;/h1&gt;</span>
+            <span class="kw">&lt;p&gt;</span>If music be the food of love, play on!<span class="kw">&lt;/p&gt;</span>
+    ....</code></pre></div>
+<hr />
+</section>
+<section id="templating-syntax-with-jinja" class="level2">
+<h2>Templating Syntax With Jinja</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>What's awesome about this is that inside of these brackets, we can pass in Python syntax.</li>
+<li>In our example, we have a variable, which we're calling <code>name</code>.</li>
+<li>Whatever we assign to the variable <code>name</code> will be rendered when our page renders.</li>
+<li>Statements are where we would pass in logic like {%if this thing%} {% else that thing%}.</li>
+</ul>
+</aside>
+<ul>
+<li><p>Recognize the <code>{{}}</code>?</p></li>
+<li><p>In Jinja, <strong>templates</strong> are rendered with double curly brackets (<code>{{ }}</code>).</p></li>
+<li><p><strong>Statements</strong> are rendered with curly brackets and percent signs (<code>{% %}</code>).</p></li>
+<li><p>A use case here is passing in logic like:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">{<span class="op">%</span> <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;kevin&#39;</span> <span class="op">%</span>}
+<span class="co"># Do the thing</span>
+{<span class="op">%</span> <span class="cf">else</span> <span class="op">%</span>}
+<span class="co"># Do all the other things.</span></code></pre></div></li>
+</ul>
+<hr />
+</section>
+<section id="rendering-a-template-in-flask" class="level2">
+<h2>Rendering a Template in Flask</h2>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+<ul>
+<li>We're going to modify the rest of our Flask app to pass some values into our variable in the template (curly braces).</li>
+<li><p>Let's change the rest of our <code>hello_flask.py</code> so that the whole thing looks the following script on screen.</p></li>
+<li>Here, we use <code>render_template</code> function which takes in two arguments:</li>
+</ul>
+<ol type="1">
+<li>Our template name, <code>index.html</code>.</li>
+<li>Our <strong>context</strong> which, from the documentation is &quot;the variables that should be available in the context of the template.&quot;</li>
+</ol>
+<ul>
+<li>Here, our variable is name which is passed into the <user> part of our route, and then becomes the value that we assign to the variable called <code>name</code>.</li>
+</ul>
+</aside>
+<p>Let's change our <code>my_website.py</code> accordingly:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
+<span class="kw">def</span> home():
+  <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>, greeting<span class="op">=</span><span class="st">&quot;Hello World!&quot;</span>)
+
+...
+
+<span class="at">@app.route</span>(<span class="st">&#39;/shownum/&lt;inte&gt;&#39;</span>)
+<span class="kw">def</span> shownum(inte):
+  my_greeting <span class="op">=</span> <span class="st">&quot;Your number is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(inte)
+  <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>, greeting<span class="op">=</span>my_greeting)</code></pre></div>
+<hr />
+</section>
+<section id="try-it" class="level2">
+<h2>Try it!</h2>
+<ul>
+<li>Check out: <code>http://localhost:5000</code>.</li>
+<li>Then: <code>http://localhost:5000/shownum/26</code>.</li>
+</ul>
+<p>Do your other routes still work?</p>
+<hr />
+</section>
+<section id="knowledge-check-discussion" class="level2">
+<h2>Knowledge Check: Discussion</h2>
+<p>What two arguments did we pass into the <code>render_template</code> function?</p>
+<aside class="notes">
+<p><strong>Talking Point:</strong></p>
+<ul>
+<li>Answer: <code>index.html</code>, our template name, and <code>greeting</code>, which is our context.</li>
+</ul>
+</aside>
+<p>What's one reason we use templates?</p>
+<aside class="notes">
+<p><strong>Talking Points:</strong></p>
+Possible answers: - Adding programming languages to our HTML templates. - Transferring info from Flask to HTML. - Lets us separate data from how we present data to users.
+</aside>
+<hr />
+</section>
+<section id="your-turn" class="level2">
+<h2>Your Turn!</h2>
+<ul>
+<li>Create a new Flask app, <code>shakespeare.py</code>.</li>
+<li>Create a new template HTML file, <code>hello.html</code>.</li>
+<li>It will display a paragraph with a parameter <code>poem</code> in it.</li>
+<li>Render it from the index endpoint.</li>
+<li>Remember calling in variables from the last lesson?</li>
+<li>Have your Flask app read in the poem saved in <code>hi.txt</code>, then pass that to the <code>hello.html</code> template to display.</li>
+<li>Launch your Flask app and check the results!</li>
+</ul>
+<hr />
+</section>
+<section id="template-solution" class="level2">
+<h2>Template Solution</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Shakespeare<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;p&gt;</span>{{text}}<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<hr />
+</section>
+<section id="python-solution" class="level2">
+<h2>Python Solution</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask, render_template
+<span class="im">import</span> os <span class="co"># Note the new import — to be in the file system.</span>
+
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+file_path <span class="op">=</span> <span class="st">&#39;.&#39;</span>
+
+<span class="cf">with</span> <span class="bu">open</span>(os.path.join(file_path, <span class="st">&#39;hi.txt&#39;</span>)) <span class="im">as</span> f:
+    the_text <span class="op">=</span> f.read()
+
+<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>) <span class="co"># When someone goes here...</span>
+<span class="kw">def</span> home(): <span class="co"># Do this.</span>
+    <span class="cf">return</span> render_template(<span class="st">&quot;hello.html&quot;</span>, text<span class="op">=</span>the_text)
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>
+<hr />
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<ul>
+<li>Jinja:</li>
+<li>A popular templating engine.</li>
+<li><p>Templates save us time and abstract presentation from data.</p></li>
+<li>Template fun:</li>
+<li><p>We can pass variables into the template from the Flask app and the URL.</p></li>
+</ul>
+</section>
+
+<footer><span class='slide-number'></span></footer>
+</div>
+
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    slideNumber: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'slide',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../../../plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../../../plugin/prism/prism.js', async: true, callback: function() { /*hljs.initHighlightingOnLoad();*/ } },
+    { src: '../../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '../../../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+  Reveal.addEventListener('ready', function() {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+
+  Reveal.addEventListener('slidechanged', function(e) {
+    if (Reveal.getCurrentSlide().classList.contains('separator-subhead')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-subhead.css');
+    } else if (Reveal.getCurrentSlide().classList.contains('separator')) {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga-title.css')
+    } else {
+      document.getElementById('theme').setAttribute('href', '../../../css/theme/ga.css');
+    }
+  });
+</script>
+
+</body>
+</html>

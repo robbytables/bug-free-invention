@@ -5,7 +5,7 @@ duration: "01:00"
 creator: Kevin Coyle and Susi Remondi
 -->
 
-## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+## ![](https://s3.amazonaws.com/python-ga/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
 <h1>Styling Flask</h1>
 
@@ -164,9 +164,10 @@ The fundamental building block of HTML is the element.
     - Indicates, "The content has ended."
     - Has a `/`.
 
+<img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png"  class="right" />
+
 Tags are *always* in angle brackets.
 
-![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png)
 
 
 <aside class="notes">
@@ -245,8 +246,8 @@ Add `<p>` and `</p>` around the paragraphs.
 
   - You might need to "Change View" to see both the input and output.
 
-<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
+<p data-height="265" data-theme-id="0" data-slug-hash="PjvLye" data-default-tab="html,result" data-pen-title="HCC - Anna Smith - List Items" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/SuperTernary/pen/PjvLye/">HCC - Anna Smith - List Items</a> by Super Ternary (<a href="https://codepen.io/SuperTernary">@SuperTernary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <aside class="notes">
 
@@ -354,6 +355,13 @@ I recently graduated from a Front-End Web Development course at General Assembly
 
 ---
 
+## Heading Tags Solution
+
+<iframe height='400' scrolling='no' title='HCC U1 - Anna Smith - Solution' src='https://codepen.io/sonylnagale/embed/ePjmev/?height=265&theme-id=0&default-tab=html,result&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/ePjmev/'>HCC U1 - Anna Smith - Solution</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+---
+
 ## What About Lists?
 
 There are two types of lists:
@@ -433,8 +441,8 @@ There are two types of lists:
 - Create an unordered list.
 - Then create an ordered list!
 
-<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/PjvLye?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
+<iframe height='300' scrolling='no' title='HCC - Anna Smith - List Items' src='https://codepen.io/sonylnagale/embed/XxBWpr/?height=265&theme-id=0&default-tab=html,result&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/XxBWpr/'>HCC - Anna Smith - List Items</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 <aside class="notes">
 
@@ -447,6 +455,14 @@ There are two types of lists:
 
 </aside>
 
+
+---
+
+
+## Lists Solution
+
+<iframe height='265' scrolling='no' title='HCC - Anna Smith - List Items Solution' src='https://codepen.io/sonylnagale/embed/xyzoZG/?height=265&theme-id=0&default-tab=html,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/xyzoZG/'>HCC - Anna Smith - List Items Solution</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ---
 
@@ -522,13 +538,11 @@ All HTML is formed with tags:
 `<html>` is the tag for HTML content!
 
 - All HTML should be contained inside `<html></html>`.
-
 - Represents the root of your HTML document.
 
 Within our `<html>` tags, we have:
 
 - `<head></head>`
-
 - `<body></body>`
 
 ```html
@@ -545,7 +559,7 @@ Within our `<html>` tags, we have:
 
 **Teaching Tip:**
 
-- Stress that this has to be there and that this is the structure of every course.
+- Stress that this has to be there and that this is the structure of every page.
 
 </aside>
 
@@ -680,6 +694,39 @@ Common tags you might want to use:
 - Encourage students to experiment with the tags.
 
 </aside>
+
+---
+
+## Example Solution
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Me!</title>
+  	<meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <p><b>I'm Sonyl and welcome to my profile!</b></p>
+
+    <p>Things I Like:</p>
+    <ul>
+      <li>Animals</li>
+      <li>Food</li>
+      <li>Sleep</li>
+    </ul>
+
+    <p>My Daily Routine:</p>
+    <ol>
+      <li>Wake up</li>
+      <li>Drink coffee</li>
+      <li>Write great code!</li>
+      <li>Go to sleep</li>
+    </ol>
+  </body>
+</html>
+```
 
 ---
 
@@ -951,8 +998,8 @@ p {
 }
 ```
 
-<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
+<iframe height='265' scrolling='no' title='HCC U1 - Anna Smith - Starter CSS' src='https://codepen.io/sonylnagale/embed/jeXwaB/?height=265&theme-id=0&default-tab=html,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/jeXwaB/'>HCC U1 - Anna Smith - Starter CSS</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 <aside class="notes">
 
@@ -1026,9 +1073,7 @@ We have CSS. We need to tell the HTML about it! CodePen's been doing this for us
  	  <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-	  ...
 ```
-
 - `rel`
     - Specifies the relationship between the current document and the linked document.
 - `type`
@@ -1185,7 +1230,7 @@ Copy this code over:
 ```python
 def hello_world():
     line1 = "<h1><b>Hello</b> World!</h1>"
-    line2 = "<p>If music br the food of love, play on!</p>"
+    line2 = "<p>If music be the food of love, play on!</p>"
     line3 = "<img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>"
     total = line1 + line2 + line3
     return total
@@ -1274,7 +1319,7 @@ How do we import an HTML file?
 
 At the top of your file, add:
 ```python
-from flask import Flask, render.template
+from flask import Flask, render_template
 ```
 
 In the `.py`, change your return to `return render_template("index.html")`.
@@ -1289,6 +1334,23 @@ Try it!
 **Teaching Tip:**
 
 - Do this with the students. Show them! Check that they understand.
+
+**Possible Current Status of Code**:
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    line1 = "<h1><b>Hello</b> World!</h1>"
+    line2 = "<p>If music be the food of love, play on!</p>"
+    line3 = "<img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>"
+    total = line1 + line2 + line3
+    return render_template("index.html")
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
 </aside>
 
 ---
@@ -1377,7 +1439,7 @@ project_folder
 
 ## We Do: Background Color
 
-Add this:
+Add this to `style.css`:
 
 ```css
 body{
@@ -1500,6 +1562,63 @@ Modify your HTML and CSS files. Here are some ideas:
 - See if anyone wants to share.
 </aside>
 
+
+---
+
+## Example HTML
+
+```html
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1><b>Hello</b> World!</h1>
+
+    <p><a href="http://www.shakespeare-online.com/plays/twn_1_1.html">If music be the food of love, play on!</a></p>
+
+    <ul>
+      <li>Give me excess of it, that, surfeiting,</li>
+      <li>The appetite may sicken, and so die.</li>
+      <li>That strain again! it had a dying fall:</li>
+      <li>O, it came o'er my ear like the sweet south,</li>
+      <li>That breathes upon a bank of violets,</li>
+      <li>Stealing and giving odour! Enough; no more:</li>
+      <li>'Tis not so sweet now as it was before.</li>
+      <li>O spirit of love! how quick and fresh art thou,</li>
+      <li>That, notwithstanding thy capacity</li>
+      <li>Receiveth as the sea, nought enters there,</li>
+      <li>Of what validity and pitch soe'er,</li>
+      <li>But falls into abatement and low price,</li>
+      <li>Even in a minute: so full of shapes is fancy</li>
+      <li>That it alone is high fantastical.</li>
+    </ul>
+
+    <img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>
+</body>
+</html>
+```
+
+---
+
+## Example CSS
+
+```css
+body {
+  background: #FEDCBA;
+  font-family: "Times New Roman", serif.
+}
+
+h1 {
+  color: #012345;
+  text-decoration: underline;
+  text-align: center;
+}
+
+```
 
 ---
 

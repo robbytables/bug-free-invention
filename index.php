@@ -120,9 +120,14 @@
 
 <h3>Class 12: Intro To Web Dev</h3>
 <p><a target="_blank" href="unit-6-flask/instructor-resources/01-web-dev-intro/01-web-dev-slides.md.html">Lesson 20: Intro To Web Development</a></p>
-<p><a target="_blank
-<p><a target="_blank" href="unit-6-flask/instructor-resources/02-flask/01-flask-slides.md.html">Lesson 21: Flask"</a></p>
+<p><a target="_blank" href="unit-6-flask/instructor-resources/02-flask/02-flask-slides.md.html">Lesson 21: Flask</a></p>
 
 <h3>Class 11 Homework</h3>
 <h5>Finish Lab 4, and Have Fun With Flask!</h5>
+
+<h3>Class 13: Flask!</h3>
+
+<p><a target="_blank" href="unit-6-flask/instructor-resources/03-styling-flask/03-styling-flask-slides.md.html">Lesson 22: HTML + CSS</a></p>
+<p><a target="_blank" href="unit-6-flask/instructor-resources/04-flask-routing/04-flask-routing-slides.md.html">Lesson 23: Routes</a></p>
+
 </html>

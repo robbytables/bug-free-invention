@@ -1,5 +1,3 @@
-# Claire and Andrea, there are unformatted slides [here](https://slides.com/sonylnagale/python-15?token=XESB4yCg)
-
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Variables and Routing in Flask
 ---
 

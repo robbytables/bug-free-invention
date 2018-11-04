@@ -5,7 +5,7 @@ duration: "01:00"
 creator: Kevin Coyle
 -->
 
-## ![](http://nagale.com/ga-python/images/GA_Cog_Medium_White_RGB.png)  {.separator}
+## ![](https://s3.amazonaws.com/python-ga/images/GA_Cog_Medium_White_RGB.png)  {.separator}
 
 <h1>Templates</h1>
 
@@ -34,7 +34,7 @@ creator: Kevin Coyle
 - Any route can use an `html` page.
 
 - Try it!
-	- In your `my_website.py`, set the `/dice/<inte>` and `/` routes to both `render_template("index.html")`.
+	- In your `my_website.py`, set the `/randnum/<inte>` and `/` routes to both `render_template("index.html")`.
 
 - What if we want them to display a different heading?
 - Do we need to rewrite the whole file?
@@ -51,6 +51,7 @@ creator: Kevin Coyle
 </aside>
 
 We use templates to:
+
 - Write one HTML file.
 - Pass it variables.
 - Transfer info from Flask to HTML.
@@ -210,9 +211,9 @@ def home():
 
 ...
 
-@app.route('/dice/<inte>')
-def newDice(inte):
-  my_greeting = "You rolled a " + str(inte)
+@app.route('/shownum/<inte>')
+def shownum(inte):
+  my_greeting = "Your number is " + str(inte)
   return render_template("index.html", greeting=my_greeting)
 ```
 
@@ -221,7 +222,7 @@ def newDice(inte):
 ## Try it!
 
 - Check out: `http://localhost:5000`.
-- Then: `http://localhost:5000/dice/26`.
+- Then: `http://localhost:5000/shownum/26`.
 
 Do your other routes still work?
 
@@ -261,6 +262,49 @@ Possible answers:
 - Remember calling in variables from the last lesson?
   - Have your Flask app read in the poem saved in `hi.txt`, then pass that to the `hello.html` template to display.
 - Launch your Flask app and check the results!
+
+---
+
+## Template Solution
+
+```html
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shakespeare</title>
+</head>
+<body>
+    <p>{{text}}</p>
+</body>
+</html>
+```
+
+---
+
+
+## Python Solution
+
+```python
+from flask import Flask, render_template
+import os # Note the new import — to be in the file system.
+
+app = Flask(__name__)
+
+file_path = '.'
+
+with open(os.path.join(file_path, 'hi.txt')) as f:
+	the_text = f.read()
+
+@app.route('/') # When someone goes here...
+def home(): # Do this.
+    return render_template("hello.html", text=the_text)
+
+if __name__ == '__main__':
+	app.run(debug=True)
+```
+
+
 
 ---
 
