@@ -76,11 +76,10 @@ Run your `my_website.py`. How does it look?
 
 *Reminder: http://localhost:5000/*
 
-How do we add colors? Styles? Formatting?
+How do we structure data? Add colors? Styles? Formatting?
 
 We need HTML and CSS.
 
-> **Pro tip**: This is front-end web development!
 
 
 <aside class="notes">
@@ -95,15 +94,16 @@ We need HTML and CSS.
 
 ## HTML and CSS:
 
-**HTML:** Content, Structure, and Presentation
+**HTML:** Stuctured Content
 
-- Paragraphs
 - Headings
+- Paragraphs
+- Lists
 
-**CSS:** Style and Design
+**CSS:** Styling Content
 
-- Colors
-- Fonts
+- Positioning Elements
+- Colors, Fonts
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-css-compare.png)
 
@@ -124,8 +124,9 @@ We need HTML and CSS.
 HTML means...
 
 - Hypertext Markup Language
-  - HTML is **not** a programming language!
-- Adding structure to a webpage. What's a heading? What's a paragraph? What's a list?
+  - HTML is **not a programming language**!
+- Adding structure to a webpage. 
+  - What is a page heading? What's a paragraph? What's a list?
 
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-compare.png)
@@ -139,7 +140,7 @@ HTML means...
 
 **Talking Point:**
 
-- HTML is a markup language — we mark up text with it. But we can't write programs with it.
+- HTML is a markup language — we mark up text with it. Essentially, HTML is about labeling content so a browser can read it. But, we can't write programs or perform any calculations with it.
 </aside>
 
 
@@ -147,22 +148,16 @@ HTML means...
 
 ## HTML Elements
 
-The fundamental building block of HTML is the element.
+The fundamental building block of HTML is the **element**.
 
 `<p>Here is a paragraph with p tags. The tags won't appear to the user.</p>`
 
-- (Most) elements consist of:
-
   - An opening tag (`<p>`).
-    - Indicates, "Format this content!"
-    - Defines what TYPE of content it is (e.g., paragraph, header).
+    - Two brackets; indicates, "The Element we are defining starts here!"
+    - In between the brackets are the tag type. For example, the `p` in `<p>` means Paragraph. Other tags exist, such as headers, images, etc.
 
-  - Content (e.g., text, images, video, or other elements).
-    - What the user sees.
-
-  - A closing tag (`</p>`).
-    - Indicates, "The content has ended."
-    - Has a `/`.
+  - A closing tag (`</ >`).
+    - Indicates "The content has ended." using a `/` before the element type.
 
 <img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png"  class="right" />
 
@@ -182,18 +177,21 @@ Tags are *always* in angle brackets.
 
 ## Types of Tags
 
-Different tags apply different formatting.
+Tags tell the browser what type of content to expect and give basic instructions about formatting. Some browsers may show element formatting (such as spacing or text size) differently than others
 
 - Paragraphs:
-    - These will be regular-sized text.
+    - Text that should be grouped together
 
   ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraphs.png)
 
 - Headings:
-    - These will be larger and bold text.
+    - Text that is intended to describe any content that follows it.
 
   ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading.png)
 
+- Example:
+    - In a blog post, the title is typically surrounded with a **Header** tag
+    - Each section of the body's text is typically surrounded with **Paragraph** tags
 
 <aside class="notes">
 
@@ -212,7 +210,6 @@ These are possibly the most common tags — all websites have paragraphs!
 
 - Used to group related chunks of text.
 - Browsers will apply default styling.
-- The most universal content tag in HTML.
 
 <aside class="notes">
 
@@ -221,77 +218,16 @@ These are possibly the most common tags — all websites have paragraphs!
 - Example on the next page.
 </aside>
 
----
-
-## Paragraph Tags
-
-
-![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/paragraph-guitar.png)
-
-
-*Note: As "Amazing Guitar Website" doesn't have a `p` tag, it looks different. The browser doesn't yet know how to display it.*
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Note that because "Amazing Guitar Website" doesn't have a tag, it looks different. The browser doesn't think it's a paragraph.
-</aside>
----
-
-## We Do: Paragraph Tags
-
-
-Add `<p>` and `</p>` around the paragraphs.
-
-  - You might need to "Change View" to see both the input and output.
-
-<p data-height="265" data-theme-id="0" data-slug-hash="PjvLye" data-default-tab="html,result" data-pen-title="HCC - Anna Smith - List Items" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/SuperTernary/pen/PjvLye/">HCC - Anna Smith - List Items</a> by Super Ternary (<a href="https://codepen.io/SuperTernary">@SuperTernary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do this with students. It's the first CodePen they've seen, so walk around and make sure they can all do it.
-
-**CodePen has:**
-```
-Anna Smith
-
-About Me
-
-I'm Anna Smith, a developer based in San Francisco. I have 10 years of experience in the graphic design world, specializing in the creation of responsive websites.
-
-Experience
-
-I recently graduated from a Front-End Web Development course at General Assembly, where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome front-end web developer! During my spare time, I enjoy painting, cooking, and hiking.
-```
-</aside>
 
 ---
 
-## Heading Tags
-
-![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading.png)
-
-
-<aside class="notes">
-
-**Teaching Tips:**
-
-- Example on the next page.
-- Ask what they think headings are.
-</aside>
-
----
 
 ## Heading Tags
 
 - Used to display text as a title/headline of a webpage or webpage section.
-- Tags `<h1>` through `<h6>`.
-- `<h1>` defines the most important title on the page.
-- Note that we didn't do anything — browsers just know headings are bigger!
+- Tags `<h1>` through `<h6>`, size **decreases** as the header value **increases**.
+- `<h1>` defines the most important title on the page. `<h6` is the least important in the hierarchy
+- Note that headers are different from `<p>` tags. Why?
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading-guitar.png)
 
@@ -300,7 +236,7 @@ I recently graduated from a Front-End Web Development course at General Assembly
 
 **Talking Point:**
 
-- These play a role in search engine optimization (SEO); search engines pay special attention to what is in these tags.
+- These play a role in search engine optimization (SEO) and Accessibility; search engines and Screen Readers, assitance devices for the visually impaired, pay special attention to what is in these tags.
 </aside>
 
 ---
@@ -320,7 +256,7 @@ I recently graduated from a Front-End Web Development course at General Assembly
 
 ---
 
-## You Do: Heading Tags
+## We Do: Adding Tags
 
 
 - Put `<p>` around the paragraphs.
@@ -328,18 +264,7 @@ I recently graduated from a Front-End Web Development course at General Assembly
 - Put `<h2>` around `About Me`.
 - Put `<h3>` around `Experience`.
 
-<iframe height="400px" width="100%" src="https://codepen.io/SuperTernary/pen/KqLEvb?editors=1000?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Have students do this. See if they can all do it before doing it for them.
-
-
-**CodePen has:**
 ```
 Anna Smith
 
@@ -351,21 +276,14 @@ Experience
 
 I recently graduated from a Front-End Web Development course at General Assembly, where I learned HTML, CSS, JavaScript, and jQuery and how to be an awesome front-end web developer! During my spare time, I enjoy painting, cooking, and hiking.
 ```
-</aside>
 
 ---
 
-## Heading Tags Solution
-
-<iframe height='400' scrolling='no' title='HCC U1 - Anna Smith - Solution' src='https://codepen.io/sonylnagale/embed/ePjmev/?height=265&theme-id=0&default-tab=html,result&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/ePjmev/'>HCC U1 - Anna Smith - Solution</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
----
 
 ## What About Lists?
 
 There are two types of lists:
-- Unordered lists.
+- Unordered lists (such as Bulleted Lists).
 - Ordered lists (aka, numbered lists).
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/bullets.png)
@@ -437,9 +355,9 @@ There are two types of lists:
 
 ## You Do: Lists
 
-- Set "Skills" to be an `h3`.
-- Create an unordered list.
-- Then create an ordered list!
+- Style the header for the 'Skills' section.
+- Style the list of skills as an unordered list.
+- Re-style the list of skills as an ordered list.
 
 <iframe height='300' scrolling='no' title='HCC - Anna Smith - List Items' src='https://codepen.io/sonylnagale/embed/XxBWpr/?height=265&theme-id=0&default-tab=html,result&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/sonylnagale/pen/XxBWpr/'>HCC - Anna Smith - List Items</a> by Sonyl Nagale (<a href='https://codepen.io/sonylnagale'>@sonylnagale</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -576,9 +494,7 @@ Within our `<html>` tags, we have:
 <!DOCTYPE html>
 <html>
   <head>
-    < BEHIND THE SCENES HERE! >
-    <title>< PAGE TITLE > </title>
-  	<meta charset="utf-8">
+    <title>Anna's Blog</title>
   </head>
   <body>
   </body>
@@ -631,39 +547,6 @@ Within our `<html>` tags, we have:
 
 ---
 
-## We Do: Create an HTML Doc
-
-- Create a directory called `html_practice`.
-- Create a file called `index.html`.
-
-Put this content:
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Website Title</title>
-  	<meta charset="utf-8">
-  </head>
-  <body>
-    <h1>ALL HTML CONTENT GOES HERE!</h1>
-  </body>
-</html>
-```
-
-Double click your file to open it in a browser!
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Check that students have done this and understand.
-
-</aside>
-
-
----
 
 ## You Do: Create a Profile
 
@@ -671,7 +554,7 @@ Using the tags below, create a profile for yourself in your `index.html`.
 
 Include: Name, About Me, and Hobbies.
 
-**Put all your HTML and content in between the `<body>` and `</body>` tags.**
+**Put all the content you want displayed in between the `<body>` and `</body>` tags.**
 
 Common tags you might want to use:
 
@@ -681,7 +564,6 @@ Common tags you might want to use:
     - Unordered (`<ul>Things I like</ul>`)
     - Ordered (`<ol>1, 2, 3!</ol>`)
     - List items (`<li> </li>`)
-- **Bonus:** Use bold (`<b>bold</b>`).
 
 
 <aside class="notes">
@@ -708,13 +590,13 @@ Common tags you might want to use:
   </head>
   <body>
     <h1>Welcome!</h1>
-    <p><b>I'm Sonyl and welcome to my profile!</b></p>
+    <h2>I'm Robby and welcome to my profile!</h2>
 
     <p>Things I Like:</p>
     <ul>
-      <li>Animals</li>
+      <li>Dogs</li>
       <li>Food</li>
-      <li>Sleep</li>
+      <li>FORNITE</li>
     </ul>
 
     <p>My Daily Routine:</p>
@@ -722,7 +604,7 @@ Common tags you might want to use:
       <li>Wake up</li>
       <li>Drink coffee</li>
       <li>Write great code!</li>
-      <li>Go to sleep</li>
+      <li>Play Fortnite Until 3am</li>
     </ol>
   </body>
 </html>
@@ -1223,60 +1105,6 @@ What if we have a LOT of HTML?
 
 ---
 
-## We Do: Add a LOT of HTML
-
-Copy this code over:
-
-```python
-def hello_world():
-    line1 = "<h1><b>Hello</b> World!</h1>"
-    line2 = "<p>If music be the food of love, play on!</p>"
-    line3 = "<img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>"
-    total = line1 + line2 + line3
-    return total
-```
-
-Do you think chaining lists is sustainable for a bigger webpage?
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do this with the students. Show them the results! Make sure they understand how the webpage is generated.
-</aside>
-
----
-
-## Quick Recap:
-
-Flask automatically makes a basic webpage for us. The HTML looks like this:
-
-```html
-<!DOCTYPE html>
-	<html>
-	<head>
-	  <title>Super Flask Website</title>
-	</head>
-	<body>
-    < What we return in Flask goes here! >
-  </body>
-</html>
-```
-
-Flask does that automatically — we just need to write the Python code for the `body`.
-
-**Up next**: But what if we have a *ton* of code?
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do a quick check for understanding.
-</aside>
-
----
-
 ## We Do: External HTML File
 
 Create a folder called `templates`.
@@ -1315,7 +1143,7 @@ Create a file called `index.html` with some HTML:
 
 How do we import an HTML file?
 
-- `render.template`.
+- `render_template` function from the `flask` module.
 
 At the top of your file, add:
 ```python
@@ -1353,45 +1181,7 @@ if __name__ == '__main__':
 
 </aside>
 
----
 
-## We Do: Expanding the HTML
-
-Now all our lines can go in the HTML:
-```html
-<body>
-    <h1><b>Hello</b> World!</h1>
-
-    <p>If music be the food of love, play on!</p>
-
-    <img src='https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'>
-</body>
-```
-
-Try it!
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do this with the students. Show them! Check that they understand.
-</aside>
-
----
-
-## Quick Recap:
-
-Flask automatically generates the webpage HTML and puts your HTML in the `body` tag — whatever you put in your `return` statement.
-
-If your HTML gets to be too long to put in just a function without being confusing, you can make the HTML file yourself and tell Flask to load that.
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Do a quick check for understanding.
-</aside>
 
 ---
 
@@ -1416,7 +1206,7 @@ Your directory should look like:
 ```
 project_folder
 │
-│   │   my_website.py
+└─── my_website.py
 │   │
 │   │
 │   └───templates
@@ -1444,11 +1234,11 @@ Add this to `style.css`:
 ```css
 body{
   background: #FEDCBA;
-  font-family: "Times New Roman", serif.
+  font-family: "Helvetica", serif;
 }
 
 h1 {
-  color: #012345;
+  color: #1F8BF7;
 }
 ```
 
@@ -1467,30 +1257,6 @@ What do you think happened?
 
 ---
 
-## We Do: Importing the CSS
-
-We have:
-
-- HTML.
-- CSS.
-
-Flask knows about:
-
-- The HTML.
-
-What knows about the CSS?
-
-What *should* know about the CSS? How can we do that?
-
-
-<aside class="notes">
-
-**Teaching Tip:**
-
-- Encourage a discussion.
-</aside>
-
----
 
 ## We Do: Putting CSS in the HTML
 
@@ -1504,7 +1270,7 @@ CSS styles HTML docs. We know that!
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 ```
 
-The curly braces `{{ }}` call Flask!
+The curly braces `{{ }}` is Flask knows to insert values.
 
 - "Flask, find `style.css` in `static`."
 
@@ -1550,6 +1316,7 @@ Modify your HTML and CSS files. Here are some ideas:
 - Use `text-decoration` to `underline` the `h1`.
 - Use other HTML tags! Can you make a hyperlink using `<a href="<url>">Click here </a>`?
 - Can you add a list using `<ul><li></li></ul>`?
+- **To learn more about the tags available, check out the [Mozilla Developer Network Reference Site](https://developer.mozilla.org/en-US/docs/Learn)
 
 
 <aside class="notes">
