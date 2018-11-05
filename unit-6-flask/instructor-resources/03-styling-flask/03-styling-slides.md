@@ -156,7 +156,7 @@ The fundamental building block of HTML is the **element**.
     - Two brackets; indicates, "The Element we are defining starts here!"
     - In between the brackets are the tag type. For example, the `p` in `<p>` means Paragraph. Other tags exist, such as headers, images, etc.
 
-  - A closing tag (`</ >`).
+  - A closing tag (`</p>`).
     - Indicates "The content has ended." using a `/` before the element type.
 
 <img src="https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/html-tags.png"  class="right" />
@@ -226,7 +226,7 @@ These are possibly the most common tags — all websites have paragraphs!
 
 - Used to display text as a title/headline of a webpage or webpage section.
 - Tags `<h1>` through `<h6>`, size **decreases** as the header value **increases**.
-- `<h1>` defines the most important title on the page. `<h6` is the least important in the hierarchy
+- `<h1>` defines the most important title on the page. `<h6>` is the least important in the hierarchy
 - Note that headers are different from `<p>` tags. Why?
 
 ![](https://s3.amazonaws.com/ga-instruction/assets/python-fundamentals/heading-guitar.png)
@@ -438,7 +438,7 @@ All HTML is formed with tags:
 
 - Tells the browser we're using HTML5 (the latest version).
 
-*Note: The CodePen did this automatically for us. It did a lot!*
+*Note: The CodePen did this automatically for us.*
 
 <aside class="notes">
 
@@ -596,7 +596,7 @@ Common tags you might want to use:
     <ul>
       <li>Dogs</li>
       <li>Food</li>
-      <li>FORNITE</li>
+      <li>FORTNITE</li>
     </ul>
 
     <p>My Daily Routine:</p>
@@ -745,9 +745,8 @@ How do we style it?
 
 ## CSS
 
-CSS means…
-- Cascading Style Sheets.
-- Styling your HTML (e.g., colors, fonts, text sizes).
+CSS: Cascading Style Sheets
+- Adds styling to your HTML (e.g., colors, fonts, text sizes).
 
 CSS tags match HTML tags.
 
