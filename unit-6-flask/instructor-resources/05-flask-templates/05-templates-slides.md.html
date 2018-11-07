@@ -76,21 +76,8 @@ Templates
 </ul>
 <hr />
 </section>
-<section id="we-do-your-index.html-page" class="level2">
-<h2>We Do: Your <code>index.html</code> Page</h2>
-<ul>
-<li><p>Any route can use an <code>html</code> page.</p></li>
-<li>Try it!
-<ul>
-<li>In your <code>my_website.py</code>, set the <code>/randnum/&lt;inte&gt;</code> and <code>/</code> routes to both <code>render_template(&quot;index.html&quot;)</code>.</li>
-</ul></li>
-<li>What if we want them to display a different heading?</li>
-<li><p>Do we need to rewrite the whole file?</p></li>
-</ul>
-<hr />
-</section>
-<section id="no-thats-what-templates-are-for" class="level2">
-<h2>No! That's What Templates Are For!</h2>
+<section id="templating" class="level2">
+<h2>Templating</h2>
 <aside class="notes">
 <p><strong>Teaching Tip:</strong></p>
 <ul>
@@ -113,9 +100,8 @@ Templates
 <h2>Jinja2</h2>
 <ul>
 <li>One of the most widely used template engines for Python.</li>
-<li>Used in places that you might have visited already, like Instagram or NPR.</li>
+<li><h2 id="one-of-the-two-main-modules-that-comprise-flasks-basis">One of the two main modules that comprise Flask's basis</h2></li>
 </ul>
-<hr />
 </section>
 <section id="why-jinja2" class="level2">
 <h2>Why Jinja2?</h2>
@@ -142,11 +128,29 @@ Templates
 <li>Flexibility and extensibility</li>
 <li>We can add our own filters and functions.</li>
 </ul>
+<hr />
 </section>
-<section id="expanding-on-our-index.html" class="level2">
-<h2>Expanding on Our <code>index.html</code></h2>
+<section id="we-do-templating" class="level2">
+<h2>We Do: Templating</h2>
+<p>Let's create two endpoints that render the same HTML file</p>
+<p>Try the following:</p>
+<pre><code>@app.route(&#39;/anna_1&#39;)
+def anna_1():
+  return render_template(&#39;annas_site.html&#39;)
+
+@app.route(&#39;/anna_2&#39;)
+def anna_2():
+  return render_template(&#39;annas_site.html&#39;)</code></pre>
 <ul>
-<li><p>We'll send a <code>greeting</code> variable into our <code>index.html</code> from both routes.</p></li>
+<li>What if we want them to display a different heading?</li>
+<li>Do we need to duplicate the whole file?</li>
+</ul>
+<hr />
+</section>
+<section id="templating-annas-site" class="level2">
+<h2>Templating Annas Site</h2>
+<ul>
+<li><p>We'll send a <code>name</code> variable into our <code>annas_site.html</code> from both routes.</p></li>
 <li><p>The routes will display different things!</p></li>
 </ul>
 <hr />
@@ -169,12 +173,11 @@ Templates
 <section id="edit-index.html" class="level2">
 <h2>Edit <code>index.html</code></h2>
 <ul>
-<li>Change the <code>&lt;h1&gt;</code> to be <code>{{ greeting }}</code>.</li>
+<li>Replace <code>Anna Smith</code> with a <code>{{ name }}</code> variable in the <code>&lt;h1&gt;</code> at the top of our site.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">...
    <span class="kw">&lt;body&gt;</span>
-      <span class="kw">&lt;h1&gt;</span>Hello {{ name }}!<span class="kw">&lt;/h1&gt;</span>
-            <span class="kw">&lt;p&gt;</span>If music be the food of love, play on!<span class="kw">&lt;/p&gt;</span>
+      <span class="kw">&lt;h1&gt;</span>{{ name }}<span class="kw">&lt;/h1&gt;</span>
     ....</code></pre></div>
 <hr />
 </section>
@@ -190,7 +193,7 @@ Templates
 </ul>
 </aside>
 <ul>
-<li><p>Recognize the <code>{{}}</code>?</p></li>
+<li><p>Recognize the <code>{{ }}</code>?</p></li>
 <li><p>In Jinja, <strong>templates</strong> are rendered with double curly brackets (<code>{{ }}</code>).</p></li>
 <li><p><strong>Statements</strong> are rendered with curly brackets and percent signs (<code>{% %}</code>).</p></li>
 <li><p>A use case here is passing in logic like:</p>
@@ -219,52 +222,34 @@ Templates
 </ul>
 </aside>
 <p>Let's change our <code>my_website.py</code> accordingly:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)
-<span class="kw">def</span> home():
-  <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>, greeting<span class="op">=</span><span class="st">&quot;Hello World!&quot;</span>)
+<pre><code>@app.route(&#39;/anna_1&#39;)
+def anna_1():
+  return render_template(&#39;annas_site.html&#39;, name=&quot;Robby Grodin&quot;)
 
-...
-
-<span class="at">@app.route</span>(<span class="st">&#39;/shownum/&lt;inte&gt;&#39;</span>)
-<span class="kw">def</span> shownum(inte):
-  my_greeting <span class="op">=</span> <span class="st">&quot;Your number is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(inte)
-  <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>, greeting<span class="op">=</span>my_greeting)</code></pre></div>
+@app.route(&#39;/anna_2/&lt;name&gt;&#39;)
+def anna_2(name):
+  return render_template(&#39;annas_site.html&#39;, name=name)</code></pre>
 <hr />
 </section>
 <section id="try-it" class="level2">
 <h2>Try it!</h2>
 <ul>
 <li>Check out: <code>http://localhost:5000</code>.</li>
-<li>Then: <code>http://localhost:5000/shownum/26</code>.</li>
+<li>Then: <code>http://localhost:5000/anna_1</code></li>
+<li>And: <code>http://localhost:5000/anna_2</code></li>
 </ul>
 <p>Do your other routes still work?</p>
-<hr />
-</section>
-<section id="knowledge-check-discussion" class="level2">
-<h2>Knowledge Check: Discussion</h2>
-<p>What two arguments did we pass into the <code>render_template</code> function?</p>
-<aside class="notes">
-<p><strong>Talking Point:</strong></p>
-<ul>
-<li>Answer: <code>index.html</code>, our template name, and <code>greeting</code>, which is our context.</li>
-</ul>
-</aside>
-<p>What's one reason we use templates?</p>
-<aside class="notes">
-<p><strong>Talking Points:</strong></p>
-Possible answers: - Adding programming languages to our HTML templates. - Transferring info from Flask to HTML. - Lets us separate data from how we present data to users.
-</aside>
 <hr />
 </section>
 <section id="your-turn" class="level2">
 <h2>Your Turn!</h2>
 <ul>
-<li>Create a new Flask app, <code>shakespeare.py</code>.</li>
-<li>Create a new template HTML file, <code>hello.html</code>.</li>
-<li>It will display a paragraph with a parameter <code>poem</code> in it.</li>
-<li>Render it from the index endpoint.</li>
-<li>Remember calling in variables from the last lesson?</li>
-<li>Have your Flask app read in the poem saved in <code>hi.txt</code>, then pass that to the <code>hello.html</code> template to display.</li>
+<li>Create a new Flask app, <code>blog.py</code>.</li>
+<li>Create a new template HTML file, <code>post.html</code>.</li>
+<li>Now create a text file called <code>first_post.txt</code>, in the same directory as your <code>blog.py</code> file.</li>
+<li>Create an <code>blog_post()</code> function, and give it the route <code>@app.route('/post')</code></li>
+<li>Create an HTML file with a single <code>&lt;p&gt;</code> tag in the body, with the content being <code>{{ post }}</code>.</li>
+<li>Render the template with the body of the blog post text file provided to the template.</li>
 <li>Launch your Flask app and check the results!</li>
 </ul>
 <hr />
@@ -275,10 +260,10 @@ Possible answers: - Adding programming languages to our HTML templates. - Transf
 <span class="kw">&lt;html&gt;</span>
 <span class="kw">&lt;head&gt;</span>
     <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;title&gt;</span>Shakespeare<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Blog Post<span class="kw">&lt;/title&gt;</span>
 <span class="kw">&lt;/head&gt;</span>
 <span class="kw">&lt;body&gt;</span>
-    <span class="kw">&lt;p&gt;</span>{{text}}<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>{{post}}<span class="kw">&lt;/p&gt;</span>
 <span class="kw">&lt;/body&gt;</span>
 <span class="kw">&lt;/html&gt;</span></code></pre></div>
 <hr />
@@ -286,18 +271,16 @@ Possible answers: - Adding programming languages to our HTML templates. - Transf
 <section id="python-solution" class="level2">
 <h2>Python Solution</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask, render_template
-<span class="im">import</span> os <span class="co"># Note the new import — to be in the file system.</span>
 
 app <span class="op">=</span> Flask(<span class="va">__name__</span>)
 
-file_path <span class="op">=</span> <span class="st">&#39;.&#39;</span>
 
-<span class="cf">with</span> <span class="bu">open</span>(os.path.join(file_path, <span class="st">&#39;hi.txt&#39;</span>)) <span class="im">as</span> f:
-    the_text <span class="op">=</span> f.read()
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;first_post.txt&#39;</span>) <span class="im">as</span> <span class="bu">file</span>:
+    text <span class="op">=</span> <span class="bu">file</span>.read()
 
-<span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>) <span class="co"># When someone goes here...</span>
-<span class="kw">def</span> home(): <span class="co"># Do this.</span>
-    <span class="cf">return</span> render_template(<span class="st">&quot;hello.html&quot;</span>, text<span class="op">=</span>the_text)
+<span class="at">@app.route</span>(<span class="st">&#39;/post&#39;</span>)
+<span class="kw">def</span> blog_post():
+    <span class="cf">return</span> render_template(<span class="st">&quot;post.html&quot;</span>, post<span class="op">=</span>text)
 
 <span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
     app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div>

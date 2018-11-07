@@ -130,4 +130,11 @@
 <p><a target="_blank" href="unit-6-flask/instructor-resources/03-styling-flask/03-styling-slides.md.html">Lesson 22: HTML + CSS</a></p>
 <p><a target="_blank" href="unit-6-flask/instructor-resources/04-flask-routing/04-routing-slides.md.html">Lesson 23: Routes</a></p>
 
+
+<h3>Class 13: More Flask!!</h3>
+
+<p><a target="_blank" href="unit-6-flask/instructor-resources/05-flask-templates/05-templates-slides.md.html">Lesson 24: Templating in Flask</a></p>
+<p><a target="_blank" href="unit-6-flask/instructor-resources/06-flask-apis/06-api_slides.md.html">Lesson 25: Building An API</a></p>
+
+
 </html>

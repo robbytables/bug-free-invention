@@ -146,7 +146,6 @@ What do we do when calling the OMDb API?
 - `DELETE`:
 	- *Delete!*
 	- "Delete `instrument_list`."
-	- Doesn't necessarily happen immediately.
 
 
 <aside class="notes">
@@ -159,32 +158,6 @@ What do we do when calling the OMDb API?
 
 </aside>
 
----
-
-## Knowledge Check:
-What does CRUD stand for?
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Answer: "Create, Read/Retrieve, Update, and Delete/Destroy."
-
-</aside>
-
----
-
-## Knowledge Check: `POST` and `GET`
-
-What's the difference between a `POST` and `GET` request?
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Answer: A `POST` request will create or update something, while a `GET` request will read something.
-
-</aside>
 
 ---
 
@@ -204,8 +177,7 @@ We're going to create an example of an API that:
 - Both dictionaries and JSONs are wrapped in curly brackets (`{}`).
 
 ```python
-heroes_dictionary = {'person': 'Peter_Norvig', 'person': 'Gilbert_Strang', 'person': 'Ada_Lovelace', 'person': 'Guido_van_Rossum'}
-heroes_json = [{'person': 'Peter_Norvig'}, {'person': 'Gilbert_Strang'}, {'person': 'Ada_Lovelace'}, {'person': 'Guido_van_Rossum'}]
+dogs = {'dog': 'yuki', 'dog': 'snukie', 'dog': 'maxx'}
 ```
 
 <aside class="notes">
@@ -288,21 +260,6 @@ def returnJsonTest():
 
 ---
 
-## Knowledge Check: Discussion
-
-What two new functions did we add into our import?
-
-What do they do?
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Answer: `jsonify` and `request`.
-
-</aside>
-
----
 
 ## We Do: Altering Data With APIs
 
@@ -310,13 +267,12 @@ What do they do?
 
 - What if we want the data to change?
 
-- Add a list under the `app` instantiation, above the routes.
+- Add a variable under the `app = Flask(__name__)` instantiation, above the routes.
 
 	```python
-	heroes = [{'person': 'Peter_Norvig'}, {'person': 'Gilbert_Strang'}, {'person': 'Ada_Lovelace'}, {'person': 'Guido_van_Rossum'}]
+	dogs = [{'dog': 'Yuki'}, {'dog': 'Snuki'}, {'dog': 'Maxx'}]
 	```
 
-What can we do with that?
 
 <aside class="notes">
 
@@ -359,9 +315,9 @@ if __name__ == '__main__':
 - Make a new route:
 
 ```python
-@app.route('/heroes', methods=['GET'])
-def gimmeAllHeroes():
-    return jsonify({'heroes': heroes})
+@app.route('/dogs', methods=['GET'])
+def get_dogs():
+    return jsonify({'dogs': dogs})
 ```
 
 <aside class="notes">
@@ -382,14 +338,18 @@ def gimmeAllHeroes():
 
 ## We Do: APIs to Return Only SOME Data
 
-- At this route, loop over the heroes.
+- At this route, loop over the dogs.
 - Try to find the one we want!
+- **Note** the singular form of `dog` in the function name.
 
 ```python
-@app.route('/heroes/<string:name>', methods=['GET'])
-def gimmeOneHero(name):
-		names = [hero for hero in heroes if hero['person'] == name]
-  	return jsonify({'hero': names[0]})
+@app.route('/dogs/<dog_name>', methods=['GET'])
+def get_dog(name):
+  	response = None
+        for entry in dogs:
+            if entry['dog'] == name:
+              dog = entry
+        return jsonify({'response': dog})
 ```
 
 <aside class="notes">
@@ -411,20 +371,22 @@ What happens when you input something that's inaccurate?
 This is a good time for error-checking!
 
 ```python
-def gimmeOneHero(name):
-    names = [hero for hero in heroes if hero['person'] == name]
-    if names:
-        return jsonify({'hero': names[0]})
-    else:
-        return "Hero not found"
+@app.route('/dogs/<dog_name>', methods=['GET'])
+def get_dog(name):
+  	response = {}
+        for entry in dogs:
+            if entry['dog'] == name:
+                return jsonify({'response': dog})
+        if not response:
+            return jsonify({'error': 'Dog not found!'})
 ```
 
 ---
 
 ## Create a POST Request With Flask
 
-- What if we want more heroes?
-- Let's add data to our list of heroes with a `POST` request.
+- What if we want more dogs?
+- Let's add data to our list of dogss with a `POST` request.
 	- `POST` was "Create" (and, very rarely, "Update").
 
 <aside class="notes">
@@ -442,12 +404,13 @@ def gimmeOneHero(name):
 - We can use the same route — with a different method.
 
 ```python
-@app.route('/heroes', methods=['POST'])
-def addMyHero():
-    newhero = {"person": request.get_json()["person"]}
+@app.route('/dogs', methods=['POST'])
+def add_dog():
+    data = request.get_json()
+    new_dog = {'dog': data['dog']}
 
-    heroes.append(newhero)
-    return jsonify({"heroes": heroes})
+    dogs.append(new_dog)
+    return jsonify({'dogs': dogs})
 ```
 
 <aside class="notes">
@@ -482,12 +445,9 @@ Now we'll check to see if our `POST` request works.
 - Open a new terminal window, and `python hello_api.py`.
   - Launch the app!
 
-- Going to `/heroes` gives us the heroes list.
+- Going to `/dogs` gives us the dogs list.
 - How do we `POST`?
 
-- We'll use `curl`:
-	- A command line tool for getting or sending files with URL syntax.
-	- Not necessary to memorize!
 
 <aside class="notes">
 
@@ -512,54 +472,6 @@ We need the server to remain running locally.
 
 ---
 
-## Trying Out `POST` and `cURL`
-
-- With the app running, open a new tab in the command prompt.
-
-- Replace the name, then copy this right over:
-
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"person":"<<INSERT A NAME HERE>>"}' http://localhost:5000/heroes
-```
-
-- Check the command line output!
-
-- Try going to `http://localhost:5000/heroes` — your hero is listed!
-
----
-
-## Quiz
-
-Which of these is the right code for a POST request?
-
-- Option A
-
-```python
-@app.route('/myapiroute', methods=['POST'])
-def butAmIMakingARequest():
-    type_of_request = {"requestType:" :" This is definitely a GET Request"}
-    requestage.append(type_of_request)
-    return jsonify({"theAnswer" :  requestage})
-```
-
-- Option B
-
-```python
-type_of_request = [{"requestType:" :" This is definitely a POST Request"}]
-@app.route('/myapiroute', methods=['GET'])
-def butAmIMakingARequest():
-    return jsonify({"theAnswer" :  type_of_request})
-```
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Answer: Despite what the variables and key-value pairs are named, the correct answer is Option A.
-
-</aside>
-
-___
 
 ## Summary
 

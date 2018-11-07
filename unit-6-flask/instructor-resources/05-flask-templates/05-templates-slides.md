@@ -29,19 +29,7 @@ creator: Kevin Coyle
 
 ---
 
-## We Do: Your `index.html` Page
-
-- Any route can use an `html` page.
-
-- Try it!
-	- In your `my_website.py`, set the `/randnum/<inte>` and `/` routes to both `render_template("index.html")`.
-
-- What if we want them to display a different heading?
-- Do we need to rewrite the whole file?
-
----
-
-## No! That's What Templates Are For!
+## Templating
 
 <aside class="notes">
 
@@ -65,8 +53,7 @@ As well as for one important design reason:
 ## Jinja2
 
 - One of the most widely used template engines for Python.
-- Used in places that you might have visited already, like Instagram or NPR.
-
+- One of the two main modules that comprise Flask's basis
 ---
 
 ## Why Jinja2?
@@ -98,32 +85,31 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 
 ---
-## Knowledge Check: Discussion
 
-- What's one reason why we might want to use templates, other than staying DRY?
+## We Do: Templating
 
-<aside class="notes">
+Let's create two endpoints that render the same HTML file
+	
+Try the following:
 
-**Talking Point:**
+```
+@app.route('/anna_1')
+def anna_1():
+  return render_template('annas_site.html')
 
-- Answer: Templates allow us to add programming languages to our HTML templates.
-</aside>
+@app.route('/anna_2')
+def anna_2():
+  return render_template('annas_site.html')
+```
 
-- What's template inheritance?
-
-<aside class="notes">
-
-**Talking Point**:
-
-- Template inheritance is extending templates in very efficient ways.
-</aside>
-
+- What if we want them to display a different heading?
+- Do we need to duplicate the whole file?
 
 ---
 
-## Expanding on Our `index.html`
+## Templating Annas Site
 
-- We'll send a `greeting` variable into our `index.html` from both routes.
+- We'll send a `name` variable into our `annas_site.html` from both routes.
 
 - The routes will display different things!
 
@@ -146,13 +132,12 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 ## Edit `index.html`
 
-- Change the `<h1>` to be `{{ greeting }}`.
+- Replace `Anna Smith` with a `{{ name }}` variable in the `<h1>` at the top of our site.
 
 ```html
 ...
    <body>
-      <h1>Hello {{ name }}!</h1>
-			<p>If music be the food of love, play on!</p>
+      <h1>{{ name }}</h1>
 	....
 ```
 
@@ -170,7 +155,7 @@ Jinja2 has some really powerful features that web design folks want to take adva
 - Statements are where we would pass in logic like {%if this thing%} {% else that thing%}.
 </aside>
 
-- Recognize the `{{}}`?
+- Recognize the `{{ }}`?
 
 - In Jinja, **templates** are rendered with double curly brackets (`{{ }}`).
 
@@ -204,63 +189,36 @@ Jinja2 has some really powerful features that web design folks want to take adva
 
 Let's change our `my_website.py` accordingly:
 
-```python
-@app.route('/')
-def home():
-  return render_template("index.html", greeting="Hello World!")
 
-...
-
-@app.route('/shownum/<inte>')
-def shownum(inte):
-  my_greeting = "Your number is " + str(inte)
-  return render_template("index.html", greeting=my_greeting)
 ```
+@app.route('/anna_1')
+def anna_1():
+  return render_template('annas_site.html', name="Robby Grodin")
 
+@app.route('/anna_2/<name>')
+def anna_2(name):
+  return render_template('annas_site.html', name=name)
+```
 ---
 
 ## Try it!
 
 - Check out: `http://localhost:5000`.
-- Then: `http://localhost:5000/shownum/26`.
+- Then: `http://localhost:5000/anna_1`
+- And: `http://localhost:5000/anna_2`
 
 Do your other routes still work?
 
 ---
 
-## Knowledge Check: Discussion
-
-What two arguments did we pass into the `render_template` function?
-
-<aside class="notes">
-
-**Talking Point:**
-
-- Answer: `index.html`, our template name, and `greeting`, which is our context.
-</aside>
-
-What's one reason we use templates?
-
-<aside class="notes">
-
-**Talking Points:**
-
-Possible answers:
-- Adding programming languages to our HTML templates.
-- Transferring info from Flask to HTML.
-- Lets us separate data from how we present data to users.
-</aside>
-
----
-
 ## Your Turn!
 
-- Create a new Flask app, `shakespeare.py`.
-- Create a new template HTML file, `hello.html`.
-  - It will display a paragraph with a parameter `poem` in it.
-- Render it from the index endpoint.
-- Remember calling in variables from the last lesson?
-  - Have your Flask app read in the poem saved in `hi.txt`, then pass that to the `hello.html` template to display.
+- Create a new Flask app, `blog.py`.
+- Create a new template HTML file, `post.html`.
+- Now create a text file called `first_post.txt`, in the same directory as your `blog.py` file.
+- Create an `blog_post()` function, and give it the route `@app.route('/post')`
+- Create an HTML file with a single `<p>` tag in the body, with the content being `{{ post }}`.
+- Render the template with the body of the blog post text file provided to the template.
 - Launch your Flask app and check the results!
 
 ---
@@ -272,10 +230,10 @@ Possible answers:
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Shakespeare</title>
+    <title>Blog Post</title>
 </head>
 <body>
-    <p>{{text}}</p>
+    <p>{{post}}</p>
 </body>
 </html>
 ```
@@ -287,18 +245,16 @@ Possible answers:
 
 ```python
 from flask import Flask, render_template
-import os # Note the new import — to be in the file system.
 
 app = Flask(__name__)
 
-file_path = '.'
 
-with open(os.path.join(file_path, 'hi.txt')) as f:
-	the_text = f.read()
+with open('first_post.txt') as file:
+	text = file.read()
 
-@app.route('/') # When someone goes here...
-def home(): # Do this.
-    return render_template("hello.html", text=the_text)
+@app.route('/post')
+def blog_post():
+    return render_template("post.html", post=text)
 
 if __name__ == '__main__':
 	app.run(debug=True)
