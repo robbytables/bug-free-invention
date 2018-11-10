@@ -1,13 +1,5 @@
 ### ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Python Programming: Flask Project
 
-<!---
-This assignment was developed by Brandi Butler for the Python 5-day course.
-
-Questions? Comments?
-1. Log an issue to this repo to alert me of a problem.
-2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
-3. Hit me up on Slack at @brandib.
---->
 
 # Final Project
 
@@ -19,17 +11,17 @@ First off, let's take a second to congratulate you for making it this far! We kn
 
 ## Prompt
 
-We'd like you to have something tangible to show for having taken this class with us, so let's use your newly acquired `Flask` skills to make a mini-web app.
+This is it, the moment you've been building for- time to build a Flask app that's all your own. 
 
 #### Got Ideas?
 
-You are free to make a website about any topic you'd like as long as it meets all the requirements listed below. If you're having trouble coming up with a topic, here are a few to consider:
+You are free to make a website or API about any topic you'd like as long as it meets all the requirements listed below. If you're having trouble coming up with a topic, here are a few to consider:
 
-* Find a fun API and base it on that.
+* Find a fun API and base it on that. Wrapping an API with added functionality is a valid use of Flask!
 * Make an "About Me" site that's all about you.
 * Make a portfolio website for one of your hobbies.
 * Make a blog about a topic you find interesting.
-* Make something you think would improve your life in some way.
+* Make a tool you think would improve your life in some way (travel planning, financial advice, data aggregator, etc.)
 * Feel free to share resources and inspiration with your classmates!
 
 ---
@@ -38,23 +30,25 @@ You are free to make a website about any topic you'd like as long as it meets al
 
 You must have a Flask site running locally on your own machine. You will work individually on this project, but feel free to share inspiration, resources, or cool APIs that you find with your classmates.
 
+These requirements are **mandatory for graduation**. If you want to build something that doesn't clearly meet these requirements, we can discuss this and make accomodations. 
+
 ### Requirements
 
-Your assignment **must** include:
+Primary goal here is to learn how to use Flask and Python. Bare minimum requirements:
+1. A working Flask application with at least 3 working routes.
+2. Proper use of Python concepts where necessary (dictionaries/sets/tuples, classes, user or file I/O, etc.)
+3. Data pulled in from at minimum 1 API.
+4. Clearly commented code that any other coder could understand.
 
-1. At least three working routes with associated views.
-   - Must include at least one `GET` and one `POST` route.
-2. Data pulled from at least one API.
-   - Get creative! Tons of free APIs exist. Ask your instructor or classmates for ideas.
-3. Semantically clean HTML and CSS applied to a template — at least a small amount of styling.
-   - Try to spend a little time styling your pages to make them look nice!
-4. Core Python topics. At a minimum, this includes:
-      - Dictionaries *or* sets *or* tuples.
-      - `**args` *or* `kwargs` *or* `*kwargs`.
-      - Basic debugging, such as a `try/except` block (only if necessary).
-      - A class.
-      - User input *or* reading from a file.
-5. Comments, so another developer can easily see what your app does.
+If you're building an API:
+1. `GET` and `POST` routes.
+2. Data stored either internally to the application (such as the `dog_api` we built with the list of Dogs), or, preferably, data stored in a CSV or `pickle` file. 
+3. A `README` file describing each of the routes and their usages. Include example API calls and responses copy-pasted from Postman.
+
+If you're building a website:
+1. 3 pages with HTML and CSS. These resources can be shared via templating, or unique for each page.
+2. A `README` file describing the purpose of your website and description of decisions made while building it.
+
 
 **Bonus:** Have extra time? Ask how to deploy a Flask site to a cloud service like [Heroku](https://heroku.com/)! Or, try to follow the directions in [this article](https://medium.com/the-andela-way/deploying-a-python-flask-app-to-heroku-41250bda27d0).
 
@@ -85,7 +79,7 @@ Your assignment **must** include:
 
 ## Evaluation
 
-Your project will be evaluated based on the rubric below.
+Your project will be evaluated based on the rubric below. **You must recieve a 2 or above to pass.**
 
 ### Rubric
 
