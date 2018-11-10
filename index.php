@@ -136,5 +136,7 @@
 <p><a target="_blank" href="unit-6-flask/instructor-resources/05-flask-templates/05-templates-slides.md.html">Lesson 24: Templating in Flask</a></p>
 <p><a target="_blank" href="unit-6-flask/instructor-resources/06-flask-apis/06-api_slides.md.html">Lesson 25: Building An API</a></p>
 
+  <h1> F-F-F-FINAL PROJECT!!! </h1>
+  <p><a target="_blank" href="final_project.pdf">Final Project Description!</a></p>
 
 </html>
